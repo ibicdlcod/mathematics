@@ -1,0 +1,103 @@
+\section{主要定理的证明}
+\subsection{}
+设$E=\mathbb{C}(t)$为有理函数域，$\sigma,\tau\in G=\mathrm{Gal}(E/\mathbb{C})$，其中$\sigma(t)=\zeta_3t, \tau(t)=t^{-1}$. 证明：
+\subsubsection{(1)}
+$\tau$和$\sigma$生成的群$H$是$G$的$6$阶子群；
+
+\zm{
+	易验证$\tau\sigma\tau^{-1}=\sigma^{-1}, \tau^2=\id, \sigma^3=\id$，故$H=\cong S_3$.
+}
+
+\subsubsection{(2)}
+$\mathrm{Inv}(H)=E^{H}=\mathbb{C}(t^3+t^{-3})$.
+
+\zm{
+	$[E:E^{H}]=|H|=6$，易验证$\mathbb{C}(t^3+t^{-3})$在$\sigma,\tau$作用下不变，故$E^{H}\supseteq \mathbb{C}(t^3+t^{-3})$. 但$t$在$\mathbb{C}(t^3+t^{-3})$上的化零多项式为$x^6-x^3(t^3+t^{-3})+1$，故$[E:\mathbb{C}(t^3+t^{-3})]\leq 6\leq[E:E^{H}]$，故只能$E^{H}=\mathbb{C}(t^3+t^{-3})$.
+}
+
+\subsection{}
+设域$F$的特征为素数$p$，$\sigma\in G=\mathrm{Gal}(F(x)/F)$，其中$\sigma(x)=x+1$. 令$H$为由$\sigma$生成的$G$的子群，证明$|H|=p$. 试确定$\mathrm{Inv}(H)=F(x)^H$.
+
+\jie 易验证$|H|\cong\mathbb{Z}/p\mathbb{Z}, |H|=p, [F(x):F(x)^H]=p$. 由于$f(x^p-x)$在$\sigma$下作用不变，故$F(x)^{H}\supseteq F(x^p-x)$，记$u=x^p-x$，则$x$在$F(u)$上的化零多项式为$x^p-x-u$，故$[F(x):F(u)]\leq p\leq [F(x):F(x)^H]$，故只能$F(x)^H=F(x^p-x)$.
+
+\subsection{}
+设域$F$的特征为素数$p$，$a\in F$，如果$x^p-x-a$在$F[x]$中不可约，令$\alpha$为它的一个根，证明$F(\alpha)/F$为伽罗瓦扩张并计算出它的伽罗瓦群.
+
+\zm{
+	请读者复习{\heiti 习题}\textbf{6.4.9}和\textbf{5.1.18}证明2来完成，本节不再赘述.
+}
+
+\subsection{}
+设$L$和$M$都是域$E$的子域.
+\subsubsection{(1)}
+证明如果$L/L\cap M$为有限伽罗瓦扩张，则$LM/M$也为有限伽罗瓦扩张，并且
+$$\mathrm{Gal}(LM/M)\cong\mathrm{Gal}(L/L\cap M).$$
+\zm{
+	利用{\heiti 引理}\textbf{6.47}的注记，取$E=M,F=L\cap M, K=L$，我们得到大部分结论，只需证明$\mathrm{Gal}(LM/M)\rightarrow\mathrm{Gal}(L/L\cap M)$是满同态即可，即右边元素自然确定一个左边元素.
+	
+	对$\sigma\in \mathrm{Gal}(L/L\cap M)$，它在$\alpha\in L$和$\alpha$的$L\cap M$-共轭元上作用传递，令$\alpha$的最小多项式为$f(x)$，而对$LM$中元素$\alpha\beta$其中$\beta\in M$，$\alpha\beta$是多项式$f(x/\beta)$的根，所有$\alpha$的$L\cap M$-共轭元乘以$\beta$也是多项式$f(x/\beta)$的根，故$L$的$L\cap M$-同构可以自然延拓为$LM$的$M$-同构而保持该伽罗瓦群在$\alpha\beta$的$M$-共轭元（它们必然是$L\cap M$-共轭元）上传递.
+}
+\subsubsection{(2)}
+举例说明如果$L/F$不是伽罗瓦扩张，$[LM:M]$与$[L:F]$不一定相等.
+
+\jie 使用{\heiti 习题}\textbf{6.3.3}的记号，$F=\mathbb{Q}, L=F_{20}=\mathbb{Q}(a), M=F_{21}=\mathbb{Q}(a+ia)$，则$LM=E=\mathbb{Q}(i, a)$，$[LM:M]=2, [L:F]=4$. 易验证此时$L/F$不是正规扩张，故不是伽罗瓦扩张.
+
+\subsection{}
+设$E/F$为有限伽罗瓦扩张，$N$和$M$为中间域，$E\supseteq N\supseteq M\supseteq F$，并且
+$$N=\bigcap_{M\leq K\leq\overline{M},K/F\text{正规}}K$$
+是$M$在$K$上的正规闭包. 证明
+$$\mathrm{Gal}(E/N)=\bigcap_{\sigma\in\mathrm{Gal}(E/F)}\sigma\mathrm{Gal}(E/M)\sigma^{-1}.$$
+
+\zm{
+	由于$M$的$F$-共轭元都在$N$中，因此$N\geq \bigcap_{ \sigma\in\mathrm{Gal}(E/F)}\sigma M=N_0$，设$M=F(\{\alpha_i\})$，所有$\alpha_i$的$F$-共轭元是$\{\beta_j\}$，则$N_0=F(\{\beta_j\})$且$N_0/F$是正规扩张，故$N=N_0$.
+	
+	考虑$\sigma^{-1}\mathrm{Gal}(E/N)\sigma$，其中$\sigma\in\mathrm{Gal}(E/F)$. $\sigma$将$M$变动到$\sigma M\subseteq N$，$\mathrm{Gal}(E/N)$的任意元素保持$N$不变故保持$\sigma M$中所有元素不动，$\sigma^{-1}$将$\sigma M$变回$M$，易验证这样的变换是$M$-自同构，故$\sigma^{-1}\mathrm{Gal}(E/N)\sigma\subseteq \mathrm{Gal}(E/M)$对一切$\sigma$成立，$\mathrm{Gal}(E/N)\leq\bigcap_{\sigma\in\mathrm{Gal}(E/F)}\sigma\mathrm{Gal}(E/M)\sigma^{-1}.$
+	
+	反之，对$\bigcap_{\sigma\in\mathrm{Gal}(E/F)}\sigma\mathrm{Gal}(E/M)\sigma^{-1}$中元素，对任意$\sigma$它在$\sigma\mathrm{Gal}(E/M)\sigma^{-1}$中，故保持$\sigma M$不变，故保持$N_0$不变，是$N$-同构，故它属于$\mathrm{Gal}(E/N)$.
+	
+	综上我们有要求的等式.
+}
+
+\subsection{}
+设$E/F$为有限伽罗瓦扩张. 如果对任一域$K,F\subsetneqq K\subsetneqq E$，$K$对$F$均有相同的扩张次数$[K:F]$，则$[E:F]=p$或者$p^2$.
+
+\zm{
+	由伽罗瓦理论基本定理，这相当于若群$G$的所有非平凡子群都有相同阶数，则$|G|=p$或$p^2$.
+	
+	若存在不同的素数$p\mid |G|, q\mid |G|$，则$G$的西罗$p$-,$q$-子群阶数不同. 故$|G|=p^r$. 当$r=1$时，结论显然成立.
+	
+	由{\heiti 定理}\textbf{2.53}，当$0<k<r$时$|G|$中存在$p^k$阶子群，故$k$只能有一个取值，即$r=2$.
+}
+
+\subsection{}
+\subsubsection{(1)}
+证明$\mathbb{Q}(\sqrt{2},\sqrt{3},\sqrt{5})/\mathbb{Q}$是伽罗瓦扩张，并求出伽罗瓦群；
+
+\zm{
+	由于$a=\sqrt{2},b=\sqrt{3},c=\sqrt{5}$的平方都是有理数，故$\mathbb{Q}(a,b,c)$中元素必能表示为$1,a,b,c,ab,ac,bc,abc$的线性组合，故$[\mathbb{Q}(a,b,c)/\mathbb{Q}]\leq8$.
+	
+	记$\sigma_a: a\mapsto -a, \sigma_b: b\mapsto -b, \sigma_c: c\mapsto -c$，易验证它们生成$\mathrm{Gal}(\mathbb{Q}(a,b,c)/\mathbb{Q})$且彼此交换，且都是$2$阶元，故伽罗瓦群同构于$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$. 记该群为$G$，则$|G|=8\leq [\mathbb{Q}(a,b,c)/\mathbb{Q}]$，这说明后者只能为$8$，故$\mathbb{Q}(a,b,c)/\mathbb{Q}$是伽罗瓦扩张.
+}
+
+\subsubsection{(2)}
+求元素$\sqrt{6}+\sqrt{10}+\sqrt{15}$在$\mathbb{Q}$上的最小多项式.
+
+\zm{
+	$ab+bc+ca$被且只被$H=\{\id, \sigma_a\sigma_b\sigma_c\}$固定，故它在$K=\mathrm{Inv}(H)$中，$[\mathbb{Q}(a,b,c):K]=2$，$[K:\mathbb{Q}]=4$，即$x=ab+bc+ca$在$\mathbb{Q}$上的最小多项式最多次数为$4$.
+	
+	（读者可以将$x^4,x^3,x^2,x,1$表示为$ab,bc,ca,1$的线性组合解出）由于$x$满足$x^4-62x^2-240x-239=0$，因$239$是素数，该方程的有理根只能是$\pm1, \pm239$，它们都不是根，故该多项式在有理数集内不可约，是$x$在$\mathbb{Q}$上的最小多项式.
+}
+
+\subsubsection{(3)}
+证明$\sqrt{6}\in\mathbb{Q}(\sqrt{6}+\sqrt{10}+\sqrt{15})$；
+
+\zm{
+	$\sqrt{6}=ab$被$H=\{\id, \sigma_a\sigma_b\sigma_c\}$固定，故它在$K=\mathrm{Inv}(H)$中, 取上文的$x=ab+bc+ca$，由于$[\mathbb{Q}(x):\mathbb{Q}]=4$（最小多项式的次数），故$K=\mathbb{Q}(x)$，即$\sqrt{6}$在$\mathbb{Q}(x)$中.
+}
+
+\subsubsection{(4)}
+求$\sqrt{2}+\sqrt{3}$在$\mathbb{Q}(\sqrt{6}+\sqrt{10}+\sqrt{15})$上的最小多项式.
+
+\zm{
+	$\sqrt{2}+\sqrt{3}$不被$\sigma_a\sigma_b\sigma_c$固定，故它不属于$\mathbb{Q}(x)$，又$[\mathbb{Q}(a,b,c):\mathbb{Q}(x)]=2$，所以最小多项式为$2$次. 又因$\sigma_a\sigma_b\sigma_c$是$\mathbb{Q}(a,b,c)$的$\mathbb{Q}(x)$-自同构，故$\sqrt{2}+\sqrt{3}$与$\sigma_a\sigma_b\sigma_c(\sqrt{2}+\sqrt{3})=-\sqrt{2}-\sqrt{3}$有相同的$\mathbb{Q}(x)$上最小多项式，它必然被$(x-\sqrt{2}-\sqrt{3})(x+\sqrt{2}+\sqrt{3})=x^2-2\sqrt{6}-5$整除. 由于它的次数为$2$，故它就是所求的最小多项式.
+}

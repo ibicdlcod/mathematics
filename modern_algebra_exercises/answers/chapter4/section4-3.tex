@@ -1,0 +1,349 @@
+\section{多项式环与高斯引理}
+\subsection{}
+证明{\heiti 命题}\textbf{4.21}.
+
+\zm{
+	令$u=\mathrm{deg}f, v=\mathrm{deg}g, f=\sum_{i=0}^ua_ix^i, g=\sum_{j=0}^vb_jx^j$.
+	
+	(i) 在$f+g$中次数高于$\max\{u,v\}$的项为$0$，故$\mathrm{deg}f+g\leq \max\{u,v\}$.
+	
+	(ii) 在$fg$中次数高于$u+v$的项为$\sum_{i=0}^wa_ib_{w-i}x^w=\sum_{i=0}^ua_i\cdot 0\cdot x^w+\sum_{i=w-v}^w0\cdot b_ix^w+\sum_{i=u+1}^{w-v-1}0\times 0\cdot x^w=0\;((u+v)<w)$，$u+v$次项为$a_ub_v$其中$a_u,b_v\neq 0$，故$\mathrm{deg}fg\leq u+v$且当首项系数$a_u$和$b_v$不为零因子时$a_ub_v\neq 0$，$\mathrm{deg}fg=u+v$.
+}
+
+\subsection{}
+设$R$是环，$f(x)=a_0+a_1x+\cdots+a_nx^n\in R[x]$. 证明：
+\subsubsection{(1)}
+$f(x)$可逆当且仅当$a_0\in U(R)$且$a_1,a_2,\cdots, a_n\in \mathrm{Nil}(R)$.
+
+\zm{
+	$(\Rightarrow)$若$f(x)$的逆$g(x)=b_0+b_1x+\cdots+b_mx^m$存在，则$a_0b_0=1_R$，故$a_0,b_0\in U(R)$.
+	
+	由于当$r\geq 1$时$\sum_{i=0}^ra_ib_{r-i}=0$，当$r=m+n$时有$a_nb_m=0$，当$r=m+n-1$时$a_{n-1}b_m+a_nb_{m-1}=0$，两边同乘$a_n$得$a_n^2b_{m-1}=0$，依次类推得$a_n^jb_{m+1-j}=0$，$a_n^{m+1}b_0=0$，两边同乘$a_0$得$a_n^{m+1}=0$，故$a_n$是幂零元素，从而$-a_nx^ng(x)$也是，由{\heiti 习题}\textbf{3.1.12(3)}知$1-a_nx^ng(x)=g(x)(f(x)-a_nx^n)$也是单位，由$f(x)$是单位，$f_1(x)=f(x)-a_nx^n=f(x)g(x)(f(x)-a_nx^n)$也是单位，从而$f_1$的首项$a_{n-1}$也是幂零元素，依次推理得$a_1,...,a_n$都是幂零元素.
+	
+	$(\Leftarrow)$ 令$b_0=a_0^{-1}$，则$b_0f(x)=1+xh(x)$，且$h(x)$的系数$b_0a_i\;(1\leq i\leq n)$都是幂零的，从而$xh(x)$各项$b_0a_ix^i\;(1\leq i\leq n)$在$R[x]$中幂零，由{\heiti 习题}\textbf{3.1.12(1)}，$xh(x)$也是幂零的，由{\heiti 习题}\textbf{3.1.12(3)}，$1+xh(x)$是$R[x]$中单位，即可逆.
+}
+
+\zm{
+	$(\Rightarrow)$另一种证法（只适用于$R$为交换环），可得到更多对于素理想的理解. \emph{该证法由}\cite{83886}\emph{给出.}
+	
+	{\heiti 引理.} 交换环$R$中所有素理想的交集为$\mathrm{Nil}(R)$.
+	
+	{\heiti 引理的}\zm{ 由{\heiti 习题}\textbf{3.4.3}我们已经知道任何素理想包含$\mathrm{Nil}(R)$，我们只需证明若$a\notin \mathrm{Nil}(R)$则存在素理想$\mathfrak{p}$使得$a\notin\mathfrak{p}$即可.
+	
+	令$S=\langle a\rangle$，则$0\notin S$，$S$是乘法集，我们在$R$上定义局部化$\frac{r}{s}$其中$(r,s)\sim (r^{\prime},s^{\prime})$如果$\exists t\in S$ s.t. $t(r^{\prime}s-s^{\prime}r)=0$（这里与整环的局部化稍有区别，$t$对$\sim$的传传递性是必要的，并且$R$未必同构于$S^{-1}R$的一个子环：若存在$t\in S$使得$t(a-b)=0$则$a,b$在$S^{-1}R$中的像一致），类似{\heiti 习题}\textbf{3.4.14(3)}我们有$S^{-1}R$的素理想与$R$中与$S$不交的素理想一一对应，由$S^{-1}R$中极大理想存在（当然它也是素理想）知$R$中有与$S$不交的素理想，它当然不包含$a$.
+	}
+	
+	考虑$R$的任意素理想$\mathfrak{p}$，此时$R/\mathfrak{p}$是整环，令$\varphi: R\rightarrow R/\mathfrak{p}$，则$\varphi(f)$的逆是$\varphi(g)$，由$\varphi(g)$的最高次项不为$\overline{0}$知$\varphi(f)$的非常数项都是$0$，即$a_1,a_2,...,a_n$在$\mathfrak{p}$中，由$\mathfrak{p}$的任意性，$a_1,a_2,...,a_n$是幂零元.
+}
+
+\subsubsection{(2)}
+$f(x)$幂零当且仅当$a_0, a_1, ..., a_n$幂零.
+
+\zm{
+	$(\Leftarrow)$ 设$r_0,r_1,...,r_n$满足$a_i^{r_i}=0$. 当$u>\sum_{i=0}^n(r_i-1)$时$f(x)^u$展开后所有项的系数都必然有某个$a_i^{r_i}$为因子，故为$0$，即$f(x)^u=0$，$f(x)$为幂零元.
+	
+	$(\Rightarrow)$若$f(x)^v=0$，则$a_n^vx^{nv}=0$，故$a_nx^n$是$R[x]$中幂零元，从而$-a_nx^n$也是. 由{\heiti 习题}\textbf{3.1.12(1)}，$f_1(x)=f(x)-a_nx^n=a_0+a_1+\cdots+a_{n-1}x^{n-1}$也是$R[x]$中幂零元，对$f_1(x)$同样推理知$a_{n-1}x^{n-1}$幂零.
+	
+	依次推理下去得$a_ix^i$都是幂零元，从而$a_i\;(0\leq i \leq n)$也都是.
+}
+
+\subsubsection{(3)}
+$f(x)$是零因子当且仅当存在$0\neq a\in R$使得$af(x)=0$.
+
+\emph{证明由文献}\cite{3347812}\emph{给出}.
+
+\zm{
+	题设条件似乎假定$R$是交换环，否则还应有条件$f(x)a=0$.
+	
+	令$g(x)$为零化$f(x)$的多项式中次数最小的，即$g(x)f(x)=0$且当$0\leq\mathrm{deg}h<\mathrm{deg}g$时$h(x)f(x)\neq 0$.
+	
+	令$f(x)=\sum_{i=0}^na_ix^i$，$g(x)=\sum_{i=0}^mb_ix^i$，则$a_nb_m=0$，故$a_ng(x)$为次数小于$m$的多项式且$a_ng(x)f(x)=0$，只能$\mathrm{deg}a_ng(x)=-\infty, a_ng(x)=0$，故$f_1(x)=\sum_{i=0}^{n-1}a_ix_i=f(x)-a_nx^n$满足$g(x)f_1(x)=g(x)f(x)-g(x)a_nx^n=0$，依次类推有$a_ig(x)=0\;(0\leq i\leq n)$，故$a_ib_m=0\;(0\leq i\leq n)$，即$f(x)b_m=0$.
+}
+
+\subsection{}
+设$D$为UFD，$F$为$D$的商域，$f(x)$为$D[x]$中首一多项式. 证明：$f(x)$在$F[x]$中的每个首一多项式因子必属于$D[x]$.
+
+\zm{
+	$f(x)$可在$D[x]$上分解为不可约元之积，由{\heiti 引理}\textbf{4.31}，该分解式也是$f(x)$在$F[x]$上的一个分解式$\prod_i g_i(x)$，由$f(x)$首一，该分解式可调整为使各$g_i(x)$也是首一多项式. 由因式分解的唯一性，该分解式与$f(x)$在$F[x]$上的任何另外一个分解式$\prod_i h_i(x)$（重新排列后）各因子只相差一个常数因子$a_i$，若对某个$i$有$h_i(x)$首一，则$a_i=1$，$h_i(x)=g_i(x)\in D[x]$.
+}
+
+\subsection{}
+将$x^n-1\;(3\leq n\leq 10)$在$\mathbb{Z}[x]$中作素因子分解.
+
+\emph{警告：读者必须证明所得的结果全部是$\mathbb{Z}[x]$中不可约多项式，才算完成此题.}
+
+\jie 一次多项式都是不可约的. 由{\heiti 例}\textbf{4.34}，$3,5,7$次分圆多项式$f_3(x)=x^2+x+1, f(5)x=x^4+x^3+x^2+x^1+1, f_7(x)=x^6+x^5+x^4+x^3+x^2+x^1+1$在$\mathbb{Z}[x]$上不可约.
+
+$x^3-1=(x-1)(x^2+x+1)$.
+
+$x^4-1=(x-1)(x+1)(x^2+1)$，最后一项没有实根，故没有一次实因式，故在$\mathbb{R}[x]$中不可约，从而在$\mathbb{Z}[x]$中也不可约.
+
+$x^5-1=(x-1)(x^4+x^3+x^2+x+1)$.
+
+$x^6-1=(x^3-1)(x^3+1)=(x+1)(x-1)(x^2+x+1)(x^2-x+1)$，最后一项为$f_3(-x)$，故也在$\mathbb{Z}[x]$中不可约.
+
+$x^7-1=(x-1)(x^6+x^5+x^4+x^3+x^2+x+1)$.
+
+$x^8-1=(x+1)(x-1)(x^2+1)(x^4+1)$，在最后一项$x^4+1$中以$x+1$代替$x$得$x^4+4x^3+6x^2+4x+2$，取$p=2$满足艾森斯坦判别法的条件，故$x^4+1$也在$\mathbb{Z}[x]$中不可约.
+
+$x^9-1=(x-1)(x^2+x+1)(x^6+x^3+1)$，在最后一项$x^6+x^3+1$中以$x+1$代替$x$得$x^6+6x^5+15x^4+21x^3+18x^2+9x+3$，取$p=3$满足艾森斯坦判别法的条件，故$x^6+x^3+1$也在$\mathbb{Z}[x]$中不可约.
+
+$x^{10}-1=(x+1)(x-1)(x^4+x^3+x^2+x+1)(x^4-x^3+x^2-x+1)$，最后一项为$f_5(-x)$，故也在$\mathbb{Z}[x]$中不可约.
+
+\subsection{}
+设$F$为域，$d: F[x]\rightarrow F[x]$为线性映射，若对于任意的$f,g\in F[x], d(fg)=(df)g+f(dg)$，则称$d$为$F[x]$上的一个{\heiti 线性导子}. 请找出$f[x]$上所有线性导子.
+
+\jie $d(1\cdot g)=(d1)g+1\cdot d(g)$，故$(d1)g=0$对一切$g\in F[x]$成立，故$(d1)=0$，由$d$是线性映射，$d(F)=0$.
+
+$d\left(\sum_i a_ix^i\right)=\sum_i d(a_ix^i)=\sum_i (d(a_i)x^i+a_id(x^i))
+=\sum_i(0\cdot x^i+a_i(\sum_{j=1}^ix^{j-1}d(x)x^{i-j}))=\sum_i\sum_{j=1}^ia_ix^{i-1}d(x)
+=\sum_iia_ix^{i-1}d(x)$
+
+故$d(f)=f^{\prime}d(x)$是形式微商的$d(x)$倍，其中$d(x)\in F[x]$.
+
+\subsection{}
+设$f(x)$是$\mathbb{Q}[x]$中奇次不可约多项式，$\alpha$和$\beta$是$f(x)$在$\mathbb{Q}$的某个扩域中两个不同的根，求证$\alpha+\beta\notin\mathbb{Q}$.
+
+\emph{证明由文献}\cite{3126329}\emph{给出.}
+
+\zm{
+	由于$\mathbb{Q}$的代数闭包存在（见{\heiti 例}\textbf{5.21}），因此$f(x)$在代数闭包$\overline{\mathbb{Q}}$或者它的任何扩域中有奇数个不同的根.
+	
+	对$f(x)$的任意一个根$u$，由$f(x)$不可约且不是一次多项式（$(x-\alpha)(x-\beta)\mid f(x)$，有$u\notin\mathbb{Q}$，定义同态$\varphi_u: \mathbb{Q}[x]\rightarrow\overline{\mathbb{Q}}, f(x)\mapsto f(u)$，则$(f(x))_{\Ideal, \mathbb{Q}[x]}\subseteq\ker\varphi_u$，由$\mathbb{Q}$是域，$\mathbb{Q}[x]$是PID，故也是贝祖环，当$g(x)\notin (f(x))_{\Ideal, \mathbb{Q}[x]}$时因$f(x)$不可约，$\gcd(f(x),g(x))=1, af(x)+bg(x)=1\;(a,b\in\mathbb{Q}[x]), bg(u)=af(u)+bg(u)=\varphi_u(1)=1$，故$u$不是$g(x)$的根，$\ker\varphi_u\subseteq(f(x))_{\Ideal, \mathbb{Q}[x]}$，故$\ker\varphi_u=(f(x))_{\Ideal, \mathbb{Q}[x]}$，$\mathbb{Q}[x]/f(x)=\mathbb{Q}[x]/\ker\varphi_u\cong\im\varphi_u=\mathbb{Q}[u]$.
+	
+	由$u$的任意性，对$f(x)$的任意一个根$\gamma$，$\varphi_{\gamma\alpha^{-1}}=\varphi_{\gamma}\circ\varphi_{\alpha}^{-1}$诱导$\mathbb{Q}[\alpha]$通过$\mathbb{Q}[x]/f(x)$到$\mathbb{Q}[\gamma]$的同构$f(\alpha)\mapsto f(\gamma)$，该同构在$\mathbb{Q}$上的限制为恒等映射，令$r=\alpha+\beta$.
+	
+	若$r\in\mathbb{Q}$，则$\beta\in\mathbb{Q}[\alpha]$，$\varphi_{\gamma\alpha^{-1}}(\beta)=\varphi_{\gamma\alpha^{-1}}(r-\alpha)=r-\gamma$，且$f(r-\gamma)=\varphi_{\gamma\alpha^{-1}}(f(\beta))=\varphi_{\gamma\alpha^{-1}}(0)=0$，故对任意一个根$\gamma$总有另一个根$\varphi_{\gamma\alpha^{-1}}(\beta)$与它的和是$r$，由于$\alpha\neq\beta$，易见这两个根$\gamma$和$\varphi_{\gamma\alpha^{-1}}(\beta)$不同.
+	
+	故$f(x)$在$\overline{\mathbb{Q}}$中的根成对出现，与根为奇数个矛盾，故$r\notin\mathbb{Q}$.
+}
+
+\subsection{}
+设$R$是含幺环，定义集合
+$$R[[x]]=\left\{\sum_{n=0}^{+\infty}a_nx^n\mid a_n\in R\;(n=0,1,2,...)\right\},$$
+每个元素$\sum_{n=0}^{+\infty}a_nx^n$叫做$R$上的{\heiti 形式幂级数}. 定义
+$$\sum a_nx^n+\sum b_nx^n=\sum(a_n+b_n)x^n,$$
+$$\left(\sum a_nx^n\right)\left(\sum b_nx^n\right)=\sum\left(\sum_{i+j=n}a_ib_j\right)x^n.$$
+
+\subsubsection{(1)}
+$R[[x]]$对于上述加法和乘法形成含幺环，叫做环$R$上关于$x$的{\heiti 形式幂级数环}.
+
+\Proofbyintimidation
+
+\subsubsection{(2)}
+若$R$为交换环，则$R[[x]]$也是交换环.
+
+\Proofbyintimidation
+
+\subsubsection{(3)}
+多项式环$R[x]$可自然看成是$R[[x]]$的子环.
+
+\zm{
+	易见$R[[x]]$中的只有有限个$a_n$不为$0_R$的元素与$R[x]$中的元素一一对应，并且保持加法和乘法.
+}
+
+\subsubsection{(4)}
+设$R$是含幺交换环，$f(x)=\sum_{i=0}^{\infty}a_ix^i\in R[[x]]$，则$f(x)$可逆当且仅当$a_0\in R^{\times}$.
+
+\zm{
+	($\Leftarrow$)当$a_0$在$R$中可逆时我们构造$f(x)$的逆$g(x)=\sum_{i=0}^{\infty}b_ix^i$：
+	
+	$b_0=a_0^{-1}\in R$.
+	
+	假设我们对一切$i<s\in\mathbb{Z}_+$得到了$b_i\in R$，由$\sum_{j=1}^sa_jb_{s-j}+a_0b_s=0$得到$b_s=-a_0^{-1}\sum_{j=1}^sa_jb_{s-j}$.
+	
+	对一切$s\in\mathbb{N}$计算$b_s$，则$f(x)g(x)$满足对一切$s\in\mathbb{Z}_+, \sum_{j=1}^sa_jb_{s-j}+a_0b_s=0, a_0b_0=1$，故$f(x)g(x)=1$是$R[[x]]$中的单位元.
+	
+	($\Rightarrow$)若$a_0$在$R$中不可逆，则$1\notin a_0R$，但$f(x)g(x)$的常数项一定在$a_0R$中，故$f(x)g(x)\neq 1$，$f(x)$在$R[[x]]$中不可逆.
+}
+
+\subsubsection{(5)}
+若$R$为域，则$R[[x]]$是PID且只有唯一的极大理想$\mathfrak{m}$，求出$R[[x]]$的所有理想.
+
+\zm{
+	设$I$是$R[[x]]$的理想，则$I=\{0\}\cup\bigsqcup_{i}f_i(x)$，其中$f_i(x)$为非零元素.
+	
+	当$I$不为零理想时，令$k_i$为$f_i$的次数（因为$f\neq0$，因此$k_i>-\infty$为整数），则$f_i(x)=x^{k_i}g_i(x)$，其中$g_i\notin xR[[x]]$，$g_i$的常数项不为$0$，由于$R$是域，因此$g_i$的常数项可逆，由{(4)}知存在$h_i(x)\in R[[x]]$使得$g_ih_i=1$为单位元，即$(g_i)_{\Ideal, R[[x]]}=R[[x]]$，故$(f_i)_{\Ideal, R[[x]]}=x^{k_i}R[[x]]$是$f_i$生成的理想.
+	
+	故$I\supseteq\bigsqcup_ix^{k_i}R[[x]]=x^{\min_i\{k_i\}}R[[x]]$，若$I$还包含其他元素，该元素必定有项不被$x^{\min_i\{k_i\}}$整除，也就是不被所有$x^{k_i}$整除，与$I=\{0\}\cup\bigsqcup_{i}f_i$矛盾，故$I=x^kR[[x]]$为$x^k$生成的理想，其中$k=\min_i\{k_i\}\in\mathbb{N}$，故$I$是主理想，$R[[x]]$的所有理想为$x^kR[[x]]$或$\{0\}$.
+	
+	易见$k_1<k_2$时$x^{k_1}R[[x]]\supsetneqq x^{k_2}R[[x]]$，且$k\geq 1$时$x^kR[[x]]$为真理想，故唯一的极大理想即$\mathfrak{m}=xR[[x]]$.
+}
+
+\subsubsection{(6)}
+本题与{\heiti 习题}\textbf{3.1.6, 3.4.11}有什么联系？
+
+\zm{
+	$\varphi: \mathbb{Z}_p\rightarrow\mathbb{Z}[[x]]/(x-p), (a_1, a_2, ...)\mapsto \sum_{i=0}^{+\infty} \frac{a_{i+1}-a_i}{p^i}x^i (a_0=0)$，由于$a_{i+1}\equiv a_i\mod p^i, a_{i+1}-a_i<p^{i+1}$，故$\varphi$是良好定义的，请读者自行证明$\varphi$是同构.
+}
+
+\subsection{}
+试确定$\mathbb{R}[x]$和$\mathbb{Z}[x]$的所有素理想和极大理想.
+
+\jie (i) 由于$\mathbb{R}[x]$是整环，因此零理想是素理想. 由于$\mathbb{R}$是域，因此$\mathbb{R}[x]$是PID.
+
+考虑理想$I=(f(x))_{\Ideal, \mathbb{R}[x]}$，其中$f(x)\neq 0$. 若$f(x)$在$\mathbb{R}[x]$中可约，则它的两个非平凡因子都不在$I$中，乘积却在$I$中，因此$I$不是素理想. 反之，若$f(x)$在$\mathbb{R}[x]$中不可约，则$ab\in I\Rightarrow \exists u,v$ s.t. $u\mid a,v\mid b, uv=f(x)$，只能$u\sim f(x),v\sim 1$或$u\sim1,v\sim f(x)$，故$a$或$b$在$I$中，$I$是素理想. 故$I$中素理想为零理想和$\mathbb{R}[x]$中不可约多项式生成的理想.
+
+由代数基本定理，$\mathbb{R}[x]$中多项式$f$也是$\mathbb{C}[x]$中多项式且有$\deg f$个根，即它在$\mathbb{C}[x]$中分解为一次因式. 由于复共轭是$\mathbb{C}[x]$的自同构且保持$\mathbb{R}[x]$不变，因此$a+bi$是$f$的根$(a,b\in\mathbb{R})\Leftrightarrow a-bi$是$f$的根，故当$b\neq 0$时$(x-a-bi)(x-a+bi)=x^2-2ax+a^2+b^2$是$f$的因式，它属于$\mathbb{R}[x]$，且它的判别式$4a^2-4a^2-4b^2=-4b^2<0$，故它没有实数根，在$\mathbb{R}[x]$中不可约. 综上，$\mathbb{R}[x]$中不可约多项式为一次因式或判别式小于$0$的二次因式.
+
+故$\mathbb{R}[x]$的所有素理想为$\{0\}, (x-a)_{\Ideal}\;(a\in\mathbb{R}), (x^2+bx+c)_{\Ideal}\;(b,c\in\mathbb{R}, b^2-4c<0)$.
+
+除零理想外，令$I$是不可约多项式$f(x)$生成的理想，若$J\supsetneqq I$是理想，则它也是多项式生成的理想$(g(x))_{\Ideal}$，故$g(x)\mid f(x), g(x)\nsim f(x)$，由$f(x)$不可约，只能$g(x)\sim 1$，即$J=\mathbb{R}[x]$，故不可约多项式生成的理想$(x-a)_{\Ideal}\;(a\in\mathbb{R}), (x^2+bx+c)_{\Ideal}\;(b,c\in\mathbb{R}, b^2-4c<0)$都是$\mathbb{R}[x]$的极大理想.
+
+(ii) \emph{该部分证明由文献}\cite{174713}\emph{给出.}
+
+若$\mathfrak{p}$是$\mathbb{Z}[x]$的素理想，考虑$\mathfrak{p}\cap\mathbb{Z}$，若$a,b\in\mathbb{Z}, ab\in\mathfrak{p}\cap\mathbb{Z}$，则$a$或$b\in\mathfrak{p}$，即$a$或$b\in\mathfrak{p}\cap\mathbb{Z}$，故$\mathfrak{p}\cap\mathbb{Z}$是$\mathbb{Z}$的素理想，这只能有两种情况：
+
+(iia) $\mathfrak{p}\cap\mathbb{Z}=(0)$. 我们可能有$\mathfrak{p}=(0)$，若不然，则令$S=\mathfrak{Z}-\{0\}$，$S$是$\mathbb{Z}-\{0\}$上乘法含幺半群，故有整环$S^{-1}\mathbb{Z}[x]=\mathbb{Q}[x]$，由{\heiti 习题}\textbf{3.4.14(3)}，$S^{-1}\mathfrak{p}$是$\mathbb{Q}[x]$的素理想，而$\mathbb{Q}[x]$是PID，故$S^{-1}\mathfrak{p}=(q(x))_{\Ideal, \mathbb{Q}[x]}$，其中$q(x)$是$\mathbb{Q}[x]$中不可约多项式. 若$q(x)$的容积不为$1$而为$c(q)$，则用$c(q)^{-1}q(x)$替代$q(x)$，理想不变，故可假定$q(x)$的容积为$1$.
+
+由于$S^{-1}\mathfrak{p}\cap\mathbb{Z}[x]=\mathfrak{p}$（否则设$a\in S^{-1}\mathfrak{p}, a\notin\mathfrak{p}$，则对任意$s\in S$，$s\in\mathbb{Z}$，若$sa\in\mathfrak{p}$则由素理想的性质，$s\in\mathfrak{p}$（与(iia)条件矛盾）或$a\in\mathfrak{p}$（仍然矛盾），故$sa\notin\mathfrak{p}, a=s^{-1}sa\notin s^{-1}\mathfrak{p}$对所有$s\in S$成立，与$a\in S^{-1}\mathfrak{p}$矛盾），由$q(x)$容积为$1$，$(q(x))_{\Ideal, \mathbb{Z}[x]}\subseteq\mathfrak{p}$. 若$f(x)=\frac{r}{s}q(x)\in\mathbb{Z}[x]$，则$f(x)$的容积为$\frac{r}{s}$为整数，故$\frac{r}{s}$为整数，$f(x)\in\mathfrak{p}$，故$(q(x))_{\Ideal, \mathbb{Z}[x]}=\mathfrak{p}$为$\mathbb{Q}[x]$上整系数不可约本原多项式生成的理想，即$\mathbb{Z}[x]$上一次以上不可约多项式生成的理想.
+
+(iib) $\mathfrak{p}\cap\mathbb{Z}=p\mathbb{Z}$，令$\varphi: \mathbb{Z}[x]\rightarrow \mathbb{Z}[x]/p\mathbb{Z}\cong\mathbb{F}_p[x]$，则$\varphi$是满同态，由{\heiti 习题}\textbf{3.4.5(1)}，$\varphi(\mathfrak{p})$是$\mathbb{F}_p[x]$的素理想.
+
+由于$\mathbb{F}_p$是域，$\mathbb{F}_p(x)$为PID，其素理想为$(q(x))_{\Ideal, \mathbb{F}_p(x)}$其中$q(x)$为$\mathbb{F}_p[x]$上不可约多项式或零理想，对于后一种情况我们有$\mathfrak{p}=p\mathbb{Z}[x]$.
+
+对于前一种情况，由于$\mathbb{F}_p$是域，若$q(x)$的首项系数不为$1$而为$a_n(q)$，则用$p(x)=a_n(q)^{-1}q(x)$替代$q(x)$，则$(p(x))_{\Ideal, \mathbb{F}_p(x)}=(q(x))_{\Ideal, \mathbb{F}_p(x)}$，若$p(x)$在$\mathbb{Z}[x]$中可约，则它在$\mathbb{F}_p[x]$中也可约，矛盾，故$p(x)$是$\mathbb{Z}[x]$中不可约多项式.
+
+显然$(p, p(x))_{\Ideal, \mathbb{Z}[x]}\subseteq\mathfrak{p}$，反之，若$r(x)\in\mathfrak{p}$，则$\varphi(r(x))\in(p(x))_{\Ideal, \mathbb{F}_p[x]}$，存在$\mathbb{F}_p[x]$中多项式$s(x)$使得$s(x)p(x)\equiv r(x)$，故$s(x)p(x)-r(x)\in p\mathbb{Z}[x]$，$r(x)=s(x)p(x)+pu(x)$其中$u(x)\in\mathbb{Z}[x]$，故$r(x)\in(p,p(x))_{\Ideal, \mathbb{Z}[x]}$，故$\mathfrak{p}=(p,p(x))_{\Ideal, \mathbb{Z}[x]}$.
+
+综上，$\mathbb{Z}[x]$中的一切素理想如下：
+
+(A) $\{0\}$；
+
+(B) $(f(x))_{\Ideal}$，其中$f(x)$是$\mathbb{Z}[x]$内一次以上不可约多项式；
+
+(C) $p\mathbb{Z}[x]$；
+
+(D) $(p, f(x))_{\Ideal}$，其中$f(x)$是$\mathbb{F}_p[x]$内不可约多项式.
+
+其中(A) (C)当然不是极大理想，对(B)，若对一切素数$p$有$f(x)$在$\mathbb{F}_p[x]=\mathbb{Z}[x]/p\mathbb{Z}[x]$中可约，则由中国剩余定理，$f(x)$在$\mathbb{Z}[x]\cong\mathbb{Z}[x]/\bigcap_{p_i\text{为一切素数}}p_i\mathbb{Z}[x]\cong\prod_{p_i\text{为一切素数}}\mathbb{F}_{p_i}[x]$中可约，矛盾，故存在$p$使得$f(x)$在$\mathbb{F}_p[x]$内也是不可约多项式，存在(D)中的某个素理想包含$(f(x))_{\Ideal}$.
+
+对(D)，若$p_1\neq p_2$，则$(p_1, f(x))_{\Ideal}, (p_2, g(x))_{\Ideal}$仅考虑与$\mathbb{Z}$的交集就互不包含，故只需讨论$p$固定的情况.
+
+若$(p, f(x))_{\Ideal, \mathbb{Z}[x]}\supsetneqq (p, g(x))_{\Ideal, \mathbb{Z}[x]}$，则$g(x)\equiv f(x)r(x)\mod p$，即在$\mathbb{F}_p(x)$中$f(x)\mid g(x), g(x)\nmid f(x)$，迫使$f(x)\sim 1$，与$f(x)$不可约矛盾.
+
+综上，$\mathbb{Z}[x]$的极大理想即上述情况(D).
+
+\subsection{}
+试确定$\mathbb{Z}[x]$，$\mathbb{Q}[x]$的自同构群.
+
+\jie (i) 令$\varphi\in\Aut(\mathbb{Z}[x])$，则$\varphi$在$\mathbb{Z}$上的限制为恒等映射. 令$\varphi(x)=f(x)$，由同构是双射，$f(x)\notin\mathbb{Z}$. 由{\heiti 习题}\textbf{4.3.8}知对任意素数$p$，$(p,x)_{\Ideal, \mathbb{Z}[x]}$都是极大理想，故$f(x)$也需满足$(p,f(x))_{\Ideal, \mathbb{Z}[x]}$也是极大理想，即$f(x)$对任意素数$p$都是$\mathbb{F}_p$中不可约多项式.
+
+若$f(x)$的次数$\geq 2$，令$f(x)=a_nx^n+\cdots+a_1x+a_0$，$c$为任意整数，则$f(x)=f(c)+(x-c)g(x)$，若有素数$p$整除$f(c)$，则$(x-c)$是$\mathbb{F}_p(x)$中$f(x)$的因式，矛盾. 故$f(c)=1$对任何$c$成立，得$f(x)=1$，矛盾.
+
+故$\varphi(x)=ax+b$，其中$a,b\in\mathbb{Z},a\neq 0$，若$a\neq \pm 1$，则$\varphi^{-1}(x)=a^{-1}(x-b)\notin\mathbb{Z}[x]$，矛盾，故$a=\pm 1$，
+$\Aut(\mathbb{Z}[x])\cong D_{\infty}=\langle \sigma,\tau\mid \tau\sigma\tau^{-1}=\sigma^{-1}, \tau^2=\id \rangle=\mathbb{Z}\rtimes(\mathbb{Z}/2\mathbb{Z})$.
+
+(ii) $\mathbb{Q}$是域，类似{\heiti 习题}\textbf{4.3.8}的讨论知$\mathbb{Q}[x]$上的极大理想是不可约多项式生成的理想，即$\mathbb{Q}[x]$的自同构$\varphi$应把不可约多项式映射到不可约多项式，特别地，$\varphi(x)=f(x)$为不可约多项式.
+
+故$\varphi$诱导同构$\tau: \mathbb{Q}\cong\mathbb{Q}[x]/(x)_{\Ideal}\leftrightarrow\mathbb{Q}[x]/f(x)_{\Ideal}\cong\mathbb{Q}(\alpha)$，其中$\alpha$是$f(x)$的一个根. 若$\deg f\geq 2$，则$f(x)$不可约导致它没有有理根，必有$\alpha\notin\mathbb{Q}$，但域的同构$\tau$必将$\mathbb{Q}$映射到它本身，而$\mathbb{Q}(\alpha)$包含无理数，即$\tau$必不是满射，矛盾.
+
+故$\varphi(x)=ax+b, a,b\in\mathbb{Q},a\neq 0$，$\Aut(\mathbb{Q}[x])$同构于$\mathbb{Q}$上$2$阶一般线性群$\mathrm{GL}_2(\mathbb{Q})$的子群
+$$\left\{
+\begin{pmatrix}
+	k & l\\
+	0 & 1
+\end{pmatrix}
+\mid l\in\mathbb{Q}, k\in\mathbb{Q}^{\times} \right\}.$$.
+
+\subsection{}
+设$c_0,c_1,\cdots, c_n$是整环$D$中两两相异的$n+1$个元素，$d_0,d_1,\cdots,d_n$是$D$中任意$n+1$个元素，证明：
+
+\subsubsection{(1)}
+在$D[x]$中至多存在一个次数$\leq n$的多项式$f(x)$使得$f(c_i)=d_i (\forall 0\leq i \leq n)$；
+
+\zm{
+	若存在次数$\leq n$的两个不同多项式$f,g$满足要求，则非零多项式$h(x)=f(x)-g(x)$满足$h(c_i)=0$对所有$0\leq i\leq n$成立，即$h$有全部$c_i$即$n+1$个不同根，而$\deg h\leq n$，与{\heiti 推论}\textbf{4.25}矛盾.
+}
+
+\subsubsection{(2)}
+若$D$是域，则(1)中所述多项式存在.
+
+\zm{
+	令$g_i(x)=\prod_{\substack{j=0\\j\neq i}}^n(x-c_j)$，则对$j\neq i$有$g_i(c_j)=0$，且由$c_i$彼此相异，$g_i(c_i)\neq 0$，记它为$a_i$.
+	
+	令$h_i(x)=d_i/a_i\cdot g_i(x)$，则$h(x)=\sum_{i=0}^nh_i(x)$满足条件.
+}
+
+\subsection{}
+判断下列元素是否为$\mathbb{Z}[x], \mathbb{Q}[x], \mathbb{R}[x], \mathbb{C}[x], \mathbb{Z}[[x]]$中的可逆元？是否为不可约元？
+
+(1) $2x+2$；(2) $x^2+1$；(3) $x+1$；(4) $x^2+3x+2$.
+
+\jie 对于前四个环，$n$次多项式生成的理想中元素（除$0$外）次数都$\geq n$，故一次以上多项式总是不可逆的，在$\mathbb{Z}[[x]]$中则不然，由{\heiti 习题}\textbf{4.3.7(4)}知当且仅当常数项在$\mathbb{Z}$中可逆（即为$\pm 1$时$f(x)$总是单位.
+
+故在前四个环中，四个多项式都不可逆，而在$\mathbb{Z}[[x]]$中(2)(3)可逆.
+
+$2x+2=2(x+1)$，它在$\mathbb{Z}[x]$中不是不可约元，而在$\mathbb{Q}[x],\mathbb{R}[x],\mathbb{C}[x]$中由于$2$是单位，它是不可约元，而在$\mathbb{Z}[[x]]$中，$x+1$是单位，$2$却不是，故也是不可约元.
+
+$x^2+1$没有实根，故在$\mathbb{Z}[x], \mathbb{Q}[x], \mathbb{R}[x]$中都是不可约元，而在$\mathbb{C}[x]$中它等于$(x+i)(x-i)$，不是不可约元，在$\mathbb{Z}[[x]]$中它是单位，故不是不可约元.
+
+$x+1$为本原一次多项式，在前四个环中都是不可约元，在$\mathbb{Z}[[x]]$中它是单位，故不是不可约元.
+
+$x^2+3x+2=(x+1)(x+2)$，在前四个环中都不是不可约元，在$\mathbb{Z}[[x]]$中$(x+1)$是单位而$(x+2)$不是，故是不可约元.
+
+\subsection{}
+设$f=\sum a_ix^i\in\mathbb{Z}[x]$为首$1$多项式，$p$为素数，以$\overline{a}$表示$a\in\mathbb{Z}$在环的自然同态$\mathbb{Z}\rightarrow\mathbb{F}_p$中的像，而令$\overline{f}(x)=\sum \overline{a_i}x^i\in\mathbb{F}_p[x]$，
+
+\subsubsection{(1)}
+求证：若对某个素数$p$，$\overline{f}(x)$在$\mathbb{F}_p[x]$中不可约，则$f(x)$在$\mathbb{Z}[x]$中不可约.
+
+\zm{
+	若$f(x)$可约，则它是至少$2$个非单位因子的积，并且由高斯引理，这些非平凡因子都是首一多项式，从而也是首一的一次以上多项式，故在同态下的像也是首一的一次以上多项式，$\overline{f}(x)$也是至少$2$个非单位因子的积，从而在$\mathbb{F}_p[x]$中可约，矛盾.
+}
+
+\subsubsection{(2)}
+若$f(x)$不是$\mathbb{Z}[x]$中首一多项式，(1)的结论是否成立？
+
+\jie 否，$f(x)=2x^2+3x+1=(2x+1)(x+1)$为$\mathbb{Z}[x]$中可约多项式，但若$p=2$，$\overline{f}=x+1$是$\mathbb{F}_2[x]$中一次式，它是不可约的.
+
+\subsection{}
+设$F$为域，$a,b\in F$且$a\neq 0$. 证明$f(x)$在$F[x]$中不可约当且仅当$f(ax+b)$在$F[x]$中不可约.
+
+\zm{
+	若$f(x)$有非平凡素因子分解$f(x)=\prod_{i=1}^ng_i(x)$，则$f(ax+b)=\prod_{i=1}^ng_i(ax+b)$，其中$1\leq\deg g_i(ax+b)=\deg g_i<\deg f$，故是$f(ax+b)$的非平凡素因子分解.
+	反之，$f(x)=f(a^{\prime}(ax+b)+b^{\prime})$，其中$a^{\prime}=a^{-1}, b^{\prime}=-a^{-1}b$也是$F$中元素，类似上述推理即可.
+}
+
+\subsection{}
+设$p$是$\mathbb{Z}$上的奇素数，$n$为正整数. 证明$x^n-p$是$\mathbb{Z}[i]$上的不可约多项式.
+
+\zm{	
+	$p$是高斯素数或两个共轭的高斯素数之积$\pi_i\overline{\pi_i}$. 由艾森斯坦判别法（{\heiti 定理}\textbf{4.33}），我们只要证明$\pi_i^2\nmid p$，$\overline{\pi_i}^2\nmid p$即可，这只需要证$\pi_i=a+bi, \overline{\pi_i}=a-bi$彼此不相伴即可. 由$\varphi(\pi_i)=p$无平方因子知$a,b\neq 0$，且$\gcd(a,b)^2\mid p$得$\gcd(a,b)=1$.
+
+	若$a+bi$被$a-bi$整除，则$(a+bi)=(c+di)(a-bi)$，即$a(c-1)=-bd, b(c+1)=ad, c^2-1=\frac{-bd}{a}\cdot\frac{ad}{b}=-d^2$，若$d=0$，因$c-1$与$c+1$不同时为$0$，得$a$或$b=0$，矛盾，若$d=\pm 1$，则$c=0, a=\pm b$，$p=(a+ai)(a-ai)=2a^2$与$p$是奇素数矛盾，故$a+bi$， $a-bi$彼此不相伴.
+}
+
+
+\subsection{}
+证明两个整多项式在$\mathbb{Q}[x]$中互素当且仅当它们在$\mathbb{Z}[x]$中生成的理想含有一个整数.
+
+\zm{
+	($\Rightarrow$)由$\mathbb{Q}$是域，$\mathbb{Q}[x]$是PID，故也是贝祖环，两个互素的整多项式$f,g$满足$m(x)f(x)+n(x)g(x)=1, m,n\in\mathbb{Q}[x]$. 令$\frac{p_1}{q_1}, \frac{p_2}{q_2}$为$m,n$的容积，则$q_1q_2m, q_1q_2n$为整多项式，$q_1q_2=q_1q_2mf+q_1q_2ng$在$(f,g)_{\Ideal, \mathbb{Z}[x]}$中.
+	
+	($\Leftarrow$)我们有整数$u=f(x)r(x)+g(x)s(x)$，其中$r,s\in\mathbb{Z}[x]$. 故$\gcd(f,g)\mid u$，这只能$\gcd(f,g)\sim 1$为非零有理常数.
+}
+
+\subsection{}
+设$f(x)=\sum_{i=0}^na_ix^i\in\mathbb{Z}[x], \deg f=n$. 若存在素数$p$和整数$k\;(0<k<n)$使得：
+$$p\nmid a_n, p\nmid a_k, p\mid a_i\;(0\leq i\leq k-1), p^2\nmid a_0.$$
+求证$f(x)$在$\mathbb{Z}[x]$中必存在次数$\geq k$的不可约因子.
+
+\zm{
+	令$f_0(x)=f(x)$，我们构造一串多项式$f_j(x)=\sum_{i=0}^{n_j}a_{ij}x^i\in\mathbb{Z}[x]$使得$p\nmid a_{n_j}, p\nmid a_{k_j}, p\mid a_i\;(0\leq i\leq k_j-1), p^2\nmid a_0j$且$n_{j+1}<n_j, k_{j+1}\geq k_j$.
+	
+	若$f_j(x)$不可约，则由$k_j\geq k_0=k$我们得到结论. 否则，设$f_j(x)=g(x)h(x)$为非平凡素因子分解，$\deg g,h<\deg f_j$，$g(x)=\sum_{i=0}^mb_ix^i$，$h(x)=\sum_{i=0}^lc_ix^i$. 比较首项系数知$m+l=n_j$且$p\nmid b_mc_l=a_{n_j}$，故$p\nmid b_m, c_l$. 比较常数项系数，我们有$p\mid b_0c_0$且$p^2\nmid b_0c_0$. 不妨设$p\mid b_0$且$p\nmid c_0$. 令$s$满足$p\mid b_i, i<s$且$p\nmid b_s$，则
+	$$a_{sj}=b_sc_0+b_{s-1}c_1+\cdots+b_0c_s.$$
+	当$s<k_j$时$p\mid a_{sj}$，但$p\nmid b_sc_0$，$p\mid b_{u}c_{s-u}\;(u<s)$，故$p\nmid a_{sj}$，矛盾. 故$s\geq k_j$，我们记$k_{j+1}=s$得$f_{j+1}(x)=g(x)$.
+	
+	由于$n_j$严格递减，$k_j$不减少，因此这个过程不能无限继续下去，要么提前因$f_j$不可约而终止，要么当$j$足够大时$f_j$满足$n_j=k_j$，此时$s\geq k_j$和$s<n_j$不能同时成立，矛盾，即$f(j)$不可约，并是$k_j\geq k$次多项式.
+}
+
+\subsection{}
+设$D$是整环，$0\neq f(x)=a_0+a_1x+\cdots+a_nx^n\in D[x]$. 若$(a_0,a_1,\cdots,a_n)\sim 1$，则$f(x)$在$D[x]$中不可约分解若存在则必唯一.
+
+\zm{
+	由于$c(f)\sim 1$，$f(x)$的两个因式分解必为
+	$$f(x)=ug_1(x)g_2(x)\cdots g_s(x)=vh_1(x)h_2(x)\cdots h_t(x),$$
+	并且$g_i(x)$和$h_j(x)$的容积全为单位. 故$g_1(x)g_2(x)\cdots g_s(x)\sim_{D[x]}vh_1(x)h_2(x)\cdots h_t(x)$，它们在$D$的商域的多项式环$F[x]$中也相伴，由$F[x]$中因式分解的唯一性，在合适次序下$s=t, g_i(x)\sim_{F[x]}h_i(x)$，但$g_i,h_i$的容积都是$D$中单位，从而它们在$D$中也相伴.
+}

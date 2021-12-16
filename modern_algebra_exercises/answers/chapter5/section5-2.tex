@@ -1,0 +1,57 @@
+\section{尺规作图问题}
+\subsection{}
+下列哪些量可以尺规作出？
+
+\subsubsection{(1)}
+$\sqrt[4]{3+5\sqrt{8}}$；
+
+\jie 可以，因为$\sqrt[4]{a}$即$\sqrt{\sqrt{a}}$，由有理数作加减乘除和开方即能得到.
+
+\subsubsection{(2)}
+$\frac{3\sqrt{5}}{\sqrt{7}-4}$；
+
+\jie 可以，理由同上.
+
+\subsubsection{(3)}
+$2+\sqrt[5]{7}$；
+
+\jie 不可以，若该量可以尺规作出，则$a=\sqrt[5]{7}$也可以尺规作出，$a$是$x^5-7=0$的根，取$p=7$由艾森斯坦判别法知该多项式在$\mathbb{Q}[x]$中不可约，$[\mathbb{Q}(a):\mathbb{Q}]=5$不是$2$的幂.
+
+\subsubsection{(4)}
+$x^5-3x^2+6$的一个根$\alpha$.
+
+\jie 不可以，取$p=3$由艾森斯坦判别法知该多项式在$\mathbb{Q}[x]$中不可约，$[\mathbb{Q}(\alpha):\mathbb{Q}]=5$不是$2$的幂.
+
+\subsection{}
+证明可以尺规三等分$45^{\circ}$和$54^{\circ}$角.
+
+\zm{
+	若角$\alpha, \beta$可以尺规作出，则$\cos\alpha,\cos\beta,\sin\alpha,\sin\beta$可以尺规作出，故$\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta$也可以尺规作出，即$\alpha\pm\beta$可以尺规作出（也可以由几何知识直接得到该结论）.
+	
+	熟知$\cos60^{\circ}=\frac{1}{2}$可以尺规作出，故给定$45^{\circ}$可以作$15^{\circ}=60^{\circ}-45^{\circ}$，给定$54^{\circ}$可以作$6^{\circ}=60^{\circ}-54^{\circ}$，将该角再三倍即得$18^{\circ}$.
+}
+
+\subsection{}
+能否尺规作立方体，其体积为原立方体的$2$倍？
+
+\jie 否，题意即尺规作出$a=\sqrt[3]{2}$，由于$a$满足$x^3-2=0$，取$p=2$由艾森斯坦判别法知该多项式在$\mathbb{Q}[x]$中不可约，$[\mathbb{Q}(a):\mathbb{Q}]=3$不是$2$的幂.
+
+\subsection{}
+设$3\leq n\leq 10$为正整数，则正$n$边形是否可以尺规作出？
+
+\jie $n=3$：$\cos\frac{2\pi}{3}=-\frac{1}{2}$为可构造数，故正三角形可.
+
+$n=4$：$\cos\frac{2\pi}{4}=0$为可构造数，故正方形可.
+
+$n=5$：$\cos\frac{2\pi}{5}=a$，其中$a$满足$2a^2-1=\cos\frac{4\pi}{5}=\cos\frac{6\pi}{5}=4a^3-3a$，故$4a^3-2a^2-3a+1=(a-1)(4a^2+2a-1)=0$，又$a\neq 1$，故$4a^2+2a-1=0$，$[\mathbb{Q}(a):\mathbb{Q}]\leq 2$，即$a$为可构造数，故正五边形可.
+
+$n=6$：$\cos\frac{2\pi}{6}=\frac{1}{2}$为可构造数，故正六边形可.
+
+$n=7$：$\cos\frac{2\pi}{7}=a$，其中$a$满足$2(2a^2-1)^2-1=\cos\frac{8\pi}{7}=\cos\frac{6\pi}{7}=4a^3-3a$，故$8 a^4 - 4 a^3 - 8 a^2 + 3 a + 1 =(a-1)(8a^3+4a^2-4a-1)=0$，又$a\neq 1$，故$8a^3+4a^2-4a-1=0$，该方程的有理根（{\heiti 命题}\textbf{4.26}）只能是$\pm 1,\pm1/2,\pm1/4,\pm 1/8$，代入即得该方程没有有理根，从而没有一次因式，从而是$\mathbb{Q}[x]$中不可约多项式，$[\mathbb{Q}(a):\mathbb{Q}]=3$不是$2$的幂，正七边形不能尺规作出.
+
+$n=8$：$\cos\frac{2\pi}{8}=\frac{\sqrt{2}}{2}$，由$2$是可构造数，$\sqrt{2}$也是，故$\frac{\sqrt{2}}{2}$可构造，正八边形可.
+
+$n=9$：若正九边形可尺规作出，则$40^{\circ}$可构造，又$60^{\circ}$可构造，则$20^{\circ}$可构造，与{\heiti 推论}\textbf{5.35}矛盾，故正九边形不能尺规作出.
+
+$n=10$：沿用$n=5$时的$a$，则$\cos\frac{2\pi}{10}=b, 2b^2-1=a, b=\pm\sqrt{\frac{a+1}{2}}$，由$a$可构造推出$b$可构造，故正十边形可以尺规作出.
+

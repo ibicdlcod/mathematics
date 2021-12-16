@@ -1,0 +1,154 @@
+\section{伽罗瓦扩张的一些例子}
+\subsection{}
+设$F$为域，$c\in F$，$p$为素数.
+\subsubsection{(1)}
+当$\mathrm{char}F=p$时，证明$x^p-c$在$F[x]$中不可约当且仅当$x^p-c$在$F$中无根.
+
+\zm{
+	($\Rightarrow$) 显然.
+	
+	($\Leftarrow$) 设$b^p=c$，其中$b$是$F$的代数闭包中元素，则$x^p-c=(x-b)^p$，故$b\notin F$. 若$x^p-c=(x-b)^p$在$F[x]$中可约，则$(x-b)^k\;(1\leq k<p)$是它的非平凡因子且$(x-b)^k\in F[x]$，故$b^k\in F$，但$k$与$p$互素，故存在整数$u,v$使得$ku=1+pv$，故$b=b^{ku-pv}=(b^k)^uc^{-v}\in F$，矛盾. 故$x^p-c$在$F[x]$中不可约.
+}
+
+\subsubsection{(2)}
+当$\mathrm{char}F\neq p$时，证明$F$有$p$个不同的$p$次单位根. 由此证明$x^p-c$在$F[x]$中不可约当且仅当$x^p-c$在$F$中无根.
+
+\zm{
+	题目实际所指的是：$F$的代数闭包中存在$p$个不同的$p$次单位根.
+	
+	令$g(x)=x^p-1$，则$g^{\prime}(x)=px^{p-1}\neq 0$，故$\gcd(g,g^{\prime})=1$，$g$在$F$的代数闭包中没有重根.
+	
+	我们只需证根的不存在性导致$f(x)=x^p-c$的不可约性即可. 设$f$的一个根为$\alpha$，则$f$的所有根为$g(x)$的所有根的$\alpha$倍，故$f$在$F$的代数闭包中也无重根.
+	
+	令$x^p-c$在$F$上的分裂域为$K$，则$K/F$为伽罗瓦扩张，类似{\heiti 习题}\textbf{6.2.4}我们知道$\mathrm{Gal}(K/F)\leq\left\{
+	\begin{pmatrix}
+		k & l\\
+		0 & 1
+	\end{pmatrix}
+	\mid l\in\mathbb{F}_p, k\in\mathbb{F}_p^{\times} \right\}\leq S_p.$（第一个等号不一定成立，因为右边群中元素不一定保持$F$不变），并且由它在$x^p-c$的所有$p$个根上的作用唯一确定.
+
+	若$\mathrm{Gal}(K/F)$中存在$p$阶元，则它在$S_p$中必为$p$-轮换，即它在根上的作用可迁，故所有的根均有相同的$F$上最小多项式，它是所有根的化零多项式且整除$f(x)$，只能是$f(x)$本身（$f$无重根），即$f(x)$在$F[x]$上不可约.
+	
+	若$\mathrm{Gal}(K/F)$中不存在$p$阶元，则它不可能是平凡群（这导致$f(x)$在$F$上分裂，与它无根矛盾），并且(*)不存在$l_1\neq l_2$使得$\sigma_1: \alpha_u\mapsto \alpha_{ku+l_1}, \sigma_2: \alpha_u\mapsto \alpha_{ku+l_2}\in \mathrm{Gal}(K/F)$（若不然，则$\sigma_1^{-1}\sigma_2: \alpha_u\mapsto \alpha_{u+(l_2-l_1)k^{-1}}$为$p$阶元，其中$k^{-1}$是$k$在$\mathbb{F}_p$中的逆，矛盾），作同态$\varphi: \left\{
+	\begin{pmatrix}
+		k & l\\
+		0 & 1
+	\end{pmatrix}
+	\mid l\in\mathbb{F}_p, k\in\mathbb{F}_p^{\times} \right\}\rightarrow \mathbb{F}_p^{\times}, \begin{pmatrix}
+		k & l\\
+		0 & 1
+	\end{pmatrix}\mapsto k$，由于$\mathbb{F}_p^{\times}$为$p-1$阶循环群，考虑它的子群$\varphi(\mathrm{Gal}(K/F))$，它也是循环群，记其生成元为$k_1$，则$k_1\neq 1$，其原像（由(*)，它必然是唯一的）为$\sigma^{\prime}: \alpha_u\mapsto \alpha_{k_1u+l}$，则由(*)，$\mathrm{Gal}(K/F)$中不含任何$\langle \sigma^{\prime} \rangle$以外元素，故$\sigma^{\prime}$（考虑它作为$S_p$的元素作用在$x^p-c$的所有根上）的不动点$\alpha_{lm}\;(m(1-k_1)\equiv 1\mod p)$是$\mathrm{Gal}(K/F)$的不动点. 由于$K/F$为伽罗瓦扩张，故$f(x)$的一个根$\alpha_{lm}\in F$，矛盾. 故本情况不存在，必有$\mathrm{Gal}(K/F)$中存在$p$阶元且它在$\alpha_i$上的作用可迁.
+}
+
+{\heiti 注记.}\emph{文献}\cite{403963}\emph{给出了一种简单得多的证法，但它不涉及伽罗瓦群，考虑到本题的出现位置，本书并未采用那种证法.}
+
+\subsection{}
+试求出库默尔扩张的伽罗瓦群.
+
+\jie 令$m$是最小的满足$\alpha^m\in F$的整数，则由$\alpha^n=a\in F$，读者可自行推出$m\mid n$.
+
+故$\sigma(\alpha^m)=\zeta_n^{im}\alpha^m=\alpha^m$，即$im\equiv 0\mod n$，$i$必须是$n/m$的倍数，故$\mathrm{Gal}(K/F)\cong \mathbb{Z}/m\mathbb{Z}$.
+
+\subsection{}
+设$E$为$x^4-2$在$\mathbb{Q}$上的分裂域.
+\subsubsection{(1)}
+试求出$E/\mathbb{Q}$的全部中间域.
+
+\jie 易验证$E=\mathbb{Q}(i,\sqrt[4]{2})$，记$a=\sqrt[4]{2}$，则$x^4-2$的全部四个根为$a,ia,-a,-ia$. 类似{\heiti 习题}\textbf{6.2.3(1)}我们有$G=\mathrm{Gal}(K/F)\cong D_4=\langle \sigma_a, \sigma_i\rangle$，其中$\sigma_i(i)=-i,\sigma_i(a)=a, \sigma_a(i)=i, \sigma_a(a)=ia$.
+
+$G$的所有非平凡子群如下：
+
+中心$H_1=\{\id, \sigma_a^2\}$. 此时$\sigma_a^2$将$a$变为$-a$，$i$保持不变，故$F_1=\mathbb{Q}(i,\sqrt{2})$是$H_1$的不变域.
+
+其他$2$阶子群: $H_{20}=\{\id, \sigma_i\}, H_{21}=\{\id, \sigma_a\sigma_i\}, H_{22}=\{\id, \sigma_a^2\sigma_i\}, H_{23}=\{\id, \sigma_a^3\sigma_i\}$，此时这四个子群的非单位元在四个根上作用分别为：
+
+$a,ia,-a,-ia\mapsto a,-ia,-a,ia;$
+
+$a,ia,-a,-ia\mapsto ia,a,-ia,-a;$
+
+$a,ia,-a,-ia\mapsto -a,ia,a,-ia;$
+
+$a,ia,-a,-ia\mapsto -ia,-a,ia,a.$
+
+故$F_{20}=\mathbb{Q}(a), F_{21}=\mathbb{Q}(a+ia), F_{22}=\mathbb{Q}(ia), F_{23}=\mathbb{Q}(a-ia)$各是这四个子群的不变域.
+
+克莱茵群子群：$H_{30}=\{\id, \sigma_i, \sigma_a^2, \sigma_a^2\sigma_i\}=H_{20}H_{22}, H_{31}=\{\id, \sigma_a\sigma_i, \sigma_a^2, \sigma_a^3\sigma_i\}=H_{21}H_{23}$，此时$F_{30}=F_{20}\cap F_{22}=\mathbb{Q}(\sqrt{2}), F_{31}=F_{21}\cap F_{23}=\mathbb{Q}(i\sqrt{2})$各是这两个子群的不变域.
+
+最大循环真子群：$H_{4}=\langle \sigma_a \rangle$，此时$F_4=\mathbb{Q}(i)$是该子群的不变域.
+
+以上$F_1,F_{20},F_{21},F_{22},F_{23},F_{30},F_{31},F_4$是$E/\mathbb{Q}$的全部中间域，其中$H_1,H_{30},H_{31},H_4$是正规子群，故$F_1,F_{30},F_{31},F_4/\mathbb{Q}$是伽罗瓦扩张，$H_{20}$与$H_{22}$共轭，$H_{21}$与$H_{23}$共轭，故$F_{20}$与$F_{22}$共轭，$F_{21}$与$F_{23}$共轭.
+
+\subsection{}
+设$E$为$x^4-2$在$\mathbb{F}_5$上的分裂域，试求出$E/\mathbb{F}_5$的伽罗瓦群和全部中间域.
+
+\jie 记$F=\mathbb{F}_5$，设$a$是$x^4-2$在$E$上的一个根，显然$a, a^2\notin F$，且$a, 2a, 3a, 4a$是$x^4-2$的根，故它们是$x^4-2$在$E$上的全部根，$E=F(a)$是库默尔扩张，由{\heiti 习题}\textbf{6.3.2}和$a^2\notin F$知$\mathrm{Gal}(E/F)\cong\mathbb{Z}/4\mathbb{Z}\cong F^{\times}$.
+
+该伽罗瓦群只有一个非平凡子群$\mathbb{Z}/2\mathbb{Z}$，由于$\sigma: a\mapsto 4a=-a$是伽罗瓦群中唯一的$2$阶元，故子群$\{\id, \sigma\}$作用下的不变域$F(a^2)$即$E/F$的唯一中间域.
+
+\subsection{}
+对于$n=8,9,12$，求出$G=\mathrm{Gal}(\mathbb{Q}(\zeta_n)/\mathbb{Q})$，并列出$G$的全部子群和它们对应的$\mathbb{Q}(\zeta_n)/\mathbb{Q}$的中间域.
+
+\jie 以下记$K=\mathbb{Q}(\zeta_n), F=\mathbb{Q}$.
+\subsubsection{(1)}
+$n=8$，$G=(\mathbb{Z}/8\mathbb{Z})^{\times}\cong K_2$为克莱茵群，其$2$阶元为$\sigma_{3,5,7}, \sigma_i:\zeta_8\mapsto\zeta_8^i$. 易验证$\sigma_3$固定$\sqrt{2}i=\zeta_8+\zeta_8^3$，$\sigma_5$固定$i=\zeta_8^2$，$\sigma_7$固定$\sqrt{2}=\zeta_8+\zeta_8^7$. 故中间域$F_3\supseteq F(\sqrt{2}i), F_5\supseteq F(i), F_7\supseteq F(\sqrt{2})$，易见$\zeta_8$在右边三个域上的最小多项式分别为$(x^2-\sqrt{2}ix-1),(x^2-i),(x^2-\sqrt{2}x+1)$（请读者自证不可约性），故$K$在右边三个域上的指数都是$2$，故它们是各非平凡子群$\{\id, \sigma_3\},\{\id, \sigma_5\},\{\id, \sigma_7\}$的不变域.
+\subsubsection{(2)}
+$n=9$，$G=(\mathbb{Z}/9\mathbb{Z})^{\times}\cong\mathbb{Z}/6\mathbb{Z}$，其非平凡子群为唯一的$2$阶和唯一的$3$阶子群，$2$阶元为$\sigma_8$，$3$阶元为$\sigma_4,\sigma_7$，$6$阶元为$\sigma_2,\sigma_5$，其中$\sigma_i: \zeta_9\mapsto \zeta_9^i$.
+
+对$2$阶子群$\{\id,\sigma_8\}$，它固定$\zeta_9+\zeta_9^8\in\mathbb{R}$不变，故中间域$F_1\supseteq F(\zeta_9+\zeta_9^8)$，后者是$\mathbb{R}$的子域，故不是$K$，且$\zeta_9$在$F(\zeta_9+\zeta_9^8)$上有化零多项式$x^2-(\zeta_9+\zeta_9^8)x+1$，若它可约，则$\zeta_9\in F(\zeta_9+\zeta_9^8)$，矛盾，故$[K: F(\zeta_9+\zeta_9^8)]=2$，$F(\zeta_9+\zeta_9^8)=F_1$就是$\{\id,\sigma_8\}$的不变域.
+
+对$3$阶子群$\{\id, \sigma_4, \sigma_7\}$，它固定$\zeta_9^3=\omega$不变. 故中间域$F_2\supseteq F(\omega)$. $\zeta_9$在$F(\omega)$上的化零多项式为$f(x)=x^3-\omega=(x-\zeta_9)(x-\zeta_9\omega)(x-\zeta_9\omega^2)$，若它在$F(\omega)$上可约，则它有一次因式，$\zeta_9\omega^i\;(i=0,1,2)\in F(\omega)$，$\zeta_9\in F(\omega)$，$K=F(\omega)$，但$[F(\omega):F]=2$（读者请自证），与$[K:F]\geq|\mathrm{Gal}(K/F)|=6$矛盾，故$f(x)$在$F(\omega)$上不可约，是$\zeta_9$的最小多项式，$[K:F(\omega)]=3$，$F(\omega)=F_2$就是$\{\id,\sigma_4,\sigma_7\}$的不变域.
+\subsubsection{(3)}
+$n=12$，$G=(\mathbb{Z}/12\mathbb{Z})^{\times}\cong K_2$为克莱茵群，其$2$阶元为$\sigma_{5,7,11}, \sigma_i:\zeta_{12}\mapsto\zeta_{12}^i$.
+
+对$2$阶子群$\{\id, \sigma_{11}\}$，它固定$\zeta_{12}+\zeta_{12}^{11}\in\mathbb{R}$不变，故中间域$F_1\supseteq F(\zeta_{12}+\zeta_{12}^{11})$，后者是$\mathbb{R}$的子域，故不是$K$，且$\zeta_{12}$在$F(\zeta_{12}+\zeta_{12}^{11})$上有化零多项式$x^2-(\zeta_{12}+\zeta_{12}^{11})x+1$，若它可约，则$\zeta_{12}\in F(\zeta_{12}+\zeta_{12}^{11})$，矛盾，故$[K: F(\zeta_{12}+\zeta_{12}^{11})]=2$，$F(\zeta_{12}+\zeta_{12}^{11})=F_1$就是$\{\id,\sigma_{11}\}$的不变域.
+
+对$2$阶子群$\{\id, \sigma_7\}$，它固定$\zeta_{12}^2=\omega+1$不变，故中间域$F_2\supseteq F(\omega)$. $\zeta_{12}$在$F(\omega)$上的化零多项式为$f(x)=x^2-(\omega+1)=(x-\zeta_{12})(x-\zeta_{12}\omega)$，若它在$F(\omega)$上可约，则它有一次因式，$\zeta_{12}\omega^i\;(i=0,1)\in F(\omega)$，$\zeta_{12}\in F(\omega)$，$K=F(\omega)$，但$[F(\omega):F]=2$（读者请自证），与$[K:F]\geq|\mathrm{Gal}(K/F)|=4$矛盾，故$f(x)$在$F(\omega)$上不可约，是$\zeta_{12}$的最小多项式，$[K:F(\omega)]=2$，$F(\omega)=F_2$就是$\{\id,\sigma_7\}$的不变域.
+
+对$2$阶子群$\{\id, \sigma_5\}$，它固定$\zeta_{12}^3=i$不变，故中间域$F_3\supseteq F(i)$.
+$\zeta_{12}$在$F(i)$上的化零多项式为$f(x)=x^2-ix-1$，但显然$\zeta_{12}\notin F(i)$，故$f(x)$在$F(i)$上不可约，$[K:F(i)]=2$，$F(i)=F_3$就是$\{\id,\sigma_5\}$的不变域.
+
+\subsection{}
+设$n\geq 2$为正整数，证明$\mathbb{Q}(\zeta_n)\cap\mathbb{R}=\mathbb{Q}(\zeta_n+\zeta_n^{-1})$.
+
+\zm{
+	题意要求的集合必在复共轭的不变域中，类似正文的讨论（复共轭未必是伽罗瓦群中唯一$2$阶元，但我们已经特定了复共轭的不变域，请读者自己完成）即得$\mathbb{Q}(\zeta_n)\cap\mathbb{R}\subseteq \mathbb{Q}(\zeta_n+\zeta_n^{-1})$，又$\zeta+\zeta_n^{-1}\in\mathbb{R}$，故$\mathbb{Q}(\zeta_n)\cap\mathbb{R}\supseteq \mathbb{Q}(\zeta_n+\zeta_n^{-1})$，得到结论.
+}
+
+\subsection{}
+设$p$是奇素数，$\left(\frac{a}{p}\right)_{\mathrm{Le}}$是勒让德符号，设{\heiti 高斯和}
+$$g=\sum_{a\in\mathbb{F}_p}\zeta_p^a\left(\frac{a}{p}\right)_{\mathrm{Le}}.$$
+证明：
+\subsubsection{(1)}
+$\sum_{a\in\mathbb{F}_p}\zeta_p^a=0$.
+
+\zm{
+	注意$x^p-1$的次项系数为$0$即可.
+}
+\subsubsection{(2)}
+$g\cdot\overline{g}=p$，其中$\overline{g}$是$g$的复共轭.
+
+\zm{
+	$u=g\overline{g}=\sum_{a\in\mathbb{F}_p}\zeta_p^a\left(\frac{a}{p}\right)_{\mathrm{Le}}\sum_{b\in\mathbb{F}_p}\zeta_p^{-b}\left(\frac{b}{p}\right)_{\mathrm{Le}}=\sum_{i=0}^{p-1}g_i\zeta_p^i$，其中$g_i=\sum_{a\in\mathbb{F}_p}\left(\frac{a}{p}\right)_{\mathrm{Le}}\left(\frac{a-i}{p}\right)_{\mathrm{Le}}$.
+	
+	$g_0$容易计算，因为$a\neq 0$时$\left(\frac{a^2}{p}\right)_{\mathrm{Le}}$由定义等于$1$，$a\neq0$时它等于$0$. 故$g_0=\sum_{a\in\mathbb{F}_p}\left(\frac{a}{p}\right)_{\mathrm{Le}}\left(\frac{a}{p}\right)_{\mathrm{Le}}=\sum_{a\in\mathbb{F}_p}\left(\frac{a^2}{p}\right)_{\mathrm{Le}}=0+\underbrace{1+\cdots+1}_{p-1\text{个}}=p-1$.
+	
+	由于当$j\neq 0$时$g_1=\left(\frac{j^2}{p}\right)_{\mathrm{Le}}g_1=\sum_{a\in\mathbb{F}_p}\left(\frac{a}{p}\right)_{\mathrm{Le}}\left(\frac{a-1}{p}\right)_{\mathrm{Le}}\left(\frac{j^2}{p}\right)_{\mathrm{Le}}=\sum_{a\in\mathbb{F}_p}\left(\frac{ja}{p}\right)_{\mathrm{Le}}\left(\frac{ja-j}{p}\right)_{\mathrm{Le}}$，由于$j$与$p$互素，$a\mapsto ja$是$\mathbb{F}_p$到自身的双射，故上式$=\sum_{a^{\prime}\in\mathbb{F}_p}\left(\frac{a^{\prime}}{p}\right)_{\mathrm{Le}}\left(\frac{a^{\prime}-j}{p}\right)_{\mathrm{Le}}=g_j$，故$g_1,\cdots,g_{p-1}$都相等.
+	
+	考虑$\sum_{i=0}^{p-1}g_i=\sum_{i\in\mathbb{F}_p}\sum_{a\in\mathbb{F}_p}\left(\frac{a}{p}\right)_{\mathrm{Le}}\left(\frac{a-i}{p}\right)_{\mathrm{Le}}=\sum_{a\in\mathbb{F}_p}\left(\frac{a}{p}\right)_{\mathrm{Le}}\left(\sum_{i\in\mathbb{F}_p}\left(\frac{a-i}{p}\right)_{\mathrm{Le}}\right)$，由于$a$固定，$i$取$\mathbb{F}_p$上各值时$a-i$也取$\mathbb{F}_p$上不重复的各值，且（读者可自行考虑$\mathbb{F}_p$上的生成元$\sigma$，则二次剩余为$\sigma^2$生成的指数为$2$的子群）勒让德符号有性质$\sum_{l\in\mathbb{F}_p}\left(\frac{l}{p}\right)_{\mathrm{Le}}=0$，故$\sum_{a\in\mathbb{F}_p}\left(\frac{a}{p}\right)_{\mathrm{Le}}\left(\sum_{i\in\mathbb{F}_p}\left(\frac{a-i}{p}\right)_{\mathrm{Le}}\right)=\sum_{a\in\mathbb{F}_p}\left(\frac{a}{p}\right)_{\mathrm{Le}}\cdot 0=0$，即$\sum_{i=1}^{p-1}g_i=-g_0=-(p-1)$，$g_1=g_2=\cdots=g_{p-1}=-1$.
+	
+	$u=\sum_{i=0}^{p-1}g_i\zeta_p^i=p-1-\sum_{i=1}^{p-1}\zeta_p^i=p-\sum_{i=0}^{p-1}\zeta_p^i=p-0=p$.
+}
+
+\subsubsection{(3)}
+$\overline{g}=\sum_{a\in\mathbb{F}_p}\zeta_p^{-a}\left(\frac{a}{p}\right)_{\mathrm{Le}}=\sum_{a\in\mathbb{F}_p}\zeta_p^a\left(\frac{-a}{p}\right)_{\mathrm{Le}}=\sum_{a\in\mathbb{F}_p}\zeta_p^a\left(\frac{a}{p}\right)_{\mathrm{Le}}\left(\frac{-1}{p}\right)_{\mathrm{Le}}=g\left(\frac{-1}{p}\right)_{\mathrm{Le}}=(-1)^{(p-1)/2}g$.
+
+故$g^2=g\overline{g}(-1)^{-(p-1)/2}=(-1)^{-(p-1)/2}p=(-1)^{(p-1)/2}$（因$(p-1)/2$是整数），即得结论.
+
+\subsubsection{(4)}
+$\mathbb{Q}(\zeta_p)$有唯一的二次子域$K=\mathbb{Q}(g)$.
+
+\zm{
+	令$\sigma: \zeta_p\mapsto \zeta_p^r$是$\mathrm{Gal}(\mathbb{Q}(\zeta_p)/\mathbb{Q})\cong(\mathbb{Z}/p\mathbb{Z})^{\times}$的一个生成元，则$\sigma^2:\zeta_p^u\mapsto\zeta_p^{ur^2}$，$r^2$是模$p$的二次剩余，故$\left(\frac{u}{p}\right)_{\mathrm{Le}}=\left(\frac{ur^2}{p}\right)_{\mathrm{Le}}$，即$\sigma^2$保持$g$不变. $\sigma^2$的不变域$K_1$包含$K$（易验证$g\notin\mathbb{Q}$）.
+	
+	另一方面，$\langle \sigma^2 \rangle$是$\mathrm{Gal}(\mathbb{Q}(\zeta_p)/\mathbb{Q})$的唯一指数为$2$的子群，故$[K_1:\mathbb{Q}]=2=[K:\mathbb{Q}]$，故$K_1=K$，$K$是$\mathbb{Q}(\zeta_p)$的唯一二次子域.
+}

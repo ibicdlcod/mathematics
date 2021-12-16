@@ -1,0 +1,430 @@
+\section{群的基本概念和例子}
+\subsection{}
+令$A$为非空集合，$G$是群，$\Map(A,G)$为$A$到$G$的一切映射集合，对任意$f,g\in\Map(A,G)$定义$fg: \forall a\in A fg(a)=f(a)g(a)$. 试证$\Map(A,G)$是群.
+
+\zm{
+	$(fg)h=f(gh)$：$\forall a\in A, (fg)h(a)=fg(a)h(a)=f(a)g(a)h(a)=f(a)gh(a)=f(gh)(a)$
+	
+	单位元$1_{\Map{A,G}}$存在：$1_{\Map{A,G}}: \forall a \in A, a\mapsto 1_G$，易验证它满足条件.
+	
+	逆元$f^{-1}_{\Map{A,G}}$存在：$f^{-1}_{\Map{A,G}}: \forall a \in A, a\mapsto f(a)^{-1}_G$，易验证它满足条件.
+}
+
+\subsection{}
+设$A$为集合，$P(A)$为$A$的子集构成的集族，在$P(A)$上定义乘法运算：
+$$X\bigtriangleup Y=(X\cap Y^c)\cup(X^c\cap Y)$$
+试证$(P(A), \bigtriangleup)$构成交换群，且$\forall X\in P(X), X^{-1}_{\bigtriangleup}=X$.
+
+\zm{
+	结合律：$(X\bigtriangleup Y) \bigtriangleup Z$
+	\\$=((X\bigtriangleup Y)\cap Z^c)\cup((X\bigtriangleup Y)^c\cap Z)$
+	\\$=(((X\cap Y^c))\cup(X^c\cap Y))\cap Z^c)\cup(((X\cap Y^c)^c\cap(X^c\cap Y)^c)\cap Z)$
+	\\$=(X\cap Y^c \cap Z^c)\cup(X^c \cap Y \cap Z^c)\cup(((X^c\cup Y)\cap(X\cup Y^c))\cap Z)$
+	\\注意到$((X^c\cup Y)\cap(X\cup Y^c))=(X^c\cap X)\cup(Y\cap X)\cup(X^c\cap Y^c)\cup(Y\cap Y^c)=(X\cap Y)^(X^c\cap Y^c)$
+	\\则上式$=(X\cap Y^c\cap Z^c)\cup(X^c\cap Y\cap Z^c)\cup(X^c\cap Y^c\cap Z)\cup(X\cap Y\cap Z)$
+	\\该式关于$X,Y,Z$对称，故$(X\bigtriangleup Y) \bigtriangleup Z=(Y\bigtriangleup Z) \bigtriangleup X= X\bigtriangleup (Y\bigtriangleup Z)$（$\bigtriangleup$的交换性由定义立得）
+	
+	单位元$1_{P(A), \bigtriangleup}=\varnothing$：因对任意$X\subseteq A$，$X\bigtriangleup\varnothing=(X\cap A)\cup(X^c\cap\varnothing)=X$.
+	
+	$X$的逆是自身：$X\bigtriangleup X=(X\cap X^c)\cup(X^c\cap X)=\varnothing$.
+}
+
+\subsection{}
+试证平面保距映射都是双射，且在函数复合意义下构成群.
+
+\zm{
+	令$f: A_1\rightarrow A_2$为保距映射.
+	
+	函数复合意义下构成群：留给读者.
+	
+	单射性：若$f(\alpha)=f(\beta)$，则$|\alpha-\beta|=|f(\alpha)-f(\beta)|=0, \alpha=\beta$.
+	
+	满射性：任取$A_2$中点$\gamma_2$. 由单射性$A_2$中有原像的点多于一个，设$\alpha_2\neq\beta_2$是这样的两个点，$|\alpha_2-\gamma_2|=b,|\beta_2-\gamma_2|=a,|\alpha_2-\beta_2|=c$，则$a+b\geq c,a-b\leq c$，故$\alpha_2$和$\beta_2$由距离$b,a$至少确定一点且至多确定两点（请读者想象以$\alpha_2$为中心$b$为半径的圆，$\beta_2$为中心$a$为半径的圆，两圆依条件不相离不相包含，则必相交或相切的情况），这两点关于直线$\alpha_2\beta_2$对称（或为此直线上一点），其中一个为$\gamma_2$，另一个为$\omega_2$（若为一点，则$\omega_2=\gamma_2$）
+	
+	考虑$\alpha_2,\beta_2$的原像$\alpha_1,\beta_1$，它们满足$|\alpha_1-\beta_1|=c$. 故$\alpha_1$和$\beta_1$由距离$b,a$同样在$A_1$中至少确定一点且至多确定两点，由保距性，它们的像只能是$\gamma_2,\omega_2$. 若$\omega_2=\gamma_2$，则$\gamma_2$已经有原像. 若$\omega_2\neq\gamma_2$，则$a+b\neq c,a-b\neq c$（即$\alpha_2\beta_2\gamma_2$为非退化三角形），故$A_1$中一定确定了两点（同上分析，并且这时两圆不相切），这两点的像只能在$\omega_2,\gamma_2$当中取，由单射性，$\gamma_2$和$\omega_2$都有原像，故得满射性.
+}
+
+\subsection{}
+设$G$是群，$x,y\in G$. 试证：$(x^{-1})^{-1}=x, (xy)^{-1}=y^{-1}x^{-1}$.
+
+\zm{
+	(1) $xx^{-1}=x^{-1}x=1$，由$x$在$G$中的任意性以$x^{-1}$代替$x$有$x^{-1}(x^{-1})^{-1}=(x^{-1})^{-1}x^{-1}=1$，由消去律得$(x^{-1})^{-1}=x$.
+	
+	(2)
+	$y^{-1}x^{-1}xy=y^{-1}\cdot 1\cdot y=1, xyy^{-1}x^{-1}=x\cdot 1\cdot x^{-1}=1$.
+}
+
+\subsection{}
+判断以下哪些2阶方阵集合在乘法意义下构成群：
+
+\subsubsection{(1)}
+$\begin{pmatrix}
+	a & b\\
+	b & c
+\end{pmatrix}$
+，$ac\neq b^2$.
+
+\jie$\begin{pmatrix}
+1 & 0\\
+0 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1\\
+1 & 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 1\\
+2 & 4
+\end{pmatrix}
+$结果不满足条件，该集合对二元运算不封闭.
+\subsubsection{(2)}
+$\begin{pmatrix}
+a & b\\
+c & a
+\end{pmatrix}$
+，$a^2\neq bc$.
+
+\jie$\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1\\
+2 & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+2 & 0\\
+0 & 1
+\end{pmatrix}
+$结果不满足条件，该集合对二元运算不封闭.
+\subsubsection{(3)}
+$\begin{pmatrix}
+a & b\\
+0 & c
+\end{pmatrix}$
+，$ac\neq 0$.
+
+\zm{
+	$\begin{pmatrix}
+	a_1 & b_1\\
+	0 & c_1
+	\end{pmatrix}
+	\begin{pmatrix}
+	a_2 & b_2\\
+	0 & c_2
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	a_1a_2 & a_1b_2+b_1c_2\\
+	0 & c_1c_2
+	\end{pmatrix}
+	$
+	
+	由于$a_1a_2c_1c_2=(a_1c_1)(a_2c_2)=0$，故集合对二元运算封闭.
+	
+	结合律由矩阵乘法结合律得到.
+	
+	单位元存在：集合中有矩阵乘法的单位元$\begin{pmatrix}
+	1 & 0\\
+	0 & 1
+	\end{pmatrix}$，它也一定是该集合中的单位元.
+	
+	逆元：
+	$\begin{pmatrix}
+	a & b\\
+	0 & c
+	\end{pmatrix}
+	\begin{pmatrix}
+	a^{-1} & -ba^{-1}c^{-1}\\
+	0 & c^{-1}
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	a^{-1} & -ba^{-1}c^{-1}\\
+	0 & c^{-1}
+	\end{pmatrix}
+	\begin{pmatrix}
+		a & b\\
+		0 & c
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	1 & 0\\
+	0 & 1
+	\end{pmatrix}
+	$
+	由于$ac\neq 0$，$a^{-1}, c^{-1}$存在且$a^{-1}c^{-1}\neq 0$，故逆元存在.
+	
+	综上，该集合在矩阵乘法下为群.
+}
+\subsubsection{(4)}
+$\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}$
+，$a,b,c,d\in\mathbb{Z}, ad\neq bc$.
+
+\Proofbyintimidation
+
+\subsection{}
+试证集合$\bigcup_{n\geq 1}\mu_n=\{\zeta^i_n\mid 0\leq i\leq n-1\}$在复数乘法意义下构成群.
+
+\zm{
+	只证该集合对二元运算封闭，单位，结合，逆元留给读者.
+	
+	$\zeta_{n_1}^{i_1}\cdot\zeta_{n_2}^{i_2}$
+	\\$=\exp(2\pi i\cdot\frac{i_1}{n_1})\exp(2\pi i\cdot\frac{i_2}{n_2})$
+	\\$=\exp(2\pi i\cdot\frac{i_1n_2+i_2n_1}{n_1n_2})$
+	\\$=\exp(2\pi i\cdot\frac{i_1n_2+i_2n_1-kn_1n_2}{n_1n_2})$
+	其中$0\leq i_1n_2+i_2n_1-kn_1n_2<n_1n_2$.
+	\\$\in\mu_{n_1n_2}$
+	\\$\subseteq\bigcup_{n\geq 1}\mu_n$.
+}
+
+\subsection{}
+\subsubsection{(1)}
+若群$A\leq G, B\leq H$，则$A\times B\leq G\times H$.
+
+\zm{
+	令$a=\{a_A,a_B\}, b=\{b_A,b_B\}$为$A\times B$中元素.
+	则$ab^{-1}=\{a_Ab_A^{-1},a_Bb_B^{-1}\}\in G\times H$，然后利用{\heiti 命题}\textbf{1.31}.
+}
+
+\subsubsection{(2)}
+举例说明不是所有$\mathbb{Z}\times\mathbb{Z}$的子群都是如此得到的.
+
+\jie
+令$A=\{a, 2a\}(a\in \mathbb{Z})$为$\mathbb{Z}\times\mathbb{Z}$的子群，则$\{1,2\}\in A, \{2,4\}\in A, \{1, 4\}\notin A$，$A$不是两个集合的直积.
+
+\subsection{}
+设$(G,\cdot)$为群，试证$G^{\op}=(G, \circ), a\circ b=b\cdot a$也是群. 称为$G$的{\heiti 反群}.
+
+\zm{
+	集合对二元运算封闭显然.
+	
+	 结合律：$(a\circ b)\circ c=(b\cdot a)\circ c=c\cdot b\cdot a=(b\circ c)\cdot a=a\circ (b\circ c)$
+	
+	单位：$1_G\circ a=a\circ 1_G=a\cdot 1_G=1_G\cdot a=a$，故$1_{G^{\op}}=1_G$.
+	
+	逆元：$a\cdot a_G^{-1}=a_G^{-1}\cdot a=1\Leftrightarrow a_G^{-1}\circ a=a\circ a_G^{-1}=1$，故$a^{-1}_{G^{\op}}=a^{-1}_G$.
+}
+
+\subsection{}
+设$G$是含幺半群. 试证其中可逆元$G^{\times}$构成群.
+
+\zm{
+	只需要证$G^{\times}$对乘法运算封闭：
+	$\forall a,b\in G^{\times}, abb^{-1}a^{-1}=b^{-1}a^{-1}ab=1$.
+	故$(ab)^{-1}=b^{-1}a^{-1}$为$ab$的逆元，$ab\in G^{\times}$.
+}
+
+\subsection{}
+令$G$是$n$阶有限群，$a_1,...,a_n$为群$G$的任意$n$个元素，不一定两两不同. 试证：存在$p,q\in\mathbb{Z}, 1\leq p\leq q\leq n,$ s.t. $a_pa_{p+1}...a_q=1$.
+
+\zm{
+	考虑$a_1, a_1a_2, ..., a_1a_2...a_j, ..., a_1a_2...a_n$是群$G$中$n$个元素，若其中有元素等于$1$，则结论已经成立，否则这$n$个元素只有$1$以外的$n-1$个取值.
+	
+	故由抽屉原理$\exists p\neq q\in\mathbb{Z}$ s.t. $a_1a_2...a_p = a_1a_2...a_q$.
+	此时$a_{p+1}a_{p+2}...a_q=1$，$p+1$和$q$满足条件，结论成立.
+}
+
+\subsection{}
+设$G$是群，$A,B,H\leq G, H\subseteq(A\cup B)$，试证$H\subseteq A$或$H\subseteq B$.
+
+\zm{
+	反证法，若结论不成立，则$\exists a,b\in H$ s.t. $a\in A, a\notin B, b\in B, b\notin A$.
+	
+	考虑$ab\in H$. 若$ab\in A$，则$a^{-1}\in A$推出$b=a^{-1}ab\in A$，矛盾. 若$ab\in B$，则$b^{-1}\in B$推出$a=abb^{-1}\in B$，矛盾，故$ab\notin A\cup B$，与$H\subseteq A\cup B$矛盾.
+}
+
+\subsection{}
+试证在偶数阶群$G$中$x^2=1$总有偶数个解.
+
+\zm{
+	$x^2=1\Leftrightarrow x=x^{-1}$. 由于$(x^{-1})^{-1}=x$，故满足$x\neq x^{-1}$的元素总是成对出现的，故$x^2\neq 1$有偶数个解，由总元素为偶数，$x^2=1$也有偶数个解.
+},
+
+\subsection{}
+验证以下事实：
+\subsubsection{(1)}
+$\mathrm{SL}_n(F), T_n(F), \mathrm{Diag}_n(F), B_n(F)\leq \mathrm{GL}_n(F), T_n(F)\leq\mathrm{SL}_n(F), \mathrm{Diag}_n(F)\leq B_n(F)$.
+\subsubsection{(2)}
+$\mathrm{O}_n(\mathbb{R})\leq\mathrm{GL}_n(\mathbb{R}),
+	\mathrm{O}_{p,q}(\mathbb{R})\leq\mathrm{GL}_{p+q}(\mathbb{R}),
+	\mathrm{Sp}_{2n}(\mathbb{R})\leq\mathrm{GL}_{2n}(\mathbb{R})
+	$.
+\subsubsection{(3)}
+$\mathrm{U}(n)\leq\mathrm{GL}_n(\mathbb{C})$.
+
+\Proofbyintimidation
+
+\subsection{}
+试证群$G$的任意多个子群的交仍是$G$的子群.
+
+\Proofbyintimidation
+
+\subsection{}
+设$A,B$是群$G$的两个子群，试证：$A\cup B$是$G$的子群的充要条件是$A\leq B$或$B\leq A$，利用该事实证明：$G$不能表为两个真子群的并.
+
+\zm{
+	充分性显然，下证必要性：
+	
+	在{\heiti 习题}\textbf{1.2.11}中令$H=A\cup B$，得$A\cup B\subseteq A$或$\subseteq B$，即$A\subseteq B$或$B\subseteq A$.
+	
+	若$A\neq G, B\neq G$为真子群，由$A\cup B\subseteq A$或$B$知$A\cup B\neq G$.
+}
+
+\subsection{}
+设$A,B$是群$G$的两个子群，试证$AB$是$G$的子群$\Leftrightarrow AB=BA$.
+
+\zm{
+	($\Rightarrow$)$\forall a\in A, b\in B, ba=(a^{-1}b^{-1})^{-1}\in AB$，由$a,b$的任意性有$BA\subseteq AB$，反之$\forall a\in A, b\in B, (ab)^{-1}=(b^{-1}a^{-1})\in BA$，故$AB=(AB)^{-1}\subseteq BA$，故$AB=BA$.
+	
+	($\Leftarrow$)$AB$中任取元素$c_1,c_2$，下证$c_1c_2^{-1}\in AB$：
+	
+	$c_1=a_1b_1, c_2=a_2b_2$其中$a_1,a_2\in A, b_1,b_2\in B$.
+	故$c_1c_2^{-1}=a_1b_1b_2^{-1}a_2^{-1}$，有$b_1b_2^{-1}\in B$，$a_2^{-1}\in A$，
+	由$BA=AB$得$\exists a_3\in A, b_3\in B$ s.t. $b_1b_2^{-1}a_2^{-1}=a_3b_3$，
+	故$c_1c_2^{-1}=a_1a_3b_3$，由$a_1a_3\in A$，$c_1c_2^{-1}$属于$AB$，由{\heiti 命题}\textbf{1.31}即得结论.
+}
+
+\subsection{}
+设$A$和$B$为有限群$G$的两个非空子集，若$|A|+|B|>|G|$，证明$|G|=AB$，特别地，如果$G$有子集$S$，$|S|>|G|/2$，证明对任意$g\in G, \exists a,b\in S$ s.t. $g=ab$.
+
+\zm{
+	反证法，若结论不成立，则$\exists g\in G$ s.t.  $\forall a\in A, b\in B, g\neq ab$，故$a^{-1}g\neq b$，左边由消去律，不同的$a$导致不同的$a^{-1}g$，故可取$|A|$个不同值，右边有$|B|$个不同取值，任何左边值不能等于任何右边值导致两边有$|A|+|B|>|G|$个不同值，但两边都是$G$的元素，矛盾.
+}
+
+\subsection{}
+\subsubsection{(1)}
+确定$\mathbb{Z}$的所有子群.
+
+\jie 令$A\leq \mathbb{Z}$，要么$A=\{0\}$，要么存在$a$使得它是$A$中绝对值最小的数，若$a<0$则$-a\in A$，故不妨设$a>0$，由贝祖定理（{\heiti 《代数学I:代数学基础》定理}\textbf{3.6}）知对$A$中任意元素$b,c$，$\gcd(b,c)\in A$，由$a$的最小性，它是所有$A$中元素的最大公约数，故$A\subseteq a\mathbb{Z}$，易验证$a\in A\Rightarrow a\mathbb{Z}\subseteq A$，故$A=a\mathbb{Z}$.
+
+故$\mathbb{Z}$的所有子群为$\{a\mathbb{Z}\mid a\in\mathbb{N}\}$.
+
+\subsubsection{(2)}
+确定$\mathbb{Z}/n\mathbb{Z}, n\in\mathbb{N}, n\geq 2$的所有子群.、
+
+\jie 请读者仿照(1)自证，注意子群中必有元素$\overline{n}=\overline{0}$. 所有子群为$\{a\mathbb{Z}/n\mathbb{Z}\mid a\in\mathbb{N}, a\mid n\}$.
+
+\subsection{}
+试证：映射$f: G\rightarrow G, a\mapsto a^{-1}$是$G$的自同构当且仅当$G$是阿贝尔群.
+
+\zm{
+	由于$(a^{-1})^{-1}=a$，故$f$为双射显然.
+	$f$为同态$\Leftrightarrow \forall a,b\in G, (ab)^{-1}=a^{-1}b^{-1}
+	\Leftrightarrow \forall a,b\in G, a^{-1}b^{-1}=b^{-1}a^{-1}
+	\Leftrightarrow \forall a,b\in G, ab=ba$.
+}
+
+\subsection{}
+设$G_1, G_2, G_3$为群，试证$G_1\times G_2\cong G_2\times G_1$，
+$(G_1\times G_2)\times G_3\cong G_1\times(G_2\times G_3)$.
+
+\Proofbyintimidation
+
+\subsection{}
+对下面每一情形，确定是否$G\cong H\times K$：
+\subsubsection{(1)}
+$G=\mathbb{R}^{\times}, H=\{\pm1\}, K=\mathbb{R}^{\times}_+$
+
+\zm{
+	类似(3)，留给读者.
+}
+\subsubsection{(2)}
+$G=B_n(F), H=\mathrm{Diag}(F), K=T_n(F)$
+
+\jie
+由于$G,H,K$的乘法一致，$H,K$可看作$G$的子群，若$G\cong H\times K$则$H\mapsto \{H, 1_K\}$和$K\mapsto \{1_H, K\}$中元素应该互相交换. 但与$K$中所有元素都交换的矩阵是数量矩阵$xI_n$，于是有两种情况：
+
+(i) $F\neq\mathbb{F}_2$，此时$F$中有多于一个非零元素，取对角线上元素不全相同的可逆对角阵，则它与$K$中元素不全交换，故同构不成立.
+
+(ii) $F=\mathbb{F}_2$，此时$H$为平凡群$\{I_n\}$，并且$K\cong G$，自然有$G\cong H\times K$.
+
+故$G\cong H\times K$当且仅当$F=\mathbb{F}_2$.
+\subsubsection{(3)}
+$G=\mathbb{C}^{\times}, H=S^1, K=\mathbb{R}^{\times}_+$
+
+\zm{
+	令$f: \mathbb{C}^{\times}\rightarrow \mathbb{R}^{\times}_+\times S^1, z=re^{i\theta}\mapsto\{r, e^{i\theta}\}$，由于$z\neq 0$，易验证$f$是双射且是同态，故同构成立.
+}
+
+\subsection{}
+证明有理数加法群$\mathbb{Q}$和有理数乘法群$\mathbb{Q}^{\times}$不同构.
+
+\zm{
+	反证法，若同构$f: \mathbb{Q}\rightarrow\mathbb{Q}^{\times}$存在，则$\exists a\in\mathbb{Q}$，使得$f(a)=2$，因$b=\frac{a}{2}\in\mathbb{Q}$，
+	由同态的性质$f(b)^2=2$，而$f(b)\in\mathbb{Q}^{\times}, f(b)=\frac{p}{q} \;(p, q\in\mathbb{Z}, \gcd(p,q)=1)$，得$p^2=2q^2\Rightarrow 2\mid p^2\Rightarrow 2\mid p\Rightarrow 2(\frac{p}{2})^2=q^2\Rightarrow 2\mid q^2\Rightarrow2\mid q\Rightarrow 2\mid\gcd(p,q)$，矛盾.
+}
+
+\subsection{}
+\subsubsection{(1)}
+令$G$是实数对$(a,b)\;(a\neq 0)$的集合. 在$G$上定义乘法$(a,b)(c,d)=(ac,ad+b)$，试证$G$是群.
+
+\zm{
+	$G$对乘法封闭：$ac\neq 0\Leftarrow a\neq 0, c\neq 0$.
+	
+	单位元：$(1,0)(c,d)=(c,d+0)=(c,d), (a,b)(1,0)=(a,0+b)=(a,b)$，
+	故$(1,0)$是$G$的单位.
+	
+	逆元：$(a,b)(1/a,-b/a)=(1,-b+b)=(1,0), (1/a,-b/a)(a,b)=(1, b/a-b/a)=(1,0)$，	
+	故$(a,b)^{-1}_G=(1/a, -b/a)$.
+	
+	结合律：$((a,b)(c,d))(e,f)=(ac,ad+b)(e,f)=(ace,acf+ad+b)$，
+	$(a,b)((c,d)(e,f))=(a,b)(cd,d+cf)=(ace,acf+ad+b)$. 两者相同.
+}
+\subsubsection{(2)}
+试证$G$同构于$\mathrm{GL}_2(\mathbb{R})$的子群
+$$H=\left\{
+\begin{pmatrix}
+a & b\\
+0 & 1
+\end{pmatrix}
+|a\in\mathbb{R}^{\times}, b\in\mathbb{R}
+\right\}$$.
+
+\zm{
+	同构映射显然，只证同态性，其他留给读者.
+	$$
+	\begin{pmatrix}
+	a & b\\
+	0 & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	c & d\\
+	0 & 1
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	ac+0 & ad+b\\
+	0+0 & 0+1
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	ac & ad+b\\
+	0 & 1
+	\end{pmatrix}
+	$$
+}
+
+\subsection{}
+群$G$的自同构$\alpha$称为没有不动点，是指对$G$的任意元素$g\neq 1_G, \alpha(g)\neq g$. 如果$\alpha$为没有不动点的自同构且$\alpha^2=\id$，证明$G$为奇数阶阿贝尔群.
+
+\zm{
+	由于$\alpha(\alpha(g))=g\neq \alpha(g), \forall g\neq 1$，因此$G$中非$1_G$元素成对出现，$G$的阶为奇数.
+	
+	\emph{以下证明$G$为阿贝尔群的过程可以仔细思考}{\heiti 习题}\textbf{1.3.15}\emph{的证明过程得到：}
+	
+	考虑$f: G\rightarrow G, x\mapsto x\alpha(x)^{-1}$，
+	
+	若$f(x_1)=f(x_2)$，则$x_1\alpha(x_1)^{-1}=x_2\alpha(x_2)^{-1}\Leftrightarrow x_2^{-1}x_1=\alpha(x_2)^{-1}\alpha(x_1)\Leftrightarrow x_2^{-1}x_1=\alpha(x_2^{-1}x_1)$.
+	因$\alpha$没有不动点，得$x_2^{-1}x_1=1_G$，即$x_1=x_2$. 故$f$是单射. 由于$f$是$G$到自身的映射，因此$f$也是满射.
+	
+	故$\forall y\in G, \exists x$ s.t. $y=x\alpha(x)^{-1}$，
+	$\therefore \alpha(y)=\alpha(x)\alpha(\alpha(x^{-1}))=(\alpha(x)^{-1})^{-1}x^{-1}=y^{-1}$，即$\alpha$将每个元素映射至其逆元.
+	
+	由{\heiti 习题}\textbf{1.2.19}知$G$是阿贝尔群.
+}

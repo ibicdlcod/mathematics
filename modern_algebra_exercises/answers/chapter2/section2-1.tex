@@ -1,0 +1,246 @@
+\section{对称群}
+\subsection{}
+把置换$\sigma=(456)(567)(761)$写作不相交轮换之积.
+
+\jie$(456)(567)(761)=(16)(45)$
+
+\subsection{}
+直接证明置换$(123)(45)$与$(241)(35)$共轭.
+
+\jie$(1243)[(123)(45)](1243)^{-1}=(241)(35)$.
+
+\subsection{}
+讨论置换
+$\begin{pmatrix}
+1 & 2 & \cdots & n\\
+n & n-1 & \cdots & 1
+\end{pmatrix}$
+的奇偶性.
+
+\jie $n=4k, 4k+1$时为偶置换，$4k+2, 4k+3$时为奇置换. $(k\in \mathbb{N})$，证明留给读者.
+
+\subsection{}
+一个置换的阶为它的轮换表示中各个轮换的长度的最小公倍数.
+
+\Proofbyintimidation
+
+\subsection{}
+\subsubsection{(1)}
+证明$S_n$中型为$1^{\lambda_1}2^{\lambda_2}\cdots n^{\lambda_n}$的置换共有
+$n!/\prod_{i=1}^{n}\lambda_i!i^{\lambda_i}$个.
+
+\zm{
+将$1,2,...,n$排序，共有$n!$中排法. 对每一个排序按照如下形式划分：
+
+前$\lambda_1$个元素各自成一类，各放入一个$1$轮换中.
+
+其后$2\lambda_2$个元素相邻每$2$个成一类，各放入一个$2$轮换中.
+
+...
+
+最后$n\lambda_n$个元素相邻每$n$个成一类，各放入一个$n$轮换中.
+
+则该置换满足题意所述的型. 但交换各$i$组中$\lambda_i$个轮换的排列顺序，则置换不变，有$\lambda_i!$种变换方式. 对以上每一种变换方式，交换任一轮换中排序，有以下轮换等价$(a_1a_2...a_k)=(a_2a_3...a_ka_1)=\cdots =(a_ka_1...a_k-1)$，又有对每一轮换$i$种方式，对所有$\lambda_i$个$i$轮换有$i^{\lambda_i}$种方式. 故第$i$组有$\lambda_i!i^{\lambda_i}$中排法对应同一置换，综合各组则每一置换对应$\prod_{i=1}^{n}\lambda_i!i^{\lambda_i}$种排法.
+}
+
+\subsubsection{(2)}
+由(1)证明
+$$\sum_{\substack{\lambda_i\geq 0\\\lambda_1+2\lambda_2+...+n\lambda_n=n}}\frac{1}{\prod_{i=1}^{n}\lambda_i!i^{\lambda_i}}=1.$$
+
+\zm{
+	两边同乘$n!$，则右边为$S_n$总元素个数，左边为$S_n$种对每一型的元素个数遍历所有型求和，两边自然相等.
+}
+
+\subsection{}
+试确定$S_n\;(n\geq 2)$的全部正规子群.
+
+\jie
+设$G\vartriangleleft S_n$，$G$为$S_n$中一些共轭类之并，$G$包含一个$i$轮换则$G$包含所有$i$轮换. 以下讨论$n\geq 3$的情况. 当$n\leq 2$时易见$G=S_n$或$G=\{1\}=A_n$.
+
+若$G\neq \{1\}$则$G$中包含$k$轮换其中$k\geq 2$，故包含所有$k$轮换. 若$k<n$我们有
+$$(i_1i_2\cdots i_{k-1}i_k)(j_1i_2\cdots i_{k-1}i_k)^{-1}=(i_1j_ii_k)\in G,$$
+其中$i_1, i_2, ..., i_k, j_1$为$\{1,2,...,n\}$中任意不同的$k+1$个元素. 故$G$包含一个$3$轮换.
+若$k=n$则$(1234\cdots n)(2134\cdots n)^{-1}=(1n2)\in G$，$G$同样包含一个$3$轮换.
+
+故$G$包含一切$3$轮换. 由{\heiti 引理}\textbf{2.21}，$3$轮换生成$A_n$，故$A_n\leq G$，又$A_n$在$S_n$中指数为$2$，只能$(A:G)=2, G=S_n$或$(A:G)=1, G=A_n$.
+
+综上，$\{1\}, A_n, S_n$为$S_n$的全部正规子群.
+
+\subsection{}
+置换$\sigma$的交错数$n(\sigma)$定义为集合$\{(i,j)\mid\sigma(i)>\sigma(j)\;\text{但}\;i<j\}$的阶.
+\subsubsection{(1)}
+试证：$n(\sigma)=\sum_{i=1}^n\left|\{j\mid\sigma(j)>i\;\text{且}\;j<\sigma^{-1}(i)\}\right|$.
+
+\zm{
+	$\sum_{i=1}^{n}\left|\{j\mid\sigma(j)>i\;\text{且}\;j<\sigma^{-1}(i)\}\right|$
+	\\$=\sum_{p=1}^{n}\left|\{j\mid\sigma(j)>\sigma(p)\;\text{且}\;j<p\}\right|$
+	\\$=\left|\{(j,p)\mid\sigma(j)>\sigma(p)\;\text{且}\;j<p\}\right|$
+	\\$=n(\sigma)$.
+}
+
+\subsubsection{(2)}
+证明$\sigma$可写作$n(\sigma)$个对换的乘积.
+
+\zm{
+	引理：令$d(\sigma)=\min\{j-i\mid\sigma(i)>\sigma(j)\;\text{且}\;i<j\}$，若题述集合中的一个$(i,j)$对满足$j-i=d(\sigma)$则不存在题述集合中的$(i_1,j_1)$对使得$i<i_1<j$或$i<j_1<j$.
+	
+	{\heiti 引理的证明.} 若$i<i_1<j$，则$\circled{1}\;\sigma(i)>\sigma(j);$
+	
+	$\circled{2}\;\sigma(i)<\sigma(i_1)$（否则$(i, i_1)$属于题述集合，与$d$的最小性矛盾）;
+	
+	$\circled{3}\;\sigma(i_1)<\sigma(j)$（否则$(i_1, j)$属于题述集合，与$d$的最小性矛盾）；
+	
+	$\circled{1}\circled{2}\circled{3}$推出矛盾，故不存在$i<i_1<j$（请读者自行完成$i<j_1<j$部分）$\qedsymbol$
+	
+	故$\sigma=\sigma_1\cdot(ij)$，其中$\sigma_1$为$\sigma$中$i$和$j$交换，$\sigma(i),\sigma(j)$不变而成，$\sigma_1$的题述集合和$\sigma$的题述集合相比，除了不含$(i,j)$，由引理三其余元素均不受影响. 故$n(\sigma_1)=n(\sigma)-1$，重复此过程直至$n(\sigma_{n(\sigma)})=0$则由题述集合的定义$\sigma_{n(\sigma)}$必为恒等置换，$\sigma$为$n(\sigma)$个对换和恒等置换之积.
+}
+
+\subsection{}
+\subsubsection{(1)}
+试证$A_5$中置换的型为$1^5,2^2\cdot1^1,3^1\cdot1^2,5^1$.1
+
+\zm{
+	$A_5$的型为$1^{\lambda_1}2^{\lambda_2}3^{\lambda_3}4^{\lambda_4}5^{\lambda_5}$，
+	其中$\sum_i\lambda_i=5$，$2\mid\sum_i(i-1)\lambda_i$，枚举即得结论.
+}
+
+\subsubsection{(2i)}
+证明$A_5$中型为$2^2\cdot 1^1$的置换共轭.
+
+\zm{
+	只需证明类中任意两元素共轭即可. 令$\sigma_1=(i_1i_2)(j_1j_2), \sigma_2=(i_3i_4)(j_3j_4)$，
+	$$\tau=\begin{pmatrix}
+	i_1 & i_2 & j_1 & j_2\\
+	i_3 & i_4 & j_3 & j_4
+	\end{pmatrix}$$
+	则$\tau\sigma_1\tau^{-1}=\sigma_2$，若$\tau$为偶置换，则两$\sigma$共轭，若$\tau$为奇置换，则
+	$$\tau^{\prime}=\begin{pmatrix}
+	i_1 & i_2 & j_1 & j_2\\
+	i_4 & i_3 & j_3 & j_4
+	\end{pmatrix}$$
+	$=(i_3i_4)\tau$，为偶置换，$\tau^{\prime}\sigma_1\tau^{\prime-1}=\sigma_2$，仍有两$\sigma$共轭.
+}
+
+\subsubsection{(2ii)}
+证明$A_5$中型为$3^1\cdot1^2$的置换也共轭.
+
+\zm{
+	只需证明类中任意两元素共轭即可. 令$\sigma=(i_1i_2i_3), \sigma^{\prime}=(i_4i_5i_6)$，则$i_4,i_5,i_6$中必有一个与$i_1,i_2,i_3$中一个相同. 由于轮换的表示中可把任意一个元素放在首位而对其他元素依次进行轮换，不改变该轮换本身，故不妨假设$i_1=i_4$，令
+	$$\tau^{\prime}=\begin{pmatrix}
+	i_1 & i_2 & i_3 & i_5 & i_6\\
+	i_1 & i_5 & i_6 & i_2 & i_3 
+	\end{pmatrix}$$
+	则$\tau\sigma\tau^{-1}=\sigma^{\times}$，若$\tau$为偶置换则$\sigma$和$\sigma^{\prime}$共轭. 若$\tau$为奇置换，则
+	$$\tau^{\prime}=\begin{pmatrix}
+	i_1 & i_2 & i_3 & i_5 & i_6\\
+	i_1 & i_5 & i_6 & i_3 & i_2
+	\end{pmatrix}$$等于$(i_2i_3)\tau$为偶置换$\tau^{\prime}$，且$\tau^{\prime}\sigma\tau^{\prime-1}=\sigma^{\prime}$. 仍有两者共轭.
+}
+
+\subsubsection{(3)}
+试求$A_5$中型为$5^1$的置换的共轭类.
+
+\jie
+设$\sigma_1=(i_1i_2i_3i_4i_5), \sigma_2=(j_1j_2j_3j_4j_5),\tau=
+\begin{pmatrix}
+i_1 & i_2 & i_3 & i_4 & i_5\\
+k_1 & k_2 & k_3 & k_4 & k_5
+\end{pmatrix}$
+则$\tau\sigma_1\tau^{-1}=\sigma_2\Leftrightarrow k_i=j_{i+p\mod 5}, p=0,1,2,3,4$
+若所有满足$\tau\sigma_1\tau^{-1}=\sigma_2$的$\tau$都是偶置换，则$\sigma_1$和$\sigma_2$在$A_5$中共轭. 若有一个满足条件$\tau_0$为奇置换，则所有满足条件的$\tau$为$\alpha^{p}\tau_0$形式，其中$\alpha=(k_1k_2k_3k_4k_5), p=0,1,2,3,4$. 因$\alpha$为偶置换，所以所有的$\tau$为奇置换，$\sigma_1$和$\sigma_2$在$A_5$中不共轭.
+
+故$\sigma_1,\sigma_2$共轭$\Leftrightarrow
+\begin{pmatrix}
+i_1 & i_2 & i_3 & i_4 & i_5\\
+j_1 & j_2 & j_3 & j_4 & j_5
+\end{pmatrix}\in A_5
+\Leftrightarrow
+\begin{pmatrix}
+	1 & 2 & 3 & 4 & 5\\
+	i_1 & i_2 & i_3 & i_4 & i_5
+\end{pmatrix}
+$和
+$
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5\\
+j_1 & j_2 & j_3 & j_4 & j_5
+\end{pmatrix}
+$奇偶性一致，故有$2$个共轭类，由$
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5\\
+i_1 & i_2 & i_3 & i_4 & i_5
+\end{pmatrix}
+$的奇偶性决定，且两个类各有一半该型中元素.
+
+\subsubsection{(4)}
+由此证明$A_5$为单群.
+
+\zm{
+	由{\heiti 习题}{2.1.5}计算和(1)(2)(3)可知：
+	
+	$A_5$中$1^5$型有$1$个，且是单位元，$2^2\cdot1^1$型有$15$个，$3^1\cdot1^2$型有$20$个（以上均各自为一个共轭类），$5^1$型有$24$个，并且有$2$个共轭类，各有$12$个元素. 故$A_5$的正规子群的阶数只可能为
+	
+	$$1+15i_1+20i_2+12i_3,\quad i_1, i_2=0,1,\;i_3=0,1,2$$
+	$=1,16,21,36,13,28,33,48,25,40,45,60$.
+	
+	但其中只有$1$和$60$整除$|A_5|=60$，故$A_5$仅有平凡正规子群.
+}
+
+\subsection{}
+试证：当$n\geq3$时$Z(S_n)=\{\id\}$.
+
+\zm{
+	由{\heiti 命题}\textbf{2.10}可知$Z(S_n)$为元素的共轭类仅有1个元素的元素之并，由{\heiti 习题}\textbf{2.1.5}计算可知当$n\geq3$时这样的类只有$1^n$，即$Z(S_n)$只有单位元.
+}
+
+\subsection{}
+试证$A_4$没有$6$阶子群.
+
+\zm{
+	$|A_4|=12$，$6$阶子群指数为$2$，由{\heiti 习题}\textbf{1.4.4(2)}知它一定是正规的.
+	
+	但$A_4$中（请读者仿照{\heiti 习题}\textbf{2.1.8}证明）共轭类元素个数为$1$（单位），$4$（$3$轮换，有$2$个这样的共轭类），$3$（型为$2^2$的置换）
+	
+	故$A_4$的正规子群的阶数只可能为$1,4,5,8,9,12$，矛盾.
+}
+
+\subsection{}
+试计算：
+\subsubsection{(1)}
+$S_6$中$2$阶元的个数.
+
+\jie
+$2$阶元为$2^1\cdot 1^4, 2^2\cdot1^2, 2^3$型，由{\heiti 习题}\textbf{2.1.5}，这三个型各有$15,45,15$个元素，共$75$个.
+
+
+\subsubsection{(2)}
+$A_8$中阶最大的元素数.
+
+\jie 由于$8$轮换为奇置换，故$A_8$中$7^1\cdot1^1$型（$7$轮换）阶最大，为$7$.
+
+由{\heiti 习题}\textbf{2.1.5}，该类元素有$8!/(1!7^11!1^1)=5760$个.
+
+\subsection{}
+计算$S_n$中使任意指标都变动的置换的个数.
+
+\jie 由{\heiti 习题}\textbf{2.1.5}，结果为
+$$\sum_{\substack{\lambda_i\geq 0\\2\lambda_2+\cdots+n\lambda_n=n}}\frac{n!}{\prod_{i=2}^{n}\lambda_i!i^{\lambda_i}}.$$
+
+\subsection{}
+证明当$n\geq 2$时$A_n$是$S_n$唯一指数为$2$的子群.
+
+\zm{
+	由{\heiti 习题}\textbf{1.4.4(2)}，指数为$2$的子群一定是正规的.
+	由{\heiti 习题}\textbf{2.1.6}，$S_n$的非平凡正规子群只有$A_n$.
+}
+
+\subsection{}
+当$n\geq 2$时，$(12)$和$(123\cdots n)$为$S_n$的一组生成元.
+
+\zm{
+	由{\heiti 命题}\textbf{2.11(2)}，$(12),(13), \cdots, (1n)$生成$S_n$.
+	
+	令$\sigma=(12), \tau=(123\cdots n)$ $\tau\sigma\tau^{-1}=(23), \tau^2\sigma\tau^{-2}=(34), \cdots$
+	
+	故$\sigma$和$\tau$生成$(i\; i+1), i=1,2, \cdots, n, (n\; n+1)=(n\; 1)$. 由于$(1j)(j\; j+1)(1j)=(1\; j+1)$，故$\sigma$和$\tau$生成$(12), (13), \cdots, (1n)$，从而生成$S_n$.
+}

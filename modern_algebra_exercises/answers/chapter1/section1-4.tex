@@ -1,0 +1,161 @@
+\section{正规子群与商群}
+\subsection{}
+令$G=\{(a,b)|a\in\mathbb{R}^{\times}, b\in\mathbb{R}\}$. 乘法定义为
+$$(a,b)(c,d)=(ac,ad+b)$$
+则$K=\{(1,b)|b\in\mathbb{R}\}$为$G$的正规子群且$G/K\cong\mathbb{R}^{\times}$.
+
+\zm{
+	令$g=(a,b)$则$gK=\{(a,ab_k+b)\mid b_k\in\mathbb{R}, a\neq0\}=\{(a,c)\mid c\in\mathbb{R}, a\neq 0\}$.
+	$Kg=\{(a,b+b_k)\mid b_k\in\mathbb{R}, a\neq 0\}=\{(a,c)\mid c\in\mathbb{R}, a\neq 0\}$，故对任何$g$有$gK=Kg$，$K$为$G$的正规子群. 且$h: gK\rightarrow R^{\times}, \{(a,c)\mid c\in\mathbb{R}, a\neq 0\}\mapsto a\;(a\neq 0)$为一一对应.
+	
+	$g_1Kg_2K=(a_1,c_1)(a_2,c_2)\quad(c_1,c_2\in\mathbb{R})
+	=(a_1a_2,a_1c_2+c_1)$
+	故$h(g_1Kg_2K)=a_1a_2$，$h$是同态，故为同构. $G/K\cong\mathbb{R}^{\times}$
+}
+
+\subsection{}
+证明行列式为正的实矩阵组成的$G=\mathrm{GL}_n(\mathbb{R})$的子集$H$构成一个正规子群，并描述商群$G/H$.
+
+\zm{
+	由行列式在矩阵乘法中的性质知$H$对乘法和逆封闭，故$H$是子群. $\forall h\in H$有$hH=H=Hh$，$\forall h\notin H$有$hH=G-H=Hh$，故$H$为$G$的正规子群. 令$G-H=J$，则$J=AH, A=
+	\begin{pmatrix}
+	0 & 1 & \cdots & \cdots \\
+	1 & 0 & \cdots & \cdots \\
+	\vdots & \vdots & \ddots & \vdots \\
+	\cdots & \cdots  & \cdots  & 1\\
+	\end{pmatrix}$为第二类初等矩阵. $A^2=I$，$G/H\cong\{1, -1\}^{\times}\cong\mathbb{Z}/2\mathbb{Z}$.
+}
+
+\subsection{}
+设$G$为群，$N\leq M\vartriangleleft G$.
+\subsubsection{(1)}
+若$N\vartriangleleft G$则$N\vartriangleleft M$.
+
+\zm{
+	$N\vartriangleleft G \Leftrightarrow\forall g\in G, gN=Ng$.
+	$N\vartriangleleft M \Leftrightarrow\forall g\in M, gN=Ng$.
+	前者为后者充分条件.
+}
+
+\subsubsection{(2)}
+若$N\vartriangleleft M$是否一定$N\vartriangleleft G$？
+
+\jie
+否，考虑交换群$A_4$，$B=\{\id, (12)(34),(13)(24),(14)(23)\}\cong K_2$，$C=\{\id, (12)(34)\}\cong \mathbb{Z}/2\mathbb{Z}$，则$C\vartriangleleft B, B\vartriangleleft A_4$，但$C$不是$A_4$的正规子群.
+
+\subsection{}
+\subsubsection{(1)}
+试证：群$G$的中心$Z(G)$是$G$的正规子群.
+
+\zm{
+	因为$Z(G)$中元素各自成一个共轭类，故它是共轭类之并，只需证明$Z(G)$是子群.
+	
+	$\forall z_1,z_2\in Z(G), \forall g\in G, g^{-1}z_1z_2^{-1}g=g^{-1}z_1gg^{-1}z_2^{-1}g=g^{-1}z_1g(g^{-1}z_2g)^{-1}=z_1z_2^{-1}$，
+	故$z_1z_2^{-1}\in Z(G)$，$Z(G)$是子群.
+}
+\subsubsection{(2)}
+群$G$的指数为$2$的子群一定是$G$的正规子群.
+
+\zm{
+	$(G:H)=2$，则$G$的陪集分解为$G=H\bigsqcup gH=H\bigsqcup Hg\quad(g\notin H)$，故$gH=Hg$对$g\notin H$成立，从而也对一切$g\in G$成立，$H$是正规子群.
+}
+
+\subsection{}
+试证直积群$G\times G^{\prime}$的子集$G\times 1$是一个与$G$同构的正规子群，且$G\times G^{\prime}/G\times 1\cong G^{\prime}$.
+
+\zm{
+	两个同构请读者自证. $\forall g=(g_1,g_2)\in G\times G^{\prime},
+	g^{-1}(G\times 1)g=\{(g^{-1}hg,g_2^{-1}g_2)\}\quad(h\in G)$
+	\\$=\{(h^{\prime}, 1)|h^{\prime}=g^{-1}hg\in G\}$
+	\\$=G\times 1$.
+}
+
+\subsection{}
+若$G/Z(G)$是循环群，则$G$为阿贝尔群.
+
+\zm{
+	令$G/Z(G)=\langle a\rangle Z(G)$，$\forall g_1,g_2\in G$，有$g_1=a^{n_1}z_1, g_2=a^{n_2}z_2$，其中$z_1, z_2\in Z(G)$.
+	$g_1g_2g_1^{-1}g_2^{-1}=a^{n_1}z_1a^{n_2}z_2z_1^{-1}a^{-n_1}z_2^{-1}a^{-n_2}$.
+	
+	由于$z_1,z_2,z_1^{-1},z_2^{-1}\in Z(G)$与$G$中一切元素交换，上式$=a^{n_1}a^{n_2}a^{-n_1}a^{-n_2}z_1z_1^{-1}z_2z_2^{-1}=1$.
+	
+	故$z_1z_2=z_2z_1$.
+}
+
+\subsection{}
+设$G_i\quad(1\leq i \leq n)$为$n$个群. 则(1)$Z(\prod_{i=1}^{n}G_i)=\prod_{i=1}^{n}Z(G_i)$，(2)$\prod_{i=1}^{n}G_i$为阿贝尔群$\Leftrightarrow \forall i, g_i$为阿贝尔群.
+
+\Proofbyintimidation
+
+\subsection{}
+设$G$为群.
+\subsubsection{(1)}
+对于$x\in G$，证明映射$\sigma_x: g\mapsto xgx^{-1}$是$G$的自同构，$\sigma_x$称为{\heiti
+内自同构}.
+
+\zm{
+	易验证$\sigma_x^{-1}: g\mapsto x^{-1}gx$是$\sigma_x$的唯一逆映射，故$\sigma_x$是双射.
+	
+	$\sigma_x(g_1)\sigma_x(g_2)=xg_1x^{-1}xg_2x^{-1}=xg_1g_2x^{-1}=\sigma_x{g_1g_2}$，故$\sigma$是同态，故为自同构.
+}
+
+\subsubsection{(2)}
+令$I(G)$为所有$\sigma_x: x\in G$构成的集合，试证$I(G)$为$\Aut(G)$的子群，称为{\heiti 内自同构群}.
+
+\zm{
+	只需证$I(G)$对乘法和逆封闭即可. $\sigma_{x_1}\sigma_{x_2}^{-1}(g)=\sigma_{x_1}(x_2^{-1}gx_2)=x_1x_2^{-1}gx_2x_1^{-1}=\sigma_{x_1x_2^{-1}}(g)$.
+}
+
+\subsubsection{(3)}
+证明$I(G)\cong G/Z(G)$.
+
+\zm{
+	构造同态$\varphi: G\rightarrow I(G); x\mapsto \sigma_x$，显然它是满射. 若$x\in\ker(\varphi)$则$I(x)=\id\Leftrightarrow \forall g, xgx^{-1}=g
+	\Leftrightarrow \forall g, xg=gx\Leftrightarrow x\in Z(G)$，故$\ker\varphi=Z(G)$，由第一同构定理即得结论.
+}
+
+\subsection{}
+线性代数
+
+\subsection{}
+设$f: G\rightarrow H$为同态，$M\leq G$. 试证$f^{-1}(f(M))=KM, K=\ker f$.
+
+\zm{
+	由$f(K)=1$知$f(KM)=f(M)$. 只需证$\forall g\notin KM, f(g)\notin f(M)$. 事实上，此时$\forall m\in M, gm^{-1}\notin K, f(gm^{-1})\neq 1$，由消去律$f(g)=f(gm^{-1})f(m)\neq f(m)$对所有$m\in M$成立.
+}
+
+\subsection{}
+设$M,N\vartriangleleft G$.
+\subsubsection{(1)}
+若$M\bigcap N=\{1\}$则$\forall a\in M, b\in N, ab=ba$.
+
+\zm{
+	令$g=aba^{-1}b^{-1}$，则$g=(aba^{-1})b^{-1}=b_1b^{-1}\in N$，$g=a(ba^{-1}b^{-1})=aa_1\in M$，故总有$g=1, ab=ba.$
+}
+\subsubsection{(2)}
+在此基础上，若$MN=G$则$G\cong M\times N$.
+
+\zm{
+	令$f: G\rightarrow MN; g=ab\mapsto (a,b),\quad (a\in M,b\in N)$，$G=MN$导致$G$中任何元素都有像，我们只需证明$f$是良好定义的，即像$(a,b)$唯一.
+	
+	事实上，$g=a_1b_1=a_2b_2\Rightarrow a_1a_2^{-1}=b_1^{-1}b_2$，左边属于$M$，右边属于$N$，故两边均等于$1$，即$a_1=a_2, b_1=b_2$，$(a,b)$唯一确定. 
+	
+	$g_1g_2=a_1b_1a_2b_2=a_1a_2b_1b_2(\because ab=ba\forall a\in M, b\in N)=(a_1a_2)(b_1b_2)$，故$f$为同态且$\ker f=1$，故$G\cong M\times N$.
+}
+
+\subsection{}
+设$N\vartriangleleft G$，$g$是$G$的任一元素，若$g$的阶和$|G/N|$互素，则$g\in N$.
+
+\zm{
+	$g$的阶为$m, g\in bN$则$(bN)^m=gN^m=1\cdot N^m=N$，故$bN$在$G/N$中的阶$n$整除$m$，但$n$整除$|G/N|$，故$n$是$g$的阶和$|G/N|$的公约数，而两者互素，只能$n=1, bN=N$，即$g\in N$.
+}
+
+\subsection{}
+证明非阿贝尔群的自同构群不是循环群.
+
+\zm{
+	反证法，若$\Aut(G)$是循环群，则$I(G)$为它的子群，从而也是循环群。由{\heiti 习题}\textbf{1.4.8}，$G/Z(G)\cong I(G)$也是循环群，由{\heiti 习题}\textbf{1.4.6}，$G$是阿贝尔群，矛盾.
+}
+
+\subsection{}
+线性代数

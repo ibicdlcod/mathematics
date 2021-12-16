@@ -1,0 +1,288 @@
+\section{整环与域}
+\subsection{}
+设$R$是含幺交换环，$\mathfrak{p}_1, \mathfrak{p}_2, ..., \mathfrak{p}_m$为$R$的素理想，而$A$为$R$的理想，如果$A\subseteq
+\mathfrak{p}_1 \cup \mathfrak{p}_2 \cup \cdots \cup \mathfrak{p}_m$，则必存在某个$i\;(1\leq i\leq m)$使得$A\subseteq \mathfrak{p}_i$.
+
+\emph{证明由文献}\cite{igusa}\emph{给出.}
+
+\zm{
+	用数学归纳法.
+	
+	当$m=1$时，结论显然成立. 当$m=2$时，若结论不成立，则存在$a_1,a_2\in A,
+	a_1\in \mathfrak{p}_1-\mathfrak{p}_2, a_2\in \mathfrak{p}_2-\mathfrak{p}_1$，若$a_1+a_2\in\mathfrak{p}_1$，则$a_2=a_1+a_2-a_1\in\mathfrak{p}_1-\mathfrak{p}_1\subseteq\mathfrak{p}_1$，矛盾，同理$a_1+a_2\in\mathfrak{p}_2$，两者综合与$a_1+a_2\in A\subseteq \mathfrak{p}_1\cup\mathfrak{p}_2$矛盾.
+	
+	假设我们已有$m=k$时结论成立，下证$m=k+1$时结论成立，用反证法. 若不存在$\mathfrak{p}_i$包含$A$，则固定$1\leq i\leq k+1$，因$m=k$时对$\mathfrak{p}_j\;(j\neq i)$结论不成立，则条件也不成立，即$A\nsubseteq \bigcup_{\substack{1\leq j\leq k+1\\j\neq i}}\mathfrak{p}_j$，但$A\subseteq \bigcup_{\substack{1\leq j\leq k+1\\j\neq i}}\mathfrak{p}_j\cup\mathfrak{p}_i$，故存在$a_i\in A$使得$a_i\in \mathfrak{p}_i, a_i\notin \mathfrak{p}_j\;(j\neq i)$.
+	
+	考虑元素$b=\prod_{i=1}^k a_i, c=b+a_{k+1}$，则对$1\leq i\leq k$有$b\in \mathfrak{p}_i$，且由$\mathfrak{p}_{k+1}$是素理想，$a_i\notin \mathfrak{p}_{k+1}, \forall 1\leq i\leq k$有$b\notin \mathfrak{p}_{k+1}$，又$a_{k+1}\in \mathfrak{p}_{k+1}, a_{k+1}\notin \mathfrak{p}_j\;(j\neq k+1)$，
+	若$c\in\mathfrak{p}_{k+1}$，则$b=c-a_{k+1}\in
+	\mathfrak{p}_{k+1}-\mathfrak{p}_{k+1}\subseteq \mathfrak{p}_{k+1}$，矛盾. 故由$c\in A\subseteq \bigcup_{i=1}^{k+1}\mathfrak{p}_i$，存在$1\leq i\leq n$使得$c\in\mathfrak{p}_i$，此时$a_{k+1}=c-b\in \mathfrak{p}_{i}-\mathfrak{p}_{i}\subseteq \mathfrak{p}_i$，矛盾. 故$m=k+1$时结论成立.
+	
+	综上，$m$为一切正整数时结论成立.
+}
+
+\subsection{}
+有限含幺交换环的素理想必是极大理想.
+
+\zm{
+	$\mathfrak{p}$是$R$的素理想$\Leftrightarrow R/\mathfrak{p}$是整环，由$\mathfrak{p}$是真理想，$R/\mathfrak{p}$非零，又$R$有限，故$R/\mathfrak{p}$是非零有限整环，由{\heiti 习题}\textbf{3.1.11}，$R/\mathfrak{p}$必为域，故$\mathfrak{p}$为极大理想.
+}
+
+\subsection{}
+交换环$R$中所有素理想均包含$\mathrm{Nil}(R)$
+
+\zm{
+	对任意$a\in\mathrm{Nil}(R)$，由于素理想$\mathrm{p}$为真理想，故存在$b\in R,b\notin\mathfrak{p}$. 由于$\exists m\in \mathbb{Z}_+$使得$a^m=0$，因此$a^mb=0\in \mathfrak{p}$，若$a\notin \mathfrak{p}$，则$a^{m-1}b\in\mathfrak{p}, \cdots, a^0b=b\in\mathfrak{p}$，矛盾. 故$a\in\mathfrak{p}$，由$a$的任意性即得结论.
+}
+
+\subsection{}
+设$\mathfrak{p}$是含幺交换环$R$的素理想，$I_1,...,I_n$为$R$的理想，如果$\mathfrak{p}=\bigcap_{i=1}^nI_i$，则$\mathfrak{p}$必等于某个$I_i$.
+
+\zm{
+	由{\heiti 习题}\textbf{3.2.6(1)}, $\prod_{i=1}^nI_i\subseteq \bigcap_{i=1}^nI_i=\mathfrak{p}$，有$I_n\subseteq \mathfrak{p}$或$\prod_{i=1}^{n-1}I_i\subseteq\mathfrak{p}$，继续归纳下去即得存在$i\;(k< i\leq n)$使得$I_i\subseteq\mathfrak{p}$或$\prod_{i=1}^{k}I_i\subseteq\mathfrak{p}$，取$k=0$，即结论成立或$1=\prod_{i=1}^{0}I_i\subseteq\mathfrak{p}$，后者与$\mathfrak{p}$是真理想矛盾，故结论成立.
+}
+
+\subsection{}
+设$f: R\rightarrow S$是交换环的满同态，$K=\ker f$.
+\subsubsection{(1)}
+若$\mathfrak{p}$是$R$的素理想并且$\mathfrak{p}\supseteq K$，则$f(\mathfrak{p})$也是$S$的素理想;
+
+\zm{
+	若$cd\in f(\mathfrak{p})$，由于$f$是满射，任选$a,b\in R$使$f(a)=c,f(b)=d$，由$f(ab)=cd\in f(\mathfrak{p})$，得$ab+k\in \mathfrak{p}$，其中$k\in\ker f=K\subseteq \mathfrak{p}$，故$ab\in\mathfrak{p}$. 由$\mathfrak{p}$是素理想，$a\in\mathfrak{p}$或$b\in \mathfrak{p}$，我们有$c=f(a)\inf(\mathfrak{p})$或$d=f(b)\in f(\mathfrak{p})$.
+	
+	我们仍需验证$f(\mathfrak{p})$是$S$的真理想即得结论. 由同态性$f(\mathfrak{p})$对加减法自封，而$f$是满射，对任意$s\in S, c\in f(\mathfrak{p})$有$r\in R, f(r)=s, a\in \mathfrak{p}$使得$sc=f(r)f(a)=f(ta)$，其中$ra\in\mathfrak{p}$，故$sc\in f(\mathfrak{p})$，$f(\mathfrak{p})$为理想，若$f(\mathfrak{p})=S$，则$R=f^{-1}(S)+\ker f=\mathfrak{p}+K\subseteq \mathfrak{p}$，与$\mathfrak{p}$为真理想矛盾，故$f(\mathfrak{p})$是$S$的真理想.
+}
+
+\subsubsection{(2)}
+若$\mathfrak{q}$是$S$的素理想，则$f^{-1}(\mathfrak{q})$也是$R$的素理想.
+
+\zm{
+	若$ab\in f^{-1}(\mathfrak{q})$，则$f(a)f(b)=f(ab)\in\mathfrak{q}$，由$\mathfrak{q}$是素理想，$f(a)\in\mathfrak{q}$或$f(b)\in\mathfrak{q}$，故$a\in f^{-1}(\mathfrak{q})$或$b\in f^{-1}(\mathfrak{q})$.
+	
+	我们仍需验证$f^{-1}(\mathfrak{q})$是$R$的真理想即得结论.
+	由同态性$f(\mathfrak{p})$对加减法自封，对任意$r\in R, a\in f^{-1}(\mathfrak{q})$有$s=f(r)\in S, c=f(a)\in\mathfrak{q}$使得$ra=(f^{-1}(s)+k_1)(f^{-1}(c)+k_2)=f^{-1}(sc)+k_1f^{-1}(c)+k_2f^{-1}(s)+k_1k_2$其中$k_1,k_2\in K$，由于$0\in\mathfrak{q}$，故$K\subseteq f^{-1}(\mathfrak{q})$，又$sc\in\mathfrak{q}$，故$ra\in f^{-1}(\mathfrak{q})+KR+KR+KK\in f^{-1}(\mathfrak{q})$，$f^{-1}(\mathfrak{q})$是理想，若$f^{-1}(\mathfrak{q})=R$，则由$f$是满射$\mathfrak{q}=S$，与$\mathfrak{q}$为真理想矛盾，故$f^{-1}(\mathfrak{q})$是$R$的真理想.
+}
+
+\subsubsection{(3a)}
+$S$中的素理想和$R$中包含$K$的素理想是一一对应的.
+
+\zm{
+	我们已经有(1)(2)的结果，我们只需验证对不同的$R$的理想$\mathfrak{p}_1\supseteq K,\mathfrak{p}_2\supseteq K$，它们的像不同即可.
+	
+	不妨设$a\in R, a\in \mathfrak{p}_1, a\notin \mathfrak{p}_2$，则若$f(a)\in f(\mathfrak{p}_2)$，有$b\in \mathfrak{p}_2$使得$a-b\in K$，但$K\subseteq \mathfrak{p}_2$，即$a=a-b+b\in K+ \mathfrak{p}_2\in \mathfrak{p}_2$，矛盾.
+	
+	对于$a\in R, a\notin \mathfrak{p}_1, a\in \mathfrak{p}_2$，交换两个理想的地位讨论即可. 故$f$诱导$R$中包含$K$的素理想到$S$中的素理想的双射.
+}
+
+\subsubsection{(3b)}
+$S$中的极大理想和$R$中包含$K$的极大理想是一一对应的.
+
+\zm{
+	若$\mathfrak{p}$是$R$中包含$K$的极大理想，则$R/\mathfrak{p}$为域并且$f^{\prime}: R/\mathfrak{p}\rightarrow S/f(\mathfrak{p})$中$f^{-1}(f(\mathfrak{p}))=\mathfrak{p}$，$f(R)+f(\mathfrak{p})=S+f(\mathfrak{p})=S$，故由{\heiti 习题}\textbf{3.3.3(2)}，$f^{\prime}$是良好定义的环同构，故$S/f(\mathfrak{p})$为域，$f(\mathfrak{p})$为$S$的极大理想.
+	
+	反之，若$\mathfrak{q}$为$S$的极大理想，则$S/\mathfrak{q}$为域且同理$g^{\prime}: R/f^{-1}\mathfrak{q}\rightarrow S/\mathfrak{q}$是良好定义的环同构，故$R/f^{-1}\mathfrak{q}$为域，$f^{-1}\mathfrak{q}$为$R$的包含$K$的极大理想.
+	
+	由(3a)的证明不同的理想$\mathfrak{p}_1,\mathfrak{p}_2$若均包含$K$则它们的像不同，故 故$f$诱导$R$中包含$K$的极大理想到$S$中的极大理想的双射.
+}
+
+\subsection{}
+设$I$是环$R$的理想，求证$R/I$中素理想均可写成$\mathfrak{p}/I$的形式，其中$\mathfrak{p}$是$R$中包含$I$的素理想. 由此证明交换环$R$的素谱$\mathrm{Spec}R$与$R/\mathrm{Nil}(R)$的素谱$\mathrm{Spec}R/\mathrm{Nil}(R)$一一对应.
+
+\zm{
+	$\mathfrak{q}$是$R/I$的素理想$\Leftrightarrow \forall a+I, b+I\in \mathfrak{q}$有$(a+I)(b+I)=ab+aI+Ib+II=ab+I\in\mathfrak{q}\Rightarrow (a+I)\in \mathfrak{q}$或$b+I\in\mathfrak{q}$ 故$\mathfrak{p}=\{x\mid x+I\in\mathfrak{q}\}$满足$ab\in\mathfrak{p}\Rightarrow a\in\mathfrak{p}$或$b\in\mathfrak{p}$，且$0\in\mathfrak{q}\Rightarrow I\in\mathfrak{p}$，故$\mathfrak{p}$为包含$I$的素理想，且$\mathfrak{p}/I=\mathfrak{q}$.
+	
+	反之，$R$的包含$I$的素理想$\mathfrak{p}$满足$ab\in\mathfrak{p}\Rightarrow a\in\mathfrak{p}$或$b\in\mathfrak{p}$，即$(a+I)(b+I)=ab+aI+Ib+II\in\mathfrak{p}+I\Rightarrow (a+I)\in \mathfrak{p}+I$或$b+I\in\mathfrak{p}+I$，又$I\subseteq \mathfrak{p}$，故$\mathfrak{p}/I$是良好定义的，为$R/I$的素理想.
+	
+	由{\heiti 习题}\textbf{3.4.3}，素谱$\mathrm{Spec}R$总满足其中元素包含理想$\mathrm{Nil}(R)$（{\heiti 习题}\textbf{3.3.1}），故上述包含性可以省去，并且由{\heiti 习题}\textbf{3.4.5(3a)}的证明，$\mathrm{Spec}R$中不同元素总有在$R/\mathrm{Nil}R$中不同的像，故得结论.
+}
+
+\subsection{}
+设$m\geq 2$，确定$\mathrm{Spec}(\mathbb{Z}/m\mathbb{Z})$和$\mathrm{Max}(\mathbb{Z}/m\mathbb{Z})$.
+
+\jie 易见$\mathbb{Z}/m\mathbb{Z}$的理想只有$R_n=n\mathbb{Z}/m\mathbb{Z}$其中$n\mid m$，并且$(\mathbb{Z}/m\mathbb{Z})/R_n\cong\mathbb{Z}/n\mathbb{Z}$，它是整环（域）当且仅当$n$为素数.
+
+故$\mathrm{Spec}(\mathbb{Z}/m\mathbb{Z})=\mathrm{Max}(\mathbb{Z}/m\mathbb{Z})
+=\left\{
+\begin{matrix}
+m\mathbb{Z}/m\mathbb{Z}=\{0\}, & m\text{为素数时}\\
+n\mathbb{Z}/m\mathbb{Z}, &m\text{不为素数时，其中}n\text{是}m\text{的素因子}
+\end{matrix}
+\right.
+$.
+
+注：这里认为零环不是整环，以与素理想的定义一致，参见\emph{文献}\cite{1326600}从
+
+\subsection{}
+确定环$\mathbb{Z}[x]/(x^2+3, p)$的结构，其中$p=3,5$.
+
+\jie 只给出结果，请读者自证.
+
+$\mathbb{Z}[x]/(x^2+3,3)_{\Ideal}=\{a+bx\mid a,b\in\mathbb{F}_3\}$;
+
+$\mathbb{Z}[x]/(x^2+3,5)_{\Ideal}=\mathbb{F}_5[\sqrt{2}]$.
+
+\subsection{}
+确定下面每个环的极大理想.
+\subsubsection{(1)}
+$\mathbb{R}\times\mathbb{R}$;
+
+\jie 设该环的一个理想为$I$，若$(a,b)\in I$其中$a\neq 0, b\neq 0$，则$(1,1)=(a,b)(a^{-1},b^{-1})\in I$，$I=\mathbb{R}\times\mathbb{R}$，因此若$I$是真理想，必有$a$或$b$恒等于$0$，这时$I$同构于$\mathbb{R}$上的理想，后者只可能是$\{0\}$或$\mathbb{R}$，因此真理想只有三种可能：$\{0\}\times\{0\}$、$\{0\}\times\mathbb{R}$和$\mathbb{R}\times\{0\}$. 显然后两者为极大理想.
+
+\subsubsection{(2)}
+$R=\mathbb{R}[x]/(x^2)_{\Ideal}$
+
+\jie 考虑$I\subsetneqq R$为$R$的理想，由于$x^2\equiv 0$，故$R$中元素为$x$的零次或一次式，若$ax+b\in I\;(a,b\in\mathbb{R})$，则当$b\neq 0$时$(ax+b)(-ax/b^2+1/b)=1\in I$，$I=R$矛盾，故$b=0$，若$a\neq 0$，则$I=(ax)(cx+d)=\{adx\mid d\in \mathbb{R}\}=\{a^{\prime}x\mid a^{\prime}\in\mathbb{R}\}$. 若$a=0$，则$I=\{0\}$. 故$\{ax\mid a\in\mathbb{R}\}$为$R$的极大理想.
+
+\subsubsection{(3)}
+$R=\mathbb{R}[x]/(x^2-3x+2)_{\Ideal}$.
+
+\jie 由于$x^2\equiv 3x-2$，故$R$中元素为$x$的零次或一次式，考虑理想$I\subsetneqq R$，若$ax+b\in I\;(a,b\in\mathbb{R})$，则当$2a+b\neq 0, a+b\neq 0$时$(ax+b)(cx+d)=1, I=R$矛盾，其中当$b\neq 0$时$c=-a/(2a+b)(a+b), d=1+2ac/b$，当$b=0$时$c=-1/2a, d=3/2a$.
+
+若$a+b=0, a\neq 0$，则$(ax-a)(cx+d)=a(2c+d)(x-1)$，$(ax-a)_{\Ideal}=\{ax-a\mid a\in R\}$. 若$ex+f\in I$并且$e+f$为非零实数，则$(ex+f)-(ex-e)=e+f\in I, 1=(e+f)(e+f)^{-1}\in I, I=R$，矛盾，故$I=\{ax-a\mid a\in R\}=(x-1)_{\Ideal}$.
+
+若$2a+b=0, a\neq 0$，则$(ax-2a)(cx+d)=a(c+d)(x-2)$，同理可证$I=(x-2)_{\Ideal}$.
+
+若$I$不含$a\neq 0$的元素$ax+b$，则易见$I$为真理想迫使$I=\{0\}$.
+
+故$R$的真理想$I$为$\{0\}, (x-1)_{\Ideal}, (x-2)_{\Ideal}$，后两者是极大理想.
+
+\subsubsection{(4)}
+$R=\mathbb{R}[x]/(x^2+x+1)_{\Ideal}$.
+
+\jie 易见$x^2+x+1$在$\mathbb{R}[x]$中不可约，此时由{\heiti 例}\textbf{3.64}它是域，只有平凡理想，故极大理想是$\{0\}$.
+
+\subsection{}
+\subsubsection{(1)}
+描述环$R=\mathbb{Z}[i]/(2+i)_{\Ideal}$.
+
+\jie 我们可证明$R\cong \mathbb{Z}/5\mathbb{Z}$.
+
+\zm{
+	令$\varphi: \mathbb{Z}\rightarrow R, n\mapsto\overline{n}$.
+	由$\overline{i}=\overline{-2}$，$\varphi$为满射，若$n\in\ker\varphi$，则$\overline{n}=\overline{0}\Rightarrow (2+i)(x+yi)=n\Rightarrow x=-2y,n=-5y$，即$n\in 5\mathbb{Z}$. 反之，$n\in 5\mathbb{Z}\Rightarrow n=5x=(2+i)(2x-xi)$，故$n\in\ker\varphi$，$\ker\varphi=5\mathbb{Z}, \mathbb{Z}/\ker\varphi=\mathbb{Z}/5\mathbb{Z}$与$\im\varphi=R$同构.
+}
+
+\subsubsection{(2)}
+描述环$R=\mathbb{Z}[x]/(x^2-3,2x+4)_{\Ideal}$.
+
+\jie 我们可证明$R\cong \mathbb{Z}/2\mathbb{Z}$.
+
+\zm{
+	因$\overline{2x+4}=\overline{0}$，$\overline{x}\overline{2x+4}=\overline{2x^2+4x}=\overline{6+4x}=\overline{0}, \overline{2}=\overline{2}\overline{2x+4}-\overline{6+4x}=\overline{0}$.
+	
+	故$R\cong \mathbb{Z}/2\mathbb{Z}[x]/(x^2-3,2(x+2))_{\Ideal}
+	\cong \mathbb{Z}/2\mathbb{Z}[x]/((x+1)^2)_{\Ideal}$，
+	得$\overline{x}=\overline{1}, \overline{x+1}=\overline{0}$.
+	
+	故$R\cong\mathbb{Z}/2\mathbb{Z}$.
+}
+
+\subsection{}
+证明{\heiti 习题}\textbf{3.1.6}中的$\mathbb{Z}_p$为PID，且仅有唯一的极大理想$p\mathbb{Z}_p$.
+
+\zm{
+	设$I$是$\mathbb{Z}_p$的理想，则$I=\{0\}\cup\bigsqcup_{i}a_i$，其中$a_i$为非零元素.
+	
+	当$I$不为零理想时，令$k_i$为满足$p^{k_i}$整除$a_i=(a_{i1},a_{i2},...)$各项的最大整数（因为各项中必有至少一项不为$0$，因此这是可以做到的），则$a_i=p^{k_i}b_i$，其中$b_i\notin p\mathbb{Z}_p$，由{\heiti 习题}\textbf{3.1.6(3)}知存在$c_i\in\mathbb{Z}_p$使得$b_ic_i=(1,1,1,...)$为单位元，即$(b_i)_{\Ideal}=\mathbb{Z}_p$，故$(a_i)_{\Ideal}=p^{k_i}\mathbb{Z}_p$是$a_i$生成的理想.
+	
+	故$I\supseteq\bigsqcup_ip^{k_i}\mathbb{Z}_p=p^{\min_i\{k_i\}}\mathbb{Z}_p$，若$I$还包含其他元素，该元素必定有项不被$p^{\min_i\{k_i\}}$整除，也就是不被所有$p^{k_i}$整除，与$I=\{0\}\cup\bigsqcup_{i}a_i$矛盾，故$I=p^k\mathbb{Z}_p$为$(0,0,...,p^k,p^k,...)=(c_1,c_2,...)$生成的理想或零理想，其中当$i\leq k$时$c_i=0$，$i>k$时$c_i=p^k$，$k=\min_i\{k_i\}\in\mathbb{N}$，故$I$是主理想.
+	
+	易见$k_1<k_2$时$p^{k_1}\mathbb{Z}_p\supsetneqq p^{k_2}\mathbb{Z}_p$，且$k\geq 1$时$p^k\mathbb{Z}_p$为真理想，故唯一的极大理想即$p\mathbb{Z}_p$.
+}
+
+\subsection{}
+设$R$为环，$\mathfrak{m}$为$R$的一个理想，假设$R$的每一个不属于$\mathfrak{m}$的元素都是$R$中的单位，证明$\mathfrak{m}$为$R$的唯一极大理想.
+
+\zm{
+	题意并未明确排除$\mathfrak{m}=R$，但这种情况明显不合题意，以下我们认为$\mathfrak{m}$为真理想，此时$R/\mathfrak{m}$不是零环.
+	
+	令$a+\mathfrak{m}\in R/\mathfrak{m}$为商环中的非零元，此时$a\notin \mathfrak{m}$，它在$R$中有逆$a^{-1}$，若$a^{-1}\in\mathfrak{m}$，则$1=aa^{-1}\in\mathfrak{m}$，与$\mathfrak{m}$是真理想矛盾，故$a+\mathfrak{m}$在$R/\mathfrak{m}$中有逆$a^{-1}+\mathfrak{m}$，$R/\mathfrak{m}$是域，$\mathfrak{m}$为极大理想.
+	
+	设$\mathfrak{n}$为$R$的任意一个极大理想，
+	若存在$a\in R, a\in\mathfrak{n}$且$a\notin\mathfrak{m}$，则$a$可逆，$1=aa^{-1}\in\mathfrak{n}R\subseteq \mathfrak{n}$，迫使$\mathfrak{n}=R$，与极大理想为真理想矛盾. 故$\mathfrak{n}\in\mathfrak{m}$，由前者的极大性质，$\mathfrak{n}=\mathfrak{m}$，故$\mathfrak{m}$为唯一的极大理想.
+}
+
+\subsection{}
+设$R$为PID，$F$是它的商域，$S\supseteq R$是$F$的子环，证明$S$是$PID$.
+
+\zm{
+	对$R$上任意元素$a,b$，两个元素生成的理想是主理想$(c)_{\Ideal, R}$，我们将这个主理想的生成元$c$记作$\gcd(a,b)$.
+	
+	对$S$上任意元素$\frac{x}{y}$，$\gcd(x,y)$在$x,y$生成的$R$-理想中，故存在$m,n\in R$使得$mx+ny=\gcd(x,y)$，这时$m\frac{x}{y}+n=\frac{\gcd(x,y)}{y}\in RS+R\subseteq S$，并且$x=x^{\prime}\gcd(x,y)$，$y=y^{\prime}\gcd(x,y)$.
+	
+	易见$\frac{x}{y}=\frac{x^{\prime}}{y^{\prime}}$，记后者为前者的简化形式. 同时$\frac{\gcd{x,y}}{y}\in S$的简化形式为$\frac{1}{y^{\prime}}$. 如果我们把$S$中所有元素皆写为简化形式，得到引理：$\frac{x}{y}\in S\Rightarrow \frac{1}{y}\in S$.
+	
+	由于$R\subseteq S$，故反过来也成立，$S=T^{-1}R$，其中$T$为$S$中所有出现在简化形式中的分母的集合，由引理，对任意$t_1,t_2\in T, \frac{1}{t_1}, \frac{1}{t_2}\in S$，故$\frac{1}{t_1t_2}\in S$（显然它也是简化形式），即$T$是乘法集.
+	
+	考虑$S$上任意理想$I=\bigsqcup \frac{a_i}{b_i}$，记$J$为所有分子$a_i$生成的理想. 由于$b_i\in R$，故对任何$a_i$有$a_i\in R$，即$J\subseteq I$，又全部分子为1的分数$T^{-1}\in S$，故$T^{-1}J\subseteq I$，且若$I$有任何其他元素，其分子不能在$J$中，矛盾. 故$J$的生成元$d\;(dR=J)$满足$dS=dT^{-1}R=T^{-1}dR=T^{-1}J=I$，即任意理想$I$都是主理想.
+}
+
+\subsection{}
+设$D$为整环，$K$是$D$的商域，集合$S\subseteq D$为乘法集，即满足条件
+
+(i) $0\notin S, 1\in S$.
+
+(ii) 对$\forall x,y\in S, xy\in S$.
+
+定义$$S^{-1}D=\left\{ \frac{m}{n}\mid m\in D, n\in S\right\}\subseteq K$$
+
+试证：
+
+\subsubsection{(1)}$S^{-1}D$是$K$中包含$D$的子环.
+
+\Proofbyintimidation
+
+\subsubsection{(2)} $S^{-1}D$中的素理想必有$S^{-1}\mathfrak{p}=\left\{\frac{m}{n}\mid m\in\mathfrak{p}, n\in S\right\}$的形式，其中$\mathfrak{p}$是$D$的素理想.
+
+\zm{	
+	先证$S^{-1}D$的理想$\mathfrak{q}$必有$S^{-1}A=\left\{\frac{m}{n}\mid m\in A, n\in S\right\}\;(A\subseteq D)$的形式.
+	
+	任取$\frac{m}{n_1}\in\mathfrak{q}$，对任意$n_2\in S$有$\frac{n_1}{n_2}\in S^{-1}D$，得$\frac{m}{n_2}=\frac{m}{n_1}\cdot\frac{n_1}{n_2}\in\mathfrak{q}$，故令$A=\left\{m\mid\frac{m}{n}\in\mathfrak{q}\right\}$，对$A$中一切元素应用上述推理即有$\mathfrak{q}\supseteq S^{-1}A$，前者若包含后者没有的元素，则与它们的定义矛盾，故两者只能一致.
+	
+	再证$\mathfrak{q}$是素理想时$A$为$D$的素理想. 对任意$m_1,m_2\in D$，若$m_1m_2\in A$，则$\frac{m_1m_2}{1}\in\mathfrak{q}$，故由$\mathfrak{q}$为素理想，$\frac{m_1}{1}\in\mathfrak{q}$或$\frac{m_2}{1}\in\mathfrak{q}$，得$m_1\in A$或$m_2\in A$. 
+}
+
+\subsubsection{(3a)}
+$\mathrm{Spec}(S^{-1}D)$与集合$\{\mathfrak{p}\in\mathrm{Spec}D\mid p\cap S=\varnothing\}$一一对应.
+
+\zm{
+	$\forall \mathfrak{q}\in\mathrm{Spec}(S^{-1}D)$，由$(2)$有$\mathfrak{p}=\{m_1\mid\frac{m_1}{n_1}\in\mathfrak{q}\}\in\mathrm{Spec}D$，若$\mathfrak{p}\cap S\neq\varnothing$，取$n_p\in \mathfrak{p}\cap S$，则$1=\frac{n_p}{n_p}\in \mathfrak{q}$，与$\mathfrak{q}$是真理想矛盾，故$\mathfrak{p}\cap S=\varnothing$，并且显然$\mathfrak{p}$由$\mathfrak{q}$唯一确定.
+	
+	另一方面，给定$\mathfrak{p}\in\mathrm{Spec}D$且$\mathfrak{p}cap S=\varnothing$，请读者自证$S^{-1}\mathfrak{p}$是$S^{-1}D$的理想，且$\frac{m_1}{n_1}\cdot\frac{m_2}{n_2}\in S^{-1}\mathfrak{p}\Leftrightarrow m_1m_2\in\mathfrak{p}\Leftrightarrow m_1\in\mathfrak{p}$或$m_2\in\mathfrak{p}\Leftrightarrow \frac{m_1}{n_1}\in S^{-1}\mathfrak{p}$或$\frac{m_2}{n_2}\in S^{-1}\mathfrak{p}$，且$\mathfrak{p}cap S=\varnothing\Rightarrow 1=\frac{u}{u}\notin \mathfrak{p}$，$S^{-1}\mathfrak{p}$为真理想且满足素理想的条件.
+	
+	我们只需证明$\mathfrak{p}$唯一确定$\mathfrak{q}=S^{-1}\mathfrak{p}$即可. 因$\mathfrak{p}$是素理想，任何$\mathfrak{q}$中元素$\frac{m}{n}, m\in\mathfrak{p}$中元素若有等价形式$\frac{m^{\prime}}{n^{\prime}}$，则$mn^{\prime}=nm^{\prime}$，左边属于$\mathfrak{p}$，右边有$n\notin\mathfrak{p}$，故$m^{\prime}\in\mathfrak{p}$，即$\mathfrak{q}$中所有元素的分子的集合与$\mathfrak{p}$完全相等，故不同的$\mathfrak{p}$确定不同的$\mathfrak{q}$.
+}
+
+\subsubsection{(3b)}
+举例说明若不要求两者为素理想，$S^{-1}D$上的理想可以不与$D$上不与$S$相交的理想一一对应，并说明(3a)的证明不再成立的理由.
+
+\jie 令$D=\mathbb{Z}$，$S=\mathbb{Z}-3\mathbb{Z}$，则$D$上的理想$3\mathbb{Z}$与$6\mathbb{Z}$确定同样的$S^{-1}\mathfrak{p}$. 在上节的证明中，$\mathfrak{p}$不为素理想导致$m^{\prime}\in\mathfrak{p}$不一定成立.
+
+\subsubsection{(4)}
+设$D=\mathbb{Z}, \mathfrak{p}=p\mathbb{Z}, S=\mathbb{Z}-\mathfrak{p}$，试证$\mathbb{Z}/\mathfrak{p}=\mathbb{Z}/p\mathbb{Z}\cong S^{-1}\mathbb{Z}/S^{-1}\mathfrak{p}$.
+
+\zm{
+	对任意$\frac{m}{n}\in S^{-1}\mathbb{Z}/S^{-1}\mathfrak{p}$，由于$n\notin\mathfrak{p}$，故$n$在$\mathbb{Z}/p\mathbb{Z}$中可逆，记$n^{-1}\in\mathbb{Z}-\mathfrak{p}$满足$nn^{-1}\equiv 1\mod p$，则$\frac{m}{n}-n^{-1}m=\frac{m-(ps+1)m}{n}, s\in\mathbb{Z}=-\frac{psm}{n}\in S^{-1}\mathfrak{p}$. 故$\frac{m}{n}$和$n^{-1}m$在$S^{-1}\mathbb{Z}/S^{-1}\mathfrak{p}$中总表示同一元素.
+	定义$f: S^{-1}\mathbb{Z}\rightarrow \mathbb{Z}/p\mathbb{Z}, \frac{m}{n}\mapsto n^{-1}m$，则$n^{-1}m\equiv 0\mod p\Rightarrow m\equiv 0\mod p$，故$\ker f=S^{-1}\mathfrak{p}$，由环同态基本定理即得同构.
+}
+
+\subsubsection{(5)}
+设$\mathfrak{p}$是$D$的素理想，$S=D-\mathfrak{p}$，问何时$D/\mathfrak{p}$同构于$S^{-1}D/S^{-1}\mathfrak{p}$.
+
+\jie $S/\mathfrak{p}$中一切元素在$D/\mathfrak{p}$中有同构. 该条件的充分性请读者类似上小节证明，下证必要性.
+
+若$\overline{n}$在$D/\mathfrak{p}$中不可逆，由于$n\notin\mathfrak{p}$知$\frac{n}{1}$在$S^{-1}D/S^{-1}\mathfrak{p}$中不等于零，$\frac{1}{n}\cdot\frac{n}{1}=\frac{1}{1}$得$\frac{n}{1}$在$S^{-1}D/S^{-1}$中可逆，与同构性矛盾.
+
+\subsection{}
+设$R$为整环，$F$为$R$的分式域，$\mathfrak{p}$为$R$的素理想，$R$在$\mathfrak{p}$处的局部化$R_{\mathfrak{p}}$是指$F$的子环$(R-\mathfrak{p})^{-1}R=\{\frac{a}{d}\mid a,d\in R, d\notin\mathfrak{p}\}$试确定$R_{\mathfrak{p}}$的所有极大理想.
+
+\jie 记$(R-\mathfrak{p})=S$，由{\heiti 习题}\textbf{3.4.14(2)}，$R_{\mathfrak{p}}$的一切素理想均有形式$S^{-1}\mathfrak{q}$，其中$\mathfrak{q}$为$R$的素理想. 由于极大理想均是素理想，因此也有此形式.
+
+若$\exists u\in\mathfrak{q}, u\notin\mathfrak{p}$，则$1=\frac{u}{u}\in S^{-1}\mathfrak{q}$与$S^{-1}\mathfrak{q}$为真理想矛盾. 故$\mathfrak{q}\subseteq\mathfrak{p}$.
+
+若$\exists a\in\mathfrak{p}, a\notin\mathfrak{q}$则考虑$\frac{a}{d}+S^{-1}\mathfrak{q}$为$S^{-1}R/S^{-1}\mathfrak{q}$中非零元，由$S^{-1}\mathfrak{q}$为极大理想，$S^{-1}R/S^{-1}\mathfrak{q}$是域，故该非零元可逆，存在$\frac{b}{c}\neq 0\in S^{-1}R/S^{-1}\mathfrak{q}, \frac{e}{f}=0\in S^{-1}R/S^{-1}\mathfrak{q}$，满足$c,e\notin\mathfrak{p}, b\notin\mathfrak{q}, f\in\mathfrak{q}$使得
+
+$$\frac{a}{d}\cdot\frac{b}{c}=\frac{1}{1}+\frac{f}{e}\;\text{即}\;abe=edc+fdc, abe-fdc=edc.$$
+
+由$a\in\mathfrak{p}, f\in\mathfrak{q}\subseteq\mathfrak{p}$知$edc=abe-fdc\in\mathfrak{p}$，由$\mathfrak{p}$为素理想，$e$或$d$或$c\in\mathfrak{p}$，矛盾. 故$\mathfrak{p}\subseteq \mathfrak{q}$.
+
+故只能$\mathfrak{q}=\mathfrak{p}$，易验证$S^{-1}R/S^{-1}\mathfrak{p}$是域，故$S^{-1}R$的极大理想只有$S^{-1}\mathfrak{p}$.

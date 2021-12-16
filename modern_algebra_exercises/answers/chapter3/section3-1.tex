@@ -1,0 +1,502 @@
+\section{环和域的定义}
+\subsection{}
+设$n\geq 2$是正整数，
+\subsubsection{(1)}
+环$\mathbb{Z}/n\mathbb{Z}$中元素$a$可逆的充要条件是$\gcd(a,n)=1$.
+\subsubsection{(2)}
+若$p$为素数，则$\mathbb{Z}/p\mathbb{Z}$为域，若$n\geq 2$不为素数，则
+$\mathbb{Z}/n\mathbb{Z}$不是整环.
+
+\Proofbyintimidation
+
+\subsection{}
+证明$\mathbb{H}$中任何非零元素均乘法可逆.
+
+\zm{
+	令$p=t+xi+yj+zk\neq 0\in\mathbb{H}$，我们有$t^2+x^2+y^2+z^2\neq 0$.
+	
+	定义$p$的共轭$p^{\ast}=t-xi-yj-zk$，则$pp^{\ast}=p^{\ast}p
+	=(t^2+x^2+y^2+z^2)
+	+(tx-tx-yz-(-yz))i
+	+(ty-ty-zx-(-zx))j
+	+(tz-tz-xy-(-xy))k
+	=t^2+x^2+y^2+z^2\in\mathbb{R}-\{0\}$
+	
+	故$p^{-1}=p^{\ast}/(t^2+x^2+y^2+z^2)$满足$pp^{-1}=p^{-1}p=1$.
+}
+
+\subsection{}
+设$d\geq 1$为正整数，利用$R=\mathbb{Z}[\sqrt{-d}]\subseteq \mathbb{C}$说明$R$是整环，
+并确定$R$的单位群.
+
+\jie $R$的零因子也是$\mathbb{C}$的零因子，然而后者没有零因子，故$R$是整环.
+
+对$R$中任意元素$y=a+b\sqrt{-d}\neq 0$，$y$在$R$中可逆$\Leftrightarrow
+y^{-1}_{\mathbb{C}}=\frac{a-b\sqrt{-d}}{a^2+b^2d}\in R$，即$a^2+b^2d\mid a, a^2+b^2d\mid -b$.
+
+若$|a|>1$，则$a^2>|a|,a^2+b^2d\geq a^2>|a|$，与整除矛盾.
+
+若$|a|=1$，则$1+b^2d\mid \pm1$，又$d\geq 1$，只能$b^2=0$，即$y=\pm 1$.
+
+若$|a|=0$，则$b^2d\mid -b$，得$bd=\pm 1$或$0$，又$d\neq 0, a^2+b^2d\neq 0$，只能$b=\pm 1$且$d=1$.
+
+因此$U(R)=\left\{
+\begin{matrix}
+\{\pm 1\}, & \text{当}d>1\\
+\{\pm 1, \pm\sqrt{-1}\}, & \text{当}d=1
+\end{matrix}
+\right.$.
+
+\subsection{}
+设$A$是阿贝尔群（其上的运算称为加法），$\mathrm{End}(A)$是群$A$的全部自同态构成的集合，对于$f,g\in\mathrm{End}(A)$，定义
+$$(f+g)(a)=f(a)+g(a), (f\cdot g)(a)=f(g(a)), \forall a\in A$$
+证明$\mathrm{End}(A)$对上述运算是含幺环，并求出单位群.
+
+\zm{
+	定义$(-g)(a)=-g(a), \forall a\in A$，则对任意$f,g\in\mathrm{End}(A)$，$-g$也是$A$到自身的同态，$(f+(-g))(a)=f(a)-g(a)=-g(a)+f(a)=(-g+f)(a)$，故$\mathrm{End}(A)$对加法是阿贝尔群（结合律请自证），并有加法单位元：$f_0(a): a\mapsto 0_A$.
+	
+	又$((fg)\cdot h)(a)=f(g(h(a)))=(f\cdot (gh))(a)$，且$f_1(a):a\mapsto a$满足$f_1\cdot g=g\cdot f_1=g$，故$\mathrm{End}(A)$对乘法为含幺半群.
+	
+	又$((f+g)\cdot h)(a)=(f+g)(h(a))=f(h(a))+g(h(a))=(f\cdot h+g\cdot h)(a)$（同理可证左分配律），故$\mathrm{End}(A)$和上述运算是含幺环.
+}
+
+\jie $\exists f^{-1}$ s.t. $f(f^{-1}(a))=f^{-1}(f(a))=a=f_1(a), \forall a\in A\Leftrightarrow
+f$是同构，故$U(\mathrm{End}(A))=\Aut(A)$.
+
+\subsection{}
+设$G$是乘法群，$R$为含幺环，定义集合$R[G]=\{\sum_{g\in G}r_gg\mid r_g\in R\text{且只有有限多个}r_g\neq 0_R\}$，在集合$R[G]$上定义
+$$\sum_{g\in G}r_gg+\sum_{g\in G}t_gg=\sum_{g\in G}(r_g+t_g)g;\;
+\left(\sum_{g\in G}r_gg\right)\left(\sum_{g\in G}t_gg\right)=\sum_{g\in G}
+\left(
+\sum_{g^{\prime}g^{\prime\prime}=g}r_{g^{\prime}}t_{g^{\prime\prime}}
+\right)g$$
+
+\subsubsection{(1)}
+求证：上面定义的加法和乘法是集合$R[G]$中的二元运算（警告：这不是显然的！），并且$R[G]$由此形成环，称为群$G$在环$R$上的{\heiti 群环}.
+
+\zm{
+	令$T_1=\{g\mid r_g\neq 0\}$，$T_2=\{g\mid t_g\neq 0\}$，由定义他们都是有限集.
+	
+	对$r+t$的指标集$r_g+t_g$，$\{g\mid r_g+t_g\neq 0\}\subseteq T_1\bigcup T_2 $，故它是有限集，故加法为$R[G]$上的二元运算.
+	
+	对$rt$的指标集，$g\neq T_1T_2\Rightarrow
+	\sum_{g^{\prime}g^{\prime\prime}=g}r_{g^{\prime}}t_{g^{\prime\prime}}
+	=\sum_{g^{\prime}g^{\prime\prime}=g}0\cdot0
+	=0$，故$\{g\mid \sum_{g^{\prime}g^{\prime\prime}=g}r_{g^{\prime}}t_{g^{\prime\prime}}\neq 0\}\subseteq T_1\cdot_GT_2$，它也是有限集，故乘法为$R[G]$上的二元运算.
+	
+	$R[G]$的加法为阿贝尔群：留给读者.
+	
+	$R[G]$的乘法为含幺半群：
+	
+	结合律：
+	\begin{flalign*}
+	&\left(\left(\sum_{g\in G}r_gg\right)\left(\sum_{g\in G}t_gg\right)\right)
+	\left(\sum_{g\in G}s_gg\right)&&\\
+	=&\left(\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}=g}r_{g^{\prime}}t_{g^{\prime\prime}}
+	\right)g\right)
+	\left(\sum_{g\in G}s_gg\right)&&\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g_{12}g^{\prime\prime\prime}=g}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}=g_{12}}r_{g^{\prime}}t_{g^{\prime\prime}}
+	\right)
+	s_{g^{\prime\prime\prime}}
+	\right)
+	g&&\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}g^{\prime\prime\prime}=g}
+	r_{g^{\prime}}t_{g^{\prime\prime}}s_{g^{\prime\prime\prime}}
+	\right)
+	g&&\tag{$\ast$}
+	\end{flalign*}
+	同理可证$\left(\sum_{g\in G}r_gg\right)\left(\left(\sum_{g\in G}t_gg\right)
+	\left(\sum_{g\in G}s_gg\right)\right)=(\ast)$.
+	
+	乘法单位元：
+	\begin{flalign*}
+	&\left(
+	\sum_{g\in G}r_gg
+	\right)
+	\left(
+	\sum_{g\in G}1_gg
+	\right)&&(g=1_G\Rightarrow 1_g=1_R, g\neq 1_G\Rightarrow 1_g=0_R)\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}=g}r_{g^{\prime}}1_{g^{\prime\prime}}
+	\right)
+	g&&\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}1_G=g}r_{g^{\prime}}1_R
+	\right)
+	g+
+	\left(
+	\sum_{\substack{g^{\prime}g^{\prime\prime}=g\\g^{\prime\prime}\neq 1_G}}r_{g^{\prime}}0_R
+	\right)
+	g&&\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}1_G=g}r_{g^{\prime}}1_R
+	\right)
+	g&&\\
+	=&\sum_{g\in G}r_gg&&\tag{$\ast\ast$}
+	\end{flalign*}
+	同理可证$
+	\left(
+	\sum_{g\in G}1_gg
+	\right)\left(
+	\sum_{g\in G}r_gg
+	\right)=(\ast\ast)$.
+	
+	分配律：只证右分配律，请读者完成左分配律.
+	\begin{flalign*}
+	&\left(\left(\sum_{g\in G}r_gg\right)+\left(\sum_{g\in G}t_gg\right)\right)
+	\left(\sum_{g\in G}s_gg\right)&&\\
+	=&\left(\sum_{g\in G}(r_g+t_g)g\right)
+	\left(\sum_{g\in G}s_gg\right)&&\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}=g}(r_{g^{\prime}}+t_{g^{\prime}})s_{g^{\prime\prime}}
+	\right)
+	g&&\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}=g}(r_{g^{\prime}}s_{g^{\prime\prime}}+t_{g^{\prime}}s_{g^{\prime\prime}})
+	\right)
+	g&&\\
+	=&\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}=g}r_{g^{\prime}}s_{g^{\prime\prime}}
+	\right)g
+	+
+	\sum_{g\in G}
+	\left(
+	\sum_{g^{\prime}g^{\prime\prime}=g}t_{g^{\prime}}s_{g^{\prime\prime}}
+	\right)g&&\\
+	=&\left(\sum_{g\in G}r_gg\right)
+	\left(\sum_{g\in G}s_gg\right)
+	+\left(\sum_{g\in G}t_gg\right)
+	\left(\sum_{g\in G}s_gg\right)&&
+	\end{flalign*}
+	故$R[G]$有环结构.
+}
+\subsubsection{(2)}
+$R[G]$是交换环$\Leftrightarrow R$是交换环且$G$是阿贝尔群.
+
+$(\Leftarrow)$请读者自证.
+
+$(\Rightarrow)$反证法，当$R$不是交换环时，$\exists r_1t_1\neq t_1r_1, r_1,t_1\in R$，
+令$r_g=r_1, t_g=t_1$当$g=1_G$，$r_g=t_g=0_R$当$g\neq 1_G$，则
+$\left(\sum_{g\in G}r_gg\right)\left(\sum_{g\in G}t_gg\right)=r_1t_11_G$，
+$\left(\sum_{g\in G}t_gg\right)\left(\sum_{g\in G}r_gg\right)=t_1r_11_G$，
+两者不等，故$R[G]$不是交换环.
+
+当$G$不是阿贝尔群时，$\exists ab\neq ba, a,b\in G$，令$r_g=1_R$当$g=a$，$r_g=0_R$当$g\neq a$，$t_g=1_R$当$g=b$，$t_g=0_R$当$g\neq b$，则
+$\left(\sum_{g\in G}r_gg\right)\left(\sum_{g\in G}t_gg\right)=1_Rab$，
+$\left(\sum_{g\in G}t_gg\right)\left(\sum_{g\in G}r_gg\right)=1_Rba$，
+两者不等，故$R[G]$不是交换环.
+
+由反证法即得结论.
+\subsubsection{(3)}
+如果环$R$的单位元为$1_R$，群$G$的单位元为$e$，则$1_Re$是群环$R[G]$的单位元.
+
+\Proofbyintimidation
+
+\subsubsection{(4)}
+可以将$R$自然看作$R[G]$的子环：
+
+\jie $R$到$R[G]$有单同态$f: r\mapsto r1_G$，证明留给读者.
+
+\subsubsection{(5)}
+试确定
+\paragraph{(5a)}
+$\mathbb{Z}[\mathbb{Z}/2\mathbb{Z}]$的单位群.
+
+\jie $\mathbb{Z}[\mathbb{Z}/2\mathbb{Z}]$的元素有$a\cdot 1+b\cdot x$的形式，其中$x^2=1$，$1\cdot x=x\cdot 1=x$，故$a\cdot 1+b\cdot x$可记为$a+bx\;(a,b\in\mathbb{Z})$.
+
+由于$\mathbb{Z}[\mathbb{Z}/2\mathbb{Z}]$的单位元为$1+0x$，则
+\begin{flalign*}
+&(a+bx)(c+dx)=1+0x&&(a,b,c,d\in\mathbb{Z})\\
+\Leftrightarrow&ac+bd=1,ad-bc=1&&(a,b,c,d\in\mathbb{Z})\\
+\Rightarrow&a^2+b^2=1,c^2+d^2=1,ad-bc=0&&(a,b,c,d\in\mathbb{Z})\\
+\Rightarrow&a+bx=\pm 1,\pm x, c+dx=\mp 1, \mp x
+\end{flalign*}
+易验证上述四个元素的确是$\mathbb{Z}[\mathbb{Z}/2\mathbb{Z}]$的单位，即
+$U(\mathbb{Z}[\mathbb{Z}/2\mathbb{Z}])=\{\pm 1, \pm x\}$.
+
+\paragraph{(5b)}
+$R[\mathbb{Z}]$的单位群，其中$R$为整环.
+
+\jie 将$\mathbb{Z}$看作秩为$1$的自由阿贝尔群，其生成元记为$x$，则$R[\mathbb{Z}]$中的非零元有形式$r=x^{u}(a_0+a_1x+\cdots+a_mx^m)=x^uf(x), 0\leq m<\infty, u\in\mathbb{Z}, a_i\in R$，
+$s=x^{v}(b_0+b_1x+\cdots+b_nx^n=x^vg(x), 0\leq n<\infty, v\in\mathbb{Z}, b_j\in R$.
+此时$f,g$为多项式环$R[x]$中的元素且常数项不为$0_R$，由$R$是整环，$f(x)g(x)$的常数项也不为$0_R$，且$rs=x^{u+v}f(x)g(x)$，要使$rs=1_{R[\mathbb{Z}]}$，只能$u+v=0$，$f(x)g(x)=1_R$，我们有$\deg fg=0$，由{\heiti 命题}\textbf{4.21}（读者也可自证）$\deg f+\deg g=0$，即$f,g$为常数多项式，$fg=1$得到$f=a_0\in U(R), g=b_0\in U(R)$.
+
+故$U(R[\mathbb{Z}])$为$\{x^ua_0\mid a_0\in U(R), u\in\mathbb{Z}\}$.
+
+\subsection{}
+令$R=\{a=(a_1,a_2,...)\mid a_n\in \mathbb{Z},0\leq a_n\leq p^n-1,a_n\equiv a_{n+1}\mod p^n\}$，设$a,b\in R$，定义
+$$a+b=c,0\leq c_n\leq p^n-1, c_n\equiv a_n+b_n\mod p^n,$$
+$$ab=d,0\leq d_n\leq p^n-1, d_n\equiv a_nb_n\mod p^n.$$
+\subsubsection{(1)}
+$R$成为一个含幺交换环，称为$p$进整数环，记为$\mathbb{Z}_p$.
+
+\zm{
+	我们只证两个元素的和、积满足仍满足$f_n\equiv f_{n+1}\mod p^n$，其余请读者自己完成. 由于$p^n$整除$p^{n+1}$，我们有
+	$a+b=c\Rightarrow c_{n+1}\equiv a_{n+1}+b_{n+1}\mod p^{n+1}\equiv a_{n+1}+b_{n+1}\mod p^n\equiv a_n+b_n\mod p^n\equiv c_n\mod p^n$.
+	$ab=d\Rightarrow d_{n+1}\equiv a_{n+1}b_{n+1}\mod p^{n+1}\equiv a_{n+1}b_{n+1}\mod p^n\equiv a_nb_n\mod p^n\equiv c_n\mod p^n$.
+	
+	请读者自己证明$(1,1,1,...)$是$R$中的单位元.
+}
+\subsubsection{(2)}
+$\mathbb{Z}$可自然看成是$\mathbb{Z}_p$的子环.
+
+\zm{
+	请读者自己证明$\mathbb{Z}\rightarrow \mathbb{Z}_p, a_0\mapsto (a_0\mod p, a_0\mod p^2, ...)$为单射且保持环$\mathbb{Z}$的加法与乘法.
+}
+\subsubsection{(3)}
+试确定$\mathbb{Z}_p$的单位群.
+
+\jie 对任意环$R$中元素$a=(a_1,a_2,...)$，若$a_1=0$，则对环$R$中任意元素$b$，$ab=(0b_1, a_2b_2,...)=(0,a_2b_2,...)\neq(1,1,...)=1_R$，故$a$不是单位. 若$a_1\neq 0$，则$\gcd(a_1,p)=1$，并且我们有$a_i=m_ip+a_1, m_i\in\mathbb{N}$，$\gcd(a_i,p^i)=1$. 由贝祖定理，存在$b_i$使得$a_ib_i+p^ik=\gcd(a_i,p^i)=1$，即$a_ib_i\equiv 1\mod p^i$，且$a_nb_{n+1}\equiv a_{n+1}b_{n+1}\mod p^n\equiv (1\mod p^{n+1})\mod p^n\equiv 1\mod p^n$，故$a_n(b_{n+1}-b_n)\equiv 0\mod p^n$，由$p\nmid a_n$知$b_{n+1}-b_n\equiv 0\mod p^n$，即$b_{n+1}\equiv b_n\mod p^n$对一切$n\geq 1$成立. 故$b=(b_1,b_2,...)\in R$满足$ab=(1,1,...)$是$a$在$R$中的逆元，$U(R)=\{(a_1,a_2,...)\mid a_n\in\mathbb{Z}, a_1\neq 0, 0\leq a_n\leq p^n-1,a_n\equiv a_{n+1}\mod p^n\}=\mathbb{Z}_p-p\mathbb{Z}_p$.
+
+\subsection{}
+设$d\in\mathbb{Q}^{\times}-(\mathbb{Q}^{\times})^2$. 证明$\mathbb{Q}[\sqrt{d}]=\{a+b\sqrt{d}\mid a,b\in \mathbb{Q}\}$是$\mathbb{C}$的子域，并确定$\mathbb{Q}[\sqrt{d}]$的全部子域.
+
+\zm{
+	请读者自证$\mathbb{Q}[\sqrt{d}]\subseteq\mathbb{C}$，我们只需证$\mathbb{Q}[\sqrt{d}]$对加减乘除封闭. 加减法请读者自证. 对任意该集合中元素$a+b\sqrt{d}, c+e\sqrt{d},\;(a,b,c,d\in\mathbb{Q})$，我们有
+	$(a+b\sqrt{d})(c+e\sqrt{d})=(ac+bed)+(ae+bc)\sqrt(d)\in\mathbb{Q}[\sqrt{d}]$，当$a+b\sqrt{d}\neq 0$时$a,b$不同时为$0$，又$d\notin(\mathbb{Q}^{\times})^2$，有$d\neq (\frac{a}{b})^2$，即$a^2-b^2d\neq 0$，我们有$(a+b\sqrt{d})(\frac{a-b\sqrt{d}}{a^2-b^2d})=1$其中$(\frac{a-b\sqrt{d}}{a^2-b^2d})=a/(a^2-b^2d)-b/(a^2-b^2d)\sqrt{d}\in\mathbb{Q}[\sqrt{d}]$，故每个非零元均有逆元.
+}
+
+\jie 对任何$\mathbb{Q}[\sqrt{d}]$的子域$F$，由于$1\in F$，得到$\mathbb{Q}\subseteq F$，并且$\mathbb{Q}$满足条件. 若存在$e\neq 0$使得$c+e\sqrt{d}\in F$，则$\sqrt{d}=\frac{1}{e}\cdot(c+e\sqrt{d}-c)\in F$，得$\forall a,b\in\mathbb{Q}, a+b\sqrt{d}\in F$，即$F=\mathbb{Q}[\sqrt{d}]$，故子域只有两个，$\mathbb{Q}$和$\mathbb{Q}[\sqrt{d}]$本身.
+
+\subsection{}
+设$R$为环，$a\in R$，求证$S=\{r\in R\mid ar=ra\}$为$R$的子环.
+
+\zm{
+	易见$0_R\in S, 1_R\in R\Rightarrow 1_R\in S$，我们只要证明$\forall r,s\in S, r-s\in S, rs\in S$.
+	
+	$(r-s)a=ra-sa=ar-as=a(r-s), (rs)a=r(sa)=ras=ars=a(rs)$.
+}
+
+\subsection{}
+设$U$是一个集合，$S=\{X\mid X\subseteq U\}$，对$A,B\in S$，定义
+$$A-B=\{c\in U\mid c\in A,c\notin B\},$$
+$$A+B=(A-B)\cup(B-A), A\cdot B=A\cap B.$$
+求证$(S,+,\cdot)$是含幺交换环.
+
+\zm{
+	加法和乘法的二元运算性、交换性留给读者自证.
+	
+	加法结合律：
+	\begin{flalign*}
+	&(A+B)+C&&\\
+	=&((A-B)\cup(B-A))+C&&\\
+	=&(((A-B)\cup(B-A))-C)\cup(C-((A-B)\cup(B-A)))&&\\
+	=&((A-(B\cup C))\cup(B-(A\cup C)))\cup((C-(A\cup B))\cup (C\cap A\cap B))&&\\
+	=&(A-(B\cup C))\cup(B-(A\cup C))\cup (C-(A\cup B))\cup (A\cap B\cap C)&&\tag{$\ast$}
+	\end{flalign*}
+	注意$(\ast)$式关于$A,B,C$对称，故$(\ast)=(A+B)+C=(B+C)+A=A+(B+C)$.
+	
+	加法单位元：$0_S=\varnothing$满足$A+\varnothing=\varnothing+A=(A-\varnothing)\cup(\varnothing-A)=A$.
+	
+	加法逆元：$\forall A\in S, A+A=(A-A)\cup(A-A)=\varnothing=0_S$，故任何元素的逆元是它自身.
+	（警告：这里$A+(-B)=A+B\neq A-B$，故上文定义的$A-B$不是$S$的减法）
+	
+	乘法结合律：
+	$(A\cdot B)\cdot C=A\cap B\cap C=A\cdot(B\cdot C)$.
+	
+	乘法单位元：
+	$1_S=U$满足$A\cdot 1_S=1_S\cdot A=A\cap U=A$.
+	
+	分配律：
+	\begin{flalign*}
+	&(A+B)\cdot C&&\\
+	=&((A-B)\cup(B-A))\cap C&&\\
+	=&((A\cap C)-(B\cap C))\cup((B\cap C)-(A\cap C))&&\\
+	=&(A\cap C)+(B\cap C)&&\\
+	=&A\cdot C+B\cdot C&&
+	\end{flalign*}
+	同理可证左分配律.
+	
+	综上，$(S,+,\cdot)$是含幺交换环.
+}
+
+\subsection{}
+设$R$为环，如果每个元素$a\in R$均满足$a^2=a$，称$R$为{\heiti 布尔环}\textbf{(Boolean ring)}，求证：
+\subsubsection{(1)}
+布尔环必交换，且对任意$a\in R, a+a=0_R$.
+
+\zm{
+	$a+a=(a+a)^2=a^2+a^2+a^2+a^2=(a+a)+(a+a)$，故$0_R=a+a$.
+	
+	对任意元素$a,b$，$a+b=(a+b)^2=a^2+b^2+ab+ba=a+b+ab+ba$，故$ab+ba=0_R$，但$ab+ab=0_R$，有$ab-ba=0_R$恒成立，$R$是交换环.
+}
+\subsubsection{(2)}
+{\heiti 习题}\textbf{3.1.9}中的环$S$是布尔环.
+
+\Proofbyintimidation
+
+\subsection{}
+非零有限整环$R$必为域.
+
+\zm{
+	因$1_R\in R$，若$R$无$0_R,1_R$以外元素，则$R\cong \mathbb{F}_2$为域，否则对任意$x\neq 0_R,1_R$，令$\varphi: \mathbb{N}\rightarrow
+	\{x^i\mid i\in\mathbb{N}\}, i\mapsto x^i$，由于$\{x^i\mid i\in\mathbb{N}\}\subseteq R$是有限集，$\mathbb{N}$是无限集，故$\varphi$不是单射，$\exists i\neq j$使得$x^i=x^j$，不妨设$j>i$，即$j\geq i+1$，则$(x^{j-i}-1_R)x^i=x^j-x^i=0_R$，由$R$是整环，$x$不是零因子，导致$x^i\neq 0_R$，并且它也不是零因子，只能$(x^{j-i}-1_R)=0$，即$x^{j-i}=1_R, x^{j-i-1}x=1_R$，$x^{j-i-1}$为$x$的逆元.
+}
+
+\subsection{}
+环$R$中元素$a$叫做幂零的，是指存在正整数$m$使得$a^m=0$.
+\subsubsection{(1)}
+证明：若$R$是交换环，$a,b$为幂零元素，则$a+b$也是幂零元素.
+
+\zm{
+	若$a^n=0, b^m=0$，则
+	\begin{flalign*}
+	&(a+b)^{n+m}=
+	\sum_{0\leq i\leq m+n}\left(
+	\begin{matrix}
+	m+n\\
+	i
+	\end{matrix}
+	\right)a^ib^{m+n-i}&&\\
+	=&\sum_{n\leq i\leq m+n}\left(
+	\begin{matrix}
+	m+n\\
+	i
+	\end{matrix}
+	\right)a^na^{i-n}b^{m+n-i}
+	+
+	\sum_{0\leq i<n}\left(
+	\begin{matrix}
+	m+n\\
+	i
+	\end{matrix}
+	\right)a^ib^{m}b^{n-i}&&\\
+	=&\sum_{n\leq i\leq m+n}\left(
+	\begin{matrix}
+	m+n\\
+	i
+	\end{matrix}
+	\right)0\cdot a^{i-n}b^{m+n-i}
+	+
+	\sum_{0\leq i<n}\left(
+	\begin{matrix}
+	m+n\\
+	i
+	\end{matrix}
+	\right)a^i\cdot 0\cdot b^{n-i}&&\\
+	=&\;0
+	\end{flalign*}
+	故$a+b$为幂零元.
+}
+
+\subsubsection{(2)}
+如果$R$不为交换环，则(1)中结论是否仍旧成立？
+
+\jie 未必成立，令$R=M_2\mathbb{Z}$，$a=
+\begin{pmatrix}
+0 & 1\\0 & 0
+\end{pmatrix}, b=
+\begin{pmatrix}
+0 & 0\\1 & 0
+\end{pmatrix}\in R$，则$a^2=b^2=
+\begin{pmatrix}
+0 & 0\\0 & 0
+\end{pmatrix}=0_R, a+b=
+\begin{pmatrix}
+0 & 1\\1 & 0
+\end{pmatrix}, (a+b)^2=I_2, (a+b)^n=I_2$或$a+b$，故$a+b$不是幂零元.
+
+\subsubsection{(3)}
+证明如果$x$是幂零的，那么$1+x$是单位.
+
+\zm{
+	若$x^n=0\;(n\in\mathbb{Z}_+)$，则令$y=(1-x+x^2-\cdots+(-1)^{n-1}x^{n-1})$，有
+	$y(1+x)=(1+x)y=1+(-1)^nx^n=1$，故$1+x$是单位.
+}
+
+\subsection{}
+设$a,b$是含幺环$R$中的元素，则$1-ab$可逆$\Leftrightarrow 1-ba$可逆.
+
+\zm{
+	($\Rightarrow$)$(1-ba)^{-1}=1+ba+baba+\cdots
+	=1+b\cdot 1\cdot a+b(ab)a+b(abab)a+\cdots
+	=1+b(1+ab+abab+\cdots)a
+	=1+b(1-ab)^{-1}a$.
+	证明此式严格成立需要更深知识，参见\emph{文献}\cite{31790}. 这里我们不做，而是直接证明结果成立：
+	
+	已知$1-ab$可逆，令$u=1+b(1-ab)^{-1}a\in R$，则$u(1-ba)
+	=1-ba+b(1-ab)^{-1}a-b(1-ab)^{-1}aba
+	=1-ba+(b(1-ab)^{-1}-b(1-ab)^{-1}ab)a
+	=1-ba+b(1-ab)^{-1}(1-ab)a
+	=1-ba+ba
+	=1$.
+	$(1-ba)u
+	=1-ba+b(1-ab)^{-1}a-bab(1-ab)^{-1}a
+	=1-ba+b((1-ab)^{-1}a-ab(1-ab)^{-1}a)
+	=1-ba+b(1-ab)(1-ab)^{-1}a
+	=1-ba+ba
+	=1$.
+	故存在$u$是$1-ba$的逆元.
+
+	($\Leftarrow$)交换$a,b$的地位即可.
+}
+
+\subsection{}
+含幺环中元素有多于一个右逆$\Rightarrow$它有无限多个右逆.
+
+\emph{证明思路由文献}\cite{kaplansky}\emph{给出，但细节为作者补完}
+
+
+\zm{
+	设$u$有多个右逆. 若$u$有左逆，则由{\heiti 引理}\textbf{3.12(1)}，$u$的左逆等于右逆且唯一，矛盾. 故$u$没有左逆.
+	
+	考虑元素$v=v_0+(1-v_0u)u^k$，其中$k\in\mathbb{N}$且$uv_0=1$，即$v_0$是$u$的任何一个右逆. 我们有$uv=uv_0+u^{k+1}-uv_0uu^k=1+u^{k+1}+u\cdot 1\cdot u^k=1$，故$v$是$u$的右逆. 当$i\neq j$时，不妨设$j>i$，则$v_i=(1-v_0u)u^i=v_j=(1-v_0u)u^j
+	\Rightarrow u^i-u^j-v_0u^{i+1}+v_0u^{j+1}=0
+	\Rightarrow (u^i-u^j-v_0u^{i+1}+v_0u^{j+1})v_0^j=0
+	\Rightarrow v_0^{j-i}-1+v_0v_0^{j-i-1}+v_0u=0
+	\Rightarrow v_0u=1$，即$v_0$是$u$的左逆，矛盾，故$f:\mathbb{N}\Rightarrow\{v_0+(1-v_0u)u^k\mid k\in\mathbb{N}\}, k\mapsto v_0+(1-v_0u)u^k$是单射，满足条件的$v$有无限多个.
+}
+
+\zm{
+	另一个证明，令$S=\{x\mid ux=1\}, T=\{xu-1+s_0\mid x\in S\}$，其中固定$s_0\in S$.
+	
+	由$u$没有左逆知$xu-1+s_0\neq s_0$，故$s_0\in S-T$. 但$\forall y\in T,
+	y=xu-1+s_0$，有$uy=uxu-u+us_0=u-u+1=1$，故$T\subseteq S$. 令$f: S\rightarrow T,
+	x\mapsto xu-1+s$，则由$u$没有左逆，$x\neq z\Rightarrow (x-z)u\neq 0\Rightarrow
+	f(x)=xu-1+s\neq zu-1+s=f(z)$，即$f$是单射，由$T$的定义知$f$是满射，故$S$到其真子集$T$有双射$f$，这迫使$S$为无限集.
+}
+
+\subsection{}
+令$C(\mathbb{R})$为连续实函数$f:\mathbb{R}\rightarrow \mathbb{R}$构成的集合，定义$(f+g)(a)=f(a)+g(a),(fg)(a)=f(a)g(a),\forall a\in\mathbb{R}$，证明：
+\subsubsection{(1)}
+$C(\mathbb{R})$为含幺交换环.
+
+\Proofbyintimidation
+
+\subsubsection{(2)}
+$C(\mathbb{R})$是否为整环？
+
+\jie 否，请读者自证$C(\mathbb{R})$中的加法单位元为$f_0: a\mapsto 0,\forall a\in A$.
+
+令$f,g$使得$f^{-1}(0)=A\subsetneqq\mathbb{R}, g^{-1}(0)=B\subsetneqq\mathbb{R}$，$A\cup B=\mathbb{R}$，则易见$fg=f_0$，故该环不是整环.
+
+\subsubsection{(3)}
+该环是否有幂零元？
+
+\jie 否，若存在$m\in\mathbb{Z}_+$使得$f^m_{C(\mathbb{R})}=f_0$，则$\forall a\in\mathbb{R}, (f(a))^m=0$，只能$f(a)=0$，故$f=f_0$.
+
+\subsubsection{(4)}
+该环的单位群是什么？
+
+\jie 请读者自行证明单位群是$\{f\mid f\in C(\mathbb{R}), \forall a\in R,f(a)\neq 0\}$，由$f$是连续的，该单位群也可写作$\{f\mid f\in C(\mathbb{R}), \forall a\in R,f(a)> 0\}\cup\{f\mid f\in C(\mathbb{R}), \forall a\in R,f(a)< 0\}$.
+
+\subsection{}
+设$D$为有限体，证明对任意$a\in D$，$a^{|D|}=a$.
+
+\zm{
+	$D^{\times}=D-\{0\}$为乘法群，$|D|=|D^{\times}|+1$，由{\heiti 推论}\textbf{1.61}，$\forall a\neq 0\in D$有$a^{|D^{\times}|}=1$，即$a^{|D|}=a^{|D^{\times}|+1}=a$，又$0^{|D|}=0$显然，故得结论.
+}

@@ -1,0 +1,153 @@
+\section{方程的根式可解性}
+\subsection{}
+设$p,q$为不同的素数，证明：
+\subsubsection{(1)}
+$p$的幂次阶群是可解群.
+
+\zm{
+	设$|G|=p^n$，当$n=0$时，平凡群是可解群，当$n=1$时，$G$是素数阶循环群，它显然是可解群.
+	
+	若$n<k$时结论成立，则若$|G|=p^k$，由{\heiti 命题}\textbf{2.42}，$|G|$的中心非平凡，故$|Z(G)|=p^r\;(1\leq r\leq k)$，$|G/Z(G)|=p^{k-r}\;(0\leq k-r\leq k-1)$，且$Z(G)\vartriangleleft G$，故要么$G=Z(G)$，此时$G$是阿贝尔群，故为可解群，要么$Z(G)$和$G/Z(G)$的阶都满足归纳假设，它们都是可解群，故由{\heiti 命题}\textbf{6.44(1)}，$G$也是可解群.
+}
+\subsubsection{(2)}
+$pq$阶群是可解群.
+
+\zm{
+	不妨设$p<q$，则由{\heiti 命题}\textbf{2.56(1)}，$G$的西罗$q$-子群$H$是$G$的正规子群，它是可解群. $G/H$的阶为$p$，故它也是可解群，故由{\heiti 命题}\textbf{6.44(1)}，$G$也是可解群.
+}
+
+\subsubsection{(2)}
+$p^2q$阶群是可解群.
+
+\zm{
+	由{\heiti 命题}\textbf{2.56(2)}，存在两种情况：
+	
+	(i) $G$的西罗$q$-子群$H$是$G$的正规子群，它是可解群. $G/H$的阶为$p^2$，故它也是可解群.
+	
+	(ii) $G$的西罗$p$-子群$H$是$G$的正规子群，它的阶为$p^2$，故是可解群. $G/H$的阶为$q$，故它也是可解群.
+	
+	由{\heiti 命题}\textbf{6.44(1)}，$G$也是可解群.
+}
+
+\subsection{}
+对于群$G$，定义$G^{(1)}=G^{\prime}$为$G$的换位子群，并归纳定义$G^{(i+1)}=G^{(i)\prime}$，证明$G$是可解群当且仅当存在$n\geq 1$，$G^{(n)}=1$.
+
+\zm{
+	由{\heiti 命题}\textbf{2.69}，对任意群$H$有$H^{\prime}\vartriangleleft H$，且$H/H^{\prime}$为阿贝尔群，故$G\vartriangleright G^{(1)}\vartriangleright \cdots \vartriangleright G^{(n)}$是可解列，当它终结于$\{1\}$时$G$可解.
+	
+	反之，若$G$不可解，由$G^{(1)}\vartriangleleft G$知$G^{(1)}$和$G/G^{(1)}$中必有一个不可解，但后者是阿贝尔群，故$G^{(1)}$不可解，同样推理即$G^{(n)}$不可解对一切$n\geq 1$成立，故无论$n$取何正整数$G^{(n)}$不可能等于$\{1\}$.
+}
+
+\subsection*{以下适用于6.4.3-6.4.5题.}
+
+设$G$是群. 我们定义$C_1(G)=Z(G)$为$G$的中心，并归纳定义$C_{i+1}(G)$为$Z(G/C_i(G))$在映射$G\rightarrow G/C_i(G)$的原像. 如存在$n\geq 1$使得$C_n(G)=G$，则称$G$为{\heiti 幂零群.}
+
+{\heiti 注记.} 该定义实际定义了$G$的{\heiti 上中心系列}，$G$是幂零群即上中心系列终结于$G$，此时它是$1$到$G$的{\heiti 中心系列}（中心系列的定义见文献\cite{wiki:cen}）
+
+\jie 我们证明以下事实以供下面几题使用. 我们定义$C_0(G)=\{1\}$，易见这定义是平滑的，即$C_1(G)=Z(G)$也是$Z(G/\{1\})$在映射$\id: G\rightarrow G/\{1\}$的原像.
+
+(i) $C_i(G)$是$G$的正规子群.
+
+\zm{
+	$C_1(G)=Z(G)$显然是$G$的正规子群. 若$C_i(G)\vartriangleleft G$，则由$Z(G/C_i(G))\vartriangleleft G/C_i(G)$知$gC_{i+1}(G)g^{-1}=gZ(G/C_i(G))C_i(G)g^{-1}$（请理解为$C_i(G)$的陪集！）$=gC_i(G)Z(G/C_i(G))(gC_i(G))^{-1}C_i(G)=Z(G/C_i(G))C_i(G)=C_{i+1}(G)$，故$C_{i+1}(G)\vartriangleleft G$.
+}
+
+(ii) $C_i(G)\geq[C_{i+1}(G),(G)]$，其中$[H,G]$为$H$和$G$的换位子群$hgh^{-1}g^{-1}$（注：等号未必成立，即使$i+1<n$且$G$是幂零群，见文献\cite{wiki:cen}中$C_2\times Q_8$的例子）.
+
+\zm{
+	考虑$C_{i+1}(G)$中任意元素$u$，则由定义$uC_igC_i(uC_i)^{-1}(gC_i)^{-1}=C_i$对一切$g$成立，故$ugu^{-1}g^{-1}\in C_i$.
+}
+
+{\heiti 定义.} $G$的{\heiti 下中心系列}是指$G_0=G$（注：有些文献给出$G_1=G$），递归定义$G_{i+1}=[G_i,G]$. 由于$g[a,b]g^{-1}=[a,g]^{-1}[a,gb]$，故$G_i$是$G$的正规子群. 可以证明当且仅当存在$n$使$G_n=\{1\}$时，$G$是幂零群且上中心系列和下中心系列长度一致，详细证明见文献\cite{groupprops_nilpotency}，本书不再赘述.
+
+\subsection{}
+幂零群一定是可解群.
+
+\zm{
+	$C_n=G, C_{n-1}\geq [G,G]=G_1, C_{n-2}\geq [C_{n-1}, G]\geq [G_1, G]=G_2, \cdots C_0\geq G_n$. 但$C_0=\{1\}$，故$G_n=\{1\}$.
+	
+	$G_1=[G,G]=G^{(1)}$，若$G^{i}\leq G_i$，则$G^{i+1}=[G^{i}, G^{i}]\leq [G^{i}, G]\leq [G_i, G]=G_{i+1}$，故$G^{k}\leq G_k$对一切$n$成立，$G^{n}\leq G_n=\{1\}$，由{\heiti 习题}\textbf{6.4.2}，$G$是可解群.
+}
+
+\subsection{}
+证明对称群$S_3$和$S_4$是可解群，但不是幂零群.
+
+\zm{
+	由于$S_n\;(n\geq 3)$的中心平凡，$C_1(G)=C_2(G)=\cdots C_i(G)=\{1\}$，故$S_n$在$n\geq 3$时不是幂零群.
+	
+	$A_n$是$S_n$的正规子群，且$S_n/A_n\cong\mathbb{Z}/2\mathbb{Z}$是阿贝尔群. $A_3$是$3$阶循环群，它自身即阿贝尔群，$A_4$有正规子群$K_2: \{\id, (12)(34), (13)(24), (14)(23)\}$，$A_4/K_2$的阶为$3$，$K_2$的阶为$4=2^2$，它们都是阿贝尔群，故$S_3$和$S_4$可解.
+}
+
+\subsection{}
+设$N$为群$G$的正规子群，如果$N$和$G/N$都是幂零群，$G$是否也是幂零群？
+
+\jie 不一定，取$G=A_4$，$N=K_2$，则$N$,$G/N$的阶分别为$4$和$3$，它们都是阿贝尔群，故幂零，但$A_4$的中心平凡，故不是幂零群.
+
+\subsection{}
+试导出三次方程的求根公式：设$F$是特征$0$域，
+$$f(x)=x^3-t_1x^2+t_2x-t_3\in F(t_1,t_2,t_3)[x].$$
+
+\jie 作移轴变换$y=x-t_1/3$，则$y^3+py+q=0$，其中$p=-\frac{1}{3}t_1^2+t_2,q=-\frac{2}{27}t_1^3+\frac{1}{3}t_1t_2-t_3$.
+
+采用正文6.2节的记号，$\Delta^2=-((p/3)^3+(q/2)^2)*108$，故根的偶置换$A_3$的不变域为$F(\Delta)$，且$f(x)$的分裂域$K$满足$[K:F(\Delta)]=|A_3|=3, \mathrm{Gal}(K/F(\Delta))=\mathbb{Z}/3\mathbb{Z}$.
+
+故$\mathrm{Gal}(K(\omega)/F(\Delta, \omega))=\{1\}$或$\mathbb{Z}/3\mathbb{Z}$，我们考虑后一种情况，即$K(\omega)/F(\Delta, \omega)$是三次扩张. 令$y_i\;(i=1,2,3)$为$f(x)$的三个根，则由$K/F$是平凡扩张或三次扩张，$K=F(y_1)$，令$\sigma: y_1\mapsto y_2, y_2\mapsto y_3, y_3\mapsto y_1\in \mathrm{Gal}(K(\omega)/F(\Delta, \omega))$，则$\sigma^3=\id$. 令$d_1=y_1+y_2\omega+y_3\omega^2, d_2=y_1+y_2\omega^2+y_3\omega, d_3=y_1+y_2+y_3$，则$\sigma(d_1)=d_1\omega^2, \sigma(d_2)=d_2\omega, \sigma_(d_3)=d_3=0$，且$K=F(\Delta, \omega, d_1)$，$d_1^3\in F(\Delta, \omega)$. 我们来计算$d_1^3$.
+
+注意$\Delta=(y_1-y_2)(y_2-y_3)(y_3-y_1)$，$y_1+y_2+y_3=0, y_1y_2+y_2y_3+y_3y_1=p, y_1y_2y_3=q$.
+$d_1^3=(y_1^3+y_2^3+y_3^3+6y_1y_2y_3)+3\omega(y_1^2y_2+y_2^2y_3+y_3^2y_1)+3\omega(y_1^2y_3+y_2^2y_1+y_3^2y_2)
+=(y_1+y_2+y_3)^3-3(y_1+y_2+y_3)(y_1y_2+y_2y_3+y_3y_1)-9y_1y_2y_3
++3/2\cdot\omega((y_1+y_2+y_3)(y_1y_2+y_2y_3+y_3y_1)-\Delta+3y_1y_2y_3)
++3/2\cdot\omega^2((y_1+y_2+y_3)(y_1y_2+y_2y_3+y_3y_1)+\Delta+3y_1y_2y_3)
+=-9q-\frac{3\omega}{2}\cdot\Delta+\frac{9\omega q}{2}+\frac{3\omega^2}{2}\cdot\Delta+\frac{9\omega^2 q}{2}
+=-\frac{27}{2}q-\frac{3\sqrt{3}i}{2}\cdot\Delta
+=-\frac{27}{2}q+27\sqrt{(q/2)^2+(p/3)^3}$.
+
+故$d_1=\sqrt[3]{-\frac{27}{2}q+27\sqrt{(q/2)^2+(p/3)^3}}
+=3\sqrt[3]{-\frac{q}{2}+\sqrt{(q/2)^2+(p/3)^3}}$，记它为$3\alpha$.
+
+由于$\tau: y_1\mapsto y_1, y_2\mapsto y_3, y_3\mapsto y_2$保持$F(t_1,t_2,t_3)$不变并将$\Delta$映射到$-\Delta$，$d_1$映射到$d_2$，故$d_2^3=-\frac{27}{2}q+\frac{3\sqrt{3}i}{2}\cdot\Delta$，$d_2=3\sqrt[3]{-\frac{q}{2}-\sqrt{(q/2)^2+(p/3)^3}}$，记它为$3\beta$.
+
+解方程$y_1+y_2+y_3=d_3=0, y_1+\omega y_2+\omega^2 y_3=3\alpha, y_1+\omega^2 y_2+\omega y_3=3\beta$，得$y_1=\alpha+\beta, y_2=\omega\alpha+\omega^2\beta, y_3=\omega^2\alpha+\omega\beta$，且$p=y_1y_2+y_2y_3+y_3y_1=(1+\omega+\omega^2)\alpha^2+(1+\omega+\omega^2)\beta^2-3\alpha\beta=-3\alpha\beta$，故$\alpha,\beta$需要满足$\alpha\beta=-p/3$.
+
+\subsection{}
+将$\cos 20^{\circ}$和$\cos\frac{360^{\circ}}{7}$表示为根式形式.
+
+\jie $\cos \frac{\pi}{9}$的最小多项式为$x^3-\frac{3}{4}x-\frac{1}{8}$（{\heiti 推论}\textbf{5.35}），利用{\heiti 习题}\textbf{6.4.6}的结果，$\alpha_0=\sqrt[3]{\frac{1}{16}+\frac{\sqrt{3}i}{16}}=\sqrt[3]{\frac{\zeta_6}{8}}=\zeta_{18}/2$（取幅角主值最小），$\beta_0=\sqrt[3]{\frac{1}{16}-\frac{\sqrt{3}i}{16}}=\sqrt[3]{\frac{\zeta_6^5}{8}}=\zeta_{18}^{17}/2$（取幅角主值最大），显然$\alpha_0\beta_0=1/4=-p/3$，方程的三个根为$\alpha_0+\beta_0=(\zeta_{18}+\zeta_{18}^{17})/2$，$\alpha_0\omega+\beta_0\omega^2, \alpha_0\omega^2+\beta_0\omega$，第一个根是实数，故它是$\cos 20^{\circ}$，即$\cos 20^{\circ}=\sqrt[3]{\frac{1}{16}+\frac{\sqrt{3}i}{16}}+\sqrt[3]{\frac{1}{16}-\frac{\sqrt{3}i}{16}}=\frac{1}{2}(\sqrt[3]{\frac{1+\sqrt{3}i}{2}}+\sqrt[3]{\frac{1-\sqrt{3}i}{2}})$.
+
+$\cos \frac{2\pi}{7}$的最小多项式由{\heiti 习题}\textbf{5.2.4}为$a^3+1/2a^2-1/2a-1/8=0$. 利用{\heiti 习题}\textbf{6.4.6}的结果，$p=-7/12, q=-7/216$，$t_1/3=-1/6$. $\alpha=\sqrt[3]{\frac{7+21\sqrt{3}i}{432}},\beta=\sqrt[3]{\frac{7-21\sqrt{3}i}{432}}$，由于$\alpha^3,\beta^3$彼此共轭，取$\alpha_0$为幅角主值最小的立方根，$\beta_0$为幅角主值最大的立方根，它们彼此共轭，满足$(\alpha\beta)^3=343/46656=(-p/3)^3$，且$\cos \frac{2\pi}{7}=-1/6+\alpha_0+\beta_0$.
+
+故$\cos \frac{2\pi}{7}=-1/6+\sqrt[3]{\frac{7+21\sqrt{3}i}{432}}+\sqrt[3]{\frac{7-21\sqrt{3}i}{432}}=\frac{1}{6}(-1+\sqrt[3]{\frac{7+21\sqrt{3}i}{2}}+\sqrt[3]{\frac{7-21\sqrt{3}i}{2}})$.
+
+\subsection{}
+求下列方程在复数域$\mathbb{C}$中的根：
+\subsubsection{(1)}
+$x^3-2x+4=0$.
+
+\jie 该方程的有理根只可能为$\pm1,\pm2,\pm4$，经检验$-2$是根，故$x^3-2x+4=(x+2)(x^2-2x+2))$，对后者求根得$x^2-2x+2=(x-(1+i))(x-(1-i))$，故$-2,1+i,1-i$是根.
+
+\subsubsection{(2)}
+$x^3-15x+4=0$.
+
+\jie
+该方程的有理根只可能为$\pm1,\pm2,\pm4$，经检验$-4$是根，故该多项式可分解为$(x+4)(x^2-4x+1)$，对后者求根得$x^2-4x+1=(x-\sqrt{3}-2)(x+\sqrt{3}-2)$，故$-4,\sqrt{3}+2,2-\sqrt{3}$是根.
+
+\subsubsection{(3)}
+$x^4-2x^3-8x-3=0$.
+
+\jie
+该方程的有理根只可能为$\pm1,\pm3$，经检验$3$是根，故该多项式分解为$(x-3)(x^3+x^2+3x+1)$.
+
+由卡尔达诺公式考虑三次方程$x^3+x^2+3x+1$的根，此时$p=8/3,q=2/27$，
+
+$\alpha=\sqrt[3]{-1/27+\sqrt{19/27}}, \beta=\sqrt[3]{-1/27-\sqrt{19/27}}$，$\alpha^3,\beta^3$都是实数，取它们的实数立方根得$\gamma_1=1/3(-1+\sqrt[3]{-1+\sqrt{19}}+\sqrt[3]{-1-\sqrt{19}})$，
+$\gamma_2=1/3(-1+\sqrt[3]{-1+\sqrt{19}}\omega+\sqrt[3]{-1-\sqrt{19}}\omega^2),\gamma_3=1/3(-1+\sqrt[3]{-1+\sqrt{19}}\omega^2+\sqrt[3]{-1-\sqrt{19}}\omega),
+\;(\omega=(-1+\sqrt{3}i)/2=\zeta_3)$. 故$3, \gamma_1,\gamma_2,\gamma_3$是根.
+
+\subsection{}
+证明方程$x^p-x-t=0$在$\mathbb{F}_p(t)$上根式不可解，但是多项式$x^p-x-t$在$\mathbb{F}_p(t)$上的伽罗瓦群是循环群，这表明在{\heiti 定理}\textbf{6.42}中$\mathrm{char}F=0$的条件一般是不能去掉的.
+
+\zm{
+	令$F=\mathbb{F}_p(t)$，设$K$是$x^p-x-t=0$的分裂域，由{\heiti 习题}\textbf{5.1.18}的证明2，$x^p-x-t$的所有根之差是$\mathbb{F}_p$中常数，即若$\alpha$是$x^p-x-t$的一个根，则另一个根$\beta=\alpha+c, c\in\mathbb{F}_p$，故$K=F(\alpha), [K:F]=p$，由前述证明过程（显然$x^p-x-t$在$\mathbb{F}_p$中无根，故）知$\mathrm{Gal}(K/F)\rightarrow \mathbb{Z}/p\mathbb{Z}$为满同态，但$|\mathrm{Gal}(K/F)|\leq [K:F]=p$，故只能$\mathrm{Gal}(K/F)\cong\mathbb{Z}/p\mathbb{Z}$为循环群，$K/F$为伽罗瓦扩张.
+	
+	故$K/F$若有根式扩张塔，由$[K:F]=p$只能$K=F(\sqrt[p]{u(t)})$，由于$x^p-u(t)=0$的全部根为$p$重的$\sqrt[p]{u(t)}$，故$\mathrm{Gal}(K/F)=\{1\}$，与$\mathrm{Gal}(K/F)=\mathbb{Z}/p\mathbb{Z}$矛盾，故根式扩张塔不存在，$x^p-x-t$在$\mathbb{F}_p(t)$上根式不可解.
+}

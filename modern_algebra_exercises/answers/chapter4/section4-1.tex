@@ -1,0 +1,191 @@
+\section{唯一因子分解环}
+\subsection{}
+设$R$为UFD，$a,b,c$为$R$中非零元素. 证明：
+\subsubsection{(1)}
+$ab\sim \gcd(a,b)\lcm(a,b)$.
+
+\zm{
+	若$a$的因子分解为$uc_1c_2\cdots c_n$，$b$的因子分解为$vd_1d_2\cdots d_m$，两者中的非单位重复元素（这里的重复是指相伴）为$c_1,c_2,...,c_l\sim d_1,d_2,...,d_l$（不妨设重新排列后重复的元素居前），则$\gcd(a,b)\sim c_1c_2\cdots c_l$，$\lcm(a,b)\sim c_1c_2\cdots c_l\cdot c_{l+1}c_{l+2}\cdots c_n\cdot d_{l+1}d_{l+2}\cdots d_m$，$ab\sim c_1c_2\cdots c_l\cdot c_{l+1}c_{l+2}\cdots c_n\cdot d_1d_2\cdots d_l\cdot d_{l+1}d_{l+2}\cdots d_m\sim
+	c_1c_2\cdots c_l\cdot c_{l+1}c_{l+2}\cdots c_n\cdot d_{l+1}d_{l+2}\cdots d_m \cdot
+	c_1c_2\cdots c_l$，故得结论.
+}
+
+\subsubsection{(2)}
+若$a\mid bc$，$\gcd(a,b)\sim 1$，则$a\mid c$.
+
+\zm{
+	由$\gcd(a,b)\sim 1, \gcd(ac,bc)\sim c$. 又$\gcd(a,ac)\sim a$，故
+	$\gcd(a,c)\sim\gcd(a,(ac,bc))\sim\gcd((a,ac),bc)\sim\gcd(a,bc)\sim a$，即$a\mid c$.
+}
+
+\subsection{}
+设$R$为PID. 证明：
+\subsubsection{(1)}
+$(a)_{\Ideal}\cap(b)_{\Ideal}=(a)_{\Ideal}(b)_{\Ideal}\Leftrightarrow \gcd(a,b)\sim 1$；
+
+\zm{
+	$(a)_{\Ideal}\cap(b)_{\Ideal}=(\lcm(a,b))_{\Ideal}$，$(a)_{\Ideal}(b)_{\Ideal}=(ab)_{\Ideal}$；因此题述左侧成立当且仅当$\lcm(a,b)\sim ab$，由{\heiti 习题}\textbf{4.1.2}知这等价于$\gcd(a,b)\sim 1$.
+}
+
+\subsubsection{(2)}
+方程$ax+by=c$在$R$中有解$(x,y)$的充要条件是$\gcd(a,b)\mid c$.
+
+\zm{
+	题述左侧成立即理想$(a,b)_{\Ideal}\supseteq(c)_{\Ideal}$，由于PID上所有理想都是主理想，当然有限生成的理想都是主理想，故PID都是贝祖环，$(a,b)_{\Ideal}\supseteq(\gcd(a,b))_{\Ideal}$，又易验证$(a,b)_{\Ideal}\subseteq(\gcd(a,b))_{\Ideal}$，故二理想相等，$(\gcd(a,b))_{\Ideal}\supseteq(c)_{\Ideal}$的充要条件是$\gcd(a,b)\mid c$.
+}
+
+\subsection{}
+设$n\geq 3$为无平方因子的整数，$R=\mathbb{Z}[\sqrt{-n}]=\{a+b\sqrt{-n}\mid a,b\in\mathbb{Z}\}$.
+\subsubsection{(1)}
+证明$2$，$\sqrt{-n}$和$1+\sqrt{-n}$在$R$上均为不可约元.
+
+\zm{
+	令$N:R\rightarrow \mathbb{N}, N(a+b\sqrt{-n})=(a+b\sqrt{-n})(a-b\sqrt{-n})=a^2+nb^2$，则
+	
+	(i) $N(x)=0\Leftrightarrow x=0, N(1)=1$，
+	
+	(ii) $N(xy)=N(x)N(y)$.
+	
+	(iii) $N(x)=1\Leftrightarrow x\in U(R)\Leftrightarrow x=\pm 1$.
+	
+	$N(2)=4$，若$2=xy$，其中$x$不是平凡因子，则$x,y$都不是单位，$N(x)=N(y)=2$，但$a^2+nb^2=2$在$n\geq 3$时没有整数解，矛盾.
+	
+	$N(\sqrt{-n})=n$，若$\sqrt{-n}=xy$，其中$x$不是平凡因子，则$x,y$都不是单位，$1<N(x)\mid n$，此时由于$n$无平方因子，$N(x)$也没有平方因子且小于$n$，$a^2+nb^2=N(x)$仍然没有整数解，矛盾.
+	
+	$N(1+\sqrt{-n})=n+1$，若$1+\sqrt{-n}=xy$，其中$x$不是平凡因子，则$x,y$都不是单位，$1<N(x)\mid n+1$，由于$n+1$与$n$互素，故$N(x)$小于$n$，即$x=a+b\sqrt{n}, a^2+nb^2<n$，故$b=0$，$x\in\mathbb{Z}$，同理$y\in\mathbb{Z}$，故$1+\sqrt{n}=xy\in\mathbb{Z}$，矛盾.
+
+	故三者皆是不可约元.
+}
+
+\subsubsection{(2)}
+证明$\sqrt{-n}$和$1+\sqrt{-n}$在$R$上不能同时为素元.
+
+\zm{
+	由于$n\geq 3$，故$n$和$n+1$不能同时为素数.
+	
+	若$n$不是素数，则存在$n$的非平凡因子$a,b$. 此时$\sqrt{-n}\mid n=\sqrt{-n}\cdot-\sqrt{-n}=ab$，由于$N(a)$，$N(b)$为整数的平方，$N(\sqrt{-n})=n$没有平方因子，且$n^2=a^2b^2$，若$n\mid a^2$，则$1\neq b^2\mid n$，矛盾，故$n\nmid a^2$，由(1)(ii)，$\sqrt{n}$也不整除$a$，同理它也不整除$b$，$\sqrt{n}$不是素元.
+	
+	若$n+1$不是素数，则存在$n+1$的非平凡因子$a,b$. 此时$1+\sqrt{n}\mid n+1=(1+\sqrt{-n})(1-\sqrt{-n})=ab$，若$1+\sqrt{n}\mid a$，则$(1+\sqrt{-n})(c+d\sqrt{-n}=a)$，得$c-nd=a,c+d=0,a=(1+n)c$，即$1+n\mid a$，与$a$是$n+1$的非平凡因子矛盾，同理$1+\sqrt{n}\nmid b$，即$1+\sqrt{-n}$不是素元.
+}
+
+\subsection{}
+设$p$是$\mathbb{Z}$上的奇素数，$n$为正整数. 证明$x^n-p$是$\mathbb{Z}[i]$上的不可约多项式.
+
+\zm{
+}
+\subsection{}
+证明$x^3+nx+2$对所有$n\neq 1,-3,-5$是$\mathbb{Z}$上的不可约多项式.
+
+\zm{
+	若$x^3+nx+2$在$\mathbb{Z}$中可约，则它必有一次因式$(ax+b)$，由余数定理（{\heiti 推论}\textbf{4.24}），它必有有理根$-\frac{b}{a}$其中$\gcd(a,b)=1$.
+	
+	故$b^3+nba^2+2a^3=0$，故$b\mid b^3+nba^2=-2a^3$，$a\mid nba^2+a^3=-b^3$，但$a,b$互素，故$a\mid 1, b\mid 2$，有理根为$\pm 1, \pm 2$，依次带入得$n=1,-3,-5$.
+}
+
+\subsection{}
+设$R$是整环，证明多项式环$R[x]$是PID当且仅当$R$是域.
+
+\zm{
+	($\Leftarrow$)即{\heiti 命题}\textbf{3.40}.
+	
+	($\Rightarrow$)反证法，若$R$不是域，任取其中不可逆元$a$，考虑理想$(a,x)_{\Ideal, R[x]}$，则它不等于$R$，若它是主理想，则该理想中有常数迫使它的生成元是常数$b$，但$x\in(b)_{\Ideal, R[x]}$，迫使$b$是$R$中单位，与$(b)$是真理想矛盾，故$R[x]$不是PID.
+}
+
+\subsection{}
+设$R$为整环，$a,b\in R-\{0\}, a\sim b$，求证：
+\subsubsection{(1)}
+若$a$为不可约元，则$b$也为不可约元；
+
+\zm{
+	$b$的非平凡真因子也是$a$的非平凡真因子，故得结论.
+}
+
+\subsubsection{(2)}
+若$a$为素元，则$b$也为素元.
+
+\zm{
+	任给$c,d$，$a\mid cd\Rightarrow a\mid c$或$a\mid d$为条件.
+	
+	若$b\mid cd$，则$a\mid cd$，故$a\mid c$或$a\mid d$，推出$b\mid c$或$b\mid d$，故得结论.
+}
+
+\subsection{}
+设$a$为主理想整环$D$中非零元，求证：若$a$为素元，则$D/(a)_{\Ideal, D}$为域；若$a$不是素元，则$D/(a)_{\Ideal, D}$不是整环.
+
+\zm{
+	(i) 若$a$为素元，则对任意$b\in D$有$\gcd(a,b)\sim a$或$\gcd(a,b)\sim 1$.
+	
+	若$\gcd(a,b)\sim a$，则$b\in(a)_{\Ideal, D}$，$b$对应$D/(a)_{\Ideal, D}$中零元素；
+	
+	若$\gcd(a,b)\sim 1$，则由$D$是贝祖环，存在$x,y\in D$使得$ax+by=1$，此时$b+(a)_{\Ideal, D}$在$D/(a)_{\Ideal, D}$中逆元为$y+(a)_{\Ideal, D}$.
+	
+	综上，$D/(a)_{\Ideal, D}$为域.
+	
+	(ii) 若$a$不是素元，则$a$可写作非平凡真因子的积$a=bc$，其中$b,c\notin(a)_{\Ideal, D}$，故$(b+(a)_{\Ideal, D})(c+(a)_{\Ideal, D})=(a)_{\Ideal, D}$，$(b+(a)_{\Ideal, D})$是$D/(a)_{\Ideal, D}$的零因子.
+}
+
+\subsection{}
+下列哪些环是PID?哪些环是ED?
+\subsubsection{(1)}
+$\mathbb{Z}[\sqrt{-2}], \mathbb{Z}[\sqrt{-3}].$
+
+\jie (i)$\mathbb{Z}[\sqrt{-2}]$是ED，从而也是PID.
+
+\zm{
+	令$\varphi: \mathbb{Z}[\sqrt{-2}]\rightarrow\mathbb{N},
+	a+b\sqrt{-2}\mapsto a^2+2b^2.$
+
+	若$\alpha, \beta\in\mathbb{Z}[\sqrt{-2}]$，则$\frac{\alpha}{\beta}=x+y\sqrt{-2}\in\mathbb{Q}[\sqrt{-2}]$，在$\mathbb{Z}$中选择$x_0,y_0$使得$|x-x_0|\leq\frac{1}{2},|y-y_0|\leq\frac{1}{2}$，则
+	
+	$\alpha=(x_0+y_0\sqrt{-2})\beta+((x-x_0)+(y-y_0)\sqrt{-2})\beta=q\beta+\gamma$，$\varphi(\gamma)=\varphi(\beta)\varphi(x-x_0+(y-y_0)\sqrt{-2})=\varphi(\beta)((x-x_0)^2+2(y-y_0)^2)\leq\frac{3}{4}\varphi(\beta)\leq\varphi(\beta)$.
+	
+	故$\mathbb{Z}[\sqrt{-2}]$是ED.
+}
+
+(ii)$\mathbb{Z}[\sqrt{-3}]$甚至不是UFD，从而也不是PID或ED.
+
+\zm{
+	$4=2\times 2=(1+\sqrt{-3})(1-\sqrt{-3})$，我们来说明$2$，$1\pm\sqrt{-3}$均是$\mathbb{Z}[\sqrt{-3}]$中的不可约元.
+	
+	沿用{\heiti 习题}\textbf{4.1.3}中的记号. $N(2)=N(1\pm\sqrt{-3})=4$，若$2=xy$或$1\pm\sqrt{-3}=xy$，其中$x$不是平凡因子，则$x,y$都不是单位，$N(x)=N(y)=2$，但$a^2+3b^2=2$没有整数解，矛盾.
+	
+	由于$\mathbb{Z}[\sqrt{-3}]$中的单位只有$\pm 1$，故三者彼此不相伴，$\mathbb{Z}[\sqrt{-3}]$不是UFD.
+}
+
+\subsubsection{(2)}
+$\mathbb{R}[x,y].$
+
+\jie 该环不是PID，从而也不是ED.
+
+\zm{
+	考虑理想$(x,y)_{\Ideal}$，若它是主理想，则该理想中包含$x$为$y$的零次式，$y$为$x$的零次式，故其生成元只能是实常数，但该理想中不含实常数，矛盾.
+}
+
+\subsubsection{(3)}
+$\mathbb{Z}[\omega]$，其中$\omega=\frac{-1+\sqrt{-3}}{2}$.
+
+\jie (i)$\mathbb{Z}[\omega]$是ED，从而也是PID.
+
+\zm{
+	首先，$\omega^3=1$，$\omega^2=-\omega-1$，故$\mathbb{Z}[\omega]$中元素均有$a+b\omega\;(a,b\in\mathbb{Z})$的形式.
+	
+	令$\varphi: \mathbb{Z}[\omega]\rightarrow\mathbb{Z},
+	a-b\omega\mapsto |a^2+ab+b^2|=|(a-b\omega)(a-b\omega^2)|=|(a+b+b\omega)(a-b\omega)|.$
+	
+	由于$\mathbb{C}$没有零因子，故$\varphi(a-b\omega)=0\Rightarrow b\omega=0$且$a+b=0$或$a=0\Rightarrow a-b\omega=0$，$\varphi$将环中非零元映射到正整数.
+	
+	若$\alpha, \beta\in\mathbb{Z}[\omega]$，则$\frac{\alpha}{\beta}=x-y\omega\in\mathbb{Q}[\omega]$，在$\mathbb{Z}$中选择$x_0,y_0$使得$|x-x_0|\leq\frac{1}{2},|y-y_0|\leq\frac{1}{2}$，则
+	
+	$\alpha=(x_0-y_0\omega)\beta+((x-x_0)-(y-y_0)\omega)\beta=q\beta+\gamma$，$\varphi(\gamma)=\varphi(\beta)\varphi(x-x_0-(y-y_0)\omega)=\varphi(\beta)|(x-x_0)^2+(x-x_0)(y-y_0)+(y-y_0)^2|\leq\frac{3}{4}\varphi(\beta)\leq\varphi(\beta)$.
+	
+	故$\mathbb{Z}[\omega]$是ED.
+}
+
+\subsection{}
+设$D$是PID，$E$是整环，并且$D$是$E$的子环，$a,b\in D-\{0\}$，如果$d$是$a$和$b$在$D$中的最大公因子，证明$d$也是$a$和$b$在$E$中的最大公因子.
+
+\zm{
+	显然$d$也是$a$和$b$在$E$中的公因子，只需证明若$f$是$a$和$b$在$E$中的公因子则$f\mid d$即可.
+	
+	由于$D$是贝祖环，存在$x,y\in D$使得$ax+by=d$，故$f\mid ax,f\mid by\Rightarrow f\mid ax+by=d$.
+}

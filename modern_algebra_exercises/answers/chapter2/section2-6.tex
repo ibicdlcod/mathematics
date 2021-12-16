@@ -1,0 +1,281 @@
+\section{有限生成阿贝尔群的结构}
+\subsection{}
+\subsubsection{(1)}
+将$33$阶群分类.
+
+\jie
+$N(11)\equiv 1\mod 11$且$N(11)\mid 3$得$N(11)=1$，西罗$11$-子群是循环群$N_{11}=\langle a\mid a^{11}=1\rangle\vartriangleleft G$.
+设$H_3=\{1_G,b,b^2\}$是$G$的一个西罗$3$-子群，则$3$与$11$互素$\Rightarrow N_{11}\bigcap H_3=\{1_G\}, |N_{11}H_3|=|N_{11}||H_3|=|G|\Rightarrow N_{11}H_3=G, G=N_{11}\rtimes H_3$.
+
+$G$由$\varphi: H_3\rightarrow \Aut(N_{11}): g\mapsto \sigma_g: a\mapsto g^{-1}ag$唯一确定.
+因$\Aut(N_{11})=\Aut(\mathbb{Z}/11\mathbb{Z})=(\mathbb{Z}/11\mathbb{Z})^{\times}$有$10$个元素，$\im\varphi$整除$10$和$3$，故为平凡群，$G=N_{11}\times H_3=\mathbb{Z}/33\mathbb{Z}$是同构意义下唯一的$33$阶群.
+
+\subsubsection{(2)}
+将$18$阶群分类.
+
+\jie
+\subsubsection{(2a)}
+阿贝尔群，这时初等因子组为$\{2,9\}$或$\{2,3,3\}$，得阿贝尔群有两类：
+$G_1=\mathbb{Z}/18\mathbb{Z}, G_2=\mathbb{Z}/3\mathbb{Z}\times\mathbb{Z}/6\mathbb{Z}$.
+\subsubsection{(2b)}
+非阿贝尔群，这时西罗$3$-子群指数为$2$，一定是正规的，记为$H_9\vartriangleleft G$. 由$9$和$2$互素，类似(1)的推理有$G=H_9\rtimes \{1_G,c\},\;c^2=1_G$. 记$C=\{1_G,c\}$.
+由{\heiti 命题}\textbf{2.45}，$H_9=\mathbb{Z}/9\mathbb{Z}$或$\mathbb{Z}/3\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$.
+\paragraph{(2ba)}
+$H_9=\mathbb{Z}/9\mathbb{Z}=\langle a\mid a^9=1\rangle$. 
+由$H_9$正规知$ca=a^rc$，即$cac^{-1}=a^r$，此时$ca^rc^{-1}=(cac^{-1})^r=a^{r^2}$，又$ca^rc^{-1}=c^{-1}a^rc=a$，得$a=a^{r^2}$，即$r^2\equiv 1\mod 9$，得$r\equiv 1$或$8$，若$r=1$，则$c$在$H_9$上作用平凡，$G$为阿贝尔群，若$r=8$，则$G_3=
+\langle a,c\mid a^9=1, cac^{-1}=a^{-1}\rangle \cong D_9$.
+
+\paragraph{(2bb)}
+$H_9=(\mathbb{Z}/3\mathbb{Z})^2=\langle a,b\mid ab=ba, a^3=b^3=1\rangle$
+
+我们有半直积下的作用：$\varphi_1: C\rightarrow \Aut(H_9), \sigma_{1_G}=\id_{H_9}, \sigma_c: g\mapsto cgc^{-1}$，可见内自同构$\sigma_c$确定$G$. $\sigma_c^2=\id_{H_9}$.
+
+对任意$\alpha\in\Aut(H_9)$，$G\rightarrow G: (g, c_0)\mapsto (\alpha(g),c_0)\;c_0\in C$是$G$的自同构，这时$\sigma_c$变为$\sigma_{c,\alpha}: \alpha(g)\mapsto c\alpha(g)c^{-1}, \sigma_{c,\alpha}=\alpha^{-1}\sigma_c\alpha$，由$\alpha$的任意性，$\sigma_c$在$\Aut(H_9)$中的共轭元在$G$的同构意义下等价，故我们只需考虑$\sigma_c$在$\Aut(H_9)$中可取的共轭类个数.
+
+我们来分析$\Aut(H_9)$的结构. $(\mathbb{Z}/3\mathbb{Z})^2$的全部$3$阶子群为
+$M_1=\{1,a,a^2\}, M_2=\{1,b,b^2\}, M_3=\{1,ab,a^2b^2\}, M_4=\{1, a^2b,ab^2\}$，记这四个子群的集合为$M$. 于是$\varphi\in\Aut(H_9)$诱导$M$上的置换$m(\varphi)$.
+
+令$\varphi_{34}(a)=a^2, \varphi_{34}(b)=b$，则$m(\varphi_{34})=(34)$.
+
+令$\varphi_{3412}(a)=b, \varphi_{3412}(b)=ab$，则$m(\varphi_{3412})=(34)(12)$.
+
+由{\heiti 命题}\textbf{2.11(2)}，$(34)$和$(3412)$生成$S_4$，故$m$是满射. 又对$\Aut(H_9)$，$\varphi(a)$有非单位元的$8$中取法，$\varphi(b)$有不属于$\langle \varphi(a)\rangle$的$6$种取法，$|\Aut(H_9)|=6\times8=48$，$|\ker m|=|\Aut(H_9)|/|\im m|=2$，又$\varphi_{\id}: \varphi(a)=a^2,\varphi(b)=b^2\in\ker m$，故$\ker m=\{\id_(H_9), \varphi_{\id}\}=T$为$\Aut(H_9)$的正规子群，$\varphi_{id}$与$\Aut(H_9)$中的一切元交换，记它为$\tau$.
+
+在{\heiti 习题}\textbf{2.3.18}中取$K=T, G=\Aut(H_9), \overline{G}=G/T\cong\im m=S_4$，我们得到$S_4$中的任一共轭类$\overline{E}$对应：(1)一个共轭类，当$\overline{E}$中任一元素$\sigma_e$的逆像$\varphi_e$和$\varphi_e\tau$共轭. (2)两个共轭类，当对一切$e\in \overline{E}$，$\varphi_e$和$\varphi_e\tau$不共轭. （我们任意在逆像中选定$\varphi_e$，两个值相差$\tau$，由于$hgh^{-1}=g^{\prime}\Leftrightarrow(h\tau)g(h\tau)^{-1}=g^{\prime}$，故讨论共轭关系时选择哪个值无关紧要）
+
+\subparagraph{(2bba)}
+$\overline{E}=\id_{S_4}$，此时$\id_{H_9}$与$\tau$当然不共轭.
+
+\subparagraph{(2bbb)}
+$\overline{E}$是$S_4$中对换，令$\varphi_{12}: a\mapsto b, b\mapsto a;\varphi_{34}: a\mapsto a^2, b\mapsto b$，则$m(\varphi_{12})=(12),m(\varphi_{34})=(34),
+\varphi_{12}^{-1}\varphi_{34}\varphi_{12}(a)=a=\tau(a^2),
+\varphi_{12}^{-1}\varphi_{34}\varphi_{12}(b)=b^2=\tau(b),
+\varphi_{12}^{-1}\varphi_{34}\varphi_{12}=\varphi_{34}\tau$，故$\varphi_{34}$与$\varphi_{34}\tau$共轭，$\overline{E}$的逆像$\varphi_E$对应一个共轭类.
+
+\subparagraph{(2bbc)}
+$\overline{E}$为$2^2$型置换，令$\varphi_{12,34}: a\mapsto b^2, b\mapsto a$，则$m(\varphi_{12,34})=(12)(34),
+\varphi_{12}^{-1}\varphi_{12,34}\varphi_{12}(a)=b=\tau(b^2),
+\varphi_{12}^{-1}\varphi_{12,34}\varphi_{12}(b)=a^2=\tau(a),
+\varphi_{12}^{-1}\varphi_{12,34}\varphi_{12}=\varphi_{12,34}\tau$，故$\varphi_{12,34}$与$\varphi_{12,34}\tau$共轭，$\overline{E}$的逆像$\varphi_E$对应一个共轭类.
+
+\subparagraph{(2bbd)}
+$\overline{E}$为$3$或$4$轮换，共轭类讨论省略，理由见下.
+
+要使$\sigma_c=\varphi$，必有$\varphi^2=\sigma^2=\id_{H_9}$，当$\overline{E}$为阶不为$1,2$的置换时，$(\varphi T)^2\neq T, \varphi^2\neq \id_{H_9}$. 对$2^2$型置换对应的共轭类，有$\varphi_{12,34}^2=\tau\neq\id_{H_9}$为非$2$阶元，故其余所有的$\varphi_E$也是非二阶元，以上均可排除，只有以下三种情况：
+
+$\sigma_c=\id_{H_9}$，此时$G$为阿贝尔群.
+
+$\sigma_c=\tau$，此时$G_4=\langle a,b,c\mid a^3=b^3=c^2=1, ab=ba, cac=a^{-1}, cbc=b^{-1}\rangle$.
+
+$\sigma_c=\varphi_E$其中$\overline{E}$为对换，此时（在同构意义下不妨取$\sigma_c=\varphi_{34}$）$b$与$c$交换，$G_5=\langle a,b,c\mid a^3=b^3=c^2=1, ab=ba, cac=a^{-1}, bc=cb\rangle=\langle a,c\mid a^3=c^2=1, cac=a^{-1}\rangle \times \langle b\mid b^3=1\rangle
+=S_3\times \mathbb{Z}/3\mathbb{Z}$.
+
+综上，$18$阶群在同构意义下有$5$类：
+
+$G_1=\mathbb{Z}/18\mathbb{Z};$
+
+$G_2=\mathbb{Z}/3\mathbb{Z}\times\mathbb{Z}/6\mathbb{Z};$
+
+$G_3=D_9;$
+
+$G_4=\langle a,b,c\mid a^3=b^3=c^2=1, ab=ba, cac=a^{-1}, cbc=b^{-1}\rangle;$
+
+$G_5=S_3\times \mathbb{Z}/3\mathbb{Z}$.
+
+\subsection{}
+有限生成阿贝尔群$G$是自由阿贝尔群$\Leftrightarrow G$的所有非零元都是无限阶.
+
+\zm{
+	由{\heiti 定义}\textbf{2.78}，应证即扭子群$G_t=\{0\}\Leftrightarrow G=\mathbb{Z}(S)$，即$m_1=\cdots=m_s=1\Leftrightarrow G=\mathbb{Z}^r$，而这是显然的.
+}
+
+\subsection{}
+\subsubsection{(1)}
+正有理数乘法群$\mathbb{Q}_{+}^{\times}$是自由阿贝尔群，全部素数是它的一组基.
+
+\zm{
+	对任意该群中元素$a$，有$a=\frac{m}{n}$，其中$\gcd(m,n)=1$.
+	由算术基本定理，$m=\prod_{i=1}^{r}p_i^{\alpha_i}$，$n=\prod_{j=1}^{s}q_j^{\beta_j}$，其中$p_i$为各异素数，$q_j$也为各异素数，$\alpha_i,\beta_j\in\mathbb{Z}_+$（若$m$或$n=1$，则$r$或$s=0$）. 由$m,n$互素知$p_i$和$q_j$也彼此相异.
+	
+	故有唯一的表示形式$a=\prod_{k=1}^{\infty}r_k^{\theta_k}$，其中$\theta_k=
+	\left\{
+	\begin{matrix}
+	0, & r_k\notin \{p_i\}\bigsqcup \{q_j\}\\
+	\alpha_i, & r_k=p_i\\
+	-\beta_i, & r_k=q_j
+	\end{matrix}
+	\right.$，$\{r_k\}$为全部素数，$\theta_i\in\mathbb{Z}$.
+	
+	反之，任一表示形式$\prod_{k=1}^{\infty}r_k^{\theta_k},\;\theta_k\in\mathbb{Z}$确定一个有理数$a$.
+	
+	故$\mathbb{Q}_+^{\times}$与$\mathbb{Z}(S)$之间有自然的双射（请读者验证它是同态！），其中$S=\{r_k\}$为全体素数.
+}
+
+\subsubsection{(2)}
+该群不是有限生成的.
+
+\zm{
+	对任意有限集$S_1$，若$\mathbb{Q}_+^{\times}=\mathbb{Z}(S_1)\subseteq\mathbb{Z}(S_2)$，其中$S_2$为$S_1$中元素分子或分母的素因子（故也是有限集合），在数论中熟知素数有无限多个（请读者自证！），故存在$p\notin S_2, p\in\mathbb{Z}(S_2), p=\frac{m}{n}, m,n\in\mathbb{N}(S_2)$，$m,n$为$S_2$中元素的正整数幂次之积. 因而$p\mid m=\prod_{i\in S_2}i^{\theta_i},\;\theta_i\in\mathbb{N}$.
+	由$p$是素数知存在$i\in S_2$使得$p\mid i^{\theta_i}$，得$p\mid i$，然而$p$和$i$是不同的素数，矛盾. 故$\mathbb{Q}_+^{\times}$不是有限生成的.
+}
+
+\subsection{}
+加法群$\mathbb{Q}^+$不是自由阿贝尔群.
+
+\zm{
+	生成元集合中可删去单位元$0$而群不变，以下设生成元不为$0$.
+	
+	若$\mathbb{Q}^+$由至少$2$个生成元生成，设$x=\frac{m_1}{n_1},y=\frac{m_2}{n_2}, m_1,m_2,n_1,n_2\in\mathbb{Z}-\{0\}$是两个生成元，则$n_1m_2,n_2m_1\neq 0$. 因此在自由阿贝尔群中，$n_1m_2x+n_2m_1(-y)\neq 0$，与在$\mathbb{Q}$中$n_1m_2x-n_2m_1y=0$矛盾.
+	
+	若$\mathbb{Q}^+$由$1$个生成元$x$生成，则$\frac{x}{2}\notin \langle x\rangle$，矛盾.
+}
+
+\subsection{}
+设有限阿贝尔群
+$$A\cong \bigoplus_{i=1}^s\mathbb{Z}/p_i^{\alpha_i}\mathbb{Z}, p_i\text{为素数}, \alpha_i\in\mathbb{Z}^+$$
+证明$A$的任何子群都同构于$\bigoplus_{i=1}^s\mathbb{Z}/p_i^{\beta_i}\mathbb{Z},0\leq \beta_i\leq \alpha_i$.
+
+\Proofbyintimidation
+
+\subsection{}
+设$G$是有限生成的自由阿贝尔群，$\mathrm{rank}(G)=r$，若$g_1,g_2,...,g_n$是$G$的一组生成元，则$n\geq r$.
+
+\zm{
+	在{\heiti 定义}\textbf{2.75}的注记中取$n=r,m=n,y_i=g_i$，则$AB=I_r$（因为$g_i$不是基，$BA=I_n$不一定成立），$A\in M_{r\times n}(\mathbb{Z}), B\in M_{n\times r}(\mathbb{Z})$，由线性代数知$r=\mathrm{rank}(AB)\leq\min(\mathrm{rank}(A),\mathrm{rank}(B))\leq \min(n,r)$，故$n\geq r$.
+}
+
+\subsection{}
+设$A$为有限阿贝尔群，对于$|A|$的每个正因子$d$，$|A|$均有$d$阶子群和$d$阶商群.
+
+\zm{
+	设$|A|=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_r}$，$p_1,...,p_r$为各异素数，因$|A|$有限，$A_t=A$.
+	由有限生成阿贝尔群的结构定理，
+	\[
+	A\cong\bigoplus_{i=1}^r(\bigoplus_{j=1}^{f(i)}\mathbb{Z}/p_i^{\beta_{ij}}\mathbb{Z}),
+	\sum_{j=1}^{f(i)}\beta_{ij}=\alpha_i \tag{$\ast$}
+	\]
+	
+	即$A$是$r$个阶为$p_i^{\alpha_i}$的有限阿贝尔群$A_i$的直积. 令$d=\prod_{i=1}^rp_i^{\gamma_i}$，则$d\mid |A|\Leftrightarrow	0\leq \gamma_i\leq \alpha_i$.
+	我们只需证：每个阶为$p_i^{\alpha_i}$的有限阿贝尔群$A_i$都有$p_i^{\gamma_i}$阶子群和商群.
+	
+	令$A_i=\bigoplus_{j=1}^k \mathbb{Z}/p_i^{a_k}\mathbb{Z}, \sum_{j=1}^ka_j=\alpha_i$.
+	由于$0\leq \gamma_i\leq \alpha_i$，我们可对所有的$i$取$0\leq b_i \leq a_i$使得$\sum_{j=1}^kb_j=\gamma_i$，$B_i=\bigoplus_{j=1}^k \mathbb{Z}/p_i^{b_k}\mathbb{Z}$是$A_i$的$p_i^{\gamma_i}$阶子群，
+	$C_i=\bigoplus_{j=1}^k \mathbb{Z}/p_i^{a_k-b_k}\mathbb{Z}$是$A_i$的$p_i^{\alpha_i-\gamma_i}$阶子群，$A_i/C_i$是$A_i$的$p_i^{\gamma_i}$阶商群，
+}
+
+\subsection{}
+设$H$是有限阿贝尔群$A$的子群，则存在$A$的子群同构于$A/H$.
+
+\zm{
+	与{\heiti 习题}\textbf{2.6.7}同样，$A$是素数幂次阿贝尔群的直积，由{\heiti 习题}\textbf{2.5.11}，我们只需证明$|A|$为素数幂次的情形.
+	
+	设$A$为$p^{\alpha}$阶阿贝尔群，它的子群$H$一定是$p^{\beta}$阶阿贝尔群，$0\leq\beta\leq\alpha$.
+	由有限生成阿贝尔群的结构定理，
+	$$A\cong\bigoplus_{i=1}^n\mathbb{Z}/p^{a_i}\mathbb{Z},\text{其中}\sum_{i=1}^na_i=\alpha.$$
+	其中阶数小于等于$p^j$的元素个数为$\prod_{p^{a_i}\geq p^j}p^j=p^{\sum_{a_i\geq j}j}=
+	p^{|\{i\mid a_i\geq j\}|}$.
+	
+	而由有限生成阿贝尔群的结构定理，$H\cong\bigoplus_{i=1}^m\mathbb{Z}/p^{b_i}\mathbb{Z},\text{其中}\sum_{i=1}^mb_i=\beta.$
+	$H$是$A$的子群$\Rightarrow\forall j\in\mathbb{Z}, H$中阶数小于等于$p^j$的元素个数$p^{|\{i|b_i\geq j\}|}$小于$A$中阶数小于等与$p^j$的元素个数，即$0\leq|\{i\mid b_i\geq j\}|\leq|\{i\mid a_i\geq j\}|$对一切$j$成立，故$m\leq n$，我们不妨按降序重新排列$a_i,b_i$（若$m<n$，我们令$b_r=0, m<r\leq n$，在同构意义下不改变$H$）则$A,H$在同构意义下不变，这时$a_k=u\Rightarrow |\{i\mid a_i\geq u+1\}|<k\Rightarrow|\{i\mid b_i\geq u+1\}|<k\Rightarrow b_k<u+1,b_k<u=a_k$对一切$1\leq k\leq n$成立.
+	
+	故$A/H\cong \bigoplus_{i=1}^n\mathbb{Z}/p^{a_i-b_i}\mathbb{Z}$，（由上述推理恒有$a_i-b_i\geq 0$）它显然是$A$的子群.
+}
+
+\subsection{}
+如果有限阿贝尔群$A$不是循环群，则存在素数$p$使得$A$有子群同构于$(\mathbb{Z}/p\mathbb{Z})^2$.
+
+\zm{
+	在{\heiti 习题}\textbf{2.6.7}证明的$(\ast)$式中：
+	
+	若$\forall i$
+	有$f(i)=i$，则$A\cong\bigoplus_{i=1}^r\mathbb{Z}/p_i^{\beta_{i1}}\mathbb{Z}$，$p_i$为各异素数，由中国剩余定理（{\heiti 例}\textbf{3.57}，或参考《代数学I：代数学基础》)知$A\cong \mathbb{Z}/\prod_{i=1}^rp_i^{\beta_{i1}}\mathbb{Z}$，它是循环群.
+	
+	故$\exists i$使得$f(i)\geq 2$，$\beta_{i1},\beta_{i2}\geq 1$.
+	
+	因此$(\mathbb{Z}/p_i^1\mathbb{Z})\oplus(\mathbb{Z}/p_i^1\mathbb{Z})
+	\leq (\mathbb{Z}/p_i^{\beta_{i1}}\mathbb{Z})\oplus(\mathbb{Z}/p_i^{\beta_{i2}}\mathbb{Z})
+	\leq \bigoplus_{j=1}^{f(i)}\mathbb{Z}/p_i^{\beta_{ij}}\mathbb{Z}
+	\leq A$.
+}
+
+\subsection{}
+求出$\mathbb{Z}/m\mathbb{Z}\oplus \mathbb{Z}/n\mathbb{Z}$的不变因子和初等因子.
+
+\jie 留给读者.
+
+\subsection{}
+求出$\mathbb{Z}/2\mathbb{Z}\oplus \mathbb{Z}/9\mathbb{Z}\oplus \mathbb{Z}/35\mathbb{Z}$的不变因子和初等因子.
+
+\jie 留给读者.
+
+\subsection{}
+设$n$为正整数，问有多少个$n$阶阿贝尔群：
+
+\jie $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_n^{\alpha_n}$为$n$的素因子分解.
+请读者自证满足条件的群个数为$p(\alpha_1)p(\alpha_2)\cdots p_n(\alpha_n)$，其中
+$p(x):=\{(a_1,a_2,...,a_n)\mid a_i\in\mathbb{Z}_+, 1\leq n\leq x, \sum_{i=1}^na_i=x\}$为$x$的分拆函数.
+
+\subsection{}
+令$p$为素数，$\mathbb{Z}/p^2\mathbb{Z}\oplus \mathbb{Z}/p^3\mathbb{Z}$共有多少个$p^2$阶子群？
+
+\jie 设群为$G$，子群为$H$，在{\heiti 习题}\textbf{2.5.11}中令$G_1=\mathbb{Z}/p^2\mathbb{Z}, G_2=\mathbb{Z}/p^3\mathbb{Z}$，则$H=H_{12,1}\oplus N_{12,2}$仍成立（$p^2,p^3$不互素，我们未必有$|H|=|H_1||H_2|$），分情况讨论：
+
+(1)$|N_{12,2}|=p^2, |H_{12,1}|=1$，此时$H=\langle (0,p) \rangle$.
+
+(2)$|N_{12,2}|=p, |H_{12,1}|=p$，此时$N_{12,2}=\langle (0,p^2) \rangle,
+H_{12,1}=\langle (p,m)\rangle, 0\leq m<p^3$，又$p(p,m)=(0,pm)\in N_{12,2}$，故$p\mid m$. 
+（这里我们选择$f(a_i)$使得$H_{12,1}$是$G$的子群，由于$H$是子群，因此这种选择是可以做到的）
+
+但对$m$的两个不同值$m_1,m_2$，当且仅当$m_1-m_2\mid p^2$时所得的$H$一致（因$\langle (0,p^2) \rangle=N_{12,2}$），故$H=\langle \{(0,p^2),(p,m)\mid m=0,p,...,p^2-p\}\rangle$，这样的$H$有$p$个.
+
+(3)$|N_{12,2}=1$，$|H_{12,1}|=p^2, N_{12,1}=\{(0,0)\}$，此时$H=\langle (1,m)\langle$，其中$p^2m\equiv 0\mod p^3$，即$p\mid m$，$m=0,p,...,p^3-p$共有$p^2$种取法，这样的$H$有$p^2$种取法.
+
+综上，$G$有$p^2+p+1$个$p^2$阶子群.
+
+\subsection{}
+$\mathbb{C}^{\times}$的每个有限子群都是循环群. 由此求出$\mathbb{Z}/n\mathbb{Z}$到$\mathbb{C}^{\times}$的所有群同态.
+
+\zm{
+	若该有限子群包含模不为$1$的元素$a=re^{i\theta}$，则$\forall i,j\in\mathbb{N}$，$a^i$和$a^j$具有不同的模$r^i,r^j$，得$a$生成一个无限群，矛盾. 故该有限子群是$S^1$的子群.
+	
+	由{\heiti 习题}\textbf{1.3.7(1)}，该子群总是循环群$\langle e^{2\pi i/m}\rangle\cong\mathbb{Z}/m\mathbb{Z}, m\in\mathbb{Z}_+$.
+	
+	若$\mathbb{Z}/n\mathbb{Z}$到$\mathbb{C}^{\times}$有同态$\varphi$，则$\im\varphi$是这样一个有限子群，必为$\mathbb{Z}/m\mathbb{Z}$，并且它是$\mathbb{Z}/n\mathbb{Z}$的商群，即$m\mid n$. 故$\varphi$由$a=\varphi(1)$唯一确定，且$a$是$n$次单位根.
+	
+	故一切的群同态为$\{\varphi_s: k\mapsto (e^{2\pi i s/n})^k\mid s=0,1,...,n-1\}$，其像同构于$\mathbb{Z}/(n/\gcd(n,s))\mathbb{Z}$.
+}
+
+\subsection{}
+设$G,A,B$为有限阿贝尔群，若$G\oplus A\cong G\oplus B$，则$A\cong B$.
+
+\Proofbyintimidation
+
+\subsection{}
+设有限生成阿贝尔群的秩为$1$，$f:G\rightarrow \mathbb{Z}$为满同态，则$G=\mathbb{Z}\oplus \ker f$，即$\ker f$为$G$的扭子群.
+
+\zm{
+	$\forall a\in G_t$，$a$的阶有限，记为$m$，若$f(a)\neq 0$，则$mf(a)\neq 0$与$f(ma)=f(0)=0$矛盾，故$\ker f\geq G_t$. 令$f^{\prime}: G/G_t\rightarrow \mathbb{Z}$，则$f$是良好定义的，且$\im f^{\prime}=\im f/\{0\}=\mathbb{Z}$，又$G/G_t\cong\mathbb{Z}$，故$\ker f^{\prime}=\{0\}$，$\ker f=G_t\ker f^{\prime}=G_t$.
+}
+
+\subsection{}
+有限生成自由阿贝尔群有什么样的泛性质？
+
+\jie 秩为$n$的有限生成自有阿贝尔群可看作$n$维向量空间的子集，全部生成元为向量空间的一组基.
+
+\subsection{}
+将$\mathbb{F}_p$上的$n$维向量空间$\mathbb{F}_p^n$作为加法群.
+\subsubsection{(1)}
+试求$\mathbb{F}_p^n$中$p^{n-1}$阶子群的个数.
+
+\jie 由本题(2)，只需求$p$阶子群个数即可，$\mathbb{F}_p^n$中每个非单位元（这样的元素有$p^n-1$个）生成一个$p$阶子群，同时一个$p$阶子群可由$p-1$个非单位元素中任意一个生成，故所求个数为$\frac{p^n-1}{p-1}$.
+
+\subsubsection{(2)}
+证明$\mathbb{F}_p^n$中$p^k$阶子群的个数等于$p^{n-k}$阶子群的个数.
+
+\zm{
+	由于$\mathbb{F}_p$中元素都是整数，向量空间$\mathbb{F}_p^n$的数乘某元素可以通过该元素重复加自身得到，故每一个子群都是子空间，反之亦然.
+	
+	我们有一一对应
+	
+	$p^k$阶子群$\leftrightarrow k$维子空间$A$$\leftrightarrow $与$A$正交的唯一$n-k$维子空间$B$$\leftrightarrow p^{n-k}$阶子群.
+}

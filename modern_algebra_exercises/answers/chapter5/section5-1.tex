@@ -1,0 +1,277 @@
+\section{域扩张基本理论}
+本节中称$\alpha$在域$K$上代数次数为$n$是指$[K(\alpha):K]=n$.
+
+\subsection{}
+设$F/K$为域的扩张，$u\in F$是$K$上的奇次代数元素，求证$K(u)=K(u^2)$.
+
+\zm{
+	显然我们只需证$u\in K(u^2)$即可. 令$f(x)$是$u$在$K$上的的最小多项式，则$f(u)=0$，将偶数次项移到右边得$ug(u^2)=h(u^2)$，则由$u$的代数次数为奇数知$g(x)\neq 0$，故$u=\frac{h(u^2)}{g(u^2)}\in K(u^2)$.
+}
+
+\subsection{}
+设$p$为素数，求扩张$\mathbb{Q}(\zeta_p)/\mathbb{Q}$的次数，其中$\zeta_n=e^{\frac{2\pi i}{n}}$为辐角主值最小的$n$次本原单位根. 对一般的$n$，扩张$\mathbb{Q}(\zeta_n)/\mathbb{Q}$的次数是多少？
+
+\jie (i) $\zeta_p$是$p$次分圆多项式（{\heiti 例}\textbf{4.34}）的根，该多项式在$\mathbb{Q}[x]$中不可约，故是$\zeta_p$的最小多项式，其次数$p-1$即扩张的次数.
+
+(ii) 由{\heiti 习题}\textbf{4.3.4}，$x^4+1$在$\mathbb{Q}[x]$中不可约且$\zeta_8$是它的根，故它的次数$4$即扩张的次数.
+
+(iii) 我们利用本节知识证明$n$次分圆多项式$f(x)=\prod_{\gcd(k,n)=1}(x-\zeta_n^k)$是$\mathbb{Q}[x]$中不可约多项式（$n$不一定是素数）.
+
+\zm{
+	$\langle\zeta_n\rangle\cong\mathbb{Z}/n\mathbb{Z}=G$，而$\Aut(G)$为$(\mathbb{Z}/n\mathbb{Z})^{\times}$，且$\mathbb{Q}(\zeta_n)$中的元素均能表示为$G$中元素的线性组合，故$G$的自同构诱导了$\mathbb{Q}(\zeta_n)$到自身的自同构，该同构在$\mathbb{Q}$上的限制必然是恒等映射，令$\varphi\in\Aut(G)$，则$\varphi$将本原单位根$\zeta_n$映射到本原单位根$\zeta_n^k\;(\gcd(n,k)=1)$，由{\heiti 命题}\textbf{5.18}（取$F=\mathbb{Q}, K=\mathbb{Q}(\zeta_n)$），一切$n$次本原单位根有相同的最小多项式$g(x)$，全部$n$次本原单位根都是$g(x)$的根，故$f(x)\mid g(x)$（我们现在尚不确定$f(x)$在$\mathbb{Q}[x]$中）
+	
+	由于$x^n-1$没有重根且是$\zeta_n$的化零多项式，$g(x)\mid x^n-1$，故$g(x)$无重根，我们只需证明$g(x)$没有任何$f(x)$的根以外根即可。若有这样的根，则该根也是$x^n-1$的根，故为$n$次单位根，令该根为$\zeta_n^r$，则$\gcd(n,r)\neq 1$，且在{\heiti 命题}\textbf{5.19}中取$F=\tilde{F}=\mathbb{Q}, K=\tilde{K}=\mathbb{Q}(\zeta_n)$，最小多项式为$g(x)$，则存在域同构$\varphi_1$使得它保持有理数不变且$\varphi_1(\zeta_n)=\zeta_n^r$，故$\varphi_1(\zeta_n^{n/\gcd{r,n}})=\zeta_n^{rn/\gcd{r,n}}=(\zeta_n^n)^{r/\gcd{r,n}}=1$，但$n/\gcd{r,n}<n$，$\zeta_n^{n/\gcd{r,n}}\neq 1$，与$\varphi_1$保持$1$不变矛盾，故$g(x)$无任何其他根，$g(x)=f(x)$为不可约多项式.
+}
+
+这样，扩张$\mathbb{Q}(\zeta_n)/\mathbb{Q}$的次数即$\deg f=|\{k\mid\gcd(k,n)=1\}|=\phi(x)=|(\mathbb{Z}/n\mathbb{Z})^{\times}|$. 
+
+\subsection{}
+求元素$u=\sqrt{2}+\sqrt{3}$在域$K$上的极小多项式，其中
+\subsubsection{(1)}
+$K=\mathbb{Q}$；
+
+\jie $u$是$f(x)=x^4-10x^2+1=0$的根，由{\heiti 命题}\textbf{4.26}，有理根只可能为$\pm 1$，代入即得它们都不是根，故$f(x)$若在$\mathbb{Z}[x]$内可约则为$f(x)=(x^2+ax+\pm 1)(x^2+bx\pm 1)$的形式，得$a=-b, ab\pm 2=-10$，即$a^2=8$或$12$，该方程无整数解，故$f(x)$在$\mathbb{Z}[x]$内不可约，由{\heiti 定理}\textbf{4.35}，$f(x)$在$\mathbb{Q}[x]$内也不可约，为$u$的最小多项式.
+
+\subsubsection{(2)}
+$K=\mathbb{Q}(\sqrt{2})$；
+
+\jie $u$是$f(x)=\sqrt{2}u^2-4u-\sqrt{2}$的根，故$u$的$K$-代数次数最多为$2$. 若$u\in\mathbb{Q}(\sqrt{2})$，则$u-\sqrt{2}=\sqrt{3}\in\mathbb{Q}(\sqrt{2})$，即$\sqrt{3}=a\sqrt{2}+b\;(a,b\in\mathbb{Q})$，即$3=2a^2+b^2+\sqrt{2}ab$，得$ab=0, 2a^2+b^2=3$，$a$或$b=0$，$a^2=\frac{3}{2}$或$b^2=3$，与$a,b$是有理数矛盾，故$u$的$K$-代数次数不为$1$，$f(x)$是$u$的最小多项式.
+
+\subsubsection{(3)}
+$K=\mathbb{Q}(\sqrt{6})$.
+
+\jie $u$是$f(x)=u^2-(5+2\sqrt{6})$的根，故$u$的$K$-代数次数最多为$2$.  若$u\in\mathbb{Q}(\sqrt{6})$，则$\sqrt{2}+\sqrt{3}=a\sqrt{6}+b\;(a,b\in\mathbb{Q})$，即$6a^2+b^2+2\sqrt{6}ab=5+2\sqrt{6}$，$6a^2+b^2=5, ab=1$，$b^4-5b^2+6=0$，得$b^2=2$或$3$，与$b$是有理数矛盾，故$u$的$K$-代数次数不为$1$，$f(x)$是$u$的最小多项式.
+
+\subsection{}
+证明$\mathbb{Q}(\sqrt{2},\sqrt{3})=\mathbb{Q}(\sqrt{2}+\sqrt{3})$.
+
+\zm{
+	我们只需证明$\sqrt{2}$和$\sqrt{3}\in\mathbb{Q}(\sqrt{2}+\sqrt{3})$即可. 令$u=\sqrt{2}+\sqrt{3}$，则$\sqrt{2}=(u^2-9u)/2, \sqrt{3}=-(u^2-11u)/2$.
+}
+
+\subsection{}
+设$F/K$为域的代数扩张，$D$为整环且$K\subseteq D\subseteq F$，求证$D$为域.
+
+\zm{
+	只需证明$D$中任意元素$u$在$D$中可逆即可. 由于$u$在$K$上代数，$f(u)=0$其中$f(x)\in K[x]\subseteq D[x]$，由$f(u)$在$K$上不可约，其常数项不为$0$，故$g(u)u+f_0=0, -f_0^{-1}g(u)u=1$，其中$g(x)\in K[x]\subseteq D[x]$，即$-f_0^{-1}g(u)\in D$为$u$在$D$中的逆.
+}
+
+\subsection{}
+设$u$属于域$F$的某个扩域，并且$u$在$F$上代数. 如果$f(x)$为$u$在$F$上的最小多项式，则$f(x)$必为$F[x]$中不可约元. 反之，若$f(x)$是$F[x]$中首一不可约多项式，并且$f(u)=0$，则$f(x)$为$u$在$F$上的最小多项式.
+
+\zm{
+	(i) 若$f(x)$有非平凡素因子分解$f(x)=g(x)h(x), 1\leq\deg g,h<\deg f$，则$g(u)$或$h(u)=0$，与最小多项式的定义矛盾.
+	
+	(ii) 令$u$在$F$上的最小多项式为$g(x)$，则$f(x)=g(x)h(x)+r(x)$，其中$\deg r<\deg g$，且$r(u)=f(u)-g(u)h(u)=0-0\cdot h(u)=0$，由最小多项式的定义，只能$r(x)=0$，又$f(x)$不可约，只能$h(x)\in U(F[x])=F-\{0\}$，又$f,g$均首一，只能$h(x)=1, f(x)=g(x)$.
+}
+
+\subsection{}
+设$K/F$为域扩张，$a\in K$. 若$a\in F(a^m), m>1$，则$a$在$F$上代数.
+
+\zm{
+	我们有$a-g(a^m)=0$，由于$m>1$，$f(x)=x-g(x^m)$不是零多项式，即$f(a)=a-g(a^m)=0$，$a$在$F$上代数.
+}
+
+\subsection{}
+设$K(x_1,x_2,\cdots,x_n)$为$n$元多项式环$K[x_1,x_2,\cdots,x_n]$的商域，若$K(x_1,x_2,\cdots,x_n), u\notin K$，则$u$在$K$上超越.
+
+\zm{
+	反证法，若$u=f/g\;(g\neq 0, f,g\in K[x_1,x_2,\cdots,x_n])$在$K$上代数，则$a_r(f/g)^r+a_{r-1}(f/g)^{r-1}+\cdots+a_0=0$其中$a_i\in K\;(0\leq i\leq r)$，故$a_rf^r+a_{r-1}f^{r-1}g+\cdots+a_0g^r=0$，即$f\mid g^r, g\mid f^r$，若$f\neq 0$，则$f$的不可约（自然是素的）因子都是$g$的不可约因子，反之亦然. 故$f\sim g$或$f=0$，$u=f/g\in U(K[x_1,x_2,\cdots,x_n])\cup \{0\}=K$，矛盾.
+}
+
+\subsection{}
+设$K$为域，$u\in K(x), u\notin K$，证明$x$在$K(u)$上代数.
+
+\zm{
+	$u=f(x)$，其中$f(x)$为一次以上$K$-系数多项式，故$f(x)-u$是一次以上$K(u)$-系数多项式，它是$x$在$K(u)$中的化零多项式.
+}
+
+\subsection{}
+令$K=\mathbb{Q}(\alpha)$，其中$\alpha$是方程$x^3-x-1=0$的一个根，求$\gamma=1+\alpha^2$在$\mathbb{Q}$上的最小多项式.
+
+\zm{
+	由{\heiti 命题}\textbf{4.26}，$x^3-x-1=0$的有理根只可能为$\pm 1$，代入知$x^3-x-1=0$没有有理根，故$[\mathbb{Q}(\alpha):\mathbb{Q}]$=3.
+	
+	显然$\mathbb{Q}(\gamma)\subseteq\mathbb{Q}(\alpha)$，故$[\mathbb{Q}(\gamma):\mathbb{Q}]$=3或1. 若$\mathbb{Q}(\gamma)=\mathbb{Q}$，则$1+\alpha^2\in\mathbb{Q}$，$\alpha$在$\mathbb{Q}$上代数次数最多为$2$，矛盾. 故$\gamma$的最小多项式为$3$次.
+	
+	设$\gamma^3+a\gamma^2+b\gamma+c=0$，则$(7+3a+b)\alpha^2+(5+a)\alpha+(2+a+b+c)=0$，由于$\alpha^2, \alpha, 1$在$\mathbb{Q}$上线性无关，故$7+3a+b=0,5+a=0,2+a+b+c=0$，解得$a=-5,b=8,c=-5$，故$x^3-5x^2+8x-5$是$\gamma$在$\mathbb{Q}$上的最小多项式.
+}
+
+\subsection{}
+设$a$是正有理数且不是$\mathbb{Q}$中数的平方，证明$[\mathbb{Q}(\sqrt[4]{a}):\mathbb{Q}]=4$.
+
+\zm{
+	显然$[\mathbb{Q}(\sqrt{a}):\mathbb{Q}]=2, \mathbb{Q}(\sqrt{a})\subseteq\mathbb{Q}(\sqrt[4]{a})$，并且$(\sqrt[4]{a})^2=\sqrt{a}\in\mathbb{Q}(\sqrt{a})$，故$[\mathbb{Q}(\sqrt[4]{a}):\mathbb{Q}(\sqrt{a})]\leq2$，只需$\sqrt[4]{a}\notin\mathbb{Q}(\sqrt{a})$即可. 若不然，则$\sqrt[4]{a}=b+c\sqrt{a}$，得$=b^4+6b^2c^2a^2+c^4-a+4bc(ac^2+b^2)\sqrt{a}=0$，只能$b=0$或$c=0$，即$a=c^4$或$b^4$，矛盾.
+}
+
+\subsection{}
+设$u$是多项式$x^3-6x^2+9x+3$的根.
+\subsubsection{(1)}
+求证$[\mathbb{Q}(u):\mathbb{Q}]=3$.
+
+\zm{
+	由艾森斯坦判别法（取$p=3$）得上述多项式在$\mathbb{Q}[x]$中不可约，故$u$的$\mathbb{Q}$-代数次数为$3$.
+}
+\subsubsection{(2)}
+试将$u^4, (u+1)^{-1}, (u^2-6u+8)^{-1}$表示为$1,u,u^2$的线性组合.
+
+\jie $u^3=6u^2-9u-3$.
+
+(i) $u^4=6u^3-9u^2-3u=36u^2-54u-18-9u^2-3u=27u^2-57u-18$.
+
+(ii) $(u+1)(u^2-7u+16)=13$，故$(u+1)^{-1}=(u^2-7u+16)/13$.
+
+(iii) 设$(u^2-6u+8)^{-1}=au^2+bu+c$，则$au^4+(-6a+b)u^3+(8a-6b+c)u^2+(-6c+8b)u+8c=1$，即$-a+c=0, -3a-b-6c=0, -3b+8c-1=0$，解得$c=1/35, a=1/35, b=-9/35$，即$(u^2-6u+8)^{-1}=(u^2-9u+1)/35$.
+
+\subsection{}
+设$d\geq 3$为无平方因子的整数，$K=\mathbb{Q}(\sqrt{d})$.
+\subsubsection{(1)}
+证明$K$中任意元素在$\mathbb{Q}$上的最小多项式是$1$次或$2$次.
+
+\zm{
+	$x^2-d$是$\sqrt{d}$在$\mathbb{Q}$上的最小多项式，故$[K:\mathbb{Q}]=2$，对$K$中任意元素$\alpha$有$\mathbb{Q}\subseteq\mathbb{Q}(\alpha)\subseteq K$，故$[\mathbb{Q}(\alpha):\mathbb{Q}]$只能为$1$或$2$，故得结论.
+}
+\subsubsection{(2)}
+设$\mathcal{O}$是$K$中所有在$\mathbb{Q}$上的最小多项式为首一整系数多项式元素的集合，试求$\mathcal{O}$.
+ 
+\jie $\mathbb{Q}[\sqrt{d}]$中元素$u$均有$a+b\sqrt{d}$的形式，其中$a,b\in\mathbb{Q}$. 若最小多项式为一次，则$b=0$，$x-a=0$为$a$的最小多项式，故$u\in\mathbb{Z}$.
+
+若最小多项式为二次，则$b\neq 0$，$x^2+ex+f=0$，其中$e,f\in\mathbb{Z}$. 故$a^2+b^2d+ea+f+(2ab+eb)\sqrt{d}=0$，我们有$a=-e/2, -e^2/4+b^2d\in\mathbb{Z}$，若$e$为偶数，则$a,-e^2/4$为整数，$b^2d$为整数，又$d$没有平方因子，迫使$b$为整数，故$a,b$为整数时满足条件，此时$x^2-2ax+a^2-b^2d=0$为最小多项式.
+
+若$e$为奇数，则$e^2\equiv 1\mod 4$，故$4b^2d=h$其中$h\equiv 1\mod 4$，设$b=p/q\;(\gcd(p,q)=1)$，则$4p^2d=hq^2$，由$p^2,q^2$互素得$q^2\mid 4d$，由于$d$没有平方因子，只能$q^2=4$，即$q=2,p^2d=h$，$p$是奇数，两边模$4$得$d\equiv 1\mod 4$时这样的$p$存在.
+
+由于当$2a,2b$均为奇数，$d\equiv 1\mod 4$时$x^2-2ax+a^2-b^2d$确实为整系数多项式，故当$d\equiv 2,3\mod 4$时$\mathcal{O}=\mathbb{Z}\cup\{a+b\sqrt{d}\mid a,b\in\mathbb{Z}\}$，当$d\equiv 1\mod 4$时$\mathcal{O}=\mathbb{Z}\cup\{a+b\sqrt{d}\mid a,b\in\mathbb{Z}\}\cup\{a+b\sqrt{d}\mid 2a,2b\in\mathbb{Z}-2\mathbb{Z}\}$.
+
+\subsection{}
+设$x$是$\mathbb{Q}$上的超越元且$u=x^3/(x+1)$，求$[\mathbb{Q}(x):\mathbb{Q}(u)]$.
+
+\jie 由于$x^3-ux-u=0$，故$\{x^3,x^2,x,1\}$在$\mathbb{Q}(u)$上线性相关，$[\mathbb{Q}(x):\mathbb{Q}(u)]\leq 3$，若$[\mathbb{Q}(x):\mathbb{Q}(u)]<3$，则$x^3-ux-u$不是$\mathbb{Q}(u)$上的不可约多项式，它必有一次因式，即$[\mathbb{Q}(x):\mathbb{Q}(u)]=1$，故我们只需要证明$x\notin\mathbb{Q}(u)$即证明了$[\mathbb{Q}(x):\mathbb{Q}(u)]=3$.
+
+若$x=\frac{f(u)}{g(u)}$，设$\deg f=a, \deg g=b$，则$f(u)(x+1)^a$是$x$的$3a$次多项式，$g(u)(x+1)^b$是$x$的$3b$次多项式，若$a>b$则$xg(u)(x+1)^b(x+1)^{a-b}=f(u)(x+1)^a$，左边为$1+a+2b$次多项式，右边为$3a$次多项式，但$b\leq a-1$，即$1+a+2b\leq 3a-1<3a$，矛盾. 若$a<b$则$xg(u)(x+1)^b=f(u)(x+1)^a(x+1)^{b-a}$，左边为$1+3b$次多项式，右边为$2a+b$次多项式，但$b\geq a+1$，$1+3b\geq 3+2a+b>2a+b$，矛盾. 若$a=b$，则$xg(x)(x+1)^a=f(x)(x+1)^a$，左边为$3a+1$次多项式，右边为$3a$次多项式，矛盾. 故$x\notin\mathbb{Q}(u)$，$[\mathbb{Q}(x):\mathbb{Q}(u)]=3$.
+
+\subsection{}
+试写出二元域$\mathbb{F}_2$的一个$2$次不可约多项式$f(x)$. 设$u$是$f(x)$的一个根，写出$\mathbb{F}_2(u)$的全部元素及它们的加法表和乘法表.
+
+\jie $\mathbb{F}_2[x]$中的一次多项式只有$x$和$x+1$，由于$x^2+x+1=(x+1)x+1$，故$x^2+x+1$是不可约多项式，$u^2+u+1=0\Rightarrow u^2=u+1$（请注意$+1$与$-1$并无差别）. 故$\mathbb{F}_2(u)=\{0,1,u,u+1\}$，加法表如下：
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		$+$ & $0$ & $1$ & $u$ & $u+1$\\
+		\hline
+		$0$ & $0$ & $1$ & $u$ & $u+1$\\
+		\hline
+		$1$ & $1$ & $0$ & $u+1$ & $u$\\
+		\hline
+		$u$ & $u$ & $u+1$ & $0$ & $1$\\
+		\hline
+		$u+1$ & $u+1$ & $u$ & $1$ & $0$\\
+		\hline
+	\end{tabular}
+\end{center}
+乘法表如下（$0$省略）：
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		$\times$ & $1$ & $u$ & $u+1$\\
+		\hline
+		$1$ & $1$ & $u$ & $u+1$\\
+		\hline
+		$u$ & $u$ & $u+1$ & $1$\\
+		\hline
+		$u+1$ & $u+1$ & $1$ & $u$\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection{}
+设$M/K$为域的扩张，$M$中元素$u,v$分别是$K$上的$m$次和$n$次代数元素，$F=K(u)$，$E=K(v)$.
+\subsubsection{(1)}
+求证$[FE:K]\leq mn$.
+
+\zm{
+	$F$中任意元素均能表示成$1,u,\cdots,u^{m-1}$的线性组合，另一方面$E$中任意元素均能表示成$1,v,\cdots,v^{n-1}$的线性组合，故$FE$中任意元素均能表示成$u^iv^j\;(0\leq i<m, 0\leq j<n)$的线性组合，即$mn$个元素的线性组合，故由线性代数知$[FE:K]$至多为$mn$.
+}
+\subsubsection{(2)}
+如果$\gcd(m,n)=1$，则$[FE:K]=mn$.
+
+\zm{
+	由于$F$和$E$都是$FE$的子域，故$m=[F:K]\mid[FE:K], n=[E:K]\mid[FE:K]$，$\lcm(m,n)\mid[FE:K]$，当$\gcd(m,n)=1$时$\lcm(m,n)=mn$，再由(1)可知只能$[FE:K]=mn$.
+}
+
+\subsection{}
+设$K,L$为域$F$的扩张且均在$F$的某给定代数封闭域中. 称$L$在$F$上{\heiti 线性不相交}于$K$是指$L$中任何$F$-线性无关有限集还是$K$-线性无关集. 即对$L$的任意子集合$\{x_i\mid i\in I\}$如它在$F$上线性无关，则它也在$K$上线性无关.
+
+\subsubsection{(1)}
+证明：如$L$在$F$上线性不相交于$K$，则$K$在$F$上线性不相交与$L$.
+
+\zm{
+	如$L$在$F$上线性不相交于$K$，任取$L$的一组$F$-基$\{x_i\mid i\in I_L\}$和$K$的一组$F$-基$\{y_j\mid j\in J_K\}$，则$\sum_i b_ix_i=0\;(b_i\in K)\Rightarrow b_i=0,\forall i$，将$b_i$用$K$的$F$-基表示即$\sum_{i,j} c_{ij}x_iy_j=0\;(c_{ij}\in F)\Rightarrow c_{ij}y_j=0,\forall i\Rightarrow c_{ij}=0, \forall i,j$，即$x_iy_j$是$F$-线性无关集.
+	
+	反之，若$L$在$F$上线性相交于$K$，取$K$-线性相关但$F$-线性无关的集合$\{x_i^{\prime}\mid i\in S\}$，则它可以扩充为一组$F$-基$\{x_i\mid i\in I_L\}$并同样$K$-线性相关，$\sum_i b_ix_i=0$其中$b_i\in K$不全为零，将$b_i$用$K$中$F$-基表示则$\sum_{i,j} c_{ij}x_iy_j=0\;(c_{ij}\in F)$，其中$c_{ij}$不全为$0$，即$x_iy_j$是$F$-线性相关集.
+	
+	同样，若$K$在$F$上线性相交于$L$，则$x_iy_j$也是$F$-线性相关集，矛盾. 故得结论.
+}
+
+\subsubsection{(2)}
+设$K$与$L$均是$F$的有限扩张. 证明：$L$在$F$上线性不相交于$K$当且仅当$[KL:F]=[K:F]\cdot[L:F]$.
+
+\zm{
+	线性不相交关系$\Leftrightarrow$任取$L,K$的$F$-基，其$[K:F][L:F]$个乘积元素$F$-线性无关，$[KL:F]\geq[K:F]\cdot[L:F]$又因{\heiti 习题}\textbf{5.1.16}，$[KL:F]=[K:F]\cdot[L:F]$. 反之，若$L$在$F$上线性相交于$K$，则设$x_i,y_j$各是$L,K$的一组$F$-基，则$x_iy_j$是$F$-线性相关集合，故是少于$[K:F]\cdot[L:F]$个元素$z_k$的线性组合，$KL$上任何元素都是$x_iy_j$的$F$-线性组合，故也是$z_k$的$F$-线性组合，即$[KL:F]<[K:F]\cdot[L:F]$.
+}
+
+\subsection{}
+设$F$为特征$p$域，$p$为素数，$c\in F$
+\subsubsection{(1)}
+证明$x^p-x-c$在$F[x]$中不可约当且仅当$x^p-x-c$在$F$中无根.
+
+\zm{
+	($\Rightarrow$)显然.
+	
+	($\Leftarrow$)\emph{证明由文献}\cite{1256120}\emph{给出}.
+	
+	（证明1）令$f(x)=x^p-x-c$，考虑双射$\varphi: F[x]\rightarrow F[x], x\mapsto x+1$，则$\varphi(f)=f$，故$\varphi$将$f$的不可约因子变作$f$的不可约因子，令$f$在$F[x]$上的因子分解为$f=ug_1g_2\cdots g_n$，由于$f$无根，没有一次因式，因此$n<p$.
+	
+	由于$\varphi^p: x\mapsto x+p=x$为恒等映射，故$\langle\varphi\rangle\cong\mathbb{Z}/p\mathbb{Z}$，该$p$阶循环群作用在$M=\{g_1,g_2,\cdots,g_n\}$上，有同态$\tau:\mathbb{Z}/p\mathbb{Z}\rightarrow S_n$，由于$n<p$，$p\nmid n!$，$|\im\tau|\mid n!, |\im\tau|\mid p$，只能$|\im\tau|=1$，即$\langle\varphi\rangle$在$M$上作用平凡，任意$f$的不可约因子在$\varphi$下不变.
+	
+	令$r=\deg g_1$，则$g_1=a_rx^r+a_{r-1}x^{r-1}+\cdots+a_0\;(a_r\neq 0)$，$\varphi(g_1)=a_rx^r+(ra_r+a_{r-1})x^{r-1}+\cdots+b$，即$\overline{r}a_r=\overline{0}$，由于$F$没有零因子，只能$\overline{r}=\overline{0}$，即$p\mid r$，又$1\leq r\leq p$，只能$r=p$，即$g_1=f$，$f$为不可约多项式.
+	
+	（证明2）\emph{读者应当在学习第六章伽罗瓦理论后再次体会这种证法.}
+	
+	由于$f$的形式微商$f^{\prime}=-1$，故$\gcd(f,f^{\prime})=1$，$f$无重根. 令$K$为$F$的代数闭包，则$f$在$K$中有$p$个根$\alpha_1,\cdots,\alpha_p$. $L\subseteq K$为$F(\alpha_1,\cdots,\alpha_p)$，记$\mathrm{Gal}(L/F)$为$L$的所有$F$-自同构构成的集合，在其上定义映射复合为乘法运算. 令$\tau: \mathrm{Gal}(L/F)\rightarrow \mathbb{Z}/p\mathbb{Z}, \sigma\mapsto\sigma(\alpha_1)-\alpha_1$，我们证明$\tau$是良好定义的.
+	
+	由{\heiti 命题}\textbf{5.18}，$\sigma(\alpha_1)$也是$f=\sigma(f)$的根，记为$\alpha_i$，则$\tau(\sigma)=\alpha_i-\alpha_1$. 由于$\alpha_i^p-\alpha_i-c=\alpha_1^p-\alpha_1-c=0$，故$\alpha_i-\alpha_1=\alpha_i^p-\alpha_1^p\equiv(\alpha_i-\alpha_1)^p\mod p$，即在$F$中$\alpha_i-\alpha_1$是$x^p-x$的根，但由{\heiti 推论}\textbf{1.63}，$F$中所有整数$0,1,\cdots,p-1$都是$x^p-x$的根，故由{\heiti 推论}\textbf{4.25}，$x^p-x$在$L$中只有这$p$个根，即$\alpha_i-\alpha_1\in\mathbb{Z}/p\mathbb{Z}$.
+	
+	由于$p$阶循环群只有平凡子群，若$\im\tau=\mathbb{Z}/p\mathbb{Z}$，则$\mathrm{Gal}(L/F)$将$\alpha_1$映射到$p$个不同值，故$[L:F]\geq|\mathrm{Gal}(L/F)|=p$（{\heiti 定理}\textbf{6.8}），又$f$是所有$\alpha_i$的化零多项式，故$[L:F]\leq p$，故$[L:F]=p$，且由$\alpha_i\notin F$，$\alpha_i$的最小多项式为$p$次，故为$f$，即$f$不可约.
+	
+	若$\im\tau$是平凡群，则$\sigma$保持一切$\alpha_i$不变，故是$L$上的恒等映射，由{\heiti 例}\textbf{6.15}，{\heiti 命题}\textbf{6.16}和{\heiti 定理}\textbf{6.24}知$L/F$是伽罗瓦扩张，$[L:F]=|\mathrm{Gal}(L/F)|=1$，即$\alpha_i\in F$，矛盾.
+}
+
+\subsubsection{(2)}
+若$\mathrm{char}F=0$时，试问(1)中结论是否仍然成立？
+
+\jie 否，例如$F=\mathbb{Q}$，$f=x^5-x-15=(x^2-x+3)(x^3+x^2-2x-5)$是可约多项式，但$f$没有有理根（对每个因式考虑有理根，第一个只能为$\pm3$，第二个只能为$\pm5$，代入即否定）.
+
+\subsection{}
+\subsubsection{(1)}
+设$F$为特征不为$2$的域，证明$F$的每个二次扩张均有形式$F(\sqrt{a})$，其中$a\in F-F^2$.
+
+\zm{
+	令$K/F$为二次扩张，任选$\alpha\in K-F$，则$\alpha$的最小多项式为$x^2+bx+c$，故$2\alpha+b=\pm\sqrt{b^2-4c},\alpha\in F(\sqrt{b^2-4c})$，若$b^2-4c\in F^2$，则$\alpha=1/2(\pm\sqrt{b^2-4c}-b)\in F$，矛盾，故$b^2-4c\in F-F^2$，令$a=b^2-4c$即得结论.
+}
+\subsubsection{(2)}
+若$\mathrm{char}F=2$，则(1)的结论是否仍然成立？
+
+\jie 否，考虑{\heiti 习题}\textbf{5.1.15}的结果，由于$\mathbb{F}_2(u)$有$4$个元素，显然$\mathbb{F}_2(u)/\mathbb{F}_2$是二次扩张，但$u^2=u+1\notin \mathbb{F}_2$.
+
+\emph{以下参照文献}\cite{290032}\emph{.}
+
+事实上，令$K=F[t]/(t^2-t+\alpha)$，$\alpha\in F$. 如果$\alpha$不是$x^2-x, x\in F$的形式，那么$t^2-t+\alpha$是$F[t]$中不可约多项式，$K$是域，$K/F$是二次扩张.
+
+\subsection{}
+设$K=\mathbb{Q}(\alpha)$是$\mathbb{Q}$的单扩张，其中$\alpha$在$\mathbb{Q}$上代数，证明$|\Aut(K)|\leq [K:\mathbb{Q}]$.
+
+\zm{
+	令$\varphi$是$K$的$\mathbb{Q}$-自同构，则对$\alpha$在$\mathbb{Q}$上的最小多项式$f(x)$，$\varphi(\alpha)$仍是$f(x)$的根（{\heiti 命题}\textbf{5.18}），并唯一确定$\varphi$，由{\heiti 推论}\textbf{4.25}，这样的不同根最多有$\deg f=[K:\mathbb{Q}]$个，即$\Aut(K)$最多有$[K:\mathbb{Q}]$个元素.
+	
+	{\heiti 注记.} 等号不成立即$f$有重根或者$f$在$K$上不分裂，$\alpha\mapsto$另一个根$\beta$有可能不是$K$的自同构的情形，参见第六章第一节.
+}

@@ -1,0 +1,129 @@
+\section{高斯整数和二平方和问题}
+该节不加说明地引用了Legendre符号$\displaystyle\left(\frac{p}{q}\right)$（本书记为$\displaystyle\left(\frac{p}{q}\right)_{\mathrm{Le}}$），没有学习过的读者请参考《代数学I：代数学基础》）
+\subsection{}
+设$p$是奇素数，$p\equiv 1\mod 4$. 如果$(a,b)$是不定方程$x^2+y^2=p$的一组整数解，则它的全部整数解为$(x,y)=(\pm a,\pm b), (\pm b,\pm a)$
+
+\zm{
+	易验证上面$8$组整数确实是解，根据{\heiti 定理}\textbf{4.20}，该方程只有$8$组解，故得结论.
+}
+
+\subsection{}
+将$60$和$81+8\sqrt{-1}$在环$\mathbb{Z}[\sqrt{-1}]$中分解为不可约元之积.
+
+\jie
+$60=2*2*3*5$，其中$3$为高斯素数，$2,5$为共轭的高斯素数之积，易见
+$2=(1+i)(1-i)=-i(1+i)^2$，$5=(1+2i)(1-2i)$为在相伴意义下唯一的高斯素数分解，
+故$60=-3(1+i)^4(1+2i)(1-2i)$.
+
+我们沿用正文4.2节中的记号，$\varphi(81+8\sqrt{-1})=6625=5^3\times 53$，其中$5=1^2+2^2$和$53=2^2+7^2$都是共轭的高斯素数之积.
+故$(81+8\sqrt{-1})(81-8\sqrt{-1})=6625=\epsilon_0(1+2i)^3(1-2i)^3(2+7i)(2-7i)$，由于$81+8\sqrt{-1}$和$81-8\sqrt{-1}$共轭，故前者的非单位高斯素因子只有$4$个，易见$5\nmid 81+8\sqrt{-1}, 53\nmid 81+8\sqrt{-1}$，故因子分解只能是$81+8\sqrt{-1}=\epsilon_1(1\pm 2i)^3(2\pm 7i)$的形式，其中$\epsilon_i=1,-1,i,-i$为单位. 依次验证可知$81+8\sqrt{-1}=-i(1-2i)^3(2-7i)$.
+
+\subsection{}
+试求方程$x^2+y^2=585$的所有整数解.
+
+\jie $585=3^2\times 5\times 13$，其中$3$是高斯素数，$5=1^2+2^2$，$13=2^2+3^2$，故$585=a\overline{a}$其中$a=\epsilon_1\pi_1^{\beta_{11}}\overline{\pi}_1^{\beta_{12}}\pi_2^{\beta_{21}}\overline{\pi}_2^{\beta_{22}}\cdot 3$，$\pi_1\overline{\pi}_1=5, \pi_2\overline{\pi}_2=13, \beta_{11}+\beta{12}=\beta{21}+\beta{22}=1$.
+
+选择$\pi_1=1+2i, \pi_2=2+3i$，则$a=\epsilon_1b\cdot 3$，其中$b=-4+7i, 8+i, -4-7i, 8-i$，故方程有$16$组整数解：$(\pm 12, \pm 21), (\pm 21, \pm 12), (\pm 3, \pm 24), (\pm 24, \pm 3)$.
+
+\subsection{}
+利用正文的方法研究如下问题：
+\subsubsection{(1)}
+对于正整数$n$，$x^2+2y^2=n$何时有整数解？有多少组整数解？
+
+\jie 由{\heiti 习题}\textbf{4.1.9(1)}知$\mathbb{Z}[\sqrt{-2}]$是ED，我们称之为2-高斯整数环，元素称为2-高斯整数，其素元称为2-高斯素数. 定义$\varphi: \mathbb{Z}[\sqrt{-2}]\rightarrow\mathbb{N}, a+b\sqrt{-2}\mapsto a^2+2b^2$，类似正文我们有（请读者自行补充详细）：
+
+2-高斯整数环的单位群$U(\mathbb{Z}[\sqrt{-2}])=\{\pm 1\}$.
+
+(1)设$p$为素数，则$p$或为2-高斯素数或为两个共轭的2-高斯素数之积.
+
+(2)设$\pi_0$为2-高斯素数，则$\pi_0\overline{\pi}_0$或为素数，或为素数的平方.
+
+(3)素数$p$为2-高斯素数当且仅当$p\equiv 5,7 \mod 8$.
+
+(4)设$p$为素数，则下列条件等价：
+
+(i) $p$为两个共轭的2-高斯素数之积.
+
+(ii) $p=a^2+2b^2,\;a,b\in\mathbb{Z}.$
+
+(iii) $x^2=-2\mod p$有整数解，即$\left(\frac{-2}{p}\right)_{\mathrm{Le}}=1$或$0$.
+
+(iv) $p\equiv 1, 3\mod 8$或$p=2$.
+
+\zm{
+	(1)(2)与正文类似.
+	
+	(3)
+	注意奇素数模$8$只能余$1,3,5,7$. 我们只要证$p\equiv 5,7\mod 8$则$p$是2-高斯素数，另一方面的证明由(4)即知. 如果$p$不是高斯素数，则
+	
+	$$p=\pi_0\overline{\pi}_0=\varphi(\pi_0)=a^2+2b^2, \pi_0=a+b\sqrt{-2},$$
+	
+	则$p\equiv 0,1,2,3,4,6\mod 8$，即$p\not\equiv 5,7\mod 8$.
+	
+	(4) (i) $\Leftrightarrow$ (ii) 显然.
+	
+	(ii) $\Rightarrow$ (iii) 如果$p=a^2+2b^2$，则$0<2b^2<p$，故$b$在$\mathbb{F}_p$中可逆，令$\overline{c}=\overline{b}^{-1}$，则$(ac)^2+2=a^2c^2+2b^2c^2\equiv 0\mod p$，即$ac$满足条件.
+	
+	(iii) $\Leftrightarrow$ (iv) 如果$p$为奇素数，则$\left(\frac{-2}{p}\right)_{\mathrm{Le}}=\left(\frac{-1}{p}\right)_{\mathrm{Le}}\left(\frac{2}{p}\right)_{\mathrm{Le}}=(-1)^{\frac{p-1}{2}}(-1)^{\frac{p^2-1}{8}}$，前者在$p\equiv 1,5\mod 8$时为$1$，$p\equiv 3,7\mod 8$时为$-1$，后者在$p\equiv 1,7\mod 8$时为$1$，$p\equiv 3,5\mod 8$时为$-1$，两者相乘即得结论. 如果$p=2$，取$x=0$即可.
+	
+	(iii) $\Leftarrow$ (i) 由$p\mid x^2+2=(x+\sqrt{-2})(x-\sqrt{-2})$，但易见$p\nmid x\pm\sqrt{-2}$，则$p$不是素元，由(1)知$p$必是共轭2-高斯素数之积.
+}
+
+故设$n\geq 1$的（整数-）素因子分解为$2^{\alpha}\prod_{i=1}^sp_i^{\beta_i}\prod_{j=1}^tq_j^{\gamma_j}$，其中$p_i\equiv 1,3\mod 8$，$q_j\equiv 5,7\mod 8$，则$n=a^2+2b^2$有整数解当且仅当$\gamma_j\;(1\leq j\leq t)$全为偶数，此时共有$2\prod_{i=1}^s(\beta_i+1)$对解. （当$n=1$时，$\alpha$和$\beta_i, \gamma_j$全部为$0$，有$2$组解）
+
+\zm{
+	与正文一致，但把$1\pm i$换作$\pm 2i$，同时注意单位$\epsilon$只有$2$种而不是$4$种可能的取值.
+}
+
+\subsubsection{(2)}
+对于正整数$n$，$x^2+xy+y^2=n$何时有整数解？有多少组整数解？
+
+
+\jie 由{\heiti 习题}\textbf{4.1.9(3)}知$\mathbb{Z}[\omega]$是ED，我们称之为$\omega$-高斯整数环，元素称为$\omega$-高斯整数，其素元称为$\omega$-高斯素数. 定义$\varphi: \mathbb{Z}[\omega]\rightarrow\mathbb{N}, a-b\omega\mapsto a^2+ab+b^2$，（注意，$a^2+ab+b^2=(a+b/2)^2+3/4\cdot b^2$，故当$a,b$不全为零时$\varphi(a+b\omega)$为正）类似正文我们有（请读者自行补充详细）：
+
+$\omega$-高斯整数环的单位群$U(\mathbb{Z}[\omega])=\{\pm 1, \pm\omega, 1\pm\omega\}$.
+
+(1)设$p$为素数，则$p$或为$\omega$-高斯素数或为两个共轭的$\omega$-高斯素数之积.
+
+(2)设$\pi_0$为$\omega$-高斯素数，则$\pi_0\overline{\pi}_0$或为素数，或为素数的平方.
+
+(3)素数$p$为$\omega$-高斯素数当且仅当$p\equiv 2\mod 3$.
+
+(4)设$p$为奇素数，则下列条件等价：
+
+(i) $p$为两个共轭的$\omega$-高斯素数之积.
+
+(ii) $p=a^2+ab+b^2,\;a,b\in\mathbb{Z}.$
+
+(iii) $x^2=-3\mod p$有整数解，即$\left(\frac{-3}{p}\right)_{\mathrm{Le}}=1$或$0$.
+
+(iv) $p\equiv 1\mod 3$或$p=3$.
+
+\zm{
+	(1)(2)与正文类似.
+	
+	(3)
+	注意非$3$的素数模$3$只能余$1,2$. 我们只要证$p\equiv 2\mod 3$则$p$是$\omega$-高斯素数，另一方面的证明由(4)即知. 如果$p$不是高斯素数，则
+	
+	$$p=\pi_0\overline{\pi}_0=\varphi(\pi_0)=a^2+ab+b^2, \pi_0=a-b\omega, \overline{\pi}_0=a-b\omega^2$$
+	
+	当$a^2$或$b^2\equiv 0\mod 3$时$ab\equiv 0\mod 3$，由于$b^2$或$a^2$模$3$不可能余$2$，故$p=a^2+b^2+ab\equiv 0$或$1\mod 3$.
+	
+	当$a^2\equiv b^2\equiv 1\mod 3$时$ab$不可能被$3$整除，故故$p=a^2+b^2+ab\equiv 1+1+1$或$1+1+2\mod 3\equiv 0$或$1\mod 3$，综上$p\not\equiv 2\mod 3$.
+	
+	(4) (i) $\Leftrightarrow$ (ii) 显然.
+	
+	(ii) $\Rightarrow$ (iii) 如果$p=a^2+ab+b^2$，则$0<3/4\cdot b^2<p$，又$p\geq 2$，故$b$在$\mathbb{F}_p$中可逆，令$\overline{c}=\overline{b}^{-1}$，则$(2ac+1)^2+3=4((ac)^2+ac+1)=4(a^2c^2+abc^2+b^2c^2)\equiv 0\mod p$，即$2ac+1$满足条件.
+	
+	(iii) $\Leftrightarrow$ (iv) 如果$p$为奇素数，则$\left(\frac{-3}{p}\right)_{\mathrm{Le}}=\left(\frac{-1}{p}\right)_{\mathrm{Le}}\left(\frac{3}{p}\right)_{\mathrm{Le}}=(-1)^{\frac{p-1}{2}}\left(\frac{p}{3}\right)_{\mathrm{Le}}^{-1}(-1)^{\frac{3-1}{2}\cdot\frac{p-1}{2}}=\left(\frac{p\mod 3}{3}\right)_{\mathrm{Le}}$，当$p\equiv 1\mod 3$时为$1$，当$p\equiv 2\mod 3$时为$-1$.如果$p=3$，取$x=0$即可.
+	
+	(iii) $\Leftarrow$ (i) 由$p\mid x^2+3=(x-1)^2+2(x-1)+4=(x-1-2\omega)(x-1-2\omega^2)=(x-1-2\omega)(x+1+2\omega)$，但易见$p\nmid x\pm1\pm2\omega$，则$p$不是素元，由(1)知$p$必是共轭$\omega$-高斯素数之积.
+}
+
+注意到$p=2$时$a^2+ab+b^2$无整数解，此时$p$为$\omega$-高斯素数.
+
+故设$n\geq 1$的（整数-）素因子分解为$3^{\alpha}\prod_{i=1}^sp_i^{\beta_i}\prod_{j=1}^tq_j^{\gamma_j}$，其中$p_i\equiv 1\mod 3$，$q_j\equiv 2\mod 3$，则$n=a^2+ab+b^2$有整数解当且仅当$\gamma_j\;(1\leq j\leq t)$全为偶数，此时共有$6\prod_{i=1}^s(\beta_i+1)$对解. （当$n=1$时，$\alpha$和$\beta_i, \gamma_j$全部为$0$，有$6$组解$(\pm 1, 0), (0, \pm 1), (\pm 1, \mp 1)$）
+
+\zm{
+	与正文一致，但把$1+i$换作$2+\omega$，$1-i$换作$2+\omega^2=1-\omega$，同时注意单位$\epsilon$有$6$种而不是$4$种可能的取值.
+}

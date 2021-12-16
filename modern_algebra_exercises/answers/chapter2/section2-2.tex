@@ -1,0 +1,210 @@
+% !TeX encoding = UTF-8
+\section{群在集合上的作用}
+\subsection{}
+设群$G$在集合$\Sigma $上的作用是传递的. $N$是$G$的正规子群. 则$\Sigma$在$N$作用下的每个轨道有同样多的元素.
+
+\zm{
+	对任意两个不属于同一个$N-$轨道的元素$x_1,x_2\in\Sigma$，有$\exists g\in G, gx_1=x_2$.
+	
+	记$N_x=\{n\in N\mid nx=x\}$. 则$n\in N_{x_2}\Leftrightarrow nx_2=x_2
+	\Leftrightarrow ngx_1=gx_1
+	\Leftrightarrow g^{-1}ngx_1=x_1$.
+	由于$N\vartriangleleft G$，故$g^{-1}ng\in N$，故$g^{-1}ng\in N_{x_1}, N_{x_2}=gN_{x_1}g^{-1}$与$N_{x_1}$在$G$中共轭. 故$|O_{x_1}|=(N:N_{x_1})=(G:N_{x_1})/(G:N)=(G:N_{x_2})/(G:N)=(N:N_{x_2})=|O_{x_2}|$. 即任意两个轨道元素个数相同.
+}
+
+\subsection{}
+设$X$是$\mathbb{R}$上所有函数的集合. 验证$a\circ f(x)=f(ax)\;(a\in\mathbb{R}^{\times})$
+给出乘法群$\mathbb{R}^{\times}$在$X$上的作用，并确定所有稳定子群为$\mathbb{R}_+^{\times}$的函数$f$.
+
+\jie
+对任意的$a,b\in\mathbb{R}^{\times}, x\in\mathbb{R}, f\in X, a\circ f(x)=f(1\cdot x)=f(x); a\circ (b\circ f)(x)=f(abx)=(ab)\circ f(x)$，故$a\circ f=f, a\circ(b\circ f)=(ab)\circ f$，故乘法群是$X$上的作用.
+
+若$f$满足稳定子群为$\mathbb{R}_+^{\times}$，则$\forall a>0$，$a$在$f$上作用平凡，且$-1$在$f$上作用不平凡. 得$f(x)=f(1), \forall x>0, f(x)=f(-1), \forall x<0, f(1)\neq f(-1)$.
+
+故$f: x\mapsto\left\{
+\begin{matrix}
+c_1, & x>0\\
+c_2, & x=0\\
+c_3, & x<0
+\end{matrix}
+\right.,\;c_1\neq c_3.$
+
+\subsection{}
+集合$A\subseteq \mathbb{R}^n$的对称群是指将$A$映为自身的所有刚体变换得到的群.
+\subsubsection{(1)}
+求正方形，除正方形外的长方形，除正方形外的菱形，圆的对称群.
+
+\jie 只给出结果，请读者自证.
+
+正方形：$D_4$.
+
+长方形：$\{\id, (12)(34),(13)(24),(14)(23)\}=K_2$，其中$(1,4),(2,3)$各表示一对对角顶点.
+
+菱形：$\{\id, (23), (14), (14)(23)\}=K_2$，其中$(1,4),(2,3)$各表示一对对角顶点.
+
+圆：$\mathrm{O}_2(\mathbb{R})$.
+
+\subsubsection{(2)}
+求正四，六，八，十二，二十面体的对称群各有多少元素？这五个对称群中是否有同构的？
+
+\jie 元素个数为（某一顶点可被变换到的不同顶点数）和（该顶点所相邻顶点构成的多边形的对称群元素数）之积.
+
+正四面体：$4\times(3\times2)=24$.
+
+正立方体：$8\times(3\times2)=48$.
+
+正八面体：$6\times(4\times2)=48$.
+
+正十二面体：$20\times(3\times2)=120$.
+
+正二十面体：$12\times(5\times2)=120$.
+
+由于以一个正立方体各面的中心为顶点，相邻面的中心连接为棱则得一个唯一的正八面体（反之亦然），故正立方体和正八面体的对称群同构. 同理，正十二面体和正二十面体的对称群同构.
+
+\subsection{}
+设群$G$作用在集合$\Sigma$上. 令$t$表示$\Sigma$在$G$作用下的轨道个数. 对$G$中任意元素$g$令$f(g)$表示$\Sigma$在$g$作用下的不动点个数. 试证
+
+$$\sum_{g\in G}f(g)=t|G|.$$
+
+\zm{
+	$\sum_{g\in G}f(g)=|\{(g,x)\mid gx=x, x\in\Sigma, g\in G\}|=\sum_{x\in\Sigma}|\Stab_G(x)|$.
+	将$\Sigma$分为不同的轨道$\Sigma=\bigsqcup_{x\in I}O_x$，其中$I$为各轨道中各取一元素的集合.
+	
+	若$x\in\Sigma, x_1\in O_x$，则$\exists a\in G, x_1=ax$，由{\heiti 命题}\textbf{2.32}，
+	$\Stab_G(x_1)=a\Stab_G(x)a^{-1}$与$\Stab_G(x)$共轭，
+	
+	故$|\Stab_G(x_1)|=|\Stab_G(x_1)|, \sum_{x\in O_x}|\Stab_G(x)|=|O_x||\Stab_G(x)|=|G|$（{\heiti 推论}\textbf{2.31(1)}），
+	
+	$\sum_{x\in\Sigma}|\Stab_G(x)|=\sum_{x\in I}\sum_{x\in O_x}|\Stab_G(x)|=\sum_{x\in I}|G|=|I||G|=t|G|$.
+}
+
+\subsection{}
+线性代数
+
+\subsection{}
+设群$H$作用在群$N$上，且每个元素$g\in H$诱导了$N$上的群同构，即同态$\varphi(g): H\rightarrow \Aut(N)$，令$G=N\times H$，定义运算
+
+$$(x_1,y_1)(x_2,y_2)=(x_1\cdot \varphi(y_1)(x_2), y_1y_2)$$
+
+\subsubsection{(1)}
+证明$G$在此运算下成为群，称为$N$和$H$的{\heiti 半直积}，记为$G=N\rtimes H$.
+
+\zm{
+	结合律：$[(x_1,y_1)(x_2,y_2)](x_3,y_3)$
+	\\$=(x_1\cdot \varphi(y_1)(x_2), y_1y_2)(x_3,y_3)$
+	\\$=(x_1\cdot\varphi(y_1)(x_2)\cdot\varphi(y_1y_2)(x_3),y_1y_2y_3)$
+	
+	$(x_1,y_1)[(x_2,y_2)(x_3,y_3)]$
+	\\$=(x_1,y_1)(x_2\cdot\varphi(y_2)(x_3),y_2y_3)$
+	\\$=(x_1\cdot\varphi(y_1)(x_2\cdot\varphi(y_2)(x_3)),y_1y_2y_3)$
+	\\$=(\because \varphi(y_1)\text{是同态})(x_1\cdot\varphi(y_1)(x_2)\varphi(y_1)(\varphi(y_2)(x_3)),y_1y_2y_3)$
+	
+	故只需证$\varphi(y_1y_2)(x_3)=\varphi(y_1)(\varphi(y_2)(x_3)). $
+	
+	由$\varphi$是同态，$\varphi(y_1y_2)(x)=(\varphi(y_1)\cdot\varphi(y_2))(x)
+	=\varphi(y_1)(\varphi(y_2)(x))$，故上式成立.
+	
+	单位元：由于$\varphi(y_1)$是同构，它将$N$中的单位元$1_N$映射到自身，$\varphi$是同态，它将$1_H$映射到$\Aut(N)$的单位元$\id_N$，故
+	$(x_1,y_1)(1_N,1_H)=(x_1\cdot\varphi(y_1)1_N,y_1)=(x_1\cdot1_N,y_1)=(x_1,y_1)$，$(1_N,1_H)(x_2,y_2)=(1_N\cdot\varphi(1_H)(x_2),y_2)=(1_N\cdot\id_N(x_2),y_2)=(x_2,y_2)$，故$(1_N,1_H)=1_G$为$G$中的单位元.
+	
+	逆元：$(x_1,y_1)(\varphi(y_1)^{-1}x_1^{-1},y_1^{-1})
+	=(x_1\cdot\varphi(y_1)\varphi(y_1)^{-1}(x_1^{-1}),1_H)
+	=(x_1x_1^{-1},1_H)=(1_N,1_H)$.
+	
+	注意到$\varphi(y_1)$是同构，它的逆映射$\varphi(y_1)^{-1}$也是同构.
+	
+	我们有
+	$(\varphi(y_1)^{-1}x_1^{-1},y_1^{-1})(x_1,y_1)
+	=(\varphi(y_1)^{-1}(x_1^{-1})\cdot\varphi(y_1)^{-1}(x_1),1_H)
+	=(\varphi(y_1)^{-1}(x_1^{-1}x_1),1_H)
+	=(\varphi(y_1)^{-1}(1_N),1_H)
+	=(\because\varphi(y_1)^{-1}\text{是同构})(1_N, 1_H)$
+	
+	故$(\varphi(y_1)^{-1}x_1^{-1}),y_1^{-1})$是$(x_1,y_1)$的逆元.
+}
+
+\subsubsection{(2a)}
+证明$H$同构于$G$的一个子群.
+
+\zm{
+	我们证明$H\cong G_H=\{(1_N,h)\mid h\in H\}$. 只需证$\forall h_1,h_2\in H, (1_N,h_1)(1_N,h_2)^{-1}\in G_H$.
+	
+	$(1_N,h_1)(1_N,h_2)^{-1}=(1_N,h_1)(\varphi(h_1)^{-1}\cdot1_N,h_1h_2^{-1})$
+	\\$=(1_N\cdot\varphi(h_1)\varphi(h_1)^{-1}(1_N),h_1h_2^{-1})$
+	\\$=(1_N,h_1h_2^{-1})$.
+}
+
+\subsubsection{(2b)}
+证明$N$同构于$G$的一个正规子群.
+
+\zm{
+	我们证明$N\cong G_N=\{(n,1_H\mid n\in N)\}\vartriangleleft G$.
+	
+	$G_N$是子群：$\forall n_1,n_2\in N,
+	(h_1,1_H)(h_2,1_H)^{-1}$
+	\\$=(h_1,1_H)(\varphi(1_H)^{-1}(h_2^{-1}),1_H^{-1})$
+	\\$=(h_1,1_H)(\id^{-1}(h_2^{-1}),1_H)$
+	\\$=(h_1\cdot\varphi(1_H)(h_2^{-1}),1_H)$
+	\\$=(h_1h_2^{-1},1_H)$.
+	
+	正规性：
+	$(n_1,h_1)(n,1_H)(n_1,h_1)^{-1}$
+	\\$=(n_1,h_1)(n,1_H)(\varphi(h_1)^{-1}(x_1^{-1}),y_1^{-1})$
+	\\$=(n_1,h_1)(n\cdot\varphi(1_H)(\varphi(h_1)^{-1}(x_1^{-1})),y_1^{-1})$
+	\\$=(n_1,h_1)(n\cdot\varphi(h_1)^{-1}(x_1^{-1}),y_1^{-1})$	\\$=(n_1\cdot\varphi(h_1)(n)\cdot\varphi(h_1)(\varphi(h_1)^{-1}(x_1^{-1})),1_H)$
+	\\$=(n_1\cdot\varphi(h_1)(n)n_1^{-1},1_H)\in G_N$.
+}
+
+\subsubsection{(2c)}
+由(2a)和(2b)说明上述定义等价于
+$$N\vartriangleleft G,H\leq G,G=NH,N\bigcap H=\{1\}$$.
+
+\Proofbyintimidation
+
+\subsubsection{(2d)}
+此时$H$在$N$上的作用为内自同构.
+
+\zm{
+	在(2b)的正规性证明中令$n_1=1_N$，则
+	$\forall h_1\in H, \varphi(h_1)(n)=(1_N\cdot\varphi(h_1)(n)1_N^{-1},1_H)=(1_N,h_1)(n,1_H)(1_N,h_1)^{-1}=h_1nh_1^{-1}$，故$\varphi(h_1)$为内自同构.
+}
+
+\subsubsection{(3)}
+证明$G/N\cong H$.
+
+\Proofbyintimidation
+
+\subsubsection{(4)}
+证明$S_n=A_n\rtimes\langle(12)\rangle$，其中$n\geq 3$.
+
+\zm{
+	(2c)中的条件我们只需证明$S_n=A_n\bigcap A_n(12)$即可，其余都是显然的.
+	
+	设$\sigma\in S_n-A_n$为奇置换，则$\sigma(12)$是偶置换，$\sigma=\sigma(12)(12)$.
+}
+
+\subsection{}
+正四面体的$4$个顶点用$4$种颜色染色，求真正不同的染色方案的个数.
+
+\jie
+题意实际要求的是：设正四面体到自身的变换群$G$作用在所有$4^4$种染色方案的集合$\Sigma$上，求$\Sigma$在$G$作用下的轨道个数$t$. 由{\heiti 习题}\textbf{2.2.4}，这相当于求$t=(\sum_{g\in G}f(g))/|G|$，其中$f(g)$为在$g$作用下不变的染色方案个数. 题意明确了正四面体到自身的空间旋转变换会导致两个真正相同的染色方案，但并未明确是否允许正四面体的反射变换，我们分两种情况讨论.
+
+\subsubsection{(1)}
+只允许空间旋转，此时$G$为交错群$A_4$. 其中有单位元，$3$轮换$8$个，还有$2^2$型置换$3$个（这些个数由{\heiti 习题}\textbf{2.1.5}得到，下同）.
+
+对单位元，则$f(\id)=|\Sigma|=4^4=256$.
+
+对$3$轮换，则这$3$个顶点必须同色才能在作用下不变，有$4$种染法，第四个顶点独立地有$4$种染法，$f(g)=4^2=16$.
+
+对$2^2$型置换，有两组顶点，组之间独立染色，有$f(g)=4^2=16$种染法.
+
+故共有$(256+8\times16+3\times16)/12=36$种染法.
+
+\subsubsection{(2)}
+允许反射变换，此时$G$为正四面体的对称群$S_4$. 其中有$A_4$中的全部元素，加$2$轮换$6$个，$4$轮换$6$个.
+
+对$2$轮换，轮换涉及的两个顶点必须染相同色，这两个为一组，另两个各为一组，三组之间独立染色有$4^3=64$种染法，$f(g)=64$.
+
+对$4$轮换，四点必须同色，$f(g)=4^1=4$.
+
+故共有$(256+8\times16+3\times16+6\times64+6\times4)/24=35$种染法. （两个结果仅差$1$是可以理解的，事实上，$S_4$下的轨道中仅有四点各异色的染法在$A_4$下分裂为两个轨道，其余各轨道中各元素均在某个对换（它是奇置换）下不动，因此$A_4$下的该轨道也是$S_4$下的一个轨道)

@@ -1,0 +1,355 @@
+\section{群在自身上的作用}
+\subsection{}
+确定$G=\mathrm{GL}_2(\mathbb{F}_5)$中$B=
+\begin{pmatrix}
+1 & 0\\
+0 & 2
+\end{pmatrix}
+$的共轭类的阶.
+
+\jie
+$|G|=(5^2-1)(5^2-5)=480$. 又$|G|=|\mathrm{Conj}_G(B)||Z(B)|$，我们只要求得$|Z(B)|$即可.
+
+令$A=\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}$则$ABA^{-1}=B$
+\\$\Leftrightarrow
+\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0\\
+0 & 2
+\end{pmatrix}
+\begin{pmatrix}
+d & -b\\
+-c & a
+\end{pmatrix}
+\begin{vmatrix}
+a & b\\
+c & d
+\end{vmatrix}^{-1}
+=
+\begin{pmatrix}
+	1 & 0\\
+	0 & 2
+\end{pmatrix}
+\\\Leftrightarrow
+\begin{pmatrix}
+ad-2bc&-ab+2ab\\
+cd-2dc&-bc+2ad
+\end{pmatrix}
+=
+\begin{pmatrix}
+	ad-bc & 0\\
+	0 & 2ad-2bc
+\end{pmatrix}, ad-bc\neq 0
+\\\Leftrightarrow
+ab=0,cd=0,bc=0,ad-bc\neq 0
+\\\Leftrightarrow
+a\equiv 1,2,3,4 \mod 5,\;
+d\equiv 1,2,3,4 \mod 5,\;
+b\equiv c \equiv 0 \mod 5
+$
+
+故满足条件的$A$共有$16$个，
+$|\mathrm{Conj}_G(B)=|G|/|Z(B)|=480/16=30$.
+
+\subsection{}
+设$p$是素数，$G$是$p$的方幂阶的群，试证$G$子群中非正规子群的个数一定是$p$的倍数.
+
+\zm{
+	考虑任何一个$G$的非正规子群$H$，$X_H$为所有与$H$共轭的群的集合，则$X_H> 1$，又$|G|=|N_G(H)|\cdot|X_H|=p^n$，只能$p\mid |X_H|$，故所有满足条件的$H$按共轭分类，每一类中的群个数都被$p$整除.
+}
+
+\subsection{}
+令$G$是单群，如果存在$G$的真子群$H$使得$(G:H)\leq4$则$|G|\leq 3$.
+
+\zm{
+	考虑$G$在$H$的左陪集表示，得群同态
+	$$\rho_H: G\rightarrow S_m,\;m=(G:H),$$
+	由于$\ker\rho_H$为$G$的正规子群，若$\ker\rho_H=G$，则$G=\ker\rho_H=\bigcap_{a\in G}a^{-1}Ha\vartriangleleft H$与$H$是$G$的真子群矛盾. 故$\ker\rho_H=\{1\}$，$G\cong G/\ker\rho_H\cong\im\rho_H\leq S_m$，即$G$为$S_1, S_2, S_3, S_4$其中一个的子群.
+	
+	易验证$S_1, S_2, S_3$的所有单群子群为$\mathbb{Z}/2\mathbb{Z},\mathbb{Z}/3\mathbb{Z}$，对于$S_4$，它的子群元素个数若$>3$则必须为$24,12,8,6,4$，我们逐一对这些情况寻找$|G|$的非平凡正规子群，从而否定这些情况.
+	
+	$|G|=24, G=S_4$，此时$A_4$是它的非平凡正规子群.
+	
+	$|G|=12$，$G$是$S_4$的指数为$2$的子群，必是$S_4$的非平凡正规子群，由{\heiti 习题}\textbf{2.1.6}，$G=A_4$，此时$\{\id, (12)(34), (13)(24), (14)(23)\}\cong K_2$为$G$的非平凡正规子群.
+	
+	$|G|=8$，其元素只能是$1,2,4,8$阶，且$8$阶元素$b$可推出$4$阶元素$b^2$存在. 若$G$包含$4$阶元$a$，则$\{1, a, a^2, a^3\}$指数为$2$，是$G$的非平凡正规子群，若$G$中非单位元全为$2$阶，由{\heiti 引理}\textbf{1.66}，$G$是阿贝尔群，任何$2$阶元素生成的子群都是非平凡正规子群.
+	
+	$|G|=6$，其元素只能是$1,2,3,6$阶，且$6$阶元素$b$可推出$3$阶元素$b^2$存在. 若$G$包含$3$阶元$a$，则$\{1, a, a^2\}$指数为$2$，是$G$的非平凡正规子群，若$G$中非单位元全为$2$阶，同上可得任何$2$阶元素生成的子群都是非平凡正规子群.
+	
+	$|G|=4$，其元素只能是$1,2,4$阶，且$4$阶元素$b$可推出$2$阶元素$b^2$存在. 故$G$必包含$2$阶元$a$，则$\{1, a\}$指数为$2$，是$G$的非平凡正规子群.
+}
+
+\subsection{}
+设$H$是无限群$G$的有限指数真子群，则$G$一定包含一个有限指数的真正规子群且它$\leq H$.
+
+\zm{
+	我们沿用{\heiti 习题}\textbf{2.3.3}中的$\rho_H$，则$\ker\rho_H\vartriangleleft G, G/\ker\rho_H\leq S_m, (G:\ker\rho_H) \leq m!$为有限整数的阶乘，故有限. 又$\ker\rho_H=\bigcap_{a\in G}a^{-1}Ha\leq H, H\neq G$，故$\ker\rho_H \neq G$，它是$G$的有限指数真正规子群.
+}
+
+\subsection{}
+证明$\mathrm{GL}_n(\mathbb{R})$的上三角阵组成的子群$H_1$与下三角阵组成的子群$H_2$共轭.
+
+\zm{
+	取$C=
+	\begin{pmatrix}
+	\cdots & \cdots & \cdots & 1\\
+	\vdots & \vdots & {\scriptstyle\cdot^{\scriptstyle\cdot^{\scriptstyle\cdot}}} & \vdots\\
+	0 & 1 & \cdots & \cdots\\
+	1 & 0 & \cdots & \cdots
+	\end{pmatrix}
+	$
+	$\forall A\in H_1, B\in H_2, CAC^{-1}\in H_2, CBC^{-1}\in H_1$.
+}
+
+\subsection{}
+证明{\heiti 命题}\textbf{2.43}.
+
+\zm{
+	因$|X|=\sum_{x\in I}(G:\Stab_G(x)), \forall x (G:\Stab_G(x))$或者被$p$整除或者为$1$，且$p\nmid |X|$，故必存在$x$使得$(G:\Stab_G(x))=1, G=\Stab_G(x)$，即$x$为$G$作用下的不动点.
+}
+
+\subsection{}
+证明$\mathrm{GL}_n(\mathbb{C})$不含有限指数的真子群.
+
+\zm{
+	反证法，若它含有有限指数的真子群，由{\heiti 习题}\textbf{2.3.4}它也含有有限指数的真正规子群，故不妨设$H\vartriangleleft G, H\neq G$.
+	
+	令$m=(G:H)$，则$G$在$H$的左陪集上的表示$\rho_H: G\rightarrow S_m$，$\ker\rho_H=\bigcap_{a\in G}aHa^{-1}=H$. 故$G/H\rightarrow S_m$为单同态，$G/H\leq S_m$，它的阶也整除$S_m$，故任意元素的$S_m$次方为任意元素的$|G/H|$次方的次方，从而为单位元$H$.
+	
+	任取$gH\in G/H, (gH)^{|S_m|}=H$，即$g^{p!}\in H$.
+	
+	对于任意$a\in\mathbb{C}$，因为$\mathbb{C}$是代数封闭域，存在$b\in\mathbb{C}$使得$b^{p!}=a$，从而$(I-E_{ii}+bE_{ii})^{p!}=I-E_{ii}+aE_{ii}$，当$a\neq 0$时$b\neq 0$，前者属于$G$，故后者属于$H$.
+	
+	而$(I+a/p!\cdot E_{ij})^{p!}=I+aE_{ij}\:(i\neq j)$，前者属于$G$，故后者属于$H$.
+	
+	故所有的第一类和第三类初等矩阵都属于$H$，类似{\heiti 习题}\textbf{1.3.24(2)}，可证明$H$的元素生成$G$，与$H\neq G$矛盾.
+}
+
+\subsection{}
+令$G$是阶数为$2^nm$的群，其中$m$是奇数. 如果$G$含有一个$2^n$阶的元素，则$G$含有一个指数为$2^n$的正规子群.
+
+\emph{正规性的证明由文献}\cite{229187}\emph{给出.}
+
+\zm{
+	仿照{\heiti 命题}\textbf{2.38}，我们可以证明当$G$的阶为$2^km$其中$m$是奇数，并存在一个$2^k$阶元素$\sigma$时$G$有一个指数为$2$的子群，且$\sigma^2$在此子群中.
+	
+	考虑$G$的左乘表示$\rho: G\hookrightarrow S_{2^km}$，则$\ker\rho=1$，$G\leq S_{2^km}$，令$H=G\bigcap A_{2^km}$，则$G/H\leq S/A, 
+	(G/H)\leq 2$，我们要证明$G$中存在奇置换，则$(G:H)=2$.
+	
+	事实上，取$2^k$阶元素$\sigma$，则$\sigma$的左乘作用没有不动点且全部由$2^k$轮换组成，故为$m$个$2^k$轮换的乘积，奇偶性为$m(2^k-1)$为奇置换. $\sigma^2$为偶置换，故在$H$中.
+	
+	当$n=1$时，取$k=1$即得指数为$2$阶数为$m$的子群，它一定是正规的.
+	
+	假设我们已证$n=s$时$2^sm$阶群$G_s$存在阶数为$2^s$的元素则存在指数为$2^s$阶数为$m$的正规子群$G_0\vartriangleleft G_s$. 对$n=s+1$，令$\sigma$为$2^{s+1}$阶元素，则我们得到阶数为$2^sm$，在$G_{s+1}$中指数为$2$的子群$G_s\vartriangleleft G_{s+1}$，并且$\sigma^2$为其中的$2^s$阶元素， 根据归纳假设有$m$阶子群$G_0\vartriangleleft G_s$. 我们证明$G_0$是$G_s$中唯一的$m$阶子群.
+	
+	假设$P$是另一个$G_s$中的$m$阶子群. 由于$G_0\vartriangleleft G_s$，$PG_0=G_0P$，由{\heiti 习题}\textbf{1.2.16}知$PG_0$是$G_s$的子群，由{\heiti 定理}\textbf{1.70}知$|PG_0|=|P||G_0|/|P\bigcap G_0|=m^2/|P\bigcap G_0|$，故$|PG_0|$是奇数. 如果$|P\bigcap G_0|<m$，则$|PG_0|>m$，但$|PJ|$是$G_s$的因子，$G_s=2^sm$没有大于$m$的奇因数，矛盾，故$|P\bigcap G_0|=m$，即$P=G_0$.
+	
+	考虑$G_{s+1}$中任意元素的共轭作用，则它把正规子群$G_s$映射到$G_s$，从而在$G_s$上的限制是内自同构. 而$G_s$中只有一个$m$阶子群$G_0$，它被内自同构映射到一个$G_s$中的$m$阶子群即$G_0$本身，故任何$G_{s+1}$中的共轭作用在$G_0$上平凡，$G_0\vartriangleleft G_{s+1}$.
+	
+	由数学归纳法即得结论.
+}
+
+\subsection{}
+将$S_n$视为$\mathrm{GL}_n(\mathbb{R})$的置换矩阵构成的子群，确定$S_n$在$\mathrm{GL}_n(\mathbb{R})$中的正规化子.
+
+\jie
+$A\in N_{\mathrm{GL}_n(\mathbb{R})}(S_n)\Leftrightarrow AS_n=S_nA$. 由线性代数可知$AS_n$和$S_nA$分别为$A$的行任意重新排列和列任意重新排列的结果.
+
+要使$A$满足条件，则$A$的任一行的元素任意重新排列，仍是$A$的一行. 由于$A$仅有$n$行，因此$A$的任一行任意重排至多有$n$种不同结果，即该行由$n-1$个$a$和一个$b$组成（可以$a=b$）
+
+故令$U$为各元素全为$1$的矩阵，$N_{\mathrm{GL}_n(\mathbb{R})}(S_n)=\{aU+bS\mid S\in S_n, a,b\in\mathbb{R}\}$.
+
+\subsection{}
+求对称群$S_3$的自同构群$\Aut(S_3)$.
+
+\jie $S_3$由$2$阶元生成，这些$2$阶元只有$3$个，且$2$阶元被同构仍映射到$2$阶元，故$\Aut(S_3)\leq S_3$. 又$S_3$的内自同构群为$S_3$，故$\Aut(S_3)\geq S_3$，故$\Aut(S_3)=S_3$.
+
+\subsection{}
+设$\alpha$是有限群$G$的自同构. 若$\alpha$把每个元素都变到它在$G$种的共轭元素，即对任意$g\in G$，$g$和$\alpha(g)$共轭，则$\alpha$的阶的素因子都是$|G|$的因子.
+
+\emph{证明由文献}\cite{4007847}\emph{给出}
+
+\zm{
+	反证法. 若$\alpha$的阶含有素因子$p\nmid |G|$，则设其阶为$ps$，则$\alpha^s$满足条件且阶为$p$. 以下我们设$\alpha$的阶为$p$.
+	
+	在$|G|$的某一个共轭类内，$\alpha$生成的$p$阶子群作用于其上，它的各轨道的元素个数整除$p$，即为$p$或$1$，若全部为$p$，则该共轭类$\mathrm{Conj}_G(x)$的元素个数有素因子$p$，故$|G|=|\mathrm{Conj}_G(x)||Z_G(x)|$有素因子$p$，矛盾. 故存在元素个数为$1$的轨道，即该共轭类内有$\alpha$作用下的不动点.
+	
+	令$G=\bigsqcup_{i\in I} K_i$为共轭类之并，每一个共轭类内取不动点$k_i\in K_i$，令$H=\langle k_1, k_2, ..., k_n \rangle$，由$\alpha$的同态性，不动点的积和逆也是不动点，故$H$中所有元素满足$\alpha(h)=h$. 又$k_1, k_2, ..., k_n\subseteq H$，故$G=\bigsqcup_{i \in I} K_i=\bigsqcup_{i \in I} \bigcup_{g\in G}gk_ig^{-1}\subseteq \bigcup_{g\in G}gHg^{-1}$，即$H$的共轭子群覆盖整个$G$，但由{\heiti 习题}\textbf{2.3.17}，$H$不能是$G$的真子群，即$H=G$，$\alpha$在整个$G$上作用平凡，其为恒等映射，阶为$1\neq p$，矛盾.
+}
+
+\subsection{}
+设$p$是$G$的最小素因子，若$p$阶子群$A\vartriangleleft G$，则$A\leq Z(G)$.
+
+\zm{
+	$A$是$G$中一些共轭类之并. 以下记$C_x:=\mathrm{Conj}_G(x)$: 
+	$$A=\bigsqcup_{x\in I_A}C_x=
+	(\bigsqcup_{\substack{|C_x|=1\\C_x\subseteq A}}C_x)\bigsqcup  (\bigsqcup_{\substack{|C_x|\neq1\\C_x\subseteq A}}C_x)
+	=(Z(G)\bigcap A)\bigsqcup(\bigsqcup_{\substack{|C_x|\neq1\\C_x\subseteq A}}C_x)$$
+	
+	由于$p$是$|G|$的最小素因子，当然也是其最小因子，当$|C_x|\neq 1$时有$|C_x|\geq p$, 又$|A|=p$且$1_G\in Z(G)\bigcap A\neq\varnothing$，故$|A|$为不小于$1$的左项$|Z(G)\bigcap A|$和$m$个不小于$p$的项构成的右项$\bigsqcup_{\substack{|C_x|\neq1\\C_x\subseteq A}}C_x$之和，即$m=0$，$A=Z(G)\bigcap A$.
+}
+
+\subsection{}
+试求中心化子：
+
+\subsubsection{(1)}
+群$S_4$中元素$(12)(34)$.
+
+\jie 令$x=(12)(34)$，则$yx=xy\Leftrightarrow y(1)=x(y(2)), y(2)=x(y(1)), y(3)=x(y(4)), y(4)=x(y(3))$.
+
+故符合条件的$y$集合为$\{\id, (12), (34), (12)(34), (13)(24), (14)(32), (1324), (1423)\}$.
+
+\subsubsection{(2)}
+群$S_n$中元素$(123\cdots n)$.
+
+\jie 记$x=(123\cdots n)$，则$yx=xy\Leftrightarrow y(a+\overline{1})=y(a)+\overline{1}$，这里$1,2, ..., n$视为$\mathbb{Z}/n\mathbb{Z}$中元素$\overline{1},\overline{2},...,\overline{n-1},\overline{0}$.
+
+故$y(b)=y(\overline{1})+\overline{b-1}$. $y$由$y(1)$唯一确定. 此时$y=x^{y(1)-1}$，$Z(x)=\{x^m\mid m=0,1,2,...,n-1\}$.
+
+\subsection{}
+$p$是素数，试求非交换$p^3$阶群$G$的共轭类个数以及每个共轭类元素个数.
+
+\zm{
+	以下记$C_x:=\mathrm{Conj}_G(x)$.
+	
+	(i) $|Z(G)|=p$.
+	
+	由于$p$是$|G|$的唯一素因子，故也是所有$|C_x|\;(C_x\neq \{x\})$的素因子. 由{\heiti 公式}\textbf{2.19}，$p\mid Z(G)$. 又$G$非交换，故$|Z(G)|=p$或$p^2$.
+	
+	但若$|Z(G)|=p^2$，令$x\notin Z(G)$，则$Z(X)\supsetneqq Z(G)$，得$p^2<|Z(x)|, |Z(x)|\mid |G|$，得$|Z(x)|=p^3, Z(x)=G, x\in Z(G)$，矛盾，故$|Z(G)|=p$.
+	
+	(ii) $|C_x|\neq 1\Rightarrow |C_x|=p$.
+	
+	$|C_x|\neq 1$时，$x\notin Z(G)$，$|Z(x)|>|Z(G)|=p, |Z(x)|<|G|=p^3, |Z(x)|\mid|G|$，只能$|Z(x)|=p^2$，此时$|C_x|=|G|/|Z(x)|=p$.
+	
+	综上$G$中有$|Z(G)|+(|G|-|Z(G)|)/p=p^2+p-1$个共轭类，其中$p$个类有$1$个元素，$p^2-1$个类有$p$个元素.
+}
+
+\subsection{}
+线性代数
+
+\subsection{}
+设$N\vartriangleleft G, M\leq G, N\leq M$. 则$N_G(M)/N=N_{\overline{G}}(\overline{M})$，其中$\overline{G}=G/N, \overline{M}=M/N$.
+
+\zm{
+	$N_G(M)/N=\{gN\mid gMg^{-1}=M, g\in G\}$，
+	
+	$N_{G/N}{M/N}=\{gN\in G/N\mid (gN)(MN)(gN)^{-1}=MN\}$
+	\\$=\{gN|gMg^{-1}N=MN\}\;(\because N\leq M, \therefore NMN=M)$
+	\\$=\{gN|gMg^{-1}=M, g\in G\}\;(\because N\leq M, \therefore MN=M)$.
+	
+	两者一致.
+}
+
+\subsection{}
+\subsubsection{(1)}
+试证有限群$G$的一个真子群的全部共轭子群不能覆盖整个群$G$.
+
+\zm{
+	$H\leq N_G(H)\Rightarrow (G:N_G(H))\leq (G:H)$.
+	又$X_H:=\{gHg^{-1}\mid g\in G\}$满足
+	$|G|=|N_G(H)||X_H|$({\heiti 公式}\textbf{2.22})
+	
+	故$|X_H|=(G:N_G(H))\leq(G:H)=|G|/|H|$. 又所有$X_H$中的元素子群至少有$1_G$为公共元素，
+	
+	$\therefore |\{x\mid x\in gHg^{-1}\in X_H\}\leq 1+|X_H|(|H|-1)
+	\\=1+|X_H||H|-|X_H|\leq1+|G|-|G|/|H|
+	\\<1+|G|-1\;(\because (G:H)>1)=|G|$.
+	
+	故全部共轭子群之并的元素数小于$|G|$的阶数.
+}
+
+\subsubsection{(2)}
+试证无限群$G$的一个有限指数真子群$H$同样满足上述结论.
+
+\emph{证明由文献}\cite{groupprops}\emph{给出}.
+
+\zm{
+	由{\heiti 习题}\textbf{2.3.4}，$\exists N\vartriangleleft G$ s.t. $N\leq H, (G:N)<\infty$.
+	
+	令$\varphi: G\rightarrow G/N$，由第四同构定理（{\heiti 定理}\textbf{1.84}），$H$在$G$中的共轭子群为$\varphi^{-1}(H^{\prime})$，其中$H^{\prime}$为$H/N$在$G/N$中的共轭子群，而$G/N$有限，$H/N$为其真子群，故由(1)的结果即得$\bigcup H^{\prime}\subsetneqq G/N$，$\bigcup \varphi^{-1}(H^{\prime})\subsetneqq G$.
+}
+
+\subsubsection{(3)}
+(1)中的结论对一般无限群是否成立？
+
+\jie 否，有如下反例.
+
+(i) 固定不全为$0$的实常数$c_1, c_2, c_3$，则$\{a+b(c_1i+c_2j+c_3k)\mid a,b\in\mathbb{R}\}$为四元数乘法群$\mathbb{H}^{\times}$的子群，其共轭子群的并为$\mathbb{H}^{\times}$.
+
+(ii) $G=\mathrm{GL}_n(F), H=B_n(F)$为上三角阵构成的子群，令$F$为代数封闭域，则$H$的共轭子群覆盖$G$.
+
+\subsection{}
+设$K$是群$G$的一个$2$阶正规子群，且设$\overline{G}=G/K$. 设$\overline{C}$是$\overline{G}$的一个共轭类，设$S$是$\overline{C}$在$G$中的逆像，证明下列两种情形之一必成立：
+
+(i)$S=C$是单独一个共轭类且$|C|=2|\overline{C}|$；
+
+(ii)$S=C_1\bigcup C_2$由两个共轭类组成且$|C_1|=|C_2|=|\overline{C}|$.
+
+\zm{
+	设$K={1_G,x}$，则$K$为子群$\Rightarrow x^2=1$，$K$是共轭类之并，$1_G$为单独一个共轭类，故$x$也是单独一个共轭类，即它与$G$中所有元素都交换.
+	
+	设$\overline{C}=\{\overline{c_1},\overline{c_2},...,\overline{c_n}\}$，则$\forall 1\leq i,j\leq n\;\exists \overline{g}\in\overline{G}$ s.t. $\overline{c_i}=\overline{g}^{-1}\overline{c_j}\,\overline{g}$.
+	
+	显然如果$G/K$中的像不共轭，则逆像也不共轭，故我们只需讨论$S$中元素共轭关系即可.
+	
+	在$\overline{c_1}$中任选一个代表元$c_1$. 因$\overline{c_1}=\overline{g}^{-1}\overline{c_2}\,\overline{g}$.
+	则要么：
+	
+	(u) $c_1=g^{-1}c_{2,\mathrm{or}}g$或$c_1=(gx)^{-1}c_{2,\mathrm{or}}(gx)$，由$x$的交换性，两种情况是等价的. 于是$c_{2,\mathrm{or}}$与$c_1$在$G$中共轭，记$c_2=c_{2,\mathrm{or}}$.
+	
+	(v)
+	$c_1=g^{-1}c_{2,\mathrm{or}}xg$或$c_1=(gx)^{-1}c_{2,\mathrm{or}}x(gx)$，由$x$的交换性，两种情况是等价的. 于是$c_{2,\mathrm{or}}x$与$c_1$在$G$中共轭，记$c_2=c_{2,\mathrm{or}}x$.
+	
+	类似我们可以选定$c_3, c_4, ... c_n$使得$c_i$是$\overline{c_i}$的代表元，且$c_i$和$c_{i+1}$在$G$中共轭. 由共轭关系是等价关系，$c_1, c_2, ..., c_n$在$G$中共轭.
+	
+	(i) 若存在$c_i$使得$c_i$与$c_ix$在$G$中共轭，即$\exists h\in G, c_i=h^{-1}c_ixh$，那么
+	
+	
+	$\because\exists g_{ij}\in G$ s.t. $c_i=g_{ij}c_jg_{ij}^{-1}$，$\therefore c_ixhg_{ij}x=hc_ig_{ij}x=hg_{ij}c_jx$
+	\\$\Leftrightarrow c_ihg_{ij}x^2=hg_{ij}c_jx$
+	\\$\Leftrightarrow c_i(hg_{ij})=hg_{ij}c_jx$
+	\\$\Leftrightarrow c_i=(hg_{ij})(c_jx)(hg_{ij})^{-1}$
+	
+	故$c_i$与$c_jx$在$G$中共轭. 由$j$的任意性，$c_1, c_2, ..., c_n$与$c_1x, c_2x, ..., c_nx$同属一个共轭类，我们有(i)的结论.
+	
+	(ii)不存在$c_i$使得它与$c_ix$共轭，此时$c_ix$在$\{c_1,c_2,...,c_n\}$之外的共轭类中.
+	
+	且$c_i=g_{ij}c_jg_{ij}^{-1}\Leftrightarrow c_ix=g_{ij}c_jg_{ij}^{-1}x\Leftrightarrow c_ix=g_{ij}(c_jx)g^{-1}_{ij}$，
+	
+	于是$\forall i,j, c_ix$与$c_jx$共轭，此时$\{c_1x,c_2x,...,c_nx\}$是一个共轭类，我们有(ii)中的结论.
+}
+
+\subsection{}
+\subsubsection{(1)}
+
+若$G/Z(G)$是循环群，证明$G$为阿贝尔群，故非交换有限群$G$的中心$Z(G)$的指数$\geq 4$.
+
+\zm{
+	对$x\in G$，$\sigma_x: g\mapsto xgx^{-1}$为$G$的内自同构，由{\heiti 习题}\textbf{1.4.8}，这些自同构构成的群$I(G)\cong G/Z(G)$，因此题述条件即$I(G)=\langle y\rangle$.
+	
+	对$\forall a,b\in G, \sigma_a: g\mapsto aga^{-1}=\sigma_y^i: g\mapsto y^igy^{-i},
+	\sigma_b: g\mapsto bgb^{-1}=\sigma_y^j: g\mapsto y^jgy^{-j},$
+	
+	于是$aba^{-1}b^{-1}=(y^iby^{-i})b^{-1}=y^i(by^{-i}b^{-1})=y^iy^jy^{-i}y^{-j}=1$，即$ab=ba$.
+}
+
+\subsubsection{(2)}
+
+如果$G$为$n$阶有限群，$t$为$G$中共轭类的各述，$c=\frac{t}{n}$，证明$c=1$或$c\leq \frac{5}{8}$.
+
+\zm{
+	显然$G$是阿贝尔群$\Leftrightarrow c=1$.
+	
+	若$G$是非交换群，由(1)的结果$(G:Z(G))\geq 4\Rightarrow |Z(G)|\leq \frac{n}{4}$.
+	
+	故$G$中共轭类个数$t=|Z(G)|+\sum_{|\mathrm{Conj}_G(x)|\neq 1}1$，但$|G|-|Z(G)|=\sum_{|\mathrm{Conj}_G(x)|\neq 1}|\mathrm{Conj}_G(x)|\geq\sum_{|\mathrm{Conj}_G(x)|\neq 1}2=2\sum_{|\mathrm{Conj}_G(x)|\neq 1}1$，
+	
+	故$t\leq Z(G)+\frac{1}{2}(|G|-|Z(G)|)=\frac{n}{2}+\frac{Z(G)}{2}\leq\frac{n}{2}+\frac{n}{8}=\frac{5n}{8}$，$c=\frac{t}{n}\leq\frac{5}{8}$.
+}

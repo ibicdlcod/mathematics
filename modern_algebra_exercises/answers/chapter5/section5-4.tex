@@ -1,0 +1,296 @@
+\section{有限域的理论}
+\subsection{}
+构造一个$8$元域，并写出它的加法表和乘法表.
+
+\jie $\mathbb{F}_2$上的一次多项式只有$x$和$x+1$.
+
+$x^2=x\cdot x$，$x^2+1=(x+1)^2$，$x^2+x=x(x+1)$，只有$x^2+x+1=x(x+1)+1$是不可约$2$次多项式.
+
+令$f(x)=x^3+x+1$，则$f(x)=x(x+1)^2+1=x(x^2+x+1)+(x+1)^2$，故它是不可约多项式，令其一个根为$u$，则$\{au^2+bu+c\mid a,b,c\in\mathbb{F}_2\}$为$8$元域.
+
+加法表如下：
+
+\begin{center}
+	\scalebox{0.7}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+	\hline
+	$+$ & $0$ & $1$ & $u$ & $u+1$ & $u^2$ & $u^2+1$ & $u^2+u$ & $u^2+u+1$ \\
+	\hline
+	$0$ & $0$ & $1$ & $u$ & $u+1$ & $u^2$ & $u^2+1$ & $u^2+u$ & $u^2+u+1$ \\
+	\hline
+	$1$ & $1$ & $0$ & $u+1$ & $u$ & $u^2+1$ & $u^2$ & $u^2+u+1$ & $u^2+u$ \\
+	\hline
+	$u$ & $u$ & $u+1$ & $0$ & $1$ & $u^2+u$ & $u^2+u+1$ & $u^2$ & $u^2+1$ \\
+	\hline
+	$u+1$ & $u+1$ & $u$ & $1$ & $0$ & $u^2+u+1$ & $u^2+u$ & $u^2+1$ & $u^2$ \\
+	\hline
+	$u^2$ & $u^2$ & $u^2+1$ & $u^2+u$ & $u^2+u+1$ & $0$ & $1$ & $u$ & $u+1$ \\
+	\hline
+	$u^2+1$ & $u^2+1$ & $u^2$ & $u^2+u+1$ & $u^2+u$ & $1$ & $0$ & $u+1$ & $u$ \\
+	\hline
+	$u^2+u$ & $u^2+u$ & $u^2+u+1$ & $u^2$ & $u^2+1$ & $u$ & $u+1$ & $0$ & $1$ \\
+	\hline
+	$u^2+u+1$ & $u^2+u+1$ & $u^2+u$ & $u^2+1$ & $u^2$ & $u+1$ & $u$ & $1$ & $0$ \\
+	\hline
+\end{tabular}
+}
+\end{center}
+乘法表如下（$0$省略）：
+\begin{center}
+	\scalebox{0.7}{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			$\times$ & $1$ & $u$ & $u+1$ & $u^2$ & $u^2+1$ & $u^2+u$ & $u^2+u+1$ \\
+			\hline
+			$1$ & $1$ & $u$ & $u+1$ & $u^2$ & $u^2+1$ & $u^2+u$ & $u^2+u+1$  \\
+			\hline
+			$u$ & $u$ & $u^2$ & $u^2+u$ & $u+1$ & $1$ & $u^2+u+1$ & $u^2+1$ \\
+			\hline
+			$u+1$ & $u+1$ & $u^2+u$ & $u^2+1$ & $u^2+u+1$ & $u^2$ & $1$ & $u$  \\
+			\hline
+			$u^2$ & $u^2$ & $u+1$ & $u^2+u+1$ & $u^2+u$ & $u$ & $u^2+1$ & $1$  \\
+			\hline
+			$u^2+1$ & $u^2+1$ & $1$ & $u^2$ & $u$ & $u^2+u+1$ & $u+1$ & $u^2+u$ \\
+			\hline
+			$u^2+u$ & $u^2+u$ & $u^2+u+1$ & $1$ & $u^2+1$ & $u+1$ & $u$ & $u^2$ \\
+			\hline
+			$u^2+u+1$ & $u^2+u+1$ & $u^2+1$ & $u$ & $1$ & $u^2+u$ & $u^2$ & $u+1$  \\
+			\hline
+		\end{tabular}
+	}
+\end{center}
+
+（注：显然该题还有一种答案，取$u$为$x^3+x^2+1$（也是不可约多项式）的根）
+
+\subsection{}
+列出$\mathbb{F}_2$上全部次数$\leq 4$的不可约多项式，列出$\mathbb{F}_3$上全部$2$次不可约多项式.
+
+\jie $\mathbb{F}_2$中次数$\leq 2$的不可约多项式已在{\heiti 习题}\textbf{5.4.1}列出.
+
+对$3$次情况，$x^8-x=\prod_{d\mid r}\prod_{\substack{f\text{首一不可约}\\\deg f=d}}f(x)=x(x-1)(x^6+x^5+x^4+x^3+x^2+x+1)
+=x(x-1)(x^3+x+1)(x^3+x^2+1)$，我们在{\heiti 习题}\textbf{5.4.1}已经知道$g(x)=x^3+x+1$是不可约多项式，$x^3+x^2+1=g(x+1)$也是不可约多项式，故$g(x)$和$g(x+1)$是全部的$3$次不可约多项式.
+
+对$4$次情况，$x^16-x=\prod_{d\mid r}\prod_{\substack{f\text{首一不可约}\\\deg f=d}}f(x)=x(x^15-1)=x(x-1)(x^2+x+1)(x^4+x^3+x^2+x+1)(x^8-x^7+x^5-x^4+x^3-x+1)
+=x(x-1)(x^2+x+1)(x^4+x+1)(x^4+x^3+1)(x^4+x^3+x^2+x+1)$，该结果中若$4$次式可约，则必有一次或二次因子，但所有的一、二次因子已经出现在$x^16-x$中，这导致$x^16-x$有重复的不可约因子，矛盾，故$x^4+x+1,x^4+x^3+1,x^4+x^3+x^2+x+1$是全部的$4$次不可约多项式.
+
+对$\mathbb{F}_3$，$x^9-x=\prod_{d\mid r}\prod_{\substack{f\text{首一不可约}\\\deg f=d}}f(x)=x(x^8-1)=x(x-1)(x+1)(x^2+1)(x^4+1)
+=x(x+1)(x+2)(x^2+1)(x^2+x+2)(x^2+2x+2)$，由于所有的一次因子已经出现，故$x^2+1,x^2+x+2,x^2+2x+2$是全部的$\mathbb{F}_3$中$2$次不可约多项式.
+
+\subsection{}
+设$p,l$为素数，$n$为正整数，试求$\mathbb{F}_p[x]$中$l^n$次首一不可约多项式的个数.
+
+\jie $x^{p^{l^n}}-x=\prod_{d\mid l^n}\prod_{\substack{f\text{首一不可约}\\\deg f=d}}f(x)=\prod_{d\mid l^{n-1}}\prod_{\substack{f\text{首一不可约}\\\deg g=d}}g(x)\prod_{\substack{f\text{首一不可约}\\\deg f=l^n}}f(x)=x^{p^{l^{n-1}}}-x\prod_{\substack{f\text{首一不可约}\\\deg f=l^n}}f(x)$，令$|f_i(x)|=a$，则比较两边次数可得$p^{l^n}=p^{l^{n-1}}al^n$，故$a=\frac{p^{l^n}-p^{l^{n-1}}}{l^n}$.
+
+\subsection{}
+设$u_1^2=2, u_2^2=3$，求$u_1+u_2$在$\mathbb{Q}, \mathbb{F}_5, \mathbb{F}_7$上的最小多项式.
+
+\jie 由{\heiti 习题}\textbf{5.1.3(1)}知$\sqrt{2}+\sqrt{3}$在$\mathbb{Q}$上的最小多项式为$x^4-10x^2+1=(x^2-2\sqrt{2}x-1)(x^2+2\sqrt{2}x-1)=(x-(\sqrt{2}+\sqrt{3}))(x-(\sqrt{2}-\sqrt{3}))(x-(-\sqrt{2}+\sqrt{3}))(x-(-\sqrt{2}-\sqrt{3}))$，故无论$u_1,u_2$的正负性$x^4-10x+1$都是它在$\mathbb{Q}$上的最小多项式.
+
+对$\mathbb{F}_5$，由{\heiti 例}\textbf{5.44}得最小多项式为$x^2-3$或$x^2-2$.
+
+对$\mathbb{F}_7$，由{\heiti 例}\textbf{5.44}得最小多项式为$x^2\pm x-1$.
+
+\subsection{}
+设$p$为素数，$u_1$和$u_2$为$\mathbb{F}_p$的代数闭包$\overline{\mathbb{F}}_p$中的元素且$u_1^2=2, u_2^2=3$. 试对所有的$p$，求$[\mathbb{F}_p(u_1,u_2):\mathbb{F}_p]$.
+
+\jie $[\mathbb{F}_p(u_1:\mathbb{F}_p]\leq 2, \mathbb{F}_p(u_2:\mathbb{F}_p]\leq 2$，我们分四种情况讨论.
+
+(i) $[\mathbb{F}_p(u_1:\mathbb{F}_p]=[\mathbb{F}_p(u_2:\mathbb{F}_p]=1$，此时易见$[\mathbb{F}_p(u_1,u_2):\mathbb{F}_p]=1$，并且这种情况当且仅当$x^2=2,x^3=3$在$\mathbb{F}_p$中有解，即勒让德符号$\left(\frac{2}{p}\right)_{\mathrm{Le}}=\left(\frac{3}{p}\right)_{\mathrm{Le}}=1,0$，或$p=2$，此时有$p\equiv 1,7\mod 8$且（$p\equiv 1,11\mod 12$或$p=3$）或$p=2$，即$p\equiv 1,23\mod 24$或$p=2$.
+
+(ii) $[\mathbb{F}_p(u_1:\mathbb{F}_p]=2,[\mathbb{F}_p(u_2:\mathbb{F}_p]=1$，此时易见$[\mathbb{F}_p(u_1,u_2):\mathbb{F}_p]=2$，并且这种情况当且仅当勒让德符号$\left(\frac{2}{p}\right)_{\mathrm{Le}}=-1,\left(\frac{3}{p}\right)_{\mathrm{Le}}=1,0$，此时有$p\equiv 3,5\mod 8$且（$p\equiv 1,11\mod 12$或$p=3$），即$p\equiv 11,13\mod 24$或$p=3$.
+
+(iii) $[\mathbb{F}_p(u_1:\mathbb{F}_p]=1,[\mathbb{F}_p(u_2:\mathbb{F}_p]=2$，此时易见$[\mathbb{F}_p(u_1,u_2):\mathbb{F}_p]=2$，且这种情况当且仅当勒让德符号$\left(\frac{2}{p}\right)_{\mathrm{Le}}=1,0,\left(\frac{3}{p}\right)_{\mathrm{Le}}=-1$，此时有$p\equiv 1,7\mod 8$且$p\equiv 5,7\mod 12$，即$p\equiv 7,17\mod 24$.
+
+(iv) $[\mathbb{F}_p(u_1:\mathbb{F}_p]=2,[\mathbb{F}_p(u_2:\mathbb{F}_p]=2$，此时$2,3$都是二次非剩余，我们证明$[\mathbb{F}_p(u_1,u_2):\mathbb{F}_p]=2$即$u_2\in\mathbb{F}_p(u_1)$. 由于$\mathbb{F}_p(u_1)$中元素均为$au_1+b\;(a,b\in\mathbb{F}_p)$的形式，故该条件即为关于$a,b$的方程$(au_1+b)^2\equiv3$有解，即$2a^2+b^2+2abu_1\equiv3$，由于$u_1\notin\mathbb{F}_p$，故$2ab\equiv0$，$a\equiv0$或$b\equiv0$，前者推出$b^2\equiv3$，矛盾，故$b\equiv0, 2a^2\equiv3, a^2\equiv3(p+1)/2$，若$3(p+1)/2$是二次非剩余，则由$2$是二次非剩余知$3(p+1)$是二次剩余，即$3$是二次剩余，矛盾. 故$3(p+1)/2$是二次剩余，$a$有$\mathbb{F}_p$中的解. 此时有$p\equiv 3,5\mod 8$且$p\equiv 5,7\mod 12$，即$p\equiv 5,19\mod 24$.
+
+综上，$[\mathbb{F}_p(u_1,u_2):\mathbb{F}_p]=1$当且仅当$p\equiv 1,23\mod 24$或$p=2$，其他时候$[\mathbb{F}_p(u_1,u_2):\mathbb{F}_p]=2$.
+
+\subsection{}
+设$p$是素数.
+\subsubsection{(1)}
+证明$f(x^p)=f(x)^p$对任意$f(x)\in\mathbb{F}_p[x]$成立.
+
+\zm{
+	由费马小定理，$a=a^p$对$\mathbb{F}_p[x]$中所有的常值多项式成立，又$x^p=x^p$，故$x$也满足条件. 若$f(x),g(x)$满足条件，则$f(x^p)+g(x^p)=f(x)^p+g(x)^p=\sum_{i=0}^p\binom{p}{i}f(x)^ig(x)^{p-i}=(f(x)+g(x))^p$，故$f(x)+g(x)$也满足条件，同时$f(x^p)g(x^p)=f(x)^pg(x)^p=(f(x)g(x))^p$，故$f(x)g(x)$满足条件，由此推出结论.
+}
+
+\subsubsection{(2)}
+设整数$m\geq n\geq 0$. 证明：$\binom{pm}{pn}\equiv\binom{m}{n}\mod p$.
+
+\zm{
+	令$f(x)=(x+1)^m$，则我们有$(x^p+1)^m\equiv(x+1)^pm\mod p$，左边$pn$次项系数为$\binom{m}{n}$，右边$pn$次项系数为$\binom{pm}{pn}$，故得结论.
+}
+
+\subsection{}
+设$f(x)$是$\mathbb{F}_p[x]$中首一不可约多项式.
+
+\subsubsection{(1)}
+若$u$为$f(x)$的一个根，则$f(x)$共有彼此不同的$n=\deg f$个根，并且它们为$u,u^p,u^{p^2},\cdots,u^{p^{n-1}}$；
+
+\zm{
+	参见{\heiti 定理}\textbf{5.42}的注记.
+}
+
+\subsubsection{(2)}
+若$f(x)$的一个根$u$为域$F=\mathbb{F}_p(u)$的乘法循环群$F^{\times}$的生成元，则$f(x)$的每个根也都是$\mathbb{F}^{\times}$的生成元，这样的多项式称为$\mathbb{F}_p[x]$中的{\heiti 本原多项式}.
+
+\zm{
+	由于$\tau: x\mapsto x^p$是$F$的自同构，$\tau^j: x\mapsto x^{p^j}\;(0\leq j<n)$也是$F$的自同构，生成元在$\tau^j$下的像和原像都是生成元，由$u$是生成元即得结论.
+}
+
+\subsubsection{(3)}
+证明$\mathbb{F}_p[x]$中$n$次本原多项式共有$\varphi(p^n-1)/n$个，其中$\varphi$是欧拉函数.
+
+\zm{
+	$\mathbb{F}^{\times}\cong\mathbb{Z}/(p^n-1)\mathbb{Z}$，其生成元即$(\mathbb{Z}/(p^n-1)\mathbb{Z})^{\times}$中的元素，有$\varphi(p^n-1)$个，它们都是$n$次本原多项式的根，各$n$次本原多项式的乘积是$x^{p^n}-x$的因子，后者在$\mathbb{F}_p$的代数闭包中无重根，故$\varphi(p^n-1)$个生成元可以$n$个分成一组（按照所属本原多项式），故本原多项式共有$\varphi(p^n-1)/n$个.
+}
+
+\subsection{}
+当$n\geq 3$时，$x^{2^n}+x+1$是$\mathbb{F}_2[x]$中可约多项式.
+
+\emph{证明由文献}\cite{508932}\emph{给出.}
+
+\zm{
+	我们证明$x^{2^n}+x+1$的不可约因子为$k$次其中$k\mid 2n$.
+	
+	设$a$是$x^{2^n}+x+1$的任何一个根，则$a^{2^n}\equiv a+1, a^{2^{2n}}\equiv(a+1)^{2^n}\equiv(a^{2^n})+1\equiv a+1+1\equiv a$（注：$(a+1)^2\equiv a^2+1, (a+1)^4\equiv(a^2+1)^2\equiv(a^2)^2+1\equiv a^4+1$，依次类推即得$(a+1)^{2^n}\equiv a^{2^n}+1$），故$x^{2^n}+x+1$的所有根都满足$a^{2^{2n}}=a$，故它们在$\mathbb{F}_{2^{2n}}$中，因此$k=[\mathbb{F}_2(a):\mathbb{F}_2]\mid[\mathbb{F}_{2^{2n}}:\mathbb{F}_2]=2n$.
+	
+	当$n\geq 3$时，$2n<2^n$，故$k<2^n$，$x^{2^n}+x+1$有低于$2^n$次数的不可约因子，为可约多项式.
+}
+
+\subsection{}
+\subsubsection{(1)}
+证明$x^4+x+1$为$\mathbb{F}_2$中本原多项式.
+
+\zm{
+	令$a$是$f(x)=x^4+x+1$的根，则$a^{15}=1,a\neq 1$，要使$a$为生成元只需证明对$b\mid 15, b\neq 15$，$a^b\neq 1$即可.
+	
+	若$a^3=1$，则$a^3-1=0$，与最小多项式次数为$4$矛盾.
+	
+	若$a^5=1$，则$a^2+a-1=0$，仍与最小多项式次数为$4$矛盾.
+}
+
+\subsubsection{(2)}
+列出$16$元域$\mathbb{F}_16=\mathbb{F}_2[u]$中唯一的$4$元子域的全部元素，这里$u$是$x^4+x+1\in\mathbb{F}_2[x]$的一个根.
+
+\jie $4$元子域中的元素$b$满足$b^3=1$，故该子域的乘法群为$\mathbb{F}_16$的$15$阶乘法循环群的$3$阶循环子群.
+
+故满足条件的$b$为$1,u^5,u^10$，它们与$0$共同构成$4$元子域的全部元素.
+
+\subsubsection{(3)}
+求出$u$在$\mathbb{F}_4$上的最小多项式.
+
+\jie 令$b=u^5$，则$b=u(u^4)=u^2+u$，$u$是$x^2+x+b$的根，且$[\mathbb{F}_{16}\mathbb{F}_4]=2$，故$x^2+x+b$是$u$在$\mathbb{F}_4$上的最小多项式.
+
+\subsection{}
+\subsubsection{(1)}
+证明$x^4+x^3+x^2+x+1$为$\mathbb{F}_2[x]$中不可约多项式但不是本原多项式.
+
+\zm{
+	不可约性在{\heiti 习题}\textbf{5.4.2}已证. 由于$x^4+x^3+x^2+x+1\mid x^5-1$，故它的根都满足$x^5=1$，不是$\mathbb{F}_{2^4}$的$15$阶乘法循环群里的生成元.
+}
+
+\subsubsection{(2)}
+令$u$为$x^4+x^3+x^2+x+1\in\mathbb{F}_2[x]$的一个根，试问$\mathbb{F}_{16}=\mathbb{F}_2(u)$中哪些元素是$\mathbb{F}_{16}-\{0\}$的乘法生成元？
+
+\jie 这些元素$a$需要不是单位且$a^3\neq 1, a^5\neq 1$. 显然$u,u^2,u^3,u^4=u^3+u^2+u+1$不满足$a^5\neq 1$. $(u^3+u^2)^3=u^9+3u^8+3u^7+u^6=1$，故它不满足$a^3\neq 1$，其平方$(u^3+u^2)^2=u^4+u$也不满足.
+
+故$\mathbb{F}_{16}$中元素除$0,1,u,u^2,u^3,u^4,u^3+u^2,u^4+u$外都是乘法群的生成元.
+
+\subsection{}
+设$F$是有限域，$a,b\in F^{\times}$. 求证：对每个$c\in F$，方程$ax^2+by^2=c$在域$F$中均有解$(x,y)$.
+
+\zm{
+	若$F$的特征$p$为奇素数，则由$x^2=y^2, x\neq y\Leftrightarrow x=-y$知$F$中乘法群元素可以依其平方两两配对，故再加上零有$|C|=|\{x^2\mid x\in F\}|=(|F|-1)/2+1=(|F|+1)/2$，由于$a,b$在$F^{\times}$中可逆，$z\mapsto az, z\mapsto bz$为$F$到自身的双射，令$A=\{ax^2\mid x\in F\}, B=\{by^2\mid y\in F\}$，则$|A|=|B|=(|F|+1)/2, |A|+|B|>|F|$，由{\heiti 习题}\textbf{1.2.17}（考虑加法群），$F=A+B=\{ax^2+by^2\mid x,y\in F\}$，故得结论.
+	
+	若$F$的特征为$2$，则$x^2=y^2$必然导致$x=y$，故$|F|$个不同元素平方也是$|F|$个不同元素，$|C|=|\{x^2\mid x\in F\}|=|F|$，同上推理得到$|A|=|B|=|F|,|A|+|B|>|F|$，同样得到结论.
+}
+
+\subsection{}
+证明多项式$f(x)=x^3+x+1$和$g(x)=x^3+x^2+1$在$\mathbb{F}_2[x]$上是不可约的. 设$K$是通过添加$f$的一个根得到的$\mathbb{F}_2$的扩域，$L$是添加$g$的一个根得到的扩域，具体描述一个从$K$到$L$的同构.
+
+\jie 由{\heiti 习题}\textbf{5.4.2}，我们已经有不可约性只需找出$\mathbb{F}_2(u), f(u)=0$的一个元素$v$，它的最小多项式是$g(x)$，令同构为$u\mapsto v$即可.
+
+由于$(x+1)^3+(x+1)^2+1=x^3+x^2+x+1+x^2+1+1=x^3+x+1=0$，故$x+1$的一个化零多项式为$g(y)=y^3+y^2+1$，该多项式是不可约的，因此是$x+1$的最小多项式，即$x\mapsto x+1$是$K$到$L$的同构.
+
+\subsection{}
+设$K$是有限域，证明$K$中非零元素的乘积为$-1$.
+
+\zm{
+	在{\heiti 习题}\textbf{1.3.5}中令$G=K^{\times}$，则所求乘积为所有平方为$1$的元素的乘积.
+	
+	若$\mathrm{char}K\neq 2$，则$a^2=1\Leftrightarrow(a-1)(a+1)=0\Leftrightarrow a=1$或$-1$，两者乘积为$-1$.
+	
+	若$\mathrm{char}K=2$，则$a^2=1\Leftrightarrow(a-1)^2=0\Leftrightarrow a=1$，乘积中只有$1$一个元素故为$1$，但$-1=1$，我们仍有结论.
+}
+
+\subsection{}
+在域$\mathbb{F}_3$上分解$x^9-x$和$x^{27}-x$.
+
+\jie 在{\heiti 习题}\textbf{5.4.2}中我们已经得到$x(x+1)(x+2)(x^2+1)(x^2+x+2)(x^2+2x+2)$.
+
+$x^{27}-x=x(x+1)(x+2)\prod_ig_i(x)$，其中$g_i(x)$是全部$3$次不可约多项式，由于三次多项式若可约则有一次因式，故$0,1,2$均不是$g_i(x)$的根$\Leftrightarrow g_i(x)$不可约.
+
+令$g_i(x)=x^3+ax^2+bx+c$，则$c\neq 0, 1+a+b+c\neq 0, 2+a+2b+c\neq 0$. 解得$g_i(x)=x^3+2x+1, x^3+2x+2, x^3+x^2+2, x^3+x^2+x+2, x^3+x^2+2x+1, x^3+2x^2+1, x^3+2x^2+x+1, x^3+2x^2+2x+2$（这些即是$x^{27}-x$的所有非一次不可约因子，因子分解式不再重复）
+
+\subsection{}
+设$p$为素数，$F$是$p^n$元域，$G=\Aut(F)$. 对于每个$a\in F$，令
+$$\mathrm{Tr}(a)=\sum_{\sigma\in G}\sigma(a), N(a)=\prod_{\sigma\in G}\sigma{a}.$$
+证明:
+
+\subsubsection{(1)}
+$\mathrm{Tr}:F\rightarrow\mathbb{F}_p$是加法群的满同态.
+
+\emph{证明由文献}\cite{2034062}\emph{给出.}
+
+\zm{
+	我们首先证明$\mathrm{Tr}$是良好定义的. 若$a$在$\mathbb{F}_p$上的最小多项式为$d$次，则$d\mid n$且$[\mathbb{F}_p(a):\mathbb{F}_p]=d, a\in\mathbb{F}_{p^d}, a^{p^d}=a$，记$\tau: x\mapsto x^p$，则$\tau$是$G$的生成元，$\mathrm{Stab}_G(a)=\langle\tau^d\rangle$，$\mathrm{Tr}(a)=n/d\sum_{\sigma\in G/\mathrm{Stab}_G(a)}\sigma(a)$为$a$的$\mathbb{F}_p$上最小多项式的所有根的和的$n/d$倍，故为$a$的$\mathbb{F}_p$上最小多项式的次项系数的$-n/d$倍，它必然在$\mathbb{F}_p$中.
+	
+	如果$\im\mathrm{Tr}$不是平凡群，则它只能是$\mathbb{F}_p$，我们即得到结论. 由于$\sigma=\tau^k, k=0,1,\cdots,n-1$，故对$F$中乘法群的生成元$u$，$\mathrm{Tr}(u)$是$u$的$p^{n-1}$次多项式，该多项式至多有$p^{n-1}$个根，若它等于$0$，则它有$|F|=p^n$个根，矛盾，故它不为$0$，$\im\mathrm{Tr}$不是平凡群.
+}
+
+\subsubsection{(2)}
+$N:F^{\times}\rightarrow\mathbb{F}_p^{\times}$是乘法群的满同态.
+
+\emph{证明由文献}\cite{143719}\emph{给出}.
+
+\zm{
+	任取$F^{\times}$的生成元$a$，则$N(a)=a^{1+p+\cdots+p^{n-1}}=a^b$其中$b=\frac{p^n-1}{p-1}$，故$N(a)$在$F^{\times}$的阶为$p-1$，$N(a)^p=N(a)$，由{\heiti 定理}\textbf{5.42}这意味着$N(a)\in\mathbb{F}_p-\{0,1\}$，故$\langle N(a)\rangle=(\mathbb{F}_p)^{\times}$，$N$是满同态.
+}
+
+\subsection{}
+设$F$为$q=p^n$元域，$p$为素数. $H$是$\Aut(F)$的$m$阶子群. $K=\{a\in F\mid\text{对每个}\sigma\in H,\sigma(a)=a\}$. 证明：
+\subsubsection{(1)}
+$m\mid n$；
+
+\zm{
+	只需留意$\Aut(F)=\mathbb{Z}/n\mathbb{Z}$即可.
+}
+
+\subsubsection{(2)}
+$K$是$F$中唯一的$p^{n/m}$元子域.
+
+\zm{
+	$\Aut(K)=G/H=\mathbb{Z}/(n/m)\mathbb{Z}$. 故$K$是$F$中的$p^{n/m}$元子域. 由于$F$的代数闭包中只有唯一的$p^{n/m}$元子域（{\heiti 定理}\textbf{5.42(2)}），故有唯一性.
+}
+
+\subsection{}
+设$F$为$q=p^n$元域. $p$为素数. $f(x)$为$F[x]$中不可约多项式. 证明：
+\subsubsection{(1)}
+$f(x)$有重根当且仅当存在$g(x)\in F[x]$，使得$f(x)=g(x^p)$；
+
+\zm{
+	（$\Rightarrow$）与{\heiti 引理}\textbf{6.12}的证明完全一致，本书不再赘述.
+	
+	（$\Leftarrow$）由于$F^{\times}\cong\mathbb{Z}/(q-1)\mathbb{Z}$，且$\gcd(p,q-1)=1$，故$p$在$\mathbb{Z}/(q-1)\mathbb{Z}$内可逆，记为$p^{-1}$，则对任意$a\in F^{\times}$，有$a^{q-1}=1, (a^{p^{-1}})^p=a^{1+k(q-1)}=a(a^{q-1})^k=a$，即存在$b=a^{p^{-1}}$使得$b^p=a$. 令$g(x^p)=\sum_{i=0}^na_{pi}x^{pi}$，则$g(x^p)=\sum_{i=0}^nb_{pi}^px^{pi}=(\sum_{i=0}b_{pi}x^i)^p$，由于$p\geq 2$，故该多项式有重根，且所有的根至少为$p$重.
+}
+
+\subsubsection{(2)}
+如果$f(x)=g(x^{p^n})$，其中$g(x)\in F[x]$，但是不存在$\tilde{g}(x)\in F[x]$使得$f(x)=\tilde{g}(x^{p^{n+1}})$，则$p^n\mid m=\deg f$，并且$f(x)$共有$m/p^n$个不同的根，每个根的重数均为$p^n$.
+
+\zm{
+	由于$F$中任何元素都满足$a^{p^n}=a$且$\binom{p^n}{i}\;(1\leq i\leq p^n)\equiv 0\mod p$，故类似{\heiti 习题}\textbf{5.4.6(1)}的证明我们有$f(x)=(g(x))^{p^n}$，且由条件可知$g(x)$不满足$g(x)=h(x^p)$，故$g(x)$无重根，$f(x)$的每个根重数都为$p^n$，故共有$m/p^n$个根.
+}
+
+\subsection{}
+线性代数

@@ -1,0 +1,258 @@
+\section{西罗定理及其应用}
+\subsection{}
+若$p$是$|G|$的素因子，则群$G$必有$p$阶元素.
+
+\zm{
+	设$H$为$G$的西罗$p$-子群，则$\exists h\neq 1_G\in H$，$h$的阶整除$p^r$记为$p^i\;(i\geq 1)$，则$h^{p^{i-1}}$为$p$阶元.
+}
+
+\subsection{}
+给出$G=\mathrm{GL}_n(\mathbb{F}_p)$的一个西罗$p$-子群，并求出$\mathrm{GL}_n(\mathbb{F}_p)$中西罗$p$-子群的个数.
+
+\jie $|\mathrm{GL}_n(\mathbb{F}_p)|=\prod_{i=0}^{n-1}(p^n-p^i)=p^{n(n-1)/2}\prod_{i=1}^{n}(p^i-1)$，由于$p\nmid p^i-1$，故其中$p$部分为$p^{n(n-1)/2}$. 而对角线元全为$1$的上三角阵集合$T=T_n(\mathbb{F}_p)$有$p^{n(n-1)/2}$个元素且是子群，它是一个满足条件的西罗$p$-子群.
+
+由线性代数可知$N_G(T)=B_n(\mathbb{F}_p)$为可逆上三角阵集合，$N(p)=(G:N_G(T))=|G|/|B|
+=|G|/p^{n(n-1)/2}(p-1)^n=\prod_{i=1}^n\frac{p^i-1}{p-1}$.
+
+\subsection{}
+证明{\heiti 定理}\textbf{2.53}.
+
+\subsubsection{(1)}
+设$p^k\mid |G|$，$p$为素数，则$G$中存在$p^k$阶子群.
+
+\zm{
+	设$X=\{U\subseteq G\mid |U|=p^k\}$，$|G|=p^rm\;(p\nmid m)$.
+	
+	则$N=|X|=\genfrac{(}{)}{0pt}{}{mp^r}{p^k}=
+	\frac{mp^r(mp^r-1)\cdots(mp^r-p^k+1)}{1\cdot2\cdots p^k}$.
+	
+	由于$i$与$mp^r-i\;(1\leq i\leq p^k-1)$被$p$整除的次数一样，我们有$p^{r-k}\mid N$且$p^{r-k+1}\nmid N$. 考虑$G$在$X$上的左乘作用，由于$p^{r-k+1}\nmid N$，故必存在一个轨道$O_U$使得$p^{r-k+1}\nmid |O_U|$. 而$U=\bigcup_{x\in U}\Stab_G(U)x$是$\Stab_G(U)$的一些陪集的的并，故$|\Stab_G(U)|=p^s$，$0\leq s\leq k$，又$|\Stab_G(U)||O_U|=|G|=p^rm$，故$|O_U|=p^{r-k}m, |\Stab_G(U)|=p^k$，$\Stab_G(U)$满足条件.
+}
+
+\subsubsection{(2)}
+$G$中$p^k$阶子群个数模$p$余$1$.
+
+\emph{证明由文献}\cite{1593829}\emph{给出}.
+
+\zm{
+	令$|G|=p^km$，其中$m$不一定与$p$互素. $X=\{A\subseteq G\mid |A|=p^k\},
+	|X|=\genfrac{(}{)}{0pt}{}{p^km}{p^k}$.
+	
+	由{\heiti 推论}\textbf{2.3.1}，$p^km=|O_A|\cdot|\Stab_G(A)|,\;\forall A\in X$.
+	
+	{\heiti 事实}\textbf{1.} $1\in A\Rightarrow \Stab_G(A)\subseteq A$. 
+	
+	理由：$g\in\Stab_G(A)\Rightarrow gA=A\Rightarrow g\cdot 1\in A$.
+	
+	{\heiti 事实}\textbf{2.} $|\Stab_G(A)| \mid |A|=p^k$.
+	
+	理由：$\Stab_G(A)A=A\Rightarrow A=\bigsqcup_{i=1}^r \Stab_G(A)x_i$是$\Stab_G(A)$的右陪集之并.
+	
+	将$X$分解为$G$作用下的轨道之并：$X=\bigsqcup_{i=1}^tO_{A_i}$，若$1\notin A_i$，则取$x\in A_i$有$x^{-1}A_i$满足$1\in x^{-1}A_i$且$O_{A_i}=O_{x^{-1}A_i}$. 因此在讨论轨道时不妨假定$1\in A_i,\;\forall i$.
+	
+	{\heiti 事实}\textbf{3.} $|O_{A_i}|=m\Leftrightarrow A_i$为$G$的子群.
+	
+	理由：$1\in A_i$，（事实1）$\Stab_G(A_i)\subseteq(A_i)$. $\therefore |O_{A_i}|=m\Leftrightarrow |\Stab_G(A_i)|=p^k=|A_i|\Leftrightarrow \Stab_G(A_i)=A_i\Leftrightarrow A_i\leq G$.
+	
+	{\heiti 事实}\textbf{4.} $|O_{A_i}|=m\Leftrightarrow O_{A_i}=\{gA_i\mid g\in G\}$.
+	
+	理由：($\Leftarrow$) $|O_{A_i}|=(G:A_i)=m$
+	($\Rightarrow$) $|O_{A_i}|=m\Rightarrow A_i\leq G$，又$|A_i|=p^r$，我们有$O_{A_i}=\{gA_i\}$.
+	
+	故我们有双射$$\{\mbox{元素数为$m$的轨道}\}\longleftrightarrow\{\mbox{阶为$p^k$的子群}\}$$，又$|O_{A_i}|\neq m\Rightarrow \Stab_ G(A_i)\subsetneqq A_i$. 故$|\Stab_G(A_i)|=p^{k-u},\;(u\geq 1)$，故此时$|O_{A_i}|=p^{u_i}m, pm\mid |O_{A_i}|$.
+	
+	因此如有$l$个$p^k$阶子群，则有$l$个元素个数为$m$的轨道，其余轨道有$p^{u_i}m$个元素.
+	
+	$$\genfrac{(}{)}{0pt}{}{mp^r}{p^k}=|X|=\sum_{i=1}^{l}m+\sum_{j}p^{u_j}m\equiv lm\mod pm.$$
+	
+	故独立于$G$的结构我们有$\genfrac{(}{)}{0pt}{}{mp^r}{p^k}\equiv lm\mod pm.$，取$G_0=\mathbb{Z}/p^km\mathbb{Z}$得$l_{G_0}=1$，$|X|\equiv m\mod pm$，故$l\equiv 1\mod p$.
+}
+
+\subsection{}
+设$G$是$n$阶群，$p$是$n$的素因子，证明$x^p=1$在$G$中解的个数是$p$的倍数.
+
+\zm{
+	由{\heiti 定理}\textbf{2.5.3}，$G$中有$np+1\;(n\in\mathbb{N})$个$p$阶子群. 若这样的两个子群$P_1,P_2$满足$P_1\bigcap P_2\supsetneqq \{1\}$，则$1<|P_1\bigcap P_2| \mid |P_1|=p$，只能$|P_1|=|P_2|=|P_1\bigcap P_2|=p$，即$P_1=P_2$，故两个不同的$p$阶子群有且仅有$1$为公共元素.
+	
+	$\therefore|\{x\mid x^p=1\}|=(np+1)(p-1)+1=np^2+p-np-1+1\equiv0\mod p$.
+}
+
+\subsection{}
+证明$6$阶非阿贝尔群只有$S_3$.
+
+\zm{
+	设这样的群为$G$，若$G$中有$6$阶元，则它是循环群，矛盾. 故其中非单位元素阶数为$2$或$3$.
+	
+	$G$的西罗$3$-子群个数为$\equiv 1\mod 3$且整除$2$，故只能为$1$，$G$中有且只有$2$个$3$阶元，故其他$3$个元素均为$2$阶.
+	
+	由{\heiti 习题}\textbf{2.3.19}，$G/Z(G)$不是循环群，故其阶只能为$6$，即$Z(G)=\{1_G\}$，$G\cong G/Z(G)\cong I(G)$，我们只要求得内自同构群$I(G)$即可.
+	
+	$G$只有$3$个$2$阶子群，同构$\alpha$将这三个子群仍映到三个子群，有$\varphi: I(G)\rightarrow S_3$. 若$\alpha \in \ker\varphi$，则三个子群$\{1_G, a_1\},\{1_G,a_2\},\{1_G,a_3\}$皆在$\alpha$作用下不动，故$1_G,a_1,a_2,a_3$都是$\alpha$的不动点，由同态性，不动点的积和逆也是不动点，故$\alpha$的不动点构成群$H, |H|\geq 4, |H|\mid |G|$，只有$|H|=|G|=6$，即$\ker\varphi=\{\id\}$，$G\cong I(G)\cong I(G)/\ker\varphi\cong\im\varphi\leq S_3$，但$|G|=6$，只有$G=S_3$.
+}
+
+\subsection{}
+证明$148,200,224$阶群不是单群.
+
+\zm{
+	(i) $148=2^2\cdot 37$，由{\heiti 命题}\textbf{2.56(2)}即得.
+	
+	(ii)$200=2^3\cdot 5^2$. $N(5)\equiv 1\mod 5$且$N(5)\mid 8$，得$N(5)=1$，西罗$5$-子群是正规子群.
+	
+	(iii)$224=2^5\cdot 7$. $N(2)\equiv 1\mod 2$且$N(2)\mid 7$. 得$N(2)=1$（即得结论）或$7$.
+	
+	若$N(2)=7$，则记$X_H$为所有西罗$2$-子群的集合.
+	
+	$G$在$X_H$上的共轭作用诱导同态：$\rho: G\rightarrow S_7$. 若$\ker\rho=\{1\},$则$G\leq S_7$，但$|S_7|=7!=2^4\cdot3^2\cdot5\cdot 7$，$|G|=2^5\cdot 7$，$|G|\nmid |S_7|$，矛盾. 故$\ker\rho\neq\{1\}\vartriangleleft G$.
+}
+
+\subsection{}
+求$S_4$的自同构群$\Aut(S_4)$.
+
+\jie
+$|S_4|=24=2^3\cdot 3$，西罗$3$-子群个数为$1$或$4$.
+
+因$H_1=\{\id,(234),(243)\}, H_2=\{\id,(134),(143)\}, H_3=\{\id,(124),(142)\}, H_4=\{\id,(123),(132)\}$为西罗$3$-子群，因此它们是$S_4$全部的西罗$3$-子群.
+
+讨论$S_4$的任何$6$阶子群$M$，它的西罗$3$-子群$H$指数为$2$，一定是正规的，若这$H=H_1$，则若$M$中存在一个把$2,3,4$中一个变为$1$的置换，则与$H_1\vartriangleleft M$矛盾，故$M$是$1$的稳定子群$M_1\cong S_3$的子群，而$M_1$阶数为$6$，所以它就是$M$. 同理，所有的$M$为$M_i=Stab_{S_4}i, i=1,2,3,4$. 
+
+考虑$\Aut(S_4)$在$M_i$上的作用：$\varphi:\Aut(S_4)\rightarrow S_4$. 由于$\varphi(I(S_4))=S_4$，故$\im\varphi=S_4$，我们来证明$\ker\varphi=\id_{\Aut}$.
+
+事实上，$\alpha\in\ker\varphi$使得所有$H_i$不动，故使得所有$M_i$不动，对任意对换$(i_1i_2)$，同时属于$M_{i_3},M_{i_4}\;(i_3, i_4\neq i_1,i_2)$的对换有且仅有它，故$\alpha$保持该对换不动，由于$S_4$由对换生成，保持任意对换不动的$\alpha$为恒等映射.
+
+故$\Aut(S_4)\cong\Aut(S_4)/\ker\varphi\cong\im\varphi=S_4$.
+
+\subsection{}
+设$N$是有限群$G$的正规子群. 如果$p$和$|G/N|$互素，则$N$包含$G$的所有西罗$p$-子群.
+
+\zm{
+	$|G|=p^rm, p\nmid m, p\nmid (G:N)\Rightarrow N=p^rm_1, m_1\mid m$. 故$N$的西罗$p$-子群也是$G$的西罗$p$-子群. 设$A$为$N$的一个西罗$p$-子群，则$G$的所有西罗$p$-子群有形式$\{gAg^{-1}\mid g\in G\}$，而$A\subseteq N\Rightarrow \forall g, gAg^{-1}\subseteq gNg^{-1}=N$，故得结论.
+}
+
+\subsection{}
+设$G$是有限群，$N$是$G$的正规子群，$P$是$G$的一个西罗$p$-子群. 证明：
+
+\subsubsection{(1)}
+$N\bigcap P$是$N$的西罗$p$-子群.
+
+\zm{
+	若$p\nmid |N|$，$N$的西罗$p$-子群为平凡群，且$|P|$与$|N|$互素，由{\heiti 习题}\textbf{1.3.18}，$N\bigcap P$也是平凡群.
+	
+	若$p\mid |N|$，由西罗第二定理，存在$g$使得$P^{\prime}=gPg^{-1}$使得$P^{\prime}\bigcap N$是$N$的西罗$p$-子群，其共轭$g^{-1}(P^{\prime}\bigcap N)g=g^{-1}P^{\prime}g\bigcap g^{-1}Ng=P\bigcap N\subseteq N$也是$N$的西罗$p$-子群.
+}
+
+\subsubsection{(2)}
+$PN/N$是$G/N$的西罗$p$-子群.
+
+\zm{
+	$|G|=p^rm, |N|=p^km_1, r\geq k, p\nmid m,m_1, m_1\mid m, |G/N|=p^{r-k}(m/m_1)$，$G/N$的西罗$p$-子群为$p^{r-k}$阶. 而（第二同构定理）$PN/N\cong P/P\bigcap N$，由(1)知$|P\bigcap N|=p^k$，$|P/P\bigcap N|=p^{r-k}$.
+}
+
+\subsubsection{(3)}
+$N_G(P)N/N\cong N_{G/N}(PN/N)$.
+
+\zm{
+	由第二同构定理，只需证$N_G(P)/N_G(P)\bigcap N\cong N_{G}(P/N\bigcap P)N$（右边是因映射$h\mapsto hN$诱导$PN/N$与$P/N\bigcap P$的同构）
+	
+	令$\varphi: N_G(P)=\{g\mid g^{-1}Pg=P, g\in G\}\rightarrow N_{G}(P/N\bigcap P)N=\{gN\mid g^{-1}P(N\bigcap P)g=P(N\bigcap P)\}=\{gN\mid g^{-1}Pg=P\}$，易见$\varphi$是满射，其核$\ker\varphi=\{n\mid n^{-1}Pn=P,n\in N\}=N_G(P)\bigcap N$，由第一同构定理即得结论.
+}
+
+\subsection{}
+令$P_1,P_2,...,P_N$是有限群$G$的全部西罗$p$-子群，若对任意$i\neq j$总有
+$$(P_i:P_i\bigcap P_j)\geq p^r,$$
+则$N\equiv 1\mod p^r$.
+
+\zm{
+	由$P_i$是$p$-群，$(P_i:P_i\bigcap P_j)=p^{r+s}, s\geq 0$.
+	
+	类似西罗第三定理，令$|G|$=$p^um, p\nmid m$. $G$在$P=\{P_1, P_2, ..., P_N\}$上的共轭作用可迁，$N=(G:N_G(P_1))$.
+	
+	将$P$分解为$P_1$在其上共轭作用的轨道，若$O_{P_i}$仅有一个元素$P_i$，则$P_1\leq N_G(P_i)$，而$P_i\vartriangleleft N_G(P_i)$为$N_G(P_i)$的唯一西罗$p$-子群，故$P_i=P_1$，仅有一个元素的轨道仅有$\{P_1\}$.
+	
+	对于其他轨道$O_{P_j}$，考虑$N_G(P_j)\bigcap P_1$，它的阶整除$|P_1|$故是$p$-群，又是$N_G(P_j)$的子群，从而（{\heiti 推论}\textbf{2.51}）是$N_G(P_j)$的一个西罗$p$-子群的子群，但$P_j\vartriangleleft N_G(P_j)$为$N_G(P_j)$的唯一西罗$p$-子群，故$N_G(P_j)\bigcap P_1\leq P_j$是$P_1\bigcap P_j$的子群，$p^r\mid p^r+s=(P_1:P_1\bigcap P_j)\mid(P_1:N_G(P_j)\bigcap P_1)$，又$|O_{P_j}|=(P_1:N_{P_1}(P_j))=(P_1:P_1\bigcap N_G(P_j))$，故$|O_{P_j}|$被$p^r$整除.
+	
+	综上，$N\equiv |O_{P_1}|+\sum_{j\neq 1,O_{P_j}\text{各异}}|O_{P_j}|\equiv
+	1+\sum_{j\neq 1,O_{P_j}\text{各异}}0
+	\equiv1\mod p^r$.
+}
+
+\subsection{}
+试证：若$G$的阶为$n=p^ea, 1\leq a<p, e\geq 1$，则$G$一定有真正规子群.
+
+\zm{
+	当$a>1$时，仿照{\heiti 命题}\textbf{2.56(2)}的证明即可.
+	
+	当$a=1$时，由{\heiti 命题}\textbf{2.42}，$G$的中心非平凡，若$G$不是阿贝尔群，则$Z(G)$是$G$的真正规子群. 若$G$是阿贝尔群，当$e>1$时，由{\heiti 定理}\textbf{2.53}，对任何$0<k<e$，$G$的任何$p^k$阶子群存在并是$G$的真正规子群.
+	
+	当$a=e=1$时，$G$是素数阶循环群，故是单群，结论不成立.
+}
+
+\subsection{}
+令$G$是集合$\Sigma$上的对称群，$P$是$G$的西罗$p$-子群，如果$p^m$整除$|Ga|$，则$p^m$整除$|Pa|$.
+
+\zm{
+	$|G|=p^rm_0=|Ga||\Stab_G(a)|$，
+	$|P|=p^r=|Pa||\Stab_P(a)|$.
+	而$\Stab_P(a)\leq \Stab_G(a)|$，所以$|\Stab_P(a)|\mid |\Stab_G(a)|$.
+	
+	若$|\Stab_G(a)|=p^{k_1}m_1$，有$k_1\leq r-m, m_1\mid m_0$，则$|\Stab_P(a)|=p^{k_2}, k_2\leq k_1$. $|Pa|=p^r/p^{k_2}=p^{r-k_2}$被$p^m$整除.
+}
+
+\subsection{}
+令$G$是集合$\Sigma$上的对称群，对任意$a\in\Sigma$，设$P$是稳定子群$\Stab_G(a)$的西罗$p$-子群，$\Delta$是轨道$Ga$在$P$作用下的所有不动点集合，证明$N_G(P)$在$G$上的作用是传递的.
+
+\zm{
+	若$b\in\Delta$，则$b\in Ga$，$\exists g$ s.t. $b=ga$. 而$P\in\Stab_G{b}$，又$\Stab_G(b)$与$\Stab_G(a)$共轭（{\heiti 命题}{2.32(1)}），所以$P$是$\Stab_G(b)$的西罗$p$-子群. 对群$gPg^{-1}$来说，$gPg^{-1}b=gPa$，而$P\subseteq \Stab_G(a)$，故$Pa=a$，$gPa=ga=b$，故$gPg^{-1}\in\Stab_G(b)$，它也是$\Stab_G(b)$的西罗$p$-子群. 故$\exists h\in\Stab_G(b)$，使得$h(gPg^{-1})h^{-1}=P$，故$hg\in N_G(P)$，且$hga=hb=b$，即$N_G(P)$在$\Delta$上可迁.
+}
+
+\subsection{}
+证明对$24$阶群$G$，$G$的中心平凡则$G$同构于$S_4$.
+
+\zm{
+	\subsubsection{(1)}$G$的西罗$3$-子群不能只有$1$个.
+	
+	反证法，若只有一个这样的子群，则它是正规子群，记为$N_3\cong \mathbb{Z}/3\mathbb{Z}$. 考虑$G$的一个西罗$2$-子群$H_8$，我们有$|H_8|=8$. 由于$N_3H_8$的阶整除$24$且被$3$和$8$整除，故为$24$，即$N_3H_8=G$，类似地，$3$和$8$互素表明$N_3\bigcap H_8=\{1_G\}$.
+	
+	因此$N_3,H_8$满足{\heiti 习题}\textbf{2.2.6(2)}中的全部条件，$G\cong N_3\rtimes H_8$，有$\varphi: H_8\rightarrow \Aut(N_3), h\mapsto (\sigma_h: a\mapsto h^{-1}ah)$.
+	
+	若$h\in Z(H_8)$且$\sigma_h=\id$，则在$G$中
+	$(1_N,h)(x_2,y_2)=(1_N\cdot \sigma_h(x_2),hy_2)
+	=(x_2\cdot y_2(1_N),y_2h)=(x_2,y_2)(1,h)$对任意$x_2\in N_3, y_2\in H_8$成立，即$(1,h)\in Z(G)$. 故若$h\neq 1_H\in Z(H_8)$则$G$的中心非平凡，矛盾，下证这样的$h$存在.
+	
+	记$N_3=\{1,b,b^2\}$，$\Aut(N_3)\cong\mathbb{Z}/2\mathbb{Z}=\{\id_N,\rho\}, \rho^2=\id_N$.
+	
+	\paragraph{(1a)}若$H_8$中存在$4$阶元，记为$a$，则$\{1, a, a^2, a^3\}$在$H_8$中指数为$2$，为正规子群，并且由$4$阶元的共轭也是$4$阶元，有$\forall c\in H_8$有$c^{-1}ac=a$或$c^{-1}ac=a^3$，此时$c^{-1}a^2c=(c^{-1}ac)^2=a^2$或$a^6=a^2$，故$a^2\in Z(H_8)$且由$\varphi(a)=\id_N$或$\rho$得$\varphi(a^2)=\varphi(a)^2=\id_N$. $a^2$是满足条件的$h$.
+	
+	\paragraph{(1b)}$H_8$中仅有$1,2$阶元，由{\heiti 引理}\textbf{1.66}，$H_8$为阿贝尔群，任何元素都在中心中，且$|\im\varphi|\leq 2$导致$|\ker\varphi|\geq 4$，任取$\ker\varphi$中非单位元即为满足条件的$h$.
+	
+	\subsubsection{(2)}由(1)且$N(3)\equiv 1\mod 3, N(3)\mid 8$得$N(3)=4$. 令$H=\{H_1,H_2,H_3,H_4\}$为$G$中西罗$3$-子群的集合. 由$|G|=|H_i||N_G(H_i)|$得$N_G(H_i)=6$.
+	
+	又$H_i$彼此共轭，$\forall u\in N_G(H_i), uH_iu^{-1}=H_i$，则$\forall j\in\{1,2,3,4\}\exists g\in G$使得$gH_ig^{-1}=H_j$，故$gug^{-1}H_j(gug^{-1})^{-1}=gug^{-1}H_jgu^{-1}g^{-1}=guH_iu^{-1}g^{-1}=gH_ig^{-1}=H_j$，即$gug^{-1}\in N_G(H_j)$，故$N_G(H_i)\;i=1,2,3,4$彼此共轭，又$|N_G(H_i)|=6$，我们分情况讨论证明$\bigcap_{i=1}^4N_G(H_i)=\{1_G\}$.
+	
+	\paragraph{(2a)}
+	
+	$N_G(H_1)$为阿贝尔群，则由西罗定理$N_G(H_1)$中既存在$2$阶元，也存在$3$阶元，由{\heiti 习题}\textbf{1.3.25(2)}，$6\mid d(G)$使得$d(G)=6$，$G$中存在$6$阶元，故为循环群$\mathbb{Z}/6\mathbb{Z}$，所有的$N_G(H_i)$由共轭性也有此结构.
+	
+	$H_i=\{1,a_i^2,a_i^4\}$是$N_G(H_i)=\{1,a_i,a_i^2,a_i^3,a_i^4,a_i^5\}$的唯一$3$阶子群，
+	由于$H_i\bigcap H_j\neq H_i$，它的阶数不为$3$且整除$3$，只能为$1$，故$H_i\;i=1,2,3,4$中$8$个$3$阶元彼此相异(*)，而$a_i, a_i^5$的平方各是$a_i^2,a_i^4$，故也彼此相异. 
+	
+	若$\bigcap_{i=1}^4N_G(H_i)$非平凡，只能$u=a_1^3=a_2^3=a_3^3=a_4^3$. 但这时$u$与$G$内$17$个各异元素交换，$|C_G(u)|\geq 17, |C_G(u)|\mid |G|=24$，只能$C_G(u)=24$，即$u\in Z(G)$，与中心平凡矛盾.
+	 
+	 \paragraph{(2b)}
+	 
+	 $N_G(H_1)$为非阿贝尔群，由{\heiti 习题}\textbf{2.4.5}知$N_G(H_i)\cong S_3=\{1,b,b^2,a,ab=b^2a,ab^2=ba\mid b^3=a^2=1\}$，$b,b^2\in H_i$，$N_G(H_i)-H_i$中元素都是$2$阶，且两个不同的$2$阶元素之积属于$H_i-\{1_G\}$.
+	 
+	 若$N_G(H_i)-H_i$和$N_G(H_j)-H_j$有$2$个以上相同元素，则它们的积又在$H_i-\{1_G\}$中又在$H_j-\{1_G\}$中，由上述(*)得矛盾，故若$\bigcap_{i=1}^4N_G(H_i)$非平凡，则有且只有一个$u$为$N_G(H_i)$的非平凡公共元素.
+	 
+	 对$\forall g\in G$，$g$的共轭作用得$gN_G(H_i)g^{-1}=N_G(H_{\sigma(i)}), \sigma\in S_4$. 因此$u\in N_G(H_i),\forall i\Rightarrow gug^{-1}\in N_G(H_{\sigma(i)}),\forall i$，因此$gug^{-1}\in\bigcap_{i=1}^4N_G(H_i)$，又$gug^{-1}\neq 1_G$，得$gug^{-1}=u, \forall g\in G$，即$u\in Z(G)$，矛盾.
+	 
+	 \paragraph{(2c)}
+	 综上，$\bigcap_{i=1}^4N_G(H_i)=\{1_G\}$. 考虑$G$的内自同构$I(G)$作用在$H$的置换上，有同态$\varphi: I(G)\rightarrow S_4$，$\sigma \in \ker\varphi \Leftrightarrow \sigma(H_i)=g_{\sigma}H_ig_{\sigma}^{-1}=H_i,  \forall i\Leftrightarrow g_{\sigma}\in \bigcap_{i=1}^4N_G(H_i)\Leftrightarrow g_{\sigma}=1_G\Leftrightarrow \sigma=\id_H$
+	 故$\ker\varphi=\id_H$，$G\cong G/Z(G)\cong I(G)\cong I(G)/\ker\varphi\cong \im\varphi\leq S_4$，但$|G|=|S_4|$，只有$G=S_4$.
+}
+
+\subsection{}
+设$P$是$G$的西罗$p$-子群且$N_G(P)$是$G$的正规子群，证明$P$是$G$的正规子群.
+
+\zm{
+	若$P^{\prime}\neq P$与$P$共轭，则（参照{\heiti 习题}\textbf{2.4.14}的证明(2)部分）有$N_G(P)$与$N_G(P^{\prime})$共轭，故$N_G(P^{\prime})=N_G(P)$. 于是$P\vartriangleleft N_G(P), P^{\prime}\vartriangleleft N_G(P)$是$N_G(P)$的两个西罗$p$-子群，它们彼此共轭，与它们的正规性矛盾. 故$P\vartriangleleft G$.
+}

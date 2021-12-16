@@ -1,0 +1,205 @@
+\section{集合论预备知识}
+\subsection{}
+设$B$， $A_{i}(i\in I)$是集合$\Omega$的子集，试证：
+\subsubsection{(1)}
+$ B\cap(\bigcup_{i\in I}A_{i})=\bigcup_{i\in I}(B\cap A_{i})$;
+
+\zm{
+	$ x\in B\cap(\bigcup_{i\in I}A_{i})\Leftrightarrow x\in B$
+	且
+	$ x\in\bigcup_{i\in I}A_{i}$
+	\\$\Leftrightarrow x\in B$且$(\exists i\in I $ s.t. $ x\in A_{i})$
+	\\$\Leftrightarrow\exists i\in I $ s.t. $(x\in B$且$x\in A_{i})$
+	\\$\Leftrightarrow\exists i\in I $ s.t. $x\in (B\cap A_{i})$
+	\\$ \Leftrightarrow x \in \bigcup_{i\in I}(B\cap A_{i})$
+}
+
+\subsubsection{(2)}
+$ B\cup(\bigcap_{i\in I}A_{i})=\bigcap_{i\in I}(B\cup A_{i})$;
+
+\zm{
+	$ x\in B\cup(\bigcap_{i\in I}A_{i})\Leftrightarrow x\in B$
+	或
+	$ x\in \bigcap_{i\in I}A_{i}$
+	\\$\Leftrightarrow x \in B$或$(\forall i\in I$，$x\in A_{i})$
+	\\$\Leftrightarrow$(这一步只需论证$x\notin B$时的情形)
+	$\forall i\in I$， $(x\in B$或$x\in A_{i})$
+	\\$\Leftrightarrow \forall i\in I$， $x\in(B\cup A_{i})$
+	\\$ \Leftrightarrow x\in \bigcap_{i\in I}(B\cup A_{i})$
+}
+
+\subsubsection{(3)}
+$ (\bigcap_{i\in I}A_{i})^{c}=\bigcup_{i\in I}A_{i}^{c}$;
+
+\zm{
+	$ x\in (\bigcap_{i\in I}A_{i})^{c}$
+	\\$\Leftrightarrow x \notin (\bigcap_{i\in I}A_{i})$
+	\\$\Leftrightarrow x$不满足$\forall i\in I$， $x\in A_{i}$
+	\\$\Leftrightarrow \exists i\in I$ s.t. $x\notin A_{i}$
+	\\$\Leftrightarrow \exists i\in I$ s.t. $x\in A_{i}^{c}$
+	\\$\Leftrightarrow x\in \bigcup_{i\in I}A_{i}^{c}$
+}
+
+\subsection{}
+对任意集合$X$，令$\id_{X}$为$X\rightarrow X: x\mapsto x$(对$\forall x\in X$成立)，（这样的映射叫做{\heiti 恒等映射}，记为$\id$）令$f:A\rightarrow B$为集合间的映射，$A$为非空集合，试证：
+\subsubsection{(1)}
+$f$为单射$\Leftrightarrow \exists g:B\rightarrow A$ s.t. $g\circ f=\id_{A}$;
+
+\zm{
+($\Rightarrow$)$f$为单射，则$\forall b\in B$， $b$无原像或有唯一原像.
+定义
+\begin{equation*}
+g: b\rightarrow \genfrac{\{}{}{0pt}{}{A\text{中任意元素}, }{f^{-1}(b), } \genfrac{}{}{0pt}{}{\text{当}b\text{没有原像}}{\text{当}b\text{有原像}f^{-1}(b)}
+\end{equation*}
+则$g\circ f=\id_{A}$.
+\\($\Leftarrow$)反证法，若$f$不是单射但$g$存在，则$\exists a_1\neq a_2, b\in B$ s.t. $f(a_1)=f(a_2)=b$.
+又$g\circ f=\id_{A}$， 则$g(b)=a_1=a_2$有两个不同的值，与函数的定义矛盾.
+}
+\subsubsection{(2)}
+$f$为满射$\Leftrightarrow \exists h:B\rightarrow A$ s.t. $f\circ h=\id_{B}$;
+
+\zm{
+($\Rightarrow$)$f$为满射，则$\forall b\in B$， 存在原像$\{f^{-1}_{i}(b)\mid i \in I_b\}\neq \varnothing$(该集合不一定只有一个元素)
+
+对所有的$b$选择$\{f^{-1}_{i}(b)\mid i \in I_b\}$中的一个元素$f^{-1}_1(b)$()这里用到了{\heiti 选择公理}，参见{\heiti 引理}\textbf{3.66}. 事实上(1)的证明中"A中任意元素"的表述也用到了选择公理)
+
+令$h: B\rightarrow A, b\mapsto f^{-1}_1(b)$， 则$f\circ h=\id_{B}$.
+
+($\Leftarrow$)反证法，若$f$不为满射但$h$存在，则$\exists b\in B$ s.t. $\forall a\in A, f(a)\neq b$. 则由$h(b)\in A$有$f(h(b))\neq b$， 与$f\circ h=\id_{B}$矛盾.
+}
+\subsubsection{(3)}
+$f$为双射$\Leftrightarrow$存在唯一的$g:B\rightarrow A$ s.t. $f\circ g=\id_{B}, g\circ f=\id_{A}$.
+
+\zm{
+存在性由(1)(2)立得. 只需证明$f$为双射时$g=f^{-1}$唯一.
+若不然，则存在两个映射$g_1\neq g_2$满足$f\circ g_1 = f\circ g_2 =\id$. 由于$g_1, g_2$不同，必存在$b\in B$ s.t. $g_1(b)\neq g_2(b)$，故$f(g_1(b))=f(g_2(b))=b$，与$f$是单射矛盾.
+}
+\subsubsection{说明}
+这里的$g$称为$f$的{\heiti 逆映射}，通常记为$f^{-1}$. 证明双射的逆映射也是双射，并讨论逆映射与映射的原像集合之间的关系.
+
+\Proofbyintimidation
+
+\subsection{}
+如果$f:A\rightarrow B, g:B\rightarrow C$均是一一对应，则$g\circ f:A\rightarrow C$也是一一对应，且$(g\circ f)^{-1}=f^{-1}\circ g^{-1}$.
+
+\zm{
+	$g\circ f$是单射：对$a_1,a_2\in A,a_1\neq a_2$，因$f$为单射有$f(a_1)\neq f(a_2)$，因$g$为单射有$g(f(a_1))\neq g(f(a_2))$.
+	
+	$g\circ f$是满射：对$\forall c\in C$，因$g$为满射存在$g^{-1}(c)\in B$，对$\forall b\in B$因$f$为满射存在$f^{-1}(b)\in A$，这导致$\forall c\in C, \exists f^{-1}(g^{-1}(c))\in A$.
+	
+	易见上述$g^{-1}(c), f^{-1}(g^{-1}(c))$唯一，故得结论.
+}
+
+\subsection{}
+设$P(A)$是集合$A$的全部子集构成的集族，$M(A)$为一切$A$到集合$\{0,1\}$的映射构成的集合，试构造$M(A)$到$P(A)$的双射. 特别地，若$A$为有限集，试证$|P(A)|=2^{|A|}$，换言之，$n$元集合共有$2^n$个子集.
+
+\jie 令
+$$f:P(A)\rightarrow M(A), P\in A\mapsto \left(
+g_P: A\rightarrow \{0,1\},
+x\mapsto
+\left\{
+\begin{matrix}
+1, & \text{当}x\in P\\
+0, & \text{当}x\notin P
+\end{matrix}
+\right.
+\right)$$
+我们证明$f$是双射.
+
+$f$为单射：若$P_1\neq P_2$，则存在$x$使得$x\in P_1, x\notin P_2$或$x\in P_2, x\notin P_1$，于是$f(P_1)(x)=1,f(P_2)(x)=0$或者$f(P_1)(x)=0,f(P_2)(x)=1$，故$f(P_1)\neq f(P_2)$.
+
+$f$为满射：令$m$为$M(A)$中任意元素，定义$M^+=\{x\in A\mid m(x)=1\}$，则$f(M^+)=m$.
+
+于是$f$是双射，利用{\heiti 习题}\textbf{1.1.8(1)}可知$|P(A)|=|M(A)|=2^{|A|}$.
+
+\subsection{}
+设$X$是无限集合，$Y$为$X$的有限子集，证明存在双射$X-Y\rightarrow X$.
+
+\zm{
+	构造单射$f:\mathbb{N}\rightarrow X$（$X$无限，因此这是可以做到的），其中$\{0,1,...,|Y|\}\mapsto Y$. 令
+	$$g:X-Y\rightarrow X, z\mapsto
+	\left\{
+	\begin{matrix}
+	z, & \text{当}z\notin f(\mathbb{N})\\
+	f(w-|Y|), & \text{当}z=f(w),\text{其中}w\in\mathbb{N}
+	\end{matrix}
+	\right.
+	$$
+	易验证$g$为双射.
+}
+
+\subsection{}
+证明等价关系的三个条件是互相独立的，也就是已知任意两个条件不能推出第三个条件.
+
+\zm{
+对称性独立：$a\sim a,b,c\,;\;b\sim b,c\,;\;c\sim c$，不满足对称性，满足自反和传递性.
+
+传递性独立：$a\sim a,b\,;\;b\sim a,b,c\,;\;c\sim b,c$，不满足传递性，满足自反和对称性.
+
+自反性独立：$a\sim a,b\,;\;b\sim a,b\,;\;c\nsim a,b,c$，对$c$不满足自反性，满足对称和传递性.
+}
+
+\subsection{}
+设集合$A$中关系满足对称性和传递性，且$A$中任意元素都和某元素有关系，证明此关系为等价关系.
+
+\zm{
+	对任意$a\in A$仍记$[a]=\{b\in A\mid b\sim a\}$. 与{\heiti 定义}\textbf{1.9}不同，我们不确定$a\in [a]$，但$[a]\neq\varnothing$，于是$\exists b$ s.t. $b\sim a$，由对称性$a\sim b$，由传递性$a\sim a$，故$a\in [a]$，类$[a]$满足{\heiti 定义}\textbf{1.9}的所有性质，$\sim$为等价关系.
+}
+
+\subsection{}
+设$A,B$为两个有限集.
+\subsubsection{(1)}
+$A$到$B$的不同映射有多少个？
+
+\jie 对$\forall b\in B$，$f(b)$有$|A|$种不同选法. 因$b_1\neq b_2$时$f(b_1)$和$f(b_2)$的选取不相干涉，故共有$|B|^{|A|}$种不同选法，即$|B|^{|A|}$个不同映射.
+
+\subsubsection{(2)}
+$A$上不同的二元运算有多少个？
+
+\jie 二元运算为$A\times A$到$A$的映射，在(1)中令$A=A\times A$，$B=A$，得$|A|^{|A|^2}$个不同的二元运算.
+
+\subsection{}
+证明容斥原理（命题1.1）
+
+\zm{
+	已知$|A\cup B|=|A|+|B|-|A\cap B|$，故$n=2$时命题成立，对$n$作数学归纳法，已知命题对$n\leq k$成立，下证命题对$k+1$成立.
+	
+	\begin{flalign*}
+	&|A_1\cup A_2\cup\cdots\cup A_{k+1}|&&\\
+	=&|(A_1\cup A_2\cup\cdots\cup A_k) \cup A_{k+1}|&&\\
+	=&|A_1\cup A_2\cup\cdots\cup A_k|+|A_{k+1}|-|(A_1\cup A_2\cup\cdots\cup A_k)\cap A_{k+1}|&&\tag{利用$n=2$的情形}\\
+	=&\sum_{j=1}^k(-1)^{j-1}
+	\left(
+	\sum_{\{i_1,...,i_j\}\subseteq\{1,...,k\}}|A_{i_1}\cap\cdots\cap A_{i_j}|
+	\right)&&\tag{利用$n=k$的情形，记此项为$a$}\\
+	&+|A_{k+1}|&&\\
+	&-|(A_1\cap A_{k+1})\cup\cdots\cup(A_k\cap A_{k+1})|&&\tag{利用{\heiti 习题}\textbf{1.1.1(1)}}\\
+	=&\,a+|A_{k+1}|&&\\
+	&-\sum_{j=1}^k(-1)^{j-1}
+	\left(
+	\sum_{\{i_1,...,i_j\}\subseteq\{1,...,k\}}|(A_{i_1}\cap A_{k+1})\cap\cdots\cap (A_{i_j}\cap A_{k+1})|
+	\right)&&\tag{利用$n=k$的情形}\\
+	=&\,a+|A_{k+1}|&&\\
+	&-\sum_{j=1}^k(-1)^{j-1}
+	\left(
+	\sum_{\substack{\{i_1,...,i_{j+1}\}\subseteq\{1,...,k,k+1\}\\i_{j+1}=k+1}}|A_{i_1}\cap\cdots\cap A_{i_j}\cap A_{k+1})|
+	\right)&&\tag{$\ast$}\\
+	=&\sum_{j=1}^k(-1)^{j-1}
+	\left(
+	\sum_{\substack{\{i_1,...,i_j\}\subseteq\{1,...,k+1\}\\\forall 1\leq l \leq j, i_k\neq k+1}}|A_{i_1}\cap\cdots\cap A_{i_j}|
+	\right)&&\\
+	&+\sum_{j=1}^1(-1)^{j-1}
+	\left(
+	\sum_{\substack{\{i_1,...,i_j\}\subseteq\{1,...,k+1\}\\i_j=k+1}}|A_{i_1}|
+	\right)&&\tag{注意这里$j$恒等于$1$}\\
+	&+\sum_{j=2}^{k+1}(-1)^{j-1}
+	\left(
+	\sum_{\substack{\{i_1,...,i_j\}\subseteq\{1,...,k+1\}\\i_j=k+1}}|A_{i_1}\cap\cdots\cap A_{i_j}|
+	\right)&&\tag{这里的$j$是$(\ast)$中的$j+1$}\\
+	=&\sum_{j=1}^{k+1}(-1)^{j-1}
+	\left(
+	\sum_{\{i_1,...,i_j\}\subseteq\{1,...,k+1\}}|A_{i_1}\cap\cdots\cap A_{i_j}|
+	\right)&&
+	\end{flalign*}
+	由数学归纳法即得结论.
+}

@@ -1,0 +1,458 @@
+\section{子群与陪集分解}
+\subsection{}
+设$A=
+\begin{pmatrix}
+0 & -1\\
+1 & 0
+\end{pmatrix},
+B=
+\begin{pmatrix}
+0 & 1\\
+-1 & 1
+\end{pmatrix}
+$，试求$A, B, AB, BA$在$\mathrm{GL}_2(\mathbb{R})$中的阶.
+
+\jie
+(1)
+$A^2=
+\begin{pmatrix}
+-1 & 0\\
+0 & -1
+\end{pmatrix},
+A^4=I$.
+$A$的阶为$4$.
+
+(2)
+$B^2=
+\begin{pmatrix}
+-1 & -1\\
+1 & 0
+\end{pmatrix},
+B^3=I$.
+$B$的阶为$3$.
+
+(3)
+$AB=
+\begin{pmatrix}
+1 & 1\\
+0 & 1
+\end{pmatrix},
+(AB)^n=
+\begin{pmatrix}
+1 & n\\
+0 & 1
+\end{pmatrix}
+\neq I$.
+$AB$的阶为$\infty$.
+
+(4)
+$BA=
+\begin{pmatrix}
+1 & 0\\
+-1 & 1
+\end{pmatrix},
+(AB)^n=
+\begin{pmatrix}
+1 & 0\\
+-n & 1
+\end{pmatrix}
+\neq I$.
+$BA$的阶为$\infty$.
+
+\subsection{}
+试证群中元素$a$的阶$\leq 2$当且仅当$a=a^{-1}$.
+
+\Proofbyintimidation
+
+\subsection{}
+设$a,b$为群$G$中的两个元素，$a$的阶为$7$且$a^3b=ba^3$. 试证$ab=ba$.
+
+\zm{
+	$ab=a^{15}b=a^{12}ba^3=a^9ba^6=a^6ba^9=a^3ba^{12}=ba^{15}=ba$.
+}
+
+\subsection{}
+设$x$在群中阶为$n$，求$x^k\;(k\in\mathbb{Z})$的阶.
+
+\jie
+考虑$x$生成的子群$\langle x \rangle$. 请读者利用{\heiti 命题}\textbf{1.54}得到结果$\frac{n}{\gcd(k,n)}$.
+
+\subsection{}
+\subsubsection{(1)}
+设$G$是有限阿贝尔群，试证：
+$$\prod_{g\in G}g=\prod_{\substack{a \in G\\a^2=1}}a$$
+
+\zm{
+	$\because g\in G \Rightarrow g^{-1}\in G$，故$g\neq g^{-1}$的项两两积为1可消去，余下的项满足$g=g^{-1}, g^2=1$.
+}
+
+\subsubsection{(2)}
+证明Wilson定理：$p$是素数则$(p-1)!\equiv -1 \mod p$.
+
+\zm{
+	$(p-1)!=\prod_{g\in\mathbb{F}_p}g=\prod_{a\in\mathbb{F}_p, a^2=1}a$.
+		此时$a^2=kp+1\;(k\in\mathbb{Z})$，
+	
+	$\therefore(a-1)(a+1)=kp, p\mid(a-1)(a+1)$，由$p$为素数，$p\mid a-1$或$p\mid a+1$. 
+	
+	故$a\equiv \pm 1 \mod p$，在$\mathbb{F}_p$中即为$a=1$或$p-1$，故原式$\equiv 1\cdot(p-1)\equiv -1 \mod p$.
+}
+
+\subsection{}
+证明$f=\frac{1}{x}, g=\frac{x-1}{x}$生成一个函数群，合成法则是函数的合成，它同构于二面体群$D_3$.
+
+\zm{
+	群的性质请读者自证.
+	
+	$f^2(x)=f(f(x))=x$，故$f^2=\id$.
+	
+	$g^2(x)=g(g(x))=-\frac{1}{x-1}, g^3(x)=g(g^2(x))=x$，故$g^3=\id$.
+	
+	$f\circ g(x)=\frac{x}{x-1}, g^2\circ f(x)=g^2(f(x))=-\frac{x}{1-x}=\frac{x}{x-1}$，
+	
+	将$f$看作反射，$g$看作旋转，有
+	$\langle f,g \rangle=\langle f,g: f^2=g^3=1, fg=g^{-1}f\rangle\cong D_3$.
+}
+
+\subsection{}
+\subsubsection{(1)}
+$S^1$的任意有限阶子群都是循环群.
+
+\zm{
+	因该子群有限，可取该群中$1$以外辐角主值最小者为$e^{i\theta_0}$.
+	
+	若有任何（包括$1=e^{2k\pi i}$）元素$e^{i\theta}$使得$\theta$不为$\theta_0$的倍数，则必有$e^{i\theta}=e^{k\theta_0+\theta_1}\;(0<\theta_1<\theta_0), e^{i\theta}(e^{i\theta_0})^{-k}=e^{i\theta_1}$也是群中元素，与$\theta_0$最小性矛盾.
+	
+	故$\{e^{im\theta_0}\mid m\in\mathbb{N}\}$为群中全部元素，并且$2\pi$为$\theta_0$的倍数，该群同构于$\mathbb{Z}/k\mathbb{Z}$其中$k=2\pi/\theta_0\in\mathbb{Z}$.
+}
+
+\subsubsection{(2)}
+$\mathbb{Q}$不是循环群，但它的任意有限生成的子群都是循环群.
+
+\zm{
+	若$\mathbb{Q}$是循环群，设它的生成元为$g$，则$\frac{g}{2}\neq kg\;(\forall k\in \mathbb{Z})$是$\mathbb{Q}$的元素，矛盾.
+	
+	设$A=\langle a_1, a_2, ..., a_n \rangle \subset \mathbb{Q}$. 由于$A$有限，令$A$中所有元素的分母的最大公倍数为$k$，则$kA=\{kx\mid x\in A\}\cong A$，且$kA\leq \mathbb{Z}$. 而$\mathbb{Z}$的一切子群都是循环群，故$A$也是循环群.
+}
+
+\subsubsection{(3)}
+设$p$为素数，
+$$G=\{x\in\mathbb{C}\mid \exists n\in \mathbb{N}\text{ s.t. }x^{p^n}=1\}$$
+的任意真子群都是有限阶循环群.
+
+\zm{
+	设真子群为$G_0$，则$\exists a\notin G_0, a\in G, G_0\leq G$，
+	则$\exists n_0$ s.t. $a^{p^{n_0}}=1$ 且 $a^{p^{n_0-1}}\neq 1$，即$a$是$p^{n_0}$次本原单位根.
+	
+	对任意$k\in\mathbb{Z}$且$p\nmid k$，由数论知$\exists m\in \mathbb{Z}$ s.t. $km\equiv \gcd(k, p^{n_0})=1\mod p^{n_0}, a=(a^k)^m$. 因此$a\notin G_0\Rightarrow a^k\notin G_0$，即$p^{n_0}$次本原单位根均不在$G_0$中.	对$p^n\;(n>n_0)$次单位根，由于它的$p^{n-n_0}$次幂是$p^{n_0}$次本原单位根，故也不在$G_0$中.
+	
+	$n_0$为$a$的函数，对一切$a$取最小的$n_0$则$G_0$含有$p^{n_0-1}$次本原单位根，并且易得到$G_0$是所有$p^{n_0-1}$次单位根的集合，它同构于$\mathbb{Z}/p^{n_0-1}\mathbb{Z}$，为有限阶循环群.
+}
+
+\subsection{}
+设$a$和$b$是群$G$的元素，阶数分别是$n$和$m$，$\gcd(n,m)=1$且$ab=ba$，试证$\langle ab \rangle$是$G$的$mn$阶循环子群.
+
+\zm{
+	由于$a,b$交换，则$(ab)^k=a^kb^k$. 我们只需证$mn\nmid k$时$a^kb^k\neq 1$，$a^{mn}b^{mn}=1$即可. 对于后者，$a^{mn}b^{mn}=(a^n)^m(b^m)^n=1$.
+	
+	对于前者，$mn\nmid k$时因$\gcd(m,n)=1$有$m\nmid k$或$n\nmid k$，我们有$a^k\neq 1$或$b^k \neq1$. 不妨设$a^k\neq 1$，此时$n\nmid k$，若$b^k=(a^k)^{-1}$，则$a^{mk}=b^{-m}=1$，由于$m,n$互素，我们有$n\nmid mk$，与$a$的阶是$n$矛盾. 故$b^k\neq(a^k)^{-1}, a^kb^k\neq 1$.
+}
+
+\subsection{}
+设$p$为奇素数，$X$是$n$阶整系数方阵，如果$I+pX\in\mathrm{SL}_n(\mathbb{Z})$的阶有限,证明$X=0$.
+
+\zm{
+	令$X\neq 0$，若$I+pX$的阶有限，则存在$n\in \mathbb{Z}_+$ s.t. $(I+pX)^n=I$，也就是
+	\begin{align*}
+	p^nX^n+np^{n-1}X^{n-1}+...+\frac{n(n-1)}{2}p^2X^2=-npX&&\tag{$\ast$}
+	\end{align*}
+	
+	我们记$u=\gcd(X)$，是指整系数方阵$X$中所有元素的最大公约数为$u$. 取$k$使得$p^k\mid\gcd(X)$，$p^{k+1}\nmid\gcd(X)$，则$k\geq 0$. 我们说$u$整除整系数方阵$X$，是指$X$中所有元素被$u$整除.
+	
+	(i) 当$p\nmid n$时$(\ast)$右边不被$p^{k+2}$整除，左边各项分别被$p^{nk+n}, p^{(n-1)k+(n-1)}, ..., p^{2k+2}$整除，故它被$p^{2k+2}$整除，但$2k+2\geq k+2$，与右边不被$p^{k+2}$整除矛盾.
+	
+	(ii)当$n=p$时，$(\ast)$右边不被$p^{k+3}$整除，左边每项各被$p^{pk+p}, p^{(p-1)k+p-1+1}, ... ,p^{2k+3}$整除（注意$p$为奇素数，有$p\geq 3$和$p\mid\frac{p(p-1)}{2}$），故它被$p^{2k+3}$整除，但$2k+3\geq k+3$，与右边不被$p^{k+3}$整除矛盾.
+	
+	(iii)一般情况，此时$(I+pX)^{p^ms}=I$，其中$p \nmid s, m\geq 0$.
+	
+	若$m\geq 1$，令$(I+pX)^{p^{m-1}s}=I+pY$（左边二项展开除$I$以外的项被$p$整除），则$(I+pY)^p=I$，由(ii)知$Y=0$，即$(I+pX)^{p^{m-1}s}=I$，对$m$作归纳可归结到$m=0$的情形$(I+pX)^s=I$，由(i)知$X=0$.
+}
+
+\subsection{}
+设$g_1,g_2$是群$G$的元素，$H_1,H_2$是$G$的子群，证明以下两个条件等价：
+
+（1）$g_1H_1\subseteq g_2H_2$；
+（2）$H_1\subseteq H_2$且$g_2^{-1}g_1\in H_2$.
+
+\zm{
+	（2）$\Rightarrow$（1）因为消去律成立，只需证$g_2^{-1}g_1H_1\subseteq H_2$即可. 因$\forall h_1\in H_1\Rightarrow h_1\in H_2$，又$g_2^{-1}g_1\in H_2$，则$g_2^{-1}g_1h_1\in H_2$，（1）成立.
+	
+	（1）$\Rightarrow$（2）$\because g_1H_1\subseteq g_2H_2, \therefore \forall h_{11}\in H_1, \exists h_{21}$ s.t. $g_1h_{11}=g_2h_{21}$，且$\forall h_{12}\in H_1, h_{11}h_{12}\in H_1\Rightarrow \exists h_{22}, g_1h_{11}h_{12}=g_2h_{22}$.
+	
+	即$g_2h_{22}=g_1h_{11}h_{12}=g_2h_{21}h{12}$，故$h_{12}=h_21^{-1}h_22\in H_2$，由$h_{12}$的任意性知$H_1\subseteq H_2$.
+	
+	于是（1）$\Rightarrow\forall h_1 \exists h_2$ s.t. $g_1h_1=g_2h_2\Leftrightarrow g_2^{-1}g_1=h_2h_1^{-1}$，$h_1^{-1}\in H_1\subseteq H_2$故右边属于$H_2$，故$g_2^{-1}g_1\in H_2$.
+}
+
+\subsection{}
+设$G$是$n$阶有限群，若对$n$的每一个因子$m$，$G$中至多只有一个$m$阶子群，则$G$是循环群.
+
+\zm{
+	$G$中的所有$m$阶元素属于$m$阶子群，这些子群至多只有一个.
+	
+	该子群中只有$\varphi(m)=\left|\{u\mid\gcd(u,m)=1\}\right|$个$m$阶元素，所以$m$阶元素个数$c(m)\leq\varphi(m)$.
+	
+	因为$\forall m, m\mid|G|$，因此$|G|=\sum_{m\mid|G|}c(m)$. 但$\sum_{m\mid|G|}\varphi(m)=|G|$（该式证明见《代数学I：代数学基础》，也可考虑$|G|$阶循环群来证明）
+	
+	故对一切$m\mid|G|, c(m)=\varphi(m)$，特别地，$G$中存在$|G|$阶元素，故为循环群.
+}
+
+\subsection{}
+举一个无限群的例子，它的任意阶数不为$1$的子群都有有限指数.
+
+\jie
+由{\heiti 习题}\textbf{1.2.18(1)}，$\mathbb{Z}$的子群为${0}$或$n\mathbb{Z}\;(n\in\mathbb{Z}_+)$，故它的任意阶数不为$1$的子群都有有限指数$n$.
+
+\subsection{}
+\subsubsection{(1)}
+设$G$是阿贝尔群，$H$是$G$中所有有限阶元素构成的集合，证明$H$是$G$的子群.
+
+\zm{
+	只需证$H$对乘法和逆运算封闭. $\forall h_1,h_2\in H, \exists k_1, k_2\in\mathbb{Z}_+$ s.t. $h_1^{k_1}=1, h_2^{k_2}=1$，则$(h_1h_2^{-1})^{\lcm(k_1, k_2)}=h_1^{\lcm(k_1, k_2)}h_2^{-\lcm(k_1, k_2)}=1$，故$h_1h_2^{-1}\in H$.
+}
+
+\subsubsection{(2)}
+举例说明上述结论对一般群不正确.
+
+\jie
+在{\heiti 习题}\textbf{1.3.1}中令$G=\mathrm{GL}_2(\mathbb{R})$，$H$为其中有限阶元集合，则$A,B\in H$，$AB,BA\notin H$，$H$不是子群.
+
+\subsection{}
+\subsubsection{(1)}
+设$G$是奇数阶阿贝尔群，证明由$\varphi(x)=x^2$定义的映射$\varphi: G\rightarrow G$是一个自同构.
+\subsubsection{(2)}
+推广(1)的结果.
+
+\zm{
+	我们只证：若$G$是阿贝尔群，$p\nmid |G|\;(p\text{为素数})$，则$\varphi(x)=x^p, \varphi: G\rightarrow G$是自同构. (1)的结论取$p=2$立得.
+	
+	由交换性易得$\varphi$是同态，我们只需证明$\varphi$是满射.
+	
+	若不然，则$\exists x\neq y, x^p=y^p$，故$(xy^{-1})^p=1_G$，$xy^{-1}$不是单位元，它必是$p$阶元，则它生成的$p$阶循环群是$G$的子群，$p\mid |G|$，矛盾,
+}
+
+\subsection{}
+设$G$是阿贝尔群，$\alpha\in\Aut(G)$且$\alpha^2=\id$，令
+$$G_1=\{g\in G\mid \alpha(g)=g\}, G_{-1}=\{g\in G\mid \alpha(g)=g^{-1}\}.$$
+\subsubsection{(1)}
+如果$G$是奇数阶有限群，试证：$G=G_1G_{-1}$且$G_1\bigcap G_{-1}=\{1\}$.
+
+\zm{
+	利用{\heiti 习题}{1.3.14(1)}的结果，$G$为奇数阶阿贝尔群$\Rightarrow\varphi(x)=x^2$是自同构，故是满射，即对$\forall g\in G$，存在唯一的$h\in G$使得$h^2=g$. 以下利用本题第(2)问的结果即可.
+}
+
+\subsubsection{(2)}
+设$G$满足对$\forall g\in G$，存在唯一的$h\in G$使得$h^2=g$. 则(1)中结论仍成立.
+
+\zm{
+	$g\in G_1\bigcap G_{-1}\Rightarrow \alpha(g)=g=g^{-1}$，即$g^2=1$. 若$g\neq 1$则$\forall g_0\in G, \exists h\in G$ s.t. $g_0=h^2=h^2g^2=(hg)^2$，与$h$唯一矛盾.
+	
+	故$G_1\bigcap G_{-1}=\{1\}$，且$g^2=1\Rightarrow g=1$对任意$g\in G$成立(*).
+	
+	$\forall g\in G, \exists h,j\in G$ s.t. $g=h^2, \alpha(g)=j^2$.
+	
+	则$\alpha(hj)^2(hj)^{-2}$
+	\\$=\alpha(h^2j^2)h^{-2}j^{-2}$
+	\\$=\alpha(g\alpha(g))g^{-1}\alpha(g)^{-1}$
+	\\$=\alpha(g)\alpha(\alpha(g))(\alpha(\alpha(g)))^{-1}\alpha(g)^{-1}$
+	\\$=1$
+	
+	即$(\alpha(hj)(hj)^{-1})^2=1\Rightarrow \alpha(hj)(hj)^{-1}=1\text{(*)}\Rightarrow hj=\alpha(hj)\in G_1$.
+	
+	同样，$(\alpha(hj^{-1})hj^{1})^2$
+	\\$=\alpha(h^2j^{-2})h^2g^{-2}$
+	\\$=\alpha(g\alpha(g)^{-1})g\alpha(g)^{-1}$
+	\\$=\alpha(g)\alpha(\alpha(g^{-1}))g\alpha(g)^{-1}$
+	\\$=\alpha(g)g^{-1}g\alpha(g)^{-1}$
+	\\$=1$
+	\\$\Leftrightarrow \alpha(hj^{-1})hj^{-1}=1\quad\text{(*)}$
+	\\$\alpha(hj^{-1})=(hj^{-1})^{-1}$
+	\\$hj^{-1}\in G_{-1}$.
+	
+	故$\forall g\in G, g=h^2=(hj)(hj^{-1})\in G_1G_{-1}$.
+}
+
+\subsubsection{(2i)}
+由(2)证明：任何域$F$上的矩阵可以写成对称阵和反对称阵之和.
+
+\zm{
+	在(2)中取$\alpha: A\mapsto A^T$，取$G$为矩阵加法群，则$h=\frac{A}{2}$，$G_1$为对称阵集合，$G_{-1}$是反对称阵集合. 由(2)可得结论.
+}
+
+\subsubsection{(2ii)}
+由(2)证明：任何函数$f: \mathbb{R}\rightarrow\mathbb{R}$可以写成奇函数和偶函数之和.
+
+\zm{
+	在(2)中取$\alpha: f\mapsto f^T, f^T(x)=f(-x)$，取$G$为$f$的集合，加法为函数的加法$(f+g)(x)=f(x)+g(x)$，则$G$为阿贝尔群，$h(x)=\frac{g(x)}{2}$，$G_1$为偶函数集合，$G_{-1}$为奇函数集合，由(2)可得结论.
+}
+
+\subsection{}
+\subsubsection{(1)}
+求有理数加法群的自同构群$\Aut(\mathbb{Q})$.
+
+\jie
+$\forall f\in\Aut(\mathbb{Q}), 1\neq 0\Rightarrow f(1)\neq f(0)=0, f(1)\in\mathbb{Q}^{\times}$. 对$f(m), m\in\mathbb{Z}_+$有$f(m)=f(\underbrace{1+...+1}_{m\text{个}}=mf(1)), f(-m)=-f(m)$，故对$f(a), a\in\mathbb{Q}-\{0\}$有$a=\frac{p}{q}, p,q\in\mathbb{Z}, qf(a)=f(p)=pf(1), f(a)=af(1)$.
+
+另一方面，$f: \mathbb{Q}\rightarrow\mathbb{Q}, x\mapsto ax, a\in\mathbb{Q}^{\times}$确为$\mathbb{Q}$的同构，且$fg(x)=a_fa_gx$. 故$\Aut(\mathbb{Q})\cong\mathbb{Q}^{\times}$.
+
+\subsubsection{(2)}
+求整数加法群的自同构群$\Aut(\mathbb{Z})$.
+
+\jie
+类似(1)，只有$f: \mathbb{Z}\rightarrow\mathbb{Z}, x\mapsto ax$满足条件. 由$f(1), f^{-1}(1)\in\mathbb{Z}$知$a, a^{-1}\in\mathbb{Z}$，只有$a=\pm1$，即$\Aut\mathbb{Z}=\{\pm1\}^{\times}\cong\mathbb{Z}/2\mathbb{Z}$.
+
+\subsubsection{(3)}
+计算$K_2=\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$的自同构群.
+
+\jie
+$K_2=\{1,a,b,ab\mid ba=ab,a^2=b^2=1\}$，易知$\forall f\in\Aut(K_2), f(b)\neq f(a), f(b), f(a)\neq1$且$f(ab)=f(a)f(b)\neq 1$由$f(a)$和$f(b)$唯一确定. 故$\Aut(K_2)\cong S_3$.
+
+\subsubsection{(4)}
+求非零有理数乘法群$\mathbb{Q}^{\times}$的自同构群$\Aut\mathbb{Q}^{\times}$. 
+
+\jie
+$\forall x\in \mathbb{Q}^{\times}$，由算术基本定理，$x$可唯一写作
+$$x=\prod_{p_i\in P}p_i^{n_i}, n_i\in\mathbb{Z}\text{且只有有限多个$n_i$不为0，$P$为所有质数的集合}$$
+
+于是$f$由$\{f(p_i)\mid p_i\in P\}$唯一确定，而$f(p_i)=\prod_{p_j\in P}p_j^{a_{ij}}$. $f(x)=\prod_{p_j\in P}p_j^{\sum_{i=1}^{\infty}a_{ij}n_i}$. 
+	
+要使$f$为双射，$b_j=\sum_{i=1}^{\infty}a_{ij}n_i$，则$\{b_j\}$（只有有限项不为0）和$\{n_i\}$（只有有限项不为0）应当互相唯一确定.
+
+令$A=\begin{pmatrix}
+a_{11} & \cdots & a_{1j} & \cdots\\
+\vdots & \ddots & \vdots & \vdots \\
+a_{i1} & \cdots & a_{ij} & \cdots\\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}, B=(b_1, ..., b_j, ...), N=(n_1, ..., n_i, ...)$，则$B=NA, N=BA^{-1}$.
+
+即$\Aut(\mathbb{Q}^{\times})=\{A\mid \forall \text{整系数有限项不为0的向量}B,N=BA^{-1}\text{为整系数有限项不为0向量},\\\forall \text{整系数有限项不为0的向量}N,B=NA\text{为整系数有限项不为0向量}\}$
+
+\subsection{}
+\subsubsection{(1)}
+设$p$是素数，$p$方幂阶群是否一定含有$p$阶元？
+
+\jie
+是的，因为此群非平凡，其中必有阶不为$1$的元素，设非单位元的最小阶为$k$，则$k\mid p^n, k=p^m (m\geq 1), g^k=1\Rightarrow (g^{p^{k-1}})^p=1$，$g^{p^{k-1}}$为$p$阶元.
+
+\subsubsection{(2)}
+$35$阶群是否一定同时含有$5$阶和$7$阶元素？
+
+\zm{
+	是的，$G$中非单位元的阶只可能是$5,7,35$.若$G$中有$35$阶元$g$，则$g^5$是$7$阶元，$g^7$是$5$阶元.
+	假设$G$中不含$35$阶元并只有$5$阶非单位元. $\forall a,b\in G-\{1\}$，则$a^5=b^5=1$，$5$为素数，$b=(b^2)^3=(b^3)^2=(b^4)^4$，$\{a,a^2,a^3,a^4\}, \{b,b^2,b^3,b^4\}$要么不交，要么重合. 故$G$由$1$和若干个$4$元集的不交并组成，但$4\nmid 35-1$，矛盾.
+
+	同理$6\nmid 35-1\Rightarrow$ 不可能$G$中不含$35$阶元并只有$7$阶非单位元. 
+}
+
+\subsubsection{(3)}
+若有限群$G$含有$10$阶元$x$和$6$阶元$y$，那么$G$的阶应该满足什么条件？
+
+\jie
+$|\langle x\rangle|\mid|G|, |\langle y\rangle|\mid|G|\Rightarrow 30\mid|G|$. 另一方面$\mathbb{Z}/30n\mathbb{Z}$满足条件，故$G$应满足$30\mid|G|$.
+
+\subsection{}
+如果$H$与$K$是$G$的子群且阶互素，证明$H\bigcap K=\{1\}$.
+
+\zm{
+	$H\bigcap K$是$H$和$K$的子群，故$|H\bigcap K|\mid |H|,|K|\Rightarrow|H\bigcap K|\mid\gcd(|H|,|K|)=1$，故$|H\bigcap K|=1$，它是平凡群.
+}
+
+\subsection{}
+设$\mathbb{R}^m$为$m$维实向量空间，$A$是任意$n\times m$实矩阵，$W=\{X\in\mathbb{R}^m\mid AX=0\}$
+
+证明线性方程$AX=B$的解空间或是空集，或是加法群$\mathbb{R}^m$关于$W$的陪集.
+
+\zm{
+	若解空间不空，$\forall x_1, x_2$ s.t. $AX=B$有$Ax_1=Ax_2=B\Rightarrow A(x_1-x_2)=0\Leftrightarrow x_1-x_2\in W$，由{\heiti 引理}\textbf{1.56}，陪集$x_1+W=x_2+W$. 且任意$x_3\in W, Ax_1=B\Leftrightarrow A(x_1+x_3)=Ax_1+Ax_3=B+0=B$，故解空间由且只由这一个陪集组成.
+}
+
+\subsection{}
+设$H$和$K$分别是有限群$G$的两个子群，$HgK=\{hgk\mid h\in H, k\in K\}$，试证：
+$$|HgK|=|H|\cdot(K:g^{-1}Hg\bigcap K)$$
+
+\zm{
+	陪集$(H)gk_1$与$(H)gk_2$相同
+	\\$\Leftrightarrow gk_1k_2^{-1}g^{-1}\in H$
+	\\$\Leftrightarrow k_1k_2^{-1}\in g^{-1}Hg$
+	\\又$k_1k_2^{-1}\in K$，故$k_1k_2^{-1}\in g^{-1}Hg\bigcap K$（记后者为$L$），易证$L$为$K$的子群.
+	
+	故使$Hgk$相异的$k_1, k_2$分属于$L$的不同陪集$Lk_1$与$Lk_2$，即$k$共有$(K:L)$种取法，又每个陪集$Hgk$有$|H|$个元素，故$|HgK|=|H|\cdot(K:L)$.
+}
+
+\subsection{}
+设$a,b$是群$G$的任意两个元素，试证$a$与$a^{-1}$，$ab$与$ba$两对元素各有相同的阶.
+
+\zm{
+	令$a$的阶为$k$，则$(a^{-1})^k=(a^k)^{-1}=1$，反之亦然.
+	
+	$ab$的阶为$m$，$ba$的阶为$n$，
+	则$(ba)^m=a^{-1}(ab)^ma=a^{-1}a=1, (ab)^n=b^{-1}(ba)^nb=b^{-1}b=1$，故$m\mid n$且$n\mid m$，$n=m$.
+}
+
+\subsection{}
+设$f: G\rightarrow H$是群同态，如果$g$是$G$的有限阶元，则$f(g)$的阶整除$g$的阶.
+
+\zm{
+	$f(g)^n=f(g^n)=1$.
+}
+
+\subsection{}
+\subsubsection{(1)}
+设$A$是群$G$的有限指数子群，试证：存在$G$的一组元素$g_1, ... , g_n$可作$A$在$G$中的右陪集代表元系，又可作$A$在$G$中的左陪集代表元系.
+
+\emph{此证法来源于文献}\cite{268274}
+
+\zm{
+	将$G$分拆为双陪集$G=\bigsqcup_{x\in J_1} AxA$，易见$Ax_1$（或$x_1A$）与$AxA$要么不交，要么属于$AxA$.
+	故只须对每一个双陪集$AxA$寻找$\{s_i\mid i\in I\},\{t_i\mid i\in I\}\subseteq A$使得$AxA=\bigsqcup_{i\in I}Axt_i=\bigsqcup_{i\in I}s_ixA$，此时$s_ixt_i$为$AxA$中$A$的左陪集和右陪集的代表元系（$\because As_1xt_i=Axt_i, s_ixt_iA=s_ixA$）. 由{\heiti 习题}\textbf{1.3.20}的证明过程，$AxA$中$A$的右陪集个数应等于$(A:x^{-1}Ax\bigcap A)=|I|$.
+	
+	对不同的$i,j\in I$，$(s_ixt_i)(s_jxt_j)^{-1}\notin A, (s_ixt_i)^{-1}(s_jxt_j)\notin A$，得$t_it_j^{-1}\notin x^{-1}Ax, s_i^{-1}s_j\notin xAx^{-1}$，记$x^{-1}Ax\bigcap A=B$，$A\bigcap xAx^{-1}=C$. 则$Bt_i\neq Bt_j, s_iC\neq s_jC$.
+	
+	将$A$拆分为$B$的右陪集$A=\bigsqcup_{i\in I_1}By_i$，$C$的左陪集$A=\bigsqcup_{i\in I_2}z_iC$. 注意到$xBx^{-1}=C$，$B$与$C$共轭，且$(A:B)\leq(G:B)\leq(G:A)(G:x^{-1}Ax)=(G:A)^2$有限，故$|I|=|I_1|=|I_2|=(A:B)=(A:C)$，令$s_i=z_i$，$t_i=y_i$，则$s_ixt_i$为$AxA$中$A$的左（右）陪集代表元系. 对所有不同的$AxA$重复上述过程即得结论.
+}
+
+\subsubsection{(2)}
+举例说明$(G:A)$和$|A|$均无限时上述结论可以不成立.
+
+\jie
+$A=\langle a,b\rangle, G=\langle a,b,x\mid x^{-1}ax=a^2, x^{-1}bx=b^2 \rangle$，则$B=\langle a^2, b^2\rangle, C=A$，$(A:B)=\infty, (A:C)=1$，$I_1$和$I_2$之间不存在双射.
+
+\subsection{}
+（线性代数）
+
+\subsection{}
+对于有限群$G$设$d(G)$为最小的正整数$s$使得$\forall g\in G,g^s=1$.
+
+\subsubsection{(1)}
+$d(G)$是$|G|$的因子，它等于$G$中所有元素阶的最小公倍数.
+
+\zm{
+	设$a$的阶为$m$，则$a^p=1\Leftrightarrow m\mid p$，由公倍数的性质立得$d(G)$为所有$m$的最小公倍数. 因$|G|$为各$m$的公倍数，故$d(G)\mid|G|$.
+}
+\subsubsection{(2)}
+如果$G$为阿贝尔群，则$G$中存在元素阶为$d(G)$.
+
+\zm{
+	由算术基本定理，$d(G)=\prod_{i=1}^{n}p_i^{n_i}$，其中$\{p_i\}$为各异的素数. 由最小公倍数的性质对任意$p_i$有$G$的元素$g_i$阶为$p_i^{n_i}s$，于是$h_i=g_i^s$的阶为$p_i^{n_i}$.
+	
+	设$G$中两个元素$a,b$的阶各为$m,n$且$m,n$互素，则由{\heiti 习题}\textbf{1.3.8}知$ab$的阶为$mn$.
+	
+	假设$\prod_{i=1}^{s}h_i$的阶为$\prod_{i=1}^{s}p_i^{n_i}$，若$s<n$，则存在$h_{s+1}$且阶$\prod_{i=1}^{s}p_i^{n_i}$与$p_{s+1}^{n_{s+1}}$互素，故$\prod_{i=1}^{s+1}h_i$的阶为$\prod_{i=1}^{s+1}p_i^{n_i}$. 由于当$s=1$时假设成立，故$s=n$时假设成立，此时$\prod_{i=1}^{n}h_i$的阶为$d(G)$.
+}
+
+\subsubsection{(3)}
+有限阿贝尔群$G$为循环群$\Leftrightarrow d(G)=|G|$.
+
+\zm{
+	($\Rightarrow$)显然，($\Leftarrow$)利用(2)的结论，$G$中存在$|G|$阶元，故为循环群.
+}

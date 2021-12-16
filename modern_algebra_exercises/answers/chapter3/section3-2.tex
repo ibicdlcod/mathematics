@@ -1,0 +1,264 @@
+\section{环的同态与同构}
+\subsection{}
+证明整环$\mathbb{Z}[\sqrt{d}]$的任何一个非零理想都包含一个非零整数.
+
+\zm{
+	题意似乎认为$d$是整数，以下我们假定$d$为整数.
+	
+	记该理想为$I$，则存在$a+b\sqrt{d}\in I$，使得$a,b$为不全为$0$的整数.
+	此时$(a+b\sqrt{d})(a-b\sqrt{d})=a^2-b^2d\in I$.
+	
+	若$a^2-b^2d=0$，则若$b=0$，有$a=0$得矛盾，故$b\neq 0$，$d$为整数的平方，此时$\mathbb{Z}[\sqrt{d}]\cong\mathbb{Z}$其元素皆为整数，显然结论成立.
+	
+	若$a^2-b^2d\neq 0$，则它是$I$中非零整数.
+	
+	事实上，可以证明对于$d$为代数数的情形，结论总是成立的.
+}
+
+\subsection{}
+\subsubsection{(1)}
+确定$\Aut(\mathbb{Q}[\sqrt{d}])$，$d\in\mathbb{Q}^{\times}-(\mathbb{Q}^{\times})^2$
+
+\jie 设$\sigma\in\Aut(\mathbb{Q}[\sqrt{d}])$，易见$\sigma$在$\mathbb{Q}$上的限制为恒等映射.
+
+令$\sigma(\sqrt{d})=c$，则$c^2=\sigma(\sqrt{d}^2)=\sigma(d)=d$，故$c=\pm \sqrt{d}$. 故$\forall a,b\in\mathbb{Q}, \sigma(a+b\sqrt{d})=a\pm b\sqrt{d}$，$\Aut(\mathbb{Q}[\sqrt{d}])\subseteq\{\id, \mathrm{conj}\}$其中$\mathrm{conj}: a+b\sqrt{d}\mapsto a-b\sqrt{d}$，容易验证当$d\in\mathbb{Q}^{\times}-(\mathbb{Q}^{\times})^2$时$\mathrm{conj}$确实是$\mathbb{Q}[\sqrt{d}]$的自同构，且$\mathrm{conj}^2=\id$，故$\Aut(\mathbb{Q}[\sqrt{d}])\cong\mathbb{Z}/2\mathbb{Z}$.
+
+\subsubsection{(2)}
+确定$\Aut(\mathbb{Z}/m\mathbb{Z})$
+
+\jie 平凡群，请读者自证.
+
+\subsection{}
+证明复数域$\mathbb{C}$可嵌入到环$M_2(\mathbb{R})$中.
+
+\zm{
+	做映射$f:\mathbb{C}\rightarrow M_2(\mathbb{R}), a+bi\mapsto
+	\begin{pmatrix}
+	a & b\\
+	-b & a
+	\end{pmatrix}
+	$，	请读者自证$f$是同态.
+}
+
+\subsection{}
+求下列环同态的核的生成元.
+\subsubsection{(1)} 
+$\varphi:\mathbb{R}[x,y]\rightarrow \mathbb{R}, f(x,y)\mapsto f(0,0)$
+
+\jie $\ker\varphi=(x,y)_{\Ideal}$，请读者自证.
+
+\subsubsection{(2)}
+$\varphi:\mathbb{R}[x]\rightarrow \mathbb{C}, f(x)\mapsto f(2+i)$
+
+\jie $\ker\varphi$为$\mathbb{R}[x]$的理想，记为$I$，易见一次以下的非零多项式不在$I$中，而$x^2-4x+5\in I$，即它是$I$中非零多项式中次数最低的，由{\heiti 命题}\textbf{3.40}的证明可知$I=(x^2-4x+5)_{\Ideal}$为主理想，$x^2-4x+5$为生成元.
+
+\subsubsection{{3}}
+$\varphi: \mathbb{Z}[x]\rightarrow \mathbb{R}: f(x)\mapsto f(1+\sqrt{2})$
+
+\jie 讨论$\varphi^{\prime}: \mathbb{Q}[x]\rightarrow \mathbb{R}: f(x)\mapsto f(1+\sqrt{2})$
+
+ $\ker\varphi^{\prime}$为$\mathbb{Q}[x]$的理想，记为$I$，易见一次以下的非零多项式不在$I$中，而$x^2-2x-1\in I$，即它是$I$中非零多项式中次数最低的，由{\heiti 命题}\textbf{3.40}的证明可知$I=(x^2-2x-1)_{\Ideal,\mathbb{Q}[x]}=(x^2-2x-1)g(x), g(x)\in\mathbb{Q}[x]$，由于$x^2-2x-1$的容积$c(f)=1$，由{\heiti 命题}\textbf{4.29}，$g(x)$的容积为整数才能$(x^2-2x-1)g(x)\in\mathbb{Z}[x]$，故$g(x)\in\mathbb{Z}[x], \ker\varphi=\ker\varphi^{\prime}\cap \mathbb{Z}[x]=(x^2-2x-1)_{\Ideal, \mathbb{Z}[x]}$，生成元为$x^2-2x-1$.
+ 
+ \subsubsection{(4)}
+ $\varphi: \mathbb{C}[x,y,z]\rightarrow\mathbb{C}[t]:x\mapsto t, y\mapsto t^2, z\mapsto t^3$.
+ 
+ \jie 对任意$f(x,y,z)\in\mathbb{C}[x,y,z]$，将$f$中一个$z$替换为$x^3$得到$f^{\prime}$，则$\varphi(f)=\varphi(f^{\prime})$，且$f=n+mz (n\in\mathbb{C}[x,y],m\in\mathbb{C}[x,y,z]), f^{\prime}=n+mx^3=f+m(x^3-z)$，故$f$与$f^{\prime}$总是只相差$x^3-z$在$\mathbb{C}[x,y,z]$中的倍数.
+ 
+ 同理，一个$y$可替换为$x^2$而使$f$的改变量为$x^2-y$在$\mathbb{C}[x,y,z]$中的倍数.
+ 
+ 令$\ker\varphi=I$是$\mathbb{C}[x,y,z]$的理想，$f\in I\Leftrightarrow \varphi(f)=0\Leftrightarrow f$可由上述变换得到零多项式，故$I=(x^2-y,x^3-z)_{\Ideal}$，生成员为$x^2-y, x^3-z$.
+ 
+ \subsection{}
+ \subsubsection{(1)}
+ 求环同态$\varphi: \mathbb{C}[x,y]\rightarrow \mathbb{C}[t]; x\mapsto t+1, y\mapsto t^3-1$的核$K$.
+ 
+ \jie $K=(y-(x^3-3x^2+3x-2))_{\Ideal}$，请读者仿照上一题(4)自证.
+ 
+ \subsubsection{(2)}
+ $\mathbb{C}[x,y]$的任意理想$I\supseteq K$可由$2$个元素生成.
+ 
+ \zm{
+ 	对任意$g(x,y)\in I$，将$y$替换为$x^3-3x^2+3x-2$，得到$g^{\prime}(x,y)$，仿照上一题(4)有$g^{\prime}(x,y)-g(x,y)=(y-(x^3-3x^2+3x-2))m(x,y), m(x,y)\in\mathbb{C}[x,y]$，由于$y-(x^3-3x^2+3x-2)\in K\subseteq I$知$(y-(x^3-3x^2+3x-2))m(x,y)\in I$，我们有$g^{\prime}(x,y)\in I\Leftrightarrow g(x,y)\in I$.
+ 	
+ 	故$I$的生成元中，除$y-(x^3-3x^2+3x-2)$以外含有$y$的元均可一步一步消去$y$得到$\mathbb{C}[x]$中元而不改变$I$，而由{\heiti 命题}\textbf{3.40}，$\mathbb{C}[x]$为PID，故所有属于$\mathbb{C}[x]$的生成元由一个$h(x)$生成，故$I=(h(x),y-(x^3-3x^2+3x-2))_{\Ideal}$.
+ }
+
+\subsection{}
+设$I,J$是环$R$的理想，求证：
+\subsubsection{(1)}
+$IJ=\{\sum_{k=1}^na_kb_k\mid a_k\in I, b_k\in J\}$也是环$R$的理想，且$IJ\subseteq I\cap J$.
+
+\zm{
+	$\forall u_1,u_2\in IJ, u_1=\sum{k=1}^{n_1}a_kb_k, u_2=\sum_{k=1}^{n_2}a_k^{\prime}b_k^{\prime}$，
+	此时$u_1+u_2=\sum_{m=1}^{n_1+n_2}a_mb_m\in IJ$其中
+	$a_m=\left\{
+	\begin{matrix}
+	a_m, & m\leq n_1\\
+	a_{m-n_1}^{\prime}, & m> n_1
+	\end{matrix}\right.,
+	b_m=\left\{
+	\begin{matrix}
+	b_m, & m\leq n_1\\
+	b_{m-n_1}^{\prime}, & m> n_1
+	\end{matrix}\right..$同样，$\forall r\in R$，$u_1r=\left(\sum_{k=1}^{n_1}a_kb_k\right)r
+	=\sum_{k=1}^{n_1}a_k(b_kr)$其中$b_kr\in J$，$ru_1=r\left(\sum_{k=1}^{n_1}a_kb_k\right)
+	=\sum_{k=1}^{n_1}(ra_k)b_k$其中$ra_k\in I$，故两者都属于$IJ$，$IJ$为$R$的理想. 由$I$是理想，$J\subseteq R$得$IJ\subseteq I$同理$IJ\subseteq J$，故$IJ\subseteq I\cap J$.
+}
+
+\subsubsection{(2)}
+$I+J$也是环$R$的理想，并且它恰好是包含$I$和$J$的最小理想.
+
+\zm{
+	$(I+J)+(I+J)=I+I+J+J\subseteq I+J, (I+J)R=IR+JR\subseteq I+J, R(I+J)=RI+RJ\subseteq I+J$，故$I+J$是$R$的理想，又若理想$K$满足$I,J\subseteq K$，则$I+J\subseteq K+K\subseteq K$，故任何包含$I,J$的理想都包含$I+J$，得到结论.
+}
+
+\subsubsection{(3)}
+设$I=n\mathbb{Z}, J=m\mathbb{Z}\;(m,n\geq 1)$为$\mathbb{Z}$的理想，求$IJ,I+J,I\cap J$.
+
+\jie 只给出结果，请读者自证. $IJ=nm\mathbb{Z}, I+J=\gcd(n,m)\mathbb{Z}, I\cap J=\lcm(n,m)\mathbb{Z}$.
+
+\subsection{}
+设$I$是交换环$R$中的理想，定义$\sqrt{I}=\{r\in R\mid \exists n\geq 1\;\text{s.t.}\;r^n\in I\}$,
+\subsubsection{(1)}
+证明$\sqrt{I}$是$R$的理想.
+
+\zm{
+	对任何$r,s\in \sqrt{I}$，有$r^n\in I, s^m\in I$，此时$(rR)^n\in IR^n\subseteq IR\subseteq I, (Rr)^n\in  R^nI\subseteq RI\subseteq I$，在商环$R/I$中，$r,s$为幂零元素，由{\heiti 习题}\textbf{3.1.12(1)}，$r+s$也是$R/I$中的幂零元素，即存在正整数$k$使得$(r+s+I)^k=(r+s)^k+\sum_{j=1}^{k}\binom{k}{j}(r+s)^{k-j}I^{j}\subseteq I+0$，故$(r+s)^k= (r+s+I)^k-\sum_{j=1}^{k}\binom{k}{j}(r+s)^{k-j}I^{j}\subseteq I$，即$r+s\in\sqrt{I}$.
+}
+\subsubsection{(2)}
+证明$\sqrt{I}=R\Leftrightarrow I=R$.
+
+\zm{
+	($\Leftarrow$)请读者自证.
+	
+	($\Rightarrow$)$\sqrt{I}\in R\Rightarrow 1\in\sqrt{I}\Rightarrow \exists n\geq 1$ s.t. $1^n\in I$，但对任何$n\geq 1$均有$1^n=1$，故$1\in I\Rightarrow I=R$.
+}
+
+\subsubsection{(3)}
+证明$\sqrt{\sqrt{I}}=\sqrt{I}$.
+
+\Proofbyintimidation
+
+\subsubsection{(4)}
+证明$\sqrt{I+J}=\sqrt{\sqrt{I}+\sqrt{J}}, \sqrt{I\cap J}=\sqrt{I}\cap\sqrt{J}=\sqrt{IJ}$.
+
+\zm{
+	(i)由于$I\subseteq\sqrt{I}$，故$\sqrt{I+J}\subseteq \sqrt{\sqrt{I}+\sqrt{J}}$，只需证反之也成立，即$\forall g\in\sqrt{\sqrt{I}+\sqrt{J}}$有$g\in\sqrt{I+J}$. 令$k$满足$g^k=a+b$，其中$a\in\sqrt{I}, b\in\sqrt{J}, a^n\in I, b^m\in J$，则$(a+b)^{m+n}
+	=\sum_{i=0}^{m+n}\binom{m+n}{i}a^ib^{m+n-i}
+	=\sum_{i=0}^n\binom{m+n}{i}a^ib^mb^{n-i}
+	+\sum_{i=n+1}^{m+n}\binom{m+n}{i}a^na^{i-n}b^{m+n-i}
+	\in \sum_{i=0}^n\binom{m+n}{i}a^iJb^{n-i}
+	+\sum_{i=n+1}^{m+n}\binom{m+n}{i}Ia^{i-n}b^{m+n-i}
+	\subseteq RJR+RIR
+	\subseteq I+J$. 故我们有$\sqrt{I+J}\supseteq \sqrt{\sqrt{I}+\sqrt{J}}$.
+	
+	(ii)\circled{1} $g\in\sqrt{I\cap J}\Leftrightarrow \exists k\in\mathbb{Z}_+$ s.t. $g^k\in I$且$g^k\in J$
+	
+	\circled{2} $g\in\sqrt{I}\cap\sqrt{J}\Leftrightarrow \exists m,n\in\mathbb{Z}_+$ s.t. $g^m\in I$且$g^n\in J$
+	
+	\circled{3} $g\in\sqrt{IJ}\Leftrightarrow \exists k\in\mathbb{Z}_+$ s.t. $g^k\in IJ$.
+	
+	\circled{1} $\Rightarrow$ \circled{2} 显然.
+	
+	\circled{2} $\Rightarrow$ \circled{3} $g^{m+n}=g^mg^n\in IJ$，故取$k=m+n$即可.
+	
+	\circled{3} $\Rightarrow$ \circled{1} 由{\heiti 习题}\textbf{3.2.6(1)}，$IJ\subseteq I\cap J$即得.
+	
+	综上三种条件等价，三个集合相同.
+}
+
+\subsection{}
+设$R$为含幺环，集合$C(R)=\{c\in R\mid\forall r\in R, rc=cr\}$叫做环$R$的中心.
+\subsubsection{(1)}
+证明$C(R)$为$R$的子环.
+
+\zm{
+	只需证$C(R)$对加减乘封闭. $\forall c_1,c_2\in C(R)$有$rc_1=c_1r, rc_2=c_2r\Rightarrow
+	r(c_1\pm c_2)=rc_1\pm rc_2=c1_r\pm c_2r=(c_1\pm c_2)r; rc_1c_2=c_1rc_2=c_1c_2r$，故$C(R)$是$R$的子环.
+}
+\subsubsection{(2)}
+$C(R)$不一定是$R$的理想.
+
+\jie 在环$R=M_n(F)$中$C(M_n(F))=\{\lambda I_n\mid \lambda \in F\}$为数量矩阵（参见{\heiti 例}\textbf{1.77}，请读者自证细节），$I_n\in C(R)$，但当$n\geq 2$时$C(R)\neq R$，故当$n\geq 2$时$C(M_n(F))$不是$M_n(F)$的理想.
+
+\subsection{}
+证明只有有限个理想的整环$R$是域.
+
+\zm{
+	反证法，若$R$是整环但不是域，则$R$交换，一个元素$x$生成的理想即$xR$，取任意非零乘法不可逆元$a$，则$\forall r, a^{i+1}r=a^i(ar)$，其中有$ar\in R$，故$(a^{i+1})_{\Ideal}\subseteq (a^i)_{\Ideal}$，又若$a^i\in (a^{i+1})_{\Ideal}$，则存在$r$使得$a^i=a^{i+1}r\Rightarrow a^i(1-ar)=0$，由于$R$是整环，$a$不是零因子，只能$1-ar=0$，即$r$为$a$的逆元，矛盾.
+	
+	故$\forall i\in\mathbb{N}$，$(a^i)_{\Ideal}\supsetneqq(a^{i+1})_{\Ideal}$，$\{(a^k)_{\Ideal}\mid k\in\mathbb{N}\}$为$R$的无限多个两两不同的理想，与题设矛盾.
+}
+
+\subsection{}
+设$f: R\rightarrow S$是环同态，如果$R$是体，求证$f$或者是零同态，或者是嵌入.
+
+\zm{
+	$I=\ker f\subseteq R$为$R$的理想，若$\ker f=\{0\}$，则$f$为嵌入.  否则令$x$为任何一个$\ker f$的非零元，则$xx^{-1}=1\in IR\in I$，故$I=R$，$f$为零同态.
+}
+
+\subsection{}
+设$\forall k\in\mathbb{Z}_+$，$I_k$为$R$的理想，且$I_k\subseteq I_{k+1}$，求证$\bigcup_{i=1}^{\infty} I_i$也是$R$的理想.
+
+\zm{
+	令$a,b\in\bigcup_{i=1}^{\infty}I_i, r\in R$，则$\exists k_1,k_2\in\mathbb{Z}_+$使得$a\in I_{k_1}, b\in I_{k_2}$，不妨设$k_1<k_2$，则$a+b\in(I_{k_1}+I_{k_2})\subseteq (I_{k_2}+I_{k_2})\subseteq I_{k_2}\subseteq \bigcup_{i=1}^{\infty}I_i$，且$ra,ar\in RI_{k_1}, IR_{k_1}\subseteq I_{k_1}\subseteq \bigcup_{i=1}^{\infty}I_i$，故得结论.
+}
+
+\subsection{}
+线性代数
+
+\subsection{}
+线性代数
+
+\subsection{}
+验证实矩阵集合
+$$\begin{pmatrix}
+x & -y & -z & -w\\
+y & x & -w & z\\
+z & w & x & -y\\
+w & -z & y & x
+\end{pmatrix}$$
+在矩阵加法和乘法意义下构成环. 证明它同构于四元数体$\mathbb{H}$.
+
+\zm{
+	设该矩阵集合为$M_{\mathbb{H}}$，令$f: M_{\mathbb{H}}\rightarrow \mathbb{H}; 
+	\begin{pmatrix}
+	x & -y & -z & -w\\
+	y & x & -w & z\\
+	z & w & x & -y\\
+	w & -z & y & x
+	\end{pmatrix} \mapsto x+yi+zj+wk$，显然$f$将单位元$I_4$映射到$1_{\mathbb{H}}$，且保持加法. 只需证明它保持乘法即可.
+	
+	令$Q_1=\begin{pmatrix}
+	x_1 & -y_1 & -z_1 & -w_1\\
+	y_1 & x_1 & -w_1 & z_1\\
+	z_1 & w_1 & x_1 & -y_1\\
+	w_1 & -z_1 & y_1 & x_1
+	\end{pmatrix},
+	Q_2=\begin{pmatrix}
+	x_2 & -y_2 & -z_2 & -w_2\\
+	y_2 & x_2 & -w_2 & z_2\\
+	z_2 & w_2 & x_2 & -y_2\\
+	w_2 & -z_2 & y_2 & x_2
+	\end{pmatrix}.$
+	
+	则
+	\begin{equation*}
+	Q_1Q_2=\left(
+	\begin{smallmatrix}
+	\setlength\arraycolsep{1pt} 
+	x_1x_2-y_1y_2-z_1z_2-w_1w_2 & -x_1y_2-y_1x_2-z_1w_2+w_1z_2 & -x_1z_2+y_1w_2-z_1x_2-w_1y_2 & -x_1w_2-y_1z_2+z_1y_2-w_1x_2\\
+	y_1x_2+y_2x_1-w_1z_2+z_1w_2 & -y_1y_2+x_1x_2-w_1w_2-z_1z_2 & -y_1z_2-x_1w_2-w_1x_2+z_1y_2 & -y_1w_2+x_1z_2+w_1y_2+z_1x_2\\
+	z_1x_2+w_1y_2+x_1z_2-y_1w_2 & -z_1y_2+w_1x_2+x_1w_2+y_1z_2 & -z_1z_2-w_1w_2+x_1x_2-y_1y_2 & -z_1w_2+w_1z_2-x_1y_2-y_1x_2\\
+	w_1x_2 -z_1y_2+y_1z_2+x_1w_2 & -w_1y_2-z_1x_2+y_1w_2-x_1z_2 & -w_1z_2-z_1w_2+y_1x_2+x_1y_2 & -w_1w_2-z_1z_2-y_1y_2+x_1x_2
+	\end{smallmatrix}\right),
+	\end{equation*}
+	因此$Q_1Q_2$在$f$的定义域中，并且$f(Q_1Q_2)=
+	(x_1x_2-y_1y_2-z_1z_2-w_1w_2)
+	+(y_1x_2+x_1y_2+z_1w_2-w_1z_2)i
+	+(z_1x_2+x_1z_2+w_1y_2-y_1w_2)j
+	+(w_1x_2+x_1w_2+y_1z_2-z_1y_2)k$，而$f(Q_1)=x_1+y_1i+z_1j+w_1k, f(Q_2)=x_2+y_2i+z_2j+w_2k$，易验证$f$保持乘法并是双射，故$f$是同构.
+}
+
+\subsection{}
+复变函数

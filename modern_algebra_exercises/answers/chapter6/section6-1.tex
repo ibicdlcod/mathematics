@@ -1,0 +1,229 @@
+\section{伽罗瓦理论的主要定理}
+\subsection{}
+设$F=\mathbb{F}_q$为$q$元有限域，$\gcd(n,q)=1$，$E$为$x^n-1$在$F$上的分裂域. 证明$[E:F]$等于满足$n\mid q^k-1$的最小整数$k$.
+
+\zm{
+	$x^n-1$一定有根在$E$的乘法群上阶为$n$，而$E$的乘法群为$q^{[E:F]-1}$阶，故$n\mid q^{[E:F]-1}$. 另一方面，令$k$满足$n\mid q^k-1$，则$\mathbb{F}_{q^k}$上有$n$个元素（记该域的乘法群生成元为$a$，则$a^{q^k-1/n}$生成的乘法子群有$n$个元素满足$x^n-1=0$，故$x^n-1$在该域上分裂.
+	
+	若存在异于$\mathbb{F}_{q^k}$的另一个域$\mathbb{F}_{q^l}$使得$x^n-1$在该域上也分裂，则$n\mid q^l-1$，故$n\mid q^l-q^k$，$n\mid q^{l-k}-1$. 但$q^k\equiv 1\mod n$且$1<s<k$时$q^s\not\equiv 1\mod n$，故$q^r\equiv 1\mod n$当且仅当$k\mid r$，故$k\mid  l-k$，$k\mid l$，由{\heiti 定理}\textbf{5.42(6)}，$\mathbb{F}_{q^l}\supseteq\mathbb{F}_{q^k}$，故$\mathbb{F}_{q^k}$是$x^n-1$在$F$上的分裂域.
+}
+
+\subsection{}
+设$F$为域，$f(x)$为$F[x]$中$n$次多项式，$E$为$f(x)$在$F$上的分裂域. 求证：$[E:F]\mid n!$.
+
+\emph{证明由文献}\cite{62792}给出.
+
+\zm{
+	当$n=1$时，结论显然成立. 假设我们对$n<k+1$有结论成立，对$n=k+1$的情况，对$f$的可约性分情况讨论：
+	
+	若$f$可约，令$g(x)$为$f$的一个不可约因子，$\deg g=u, \deg f/g=k+1-u$，则$u,k+1-u\leq k$. 令$L$是$g$在$F$上的分裂域，则$K$是$f/g$在$L$上的分裂域（请读者自行将$g$和$f/g$写作$K$中的因式分解证明这一点），故有$[L:F]\mid u!, [K:L]\mid (k+1-u)!$，但$(k+1)!/u!(k+1-u)!=\binom{k+1}{u}$为整数，故$[K:F]\mid u!(k+1-u)!\mid k!$.
+	
+	若$f$不可约，令$L=F[x]/(f)_{Ideal, F[x]}\cong F(\alpha)$，其中$\alpha$是$f$的一个根，此时$[L:F]=\deg f=k+1$，$K$是$f(x)/(x-\alpha)$在$L$上的分裂域，由归纳假设$[K:L]\mid k!$，$[K:F]\mid (k+1)k!=(k+1)!$.
+}
+
+\subsection{}
+设$E$为$x^8-1$在$\mathbb{Q}$上的分裂域，求$E/\mathbb{Q}$的扩张次数，并确定伽罗瓦群$\mathrm{Gal}(E/\mathbb{Q})$.
+
+\jie $x^8-1$的所有根都是$8$次本原单位根$\zeta_8$的方幂，故$E=\mathbb{Q}(\zeta_8)$，且$\zeta_8$在$\mathbb{Q}$上的最小多项式为$x^4+1=0$，故$[E:\mathbb{Q}]=4$.
+
+对$\mathrm{Gal}(E/\mathbb{Q})$，它将$x^4-1$的根$8$次本原单位根$\zeta_8$映射到$8$次本原单位根$\zeta_8,\zeta_8^3,\zeta_8^5,\zeta_8^7$，记这些映射为$\id, \tau_3, \tau_5, \tau_7$，易见$\tau_i$都是$2$阶元，故$\mathrm{Gal}(E/\mathbb{Q})\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$.
+
+\subsection{}
+设$E/F$是域的扩张. 如果对每个元素$\alpha\in E$，$a\notin F$，$\alpha$在$F$上均是超越元，则称$E/F$是{\heiti 纯超越扩张}. 证明：
+
+\subsubsection{(1)}
+$F(x)/F$是纯超越扩张.
+
+\zm{
+	对一次以上多项式$f(x)$，若它在$F$上代数，则由于它不在$F$内，存在二次以上多项式$g(x)$使得$g(f(x))=0$，但$\deg g(f(x))\geq 2$，矛盾.
+}
+
+\subsubsection{(2)}
+对于任意域扩张$E/F$，存在唯一的中间域$M$使得$E/M$为纯超越扩张，而$M/F$为代数扩张.
+
+\zm{
+	令$M$为所有$E$中$F$上的代数元集合，易验证$M$构成域. 显然$M/F$为代数扩张，若$E-M$中有元素在$M$上代数，由{\heiti 定理}\textbf{5.16}，该元素在$F$上也代数，与$M$的定义矛盾，故$E/M$是纯超越扩张.
+	
+	唯一性？令$M_1$是另外一个这样的域，显然$M_1$不含$F$上的超越元，故$M_1\subseteq M$，若$\alpha\in M$但$\alpha\notin M_1$，则$\alpha$在$F$上代数推出$\alpha$在$M_1$上代数，与$E/M_1$为纯超越扩张矛盾，故$M_1=M$.
+}
+
+\subsection{}
+证明：$F$是完全域当且仅当$F$的所有有限扩张都是可分扩张.
+
+\zm{
+	正文对完全域的定义不包括$\mathrm{char}F=0$的情况，但本题（和一般的对完全域的定义）都包括. 当$\mathrm{char}F=0$时，结论显然成立，以下设$\mathrm{char}F=p$.
+	
+	($\Rightarrow$) 由{\heiti 命题}\textbf{6.18}立得.
+	
+	($\Leftarrow$) 我们只需证明$F$中存在$\alpha$使得不存在$\beta^p=\alpha, \beta\in F$时$F[x]$上存在有重根的不可约多项式即可.
+	
+	考虑$f(x)=x^p-\alpha=(x-\beta)^p$，其中$\beta\notin F$是$F$的代数闭包中元素. 若$f(x)$在$F[x]$上可约，必有$(x-\beta)^k\in F[x]$其中$1\leq k<p$，故$\beta^k\in F$，由$\gcd(k,p)=1$，必有整数$u$使得$ku=pv+1$，故$\beta=(\beta^k)^u\alpha^{-v}\in F$，矛盾. 故$f(x)$是$F[x]$上不可约多项式，它有$p$重根$\beta$.
+}
+
+\subsection{}
+设$F$为特征$0$域，$f(x)$为$F[x]$中的非常值首一多项式，$d(x)=\gcd(f,f^{\prime})$. 求证：$g(x)=f(x)/d(x)$和$f(x)$有同样的根，并且$g(x)$无重根.
+
+\zm{
+	考虑$f(x)$的任意一个根$c$，其重数为$k$，即$f(x)=(x-c)^kh(x)$且$x-c\nmid h(x)$，故$f^{\prime}(x)=k(x-c)^{k-1}h(x)+(x-c)^kh^{\prime}(x)=(x-c)^{k-1}(kh(x)+(x-c)h^{\prime}(x))$，我们有$x-c\nmid kh(x)$，$(x-c)\nmid (kh(x)+(x-c)h^{\prime}(x))$，故$d(x)=(x-c)^{k-1}r(x)$其中$x-c\nmid r(x)$，$g(x)=(x-c)h(x)/r(x)$，即$c$是$g(x)$的根且重数为$1$.
+}
+
+\subsection{}
+本题参考{\heiti 习题}\textbf{5.4.17}，本书不再赘述. （未完）
+
+\subsection{}
+设$E/F$为可分扩张，$M$为$E/F$的中间域，求证$E/M$和$M/F$均是可分扩张.
+
+\zm{
+	$E$上的所有元都是$F$-可分元，故$M$上的所有元也是，故$M/F$是可分扩张.
+	
+	对$E/M$，由于$E$上元素在$M$上的最小多项式是它在$F$上的最小多项式的因子，后者没有重根导致前者也没有，故$E/M$也是可分扩张.
+}
+
+\subsection{}
+设$F$为特征$p>0$域，$E/F$为代数扩张，证明对每个$\alpha\in E$均存在整数$n\geq 0$使得$\alpha^{p^n}$在$F$上可分.
+
+\zm{
+	设$\alpha$在$F$上的最小多项式为$f(x)$，若$f(x)$无重根，取$n=0$即可，否则由{\heiti 习题}\textbf{5.4.17}，$f(x)=g(x^{p^n})$且不存在$\tilde{g}(x)$使得$f(x)=\tilde{g}(x^{p^{n+1}})$，故$g(x)$不满足$g(x)=h(x^p)$，由{\heiti 习题}\textbf{5.4.17(1)}知$g(x)$无重根，但$\alpha^{p^n}$是$g(x)$的根，故$\alpha^{p^n}$的最小多项式整除$g(x)$，它也没有重根，故得结论.
+}
+
+\subsection{}
+设$E=\mathbb{F}_p(x,y), F=\mathbb{F}_p(x^p,y^p)$，$p$为素数. 证明：
+\subsubsection{(1)}
+$[E:F]=p^2$；
+
+\zm{
+	请读者自行验证$\{x^iy^j\mid i,j\in\mathbb{F}_p\}$是$E$的一组$F$-基.
+	
+	另一种证法：请读者验证$t^p-x^p$是$x$在$F$上的最小多项式，令$L=\mathbb{F}_p(x,y^p)$，则$[L:F]=p$. $t^p-y^p$是$y$在$L$上的最小多项式，则$[E:L]=p$.
+}
+
+\subsubsection{(2)}
+$E/F$不是单扩张.
+
+\emph{以下(2)(3)由文献}\cite{1824104}\emph{给出.}
+
+\zm{
+	$E$中常数满足$\alpha^p\in F$，且$x,y$也满足该条件. 由于$(\alpha+\beta)^p=\alpha^p+\beta^p$，故$E$中满足$\alpha^p\in F$的元素构成域，这导致$E$中一切元素都满足$\alpha^p\in F$，$[F(\alpha):F]\leq p<[E:F]$，故$E/F$不是单扩张.
+}
+
+\subsubsection{(3)}
+$E/F$有无限多个中间域.
+
+\zm{
+	令$z$为$E$中任意非零元素，$w=x+zy$，则$w\notin F$，$[F(w):F]>1$，又$w^p=x^p+z^py^p\in F$，故$[F(w):F]\leq p$，又$[F(w):F]\mid[E:F]$，只能$[F(w):F]=p$.
+	
+	若还存在$z^{\prime}\neq z,0$使得$w^{\prime}=x+z^{\prime}y\in F(w)]$，则$(z^{\prime}-z)y\in F(w)$，$(z^{\prime}-z)\neq 0$，故$y\in F(w)$，又$z^{-1}x+y\in F(w), z^{\prime -1}x+y\in F(w)$，同理有$x\in F(w)$，故$F(w)=E$，矛盾. 故不同的非零$z$导致不同的$F(w)$，而$E$中有无限多个元素，故中间域$F(w)$有无限多个.
+}
+
+\subsection{}
+\subsubsection{(1)}
+若$E/F$为代数扩张，$F$为完全域，则$E$也为完全域；
+
+\zm{
+	$F$上的所有不可约多项式均无重根，由$E/F$是代数扩张，$E$上的任意不可约多项式为前者中某元素的因子，故也无重根，故$E$是完全域.
+}
+
+\subsubsection{(2)}
+若$E/F$为有限生成扩张，$E$为完全域，则$F$也为完全域.
+
+\zm{
+	反证法，若$F$不是完全域，则$F$的特征为$p$.
+	
+	由{\heiti 习题}\textbf{6.1.4}，存在$M$使得$E/M$是纯超越扩张而$M/F$是代数扩张. 由于$M/F$也是有限生成的，故$M/F$是有限扩张. 我们证明$M$不是完全域.
+	
+	$F$中存在$a$使得$c^p=a$在$F$中无根. 令$f(x)=x^{p^n}-a$. 设$c^{p^n}=a$其中$c$是$F$的代数闭包中元素，$F_1=F(c)$，由于$(a\pm b)^p=a^p\pm b^p, (a\pm b)^{p^n}=a^{p^n}+b^{p^n}$，故$f(x)=(x-c)^{p^n}$. 设$g(x)$是$c$在$F$上的最小多项式，则$g(x)=(x-c)^r$，若$r\nmid p^n$则存在整数$s$使得$p^n=rs+t, 0<t<r$，故$(x-c)^t=f(x)g(x)^{-s}$也是$f(x)$的$F$上不可约分解式中元素，与$g(x)$的定义矛盾. 故$r\mid p^n$，$r=p^d$. $g(x)=(x-b)^{p^d}=x^{p^d}-b^{p^d}, b^{p^d}\in K$，若$d\neq n$，则$(b^{p^d})p^{n-d-1}\in K$是$c^p=a$的根，矛盾，故$d=n$，$f=g$是不可约多项式.
+	
+	若$M$是完全域，$a$必有$p,p^2,\cdots,p^n$次方根，故$b\in M$，$f(x)$是$b$的$F$上最小多项式，故$[M:F]\geq\deg f=p^n$，但$[M:F]$有限，与$n$的任意性矛盾，故$M$不是完全域.
+	
+	令$a\in M$使得$c^p=a$在$M$中无根，若它在$E$中有根$a$，则$c$在$M$上代数，与$E/M$是纯超越扩张矛盾. 而$a\in E$，故$E$不是完全域，矛盾.
+	
+	综上，$E$为完全域则$F$也为完全域.
+}
+
+{\heiti 注记.} 若$g$是$f$的所有根的最小多项式，则$f=ug^m$，其中$u$是常数. 理由如下：
+
+$f=u_1\prod_i(x-\alpha_i)^{k_i}$, 设$m$是使得$g^m\mid f$的最大整数，$f/g^m=u_2\prod_i(x-\alpha_i)^{l_i}$，若$l_j\neq 0$，则$f/g^m$是$\alpha_j$的化零多项式，$g\mid f/g^m, g^{m+1}\mid f$，矛盾. 故$f/g^m=u_2$.
+
+\subsubsection{(3)}
+若$E/F$为代数扩张（不必为有限扩张），问(2)中结论是否成立？
+
+\jie 否，取任何非完全域$F$的代数闭包$E$，$E/F$是代数扩张，$E$是代数封闭域，故由完全域的定义它必然是完全域，这就否证了(2)的结论.
+
+\subsection{}
+设$E=\mathbb{Q}(\alpha)$, 其中$\alpha^3+\alpha^2+2\alpha-1=0$，证明：
+\subsubsection{(1)}
+$\alpha^2-2$也是$x^3+x^2-2x-1=0$的根.
+
+\zm{
+	$\alpha^3=-\alpha^2+2\alpha+1$. $\alpha^2-2$代入方程即得左边$=a^6-5a^4+6a^2-1=(a^3)(a^3)-5a(a^3)+6a^2-1
+	=a^4+a^3-2a^2-a=0\cdot a=0$.
+}
+
+\subsubsection{(2)}
+$E/\mathbb{Q}$是正规扩张.
+
+\zm{
+	$x^3+x^2-2x-1$在$\overline{\mathbb{Q}}$中只有$3$个根，令$f(x)=x^3+x^2-2x-1$，则$g(x)=f^{\prime}(x)=3x^2+2x-1$，$\gcd(f,f^{\prime}=1$，$f$无重根，故$\alpha\neq\alpha^2-2$，且设$f$的另一个根为$\beta$，则$\beta+\alpha+(\alpha^2-2)=-1$（次项系数乘以$-1$），故$\beta\in E$，$E/\mathbb{Q}$是正规扩张.
+}
+
+\subsection{}
+设$E/F$和$K/F$都是正规扩张，求证$EK/F$也是正规扩张.
+
+
+\emph{证明利用了文献}\cite{1780896}\emph{的思想，但引理由作者完成，文献中并未证明.}
+
+\zm{
+	{\heiti 引理.} 设$K/F$为代数扩张，$\alpha$的$F$-共轭元都在$K$中，$\beta$的$F$-共轭元也都在$K$中，则$u\alpha\;(u\in F^{\times})$和$\alpha+\beta$的共轭元也都在$K$中.
+	
+	\zm{
+		设$\alpha$在$F$上的最小多项式为$f(x)=\prod_{i\in I}(x-\alpha_i)\in F[x]$，其中$\alpha_1=\alpha, \alpha_i$不一定两两不同，则$\alpha_i$都在$K$中.
+		
+		$\beta$在$F$上的最小多项式为$g(x)=\prod_{j\in J}(x-\beta_j)\in F[x]$，其中$\beta_1=\beta, \beta_j$不一定两两不同. 则$\beta_j$都在$K$中.
+		
+		则$f(x/u)=\prod_{i}(x/u-\alpha_i)=u^{-|I|}\prod_i(x-u\alpha_i)$是$u\alpha$在$F[x]$上的化零多项式，故$u\alpha$的$F$-共轭元只可能是$u\alpha_i$，它在$K$中.
+		
+		考虑$h(x)=\prod_{i\in I, j\in J}(x-(\alpha_i+\beta_j))$，则它的任何项的系数$h_i$在$I$到自身的置换和$J$到自身的置换下均不变. 
+		
+		故$h_i\in F(\{\alpha_i\})(\{\beta_j\})$是$\{\alpha_i\}$的对称多项式，即为$\alpha_i$的初等对称多项式的$F(\{\beta_j\})$系数多项式，但$\alpha_i$的初等对称多项式都是$f(x)$的系数，故$h_i\in F(\{\beta_j\})$，它还是$\{\beta_j\}$的对称多项式，即为$\beta_j$的初等对称多项式的$F$系数多项式，但$\beta_j$的初等对称多项式都是$g(x)$的系数，故$h_i\in F$，$h(x)\in F[x]$是$\alpha+\beta$的化零多项式，故$\alpha+\beta$的$F$-共轭元只可能是$\alpha_i+\beta_j$，它在$K$中.
+	}
+	
+	令$\{x_1,\cdots,x_n\}$为$E$的一组$F$-基，$\{y_1,\cdots,y_m\}$为$K$的一组$F$-基，则$\{x_iy_j\mid 1\leq i\leq n, 1\leq j\leq m\}$是$EK$的一组$F$-向量空间生成元，$x_i$和$y_j$的$F$-共轭元都在$EK$中，故由引理$EK$中所有元素的$F$-共轭元都在$EK$中，$EK/F$也是正规扩张.
+}
+
+\subsection{}
+\subsubsection{(1)}
+如果$E/M$和$M/F$均是域的正规扩张，试问$E/F$是否一定为正规扩张？
+
+\emph{证明由文献}\cite{888841}\cite{575060}\emph{给出}.
+
+\jie 否，令$F=\mathbb{Q}, M=\mathbb{Q}(\sqrt{2}), E=\mathbb{Q}(\sqrt[4]{2})$，由于这些域的特征都是$0$，故非伽罗瓦扩张都不是正规的.
+
+易见$[M:F]=2,[E:M]=2$，且$\sigma_1: \sqrt{2}\mapsto-\sqrt{2}, \sigma_2: \sqrt[4]{2}\mapsto-\sqrt[4]{2}$各是$\mathrm{Gal}(M/F),\mathrm{Gal}(E/M)$的非单位元，故$|\mathrm{Gal}(M/F)|=|\mathrm{Gal}(E/M)|=2$，$M/F$和$E/M$都是伽罗瓦扩张，故是正规扩张.
+
+考虑$E$的$F$-自同构$\tau$，它由$\tau(\sqrt[4]{2})$唯一确定，由于$a\tau(\sqrt[4]{2})^4=\tau(2)=2$，故$a^4=2$，但$E\subseteq\mathbb{R}$且这方程只有两个实根$\pm\sqrt[4]{2}$，故$|\mathrm{Gal}(E/F)|=2<4$，$E/F$不是伽罗瓦扩张，故不是正规扩张.
+
+{\heiti 注记.} 事实上，$x^4-2$在$\mathbb{Q}$上的分裂域为$L=\mathbb{Q}(i,\sqrt[4]{2})$，可以证明$x^4-2$在$\mathbb{Q}(i)$上也不可约，故$[L:\mathbb{Q}(i)]=4, [L:F]=4[\mathbb{Q}(i):F]=8\neq [E:F]$.
+
+\subsubsection{(2)}
+如果$E/F$是正规扩张，$M$是它们的中间域，试问$E/M$和$M/F$是否为正规扩张？
+
+\jie 前者是，后者否. $E/F$正规，故对任意$\alpha\in E$，$\alpha$在$F$上的最小多项式$f(x)$在$E$上分裂，令$g(x)$为$\alpha$在$M$上的多项式，则$g(x)\mid f(x)$，故它也在$E$上分裂，$E/M$为正规扩张.
+
+对于后者，令$F=\mathbb{Q}$，$E$是$x^3-2$在$F$上的分裂域$\mathbb{Q}(\sqrt[3]{2},\omega)$其中$\omega$为$3$次本原单位根. 令$M=\mathbb{Q}(\sqrt[3]{2})\subseteq\mathbb{R}$则它是中间域，并且$\sqrt[3]{2}$的$F$-共轭元$\sqrt[3]{2}\omega$不在$M$中，$M/F$不是正规扩张.
+
+\subsection{}
+设$E/F$为代数扩张，证明$E/F$为正规扩张当且仅当对于$F[x]$中任意不可约多项式$f(x)$, $f(x)$在$E[x]$中的所有不可约因子都有相同的次数.
+
+\zm{
+	($\Leftarrow$) 若$\alpha\in E$，则$\alpha$在$F[x]$上的最小多项式在$E[x]$上有一次因式$(x-\alpha)$，故在$E[x]$上所有因式都是一次因式，即$f(x)$在$E$上分裂，故$E/F$为正规扩张.
+	
+	\emph{以下由文献}\cite{86786}\emph{给出.}
+	
+	($\Rightarrow$) 设$f(x)$为任意一个$F[x]$中不可约多项式，$L$为$f(x)$的分裂域，$f(x)$在$E[x]$上的不可约分解为$uq_1(x)\cdots q_m(x)$（由于$f(x)$乘除非零常数不影响结论，我们不妨假定$f(x)$首一，$u=1$，$q_i(x)$也首一）
+	
+	若$\alpha$是$q_1(x)$的根，$\beta$是$q_i(x)$的根，则$q_1$是$\alpha$在$K$上的最小多项式，$q_i$是$\beta$在$K$上的最小多项式.
+	
+	由{\heiti 引理}\textbf{6.33}，存在$L$的$F$-自同构$\sigma$使得$\sigma(\alpha)=\beta$，由{\heiti 命题}\textbf{5.18}，对任意$a\in K$，$\sigma(a)$与$a$有相同的最小多项式，故是$a$的$F$-共轭元，$\sigma(a)\in K$，故$\sigma(K)=K$.
+	
+	考虑$\sigma(q_1(x))\in \sigma(K[x])=K(x)$，它是$\beta$的化零多项式，故$q_i(x)\mid \sigma(q_1(x))$，但$\sigma(q_1(x))$也是不可约多项式，故二者次数相等，即$\deg q_i=\deg q_1$对一切$1\leq i\leq m$成立，故得结论.
+}

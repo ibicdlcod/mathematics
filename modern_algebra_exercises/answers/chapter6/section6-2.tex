@@ -1,0 +1,97 @@
+\section{方程的伽罗瓦群}
+\subsection{}
+设$F$为实数域$\mathbb{R}$的子域. $f(x)$为$F[x]$中三次不可约多项式. 证明若$D(f)>0$，则$f(x)$有三个实根；若$D(f)<0$，则$f(x)$只有一个实根.
+
+\zm{
+		$F$的特征为$0$，$f(x)$为不可约多项式，故$f(x)$无重根. 令$E=F(\alpha_1,\alpha_2,\alpha_3)$为$f(x)$的分裂域，显然复共轭$\tau\in\mathrm{Gal}(E/F)$，并且$\mathrm{Gal}(E/F)$中元素由它在$A=\{\alpha_1,\alpha_2,\alpha_3\}$上的作用唯一确定，即为$S_3$中元素. 由于$\tau^2=\id$，故$\tau$为$S_3$中单位元或对换.
+		
+		若$D(f)>0, \sqrt{D}\in\mathbb{R}-\{0\}$，故$\tau(\sqrt{D})=\sqrt{D}\neq -\sqrt{D}$，若$D(f)<0, \sqrt{D}\in i\mathbb{R}-\{0\}$，故$\tau(\sqrt{D})=-\sqrt{D}\neq \sqrt{D}$，由于$\tau$不是$3$轮换，故前者只能在$\tau$为单位元时取得，即三个根都是实根，后者只能在$\tau$为对换时取得，即$\tau=(ij)$，$\alpha_i$和$\alpha_j$为共轭虚根，另一个根被$\tau$固定，只能为实根，故得结论.
+}
+
+\subsection{}
+设$F$是特征不为$2$的域，求$f(x)$在$F$上的伽罗瓦群，其中
+\subsubsection{(1)}
+$f(x)=x^3+x+1$；
+
+\jie 题目并未给定$f(x)$在$F$上不可约，我们没有能力对一切域讨论$f(x)$的可约性，只能给出一般情况.
+
+若$f(x)$在$F$上有两个以上根（重根重复计算），则第三个根加前两个根为$-1$，故也在$F$中，则$f(x)$的分裂域即$F$，显然$\mathrm{Gal}(F/F)$是平凡群.
+
+若$f(x)$在$F$上有一个根（不重复）$\alpha$，则$f(x)=(x-\alpha)(x^2+\alpha x+\alpha^2+1)$，且后者是$F$上的不可约多项式，它的判别式$D=-3/4\alpha^2-1$（题设排除了$\mathrm{char}F=2$），若$\sqrt{D}\in F$，则$f(x)=(x-\alpha)(x+\sqrt{D})(x-\sqrt{D})$，与它在$F$上只有一个根矛盾，故$f(x)$的分裂域为$K=F(\sqrt{D})$其中$\sqrt{D}\notin F$，此时$\mathrm{Gal}(K/F)=\{1,\sigma\}\cong\mathbb{Z}/2\mathbb{Z}$，其中$\sigma(\sqrt{D})=-\sqrt{D}$.
+
+若$f(x)$在$F$上无根，则它是$F[x]$上不可约多项式. 由{\heiti 例}\textbf{6.32}，$D=-4-27=-31$，由{\heiti 命题}\textbf{6.30}，当$d^2=-31$在$F$中无解时$\mathrm{Gal}(K/F)\nsubseteq A_3$，又$\mathrm{Gal}(K/F)$在$\alpha_1,\alpha_2,\alpha_3$上作用可迁，故只能$\mathrm{Gal}(K/F)=S_3$. 当$d^2=-31$在$F$中有解时，$\mathrm{Gal}(K/F)\subseteq A_3$，又$\mathrm{Gal}(K/F)$在$\alpha_1,\alpha_2,\alpha_3$上作用可迁，故只能$\mathrm{Gal}(K/F)=A_3$.
+
+\subsubsection{(2)}
+$f(x)=x^3+x^2+1$；
+
+\jie $F$中一个以上根的情形与(1)类似.
+
+$f(x)$不可约时，$D=(-1)^3\prod_{i=1}{3}(3\alpha_i^2+2\alpha_i)=-31$，故伽罗瓦群与(1)的结果完全一致. 事实上，令$y$是$x^3+x^2+1$的根，则$y\neq 0$且$1/y$是$x^3+x+1$的根，故给定任意$F$，两方程的伽罗瓦群完全一致是可以理解的.
+
+\subsection{}
+确定$f(x)$在域$F$上的伽罗瓦群，其中
+\subsubsection{(1)}
+$f(x)=x^4-5, F=\mathbb{Q}, \mathbb{Q}(\sqrt{5})$和$\mathbb{Q}(\sqrt{-5})$.
+
+\jie 易验证$f(x)$的分裂域$K=\mathbb{Q}(i,\sqrt[4]{5})$. $F_1=\mathbb{Q}$时，若$\sigma\in\mathrm{Gal}(K/F_1)$，则$\sigma(i)^2=\sigma(-1)=-1$，故$\sigma(i)=\pm i$.
+由于$a=\sqrt[4]{5}$是$x^4-5$的根且该方程的根为$a,ia,-a,-ia$，故$\sigma(a)=a,ia,-a,-ia$. 由于$\sigma$由$\sigma(i),\sigma(a)$唯一确定，讨论它们之间的乘法关系即得$\mathrm{Gal}(K/F_1)\cong D_4=\langle \sigma_a, \sigma_i\rangle$，其中$\sigma_i(i)=-i,\sigma_i(a)=a, \sigma_a(i)=i, \sigma_a(a)=ia$.
+
+对$F_2=\mathbb{Q}(\sqrt{5})$，注意$F_1\subseteq F_2$，故$\mathrm{Gal}(K/F_2)$是上述$\mathrm{Gal}(K/F_1)$的子群，且$\sigma(a^2)=\sigma(\sqrt{5})=\sqrt{5}=a^2$，故$\sigma(a)=\pm a$，$\mathrm{Gal}(K/F_2)\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}=\langle \sigma_a^2, \sigma_i\rangle$.
+
+对$F_3=\mathbb{Q}(\sqrt{-5})$，同理$\mathrm{Gal}(K/F_3)$是上述$\mathrm{Gal}(K/F_1)$的子群，且$\sigma(ia^2)=\sigma(\sqrt{-5})=\sqrt{-5}=ia^2$，故有两种情况：$\sigma(i)=i$，此时$\sigma(a)=\pm a$，或者$\sigma(i)=-i$，此时$\sigma(a)=\pm ia$，故$\mathrm{Gal}(K/F_3)\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}=\langle \sigma_a\sigma_i, \sigma_a^3\sigma_i \rangle$.
+
+\subsubsection{(2)}
+$f(x)=x^4-10x^2+4$，$F=\mathbb{Q}$.
+
+\jie $x^2$是$x^2-10x+4$的根，故$x^2=5\pm\sqrt{21}\notin F$. 令$\alpha_1,-\alpha_1,\alpha_2,-\alpha_2$为$f(x)$的四个根，$K$为分裂域，$\alpha_1^2=5+\sqrt{21},\alpha_2^2=5-\sqrt{21}$，则若$\sigma\in\mathrm{Gal}(K/F)$，我们有$\sigma(-\alpha_1)=-\sigma(\alpha_1), \sigma(-\alpha_2)=-\sigma(\alpha_2)$，故$\sigma$保持$\alpha_1(-\alpha_1)$和$\alpha_2(-\alpha_2)$或将他们交换，即$\sigma\in\langle (1324)(12)\rangle\cong D_8$，$\mathrm{Gal}(K/F)\cong D_8\subseteq S_4$.
+
+\subsubsection{(3)}
+$f(x)=x^5-6x+3$，$F=\mathbb{Q}$.
+
+\jie 由艾森斯坦判别法$(p=3)$，$f(x)$是$F[x]$中不可约多项式，作图像知它有三个实根，即两个复根，由{\heiti 定理}\textbf{6.34}，$\mathrm{Gal}(K/F)\cong S_5$.
+
+\subsection{}
+设$p$为素数，$a\in\mathbb{Q}$，$x^p-a$为$\mathbb{Q}[x]$中不可约多项式. 证明$x^p-a$在$\mathbb{Q}$上的伽罗瓦群同构于$p$元域$\mathbb{F}_p$上$2$阶一般线性群$\mathrm{GL}_2(\mathbb{F}_p)$的子群
+$$\left\{
+\begin{pmatrix}
+	k & l\\
+	0 & 1
+\end{pmatrix}
+\mid l\in\mathbb{F}_p, k\in\mathbb{F}_p^{\times} \right\}.$$
+
+\zm{
+	$x^p-a$的根为$b\zeta_p^i$，其中$0\leq i<p, b^p=a, b^r\notin\mathbb{Q}\;(0<r<p)$. 记$F=\mathbb{Q}$， 若$\sigma\in\mathrm{Gal}(K/F)$其中$K$为$x^p-a$的分裂域，则必有$\sigma(b)=b\zeta_p^l\;(l\in\mathbb{F}_p)$，并且$\sigma(b\zeta_p^u)/\sigma(b\zeta_p^{u-1})=\sigma(\zeta_p)$，后者是$\zeta_p$的$\mathbb{Q}$-共轭元，故为$p$次本原单位根$\zeta_p^k\;(k\in\mathbb{F}_p^{\times})$，故$\sigma(b\zeta_p^u)=\sigma(\zeta_p)^u\sigma(b)=b\zeta_p^{ku+l}\;(0\leq u<p)$，可验证（详细见下）上述映射决定了$K$的$F$-自同构，故$\mathrm{Gal}(K/F)=\{\sigma_1\mid\sigma_1\in S_p, \sigma_1(u)\equiv ku+l\mod p, 1\leq k<p, 0\leq l<p\}$，将$\mathrm{Gal}(K/F)$作用在$\mathbb{F}_p$中元素$u$上，则它相当于矩阵$\left\{
+	\begin{pmatrix}
+	k & l\\
+	0 & 1
+	\end{pmatrix}
+	\mid l\in\mathbb{F}_p, k\in\mathbb{F}_p^{\times} \right\}$左乘作用在列向量$\begin{pmatrix}
+		u\\
+		1
+	\end{pmatrix}
+	$上，故我们得到题目所给的同构.
+	
+	验证：我们已经知道$\mathrm{Gal}(K/F)\leq\{\sigma_1\mid\sigma_1\in S_p, \sigma_1(u)\equiv ku+l\mod p, 1\leq k<p, 0\leq l<p\}$，我们需要验证等号成立，即$\sigma: b\zeta_p^u\mapsto b\zeta_p^{ku+l}, b\mapsto b\zeta_p^l, \zeta_p\mapsto\zeta_p^k$是$K$的$F$-自同构. 由于$K=F(\zeta_p, b)$，$K$中元素必有$\sum_{i=0}^{p-1}b^ig_i(x)$的形式，其中$g_i(x)\in F(\zeta_p)[x]$. 由于$f(x)$在$F(\zeta_p)[x]$中不可约（若不然，则考虑其非平凡因子的常数项，它必为$b^n\zeta_p^r$，其中$1\leq n<p$，我们取$b$为$x^p-a$的实根而不影响结论（当$p$为奇素数时必然存在一个，$p=2$时若无实根则$b\zeta_p^r$是虚数，当然不是有理数），则$b^n\zeta_p^r$为有理数必然导致$\zeta_p^r=\pm 1, b^n$为有理数，又$b^p=a$为有理数，$n,p$互素，可推出$b$为有理数，与$f(x)$在有理数集中不可约矛盾）
+	
+	故$f(x)$在$F(\zeta_p)[x]$中不可约，$1,b,\cdots,b^{p-1}$在$F(\zeta_p)$上线性无关，若$K$中任何元素$\sum_{i=0}^{p-1}b^ig_i(x)\in F\subseteq F(\zeta_p)$，则必有$g_i(x)=0\;(1\leq i<p)$，$g_0(x)\in F$，故$\sigma(\sum_{i=0}^{p-1}b^ig_i(x))=\sigma(g_0(x))$，由于$\zeta$在$F$上的最小多项式为$(x^p-1)/(x-1)=\prod_{i=1}^{p-1}(x-\zeta_p^i)$，故$\sigma$在$F(\zeta_p)$上的限制是$F$-自同构，故$\sigma(g_0(x))=g_0(x)$，也就是$\sigma$是良好定义的$K$的$F$-自同构.
+}
+
+\subsection{}
+证明$\mathbb{Q}(\sqrt[4]{2}(1+\sqrt{-1}))$是四次扩张；并求出它的伽罗瓦群.
+
+\zm{
+	令$a=\sqrt[4]{2}(1+\sqrt{-1})$，$b=\sqrt[4]{2}$，则$a$是$f(x)=x^4+8$的根，$f(x)$的有理根只可能为$\pm1, \pm2, \pm4, \pm8$，它们都不是根，故$f(x)$是$\mathbb{Q}[x]$上不可约多项式，是$a$的四次最小多项式，故$\mathbb{Q}(a)/\mathbb{Q}$是四次扩张
+}
+
+\jie $a$的$\mathbb{Q}$-共轭元为$x^4+8$的根$a,ia,-a,-ia$，我们来说明$ia,-ia\notin K=\mathbb{Q}(a)$.
+
+由于$a=b(1+i)$，若$ia$在$K$中，则$a-ia=a(1-i)=2b$也在$K$中，由于$1,a,a^2,a^3$是$K$的一组基，则$2b=c_0+c_1a+c_2a^2+c_3a^3=c_0+(1+i)c_1b+2ic_2b^2+2(i-1)c_3b^3$，其中$c_i\in\mathbb{Q}$. 易验证$x^4-2$是$\mathbb{Q}[x]$上不可约多项式，故$1,b,b^2,b^3$在$\mathbb{Q}$上线性无关，得$2b=(1+i)c_1$，与$c_1$是有理数矛盾. 故$ia$不在$K$中，易知$-ia$也不在$K$中.
+
+故若$\sigma\in\mathrm{Gal}(K/\mathbb{Q})$，则$\sigma(a)=\pm a$，故$\mathrm{Gal}(K/\mathbb{Q})\cong\mathbb{Z}/2\mathbb{Z}$.
+
+\subsection{}
+任一有限群均是某个域上可分多项式的伽罗瓦群.
+
+\zm{
+	即{\heiti 定理}\textbf{6.37}的注记，本书不再赘述.
+}

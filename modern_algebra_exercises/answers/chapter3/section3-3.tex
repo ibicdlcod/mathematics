@@ -1,0 +1,173 @@
+\section{环的同态基本定理}
+\subsection{}
+证明交换环$R$中全部幂零元素组成的集合$N=\mathrm{Nil}(R)$是环$R$的理想，并且商环$R/N$中只有零元素是幂零的.
+
+\zm{
+	若$a,b$为幂零元素，则由{\heiti 习题}\textbf{3.1.12(1)}知$a+b$也是幂零元素，对任意$r\in R$，因$R$交换有$a^k=0\Rightarrow (ar)^k=a^kr^k=0r^k=0$，故$ar$（同理$ra$也）是幂零元素，$N$是$R$的理想.
+	
+	对于商环$R/N$，若$a+N\in R/N$是幂零元，我们有
+	$(a+N)^k=\sum_{i=0}^k\binom{k}{i}a^{k-i}N^i\in N$，由于$\sum_{i=1}^{k}\binom{k}{i}a^{k-i}N^i\in RN+\cdots+RN\in N$，因此
+	$a^k=\sum_{i=0}^k\binom{k}{i}a^{k-i}N^i-\sum_{i=1}^{k}\binom{k}{i}a^{k-i}N^i\in N$，故存在$l$使得$(a^k)^l=0\Rightarrow a^{kl}=0$，即$a\in N, a+N=0+N$是$R/N$中的零元素.
+}
+
+\subsection{}
+线性代数
+
+\subsection{}
+设$f: R\rightarrow S$是环之间的同态，$I$和$J$是环$R$和$S$的理想，并且$f(I)\subseteq J$，按如下方式作商环之间的映射：
+$$\overline{f}: R/I\rightarrow S/J, \overline{a}\mapsto [f(a)],$$
+其中对$a\in R,\overline{a}=a+I$为$R/I$中元素，$[f(a)]=f(a)+J$为$S/J$中元素.
+
+\subsubsection{(1)}
+证明上述映射$\overline{f}$是良好定义的，并且是环同态.
+
+\zm{
+	如$\overline{a_1}=\overline{a_2}$，则$a_1+I=a_2+I$即$a_1-a_2\in I$，故$f(a_1)-f(a_2)=f(a_1-a_2)\in J$，$[f(a_1)]-f[(a_2)]=f(a_1)-f(a_2)+J=J$为$S/J$中零元素，即$\overline{f}(\overline{a_1})=[f(a_1)]=[f(a_2)]=\overline{f}(\overline{a_1})$，故$\overline{f}$是良好定义的.
+	
+	又$\overline{f}(\overline{a}+\overline{b})=f(a+b)+J=f(a)+J+f(b)+J=\overline{f}(\overline{a})+\overline{f}(\overline{b}),
+	\overline{f}(\overline{a}\overline{b})=f(ab)+J=f(a)f(b)+J=f(a)f(b)+f(a)J+Jf(b)+J$（因$J$是$S$的理想）$=(f(a)+J)(f(b)+J)=\overline{f}(\overline{a})\overline{f}(\overline{b})$，且
+	$\overline{f}(\overline{1_R})=f(1_R)+J=1_S+J=1_{S/J}$，故$\overline{f}$是同态.
+}
+
+\subsubsection{(2)}
+证明$\overline{f}$是环同构$\Leftrightarrow f(R)+J=S$且$I=f^{-1}(J)$.
+
+\zm{
+	($\Rightarrow$)留给读者.
+	
+	($\Leftarrow$)$\overline{f}$是单射：若$\overline{a_1}\neq\overline{a_2}$，则$a_1-a_2\notin I$，由$I=f^{-1}(J)$知$f(a_1-a_2)\notin J$，故$f(a_1)-f(a_2)\notin J$，$[f(a_1)]=f(a_1)+J$与$[f(a_2)]=f(a_2)+J$为$S/J$中不同元素.
+	
+	$\overline{f}$是满射：对$\forall u+J\in S/J$，则$u\in S$，由于$f(R)+J=S$，则存在$u_0$使得$u_0+j_0=u, j_0\in J, u_0\in f(R)$，故$u+J=u_0+j_0+J=u_0+J$，令$f(r_0)=u_0$，则$\overline{f}(\overline{r_0})=u_0+J=u+J$.
+}
+
+\subsection{}
+设$(R,+,\cdot)$是含幺环，定义$a\oplus b=a+b+1, a\otimes b=ab+a+b$，证明$(R,\oplus,\otimes)$也是含幺环，并且与环$(R,+,\cdot)$同构.
+
+\zm{
+	加法为阿贝尔群：
+	
+	加法满足结合律：$(a\oplus b)\oplus c=a\oplus (b\oplus c)=a+b+c+1+1\in R$.
+	
+	加法有单位元：$R$中存在$1_{R,+,\cdot}$的逆元$-1_{R,+,\cdot}$，对任意$a\in R$满足
+	$a\oplus(-1)=(-1)\oplus a=a-1+1=a$，故$0_{R,\oplus,\odot}=-1_{R,+,\cdot}$.
+	
+	加法有逆元：令$\ominus a=-a+(-1)+(-1)$，则$a\oplus(\ominus a)=(\ominus a)\oplus a=-a+(-1)+(-1)+a+1=-1=0_{R,\oplus,\odot}$.
+	
+	加法交换：$a\oplus b=b\oplus a=a+b+1\in R$.
+	
+	乘法满足结合律：$(a\odot b)\odot c=(ab+a+b)\odot c=(ab+a+b)c+(ab+a+b)+c
+	=abc+bc+ac+ab+a+b+c$，
+	$a\odot (b\odot c)=a\odot(bc+b+c)=a(bc+b+c)+(bc+b+c)+a
+	=abc+bc+ac+ab+a+b+c$，两者一致.
+	
+	乘法有单位元：$R$中存在加法单位元$0_{R,+,\cdot}$，对任意$a\in R$满足
+	$a\odot 0=a\cdot 0+a+0=a, 0\odot a=0\cdot a+0+本题有错误见文献a=a$，故$1_{R,\oplus,\odot}=0_{R,+,\cdot}$.
+	
+	分配律：$\lambda \odot (a\oplus b)=\lambda \odot (a+b+1)
+	=\lambda a+\lambda b+\lambda+\lambda+a+b+1$，
+	$(\lambda \odot a)\oplus (\lambda \odot b)
+	=(\lambda a+\lambda+a)\oplus (\lambda b+\lambda+b)
+	=\lambda a+\lambda b+\lambda+\lambda+a+b+1$，两者相等.
+	$(a\oplus b)\odot\lambda=(a+b+1)\odot\lambda 
+	=a\lambda+b\lambda+\lambda+\lambda+a+b+1$，
+	$(a\odot\lambda)\oplus(b\odot\lambda)
+	=(a\lambda+\lambda+a)\oplus (b\lambda+\lambda+b)
+	=a\lambda+b\lambda+\lambda+\lambda+a+b+1$，两者相等.
+	
+	综上，$(R,\oplus,\odot)$为含幺环.
+	
+	同构性：令$f: (R,+,\cdot)\rightarrow (R,\oplus,\odot); u\mapsto u-1_{R,+,\cdot}$，
+	则$f(a+b)=a+b-1=(a-1)+(b-1)+1=f(a)\oplus f(b)$，
+	$f(ab)=ab-1=ab-a-b+1+a-1+b-1=(a-1)(b-1)+(a-1)+(b-1)=f(a)\odot f(b)$，
+	$f(1_{R,+,\cdot})=0_{R,+,\cdot}=1_{R,\oplus,\odot}$，易见$f$为双射，故$f$为同构.
+}
+
+\subsection{}
+\subsubsection{(1)}
+证明主理想环的每个同态像也是主理想环.
+
+\zm{
+	设$\varphi: R\rightarrow S$为环同态，$R$为主理想环.
+	
+	则$\ker\varphi$是主理想，$\ker\varphi=(x)_{\Ideal,R}=Rx+xR+RxR$，且$\im\varphi$与$R/\ker\varphi$同构. 设$J$为$\im\varphi$的任意理想，则$f^{-1}(J)$为$R/\ker\varphi$的理想，$f^{-1}(J)+\ker\varphi$为$R$的理想（请读者自证！），因$R$为主理想环，存在$y\in R$满足$f^{-1}(J)+\ker\varphi=Ry+yR+RyR$，故$f^{-1}(J)=R(y-x)+(y-x)R+R(y-x)R$，$J=f(R)f(y-x)+f(y-x)f(R)+f(R)f(y-x)f(R)=\im\varphi f(y-x)+f(y-x)\im\varphi+\im\varphi f(y-x)\im\varphi=(y-x)_{\Ideal, \im\varphi}$为$\im\varphi$的主理想，即$\im\varphi$是主理想环.
+}
+\subsubsection{(2)}
+求证$\mathbb{Z}/m\mathbb{Z}\;(m\geq 1)$为主理想环.
+
+\Proofbyintimidation
+
+\subsection{}
+设$S, R_i\;(i\in I)$为环，$R=\prod_{i\in I}R_i$为$R_i$的笛卡尔积.
+\subsubsection{(1)}
+令$\pi_i: R\rightarrow R_i, (a_j)_{j\in I}\mapsto a_i$，证明$\pi_i$为环同态，这样的环同态称为正则投射.
+\subsubsection{(2)}
+设对于每个$i\in I, \varphi_i: S\rightarrow R_i$均为环同态，求证存在唯一的环同态$\varphi: S\rightarrow R$使得对任意$i\in I$均有$\pi_i\circ\varphi=\varphi_i$.
+
+\Proofbyintimidation
+
+\subsection{}
+设$D$为整环，$m,n$为互素的正整数，$a,b\in D$，若$a^m=b^m, a^n=b^n$，证明$a=b$.
+,
+\zm{
+	对任意非零元$d\in D$，$D$没有零因子使得$ad=bd\Leftrightarrow (a-b)d=0\Leftrightarrow a-b=0\Leftrightarrow a=b$，即消去律成立：等式两边可消去$d$. 当$a=0$或$b=0$时，由$b$或$a$不是零因子得到$b=0$或$a=0$，结论显然成立，因此我们以下假定$a,b\neq 0$，故$a,b$的任意方幂均不为$0$，满足消去律.
+	
+	不妨设$m>n$，因$m,n$为正整数，存在$k_0$使得$m=k_0n+r_0, k_0\in\mathbb{Z}_+,0\leq r_0<n$，则$a^m=b^m\Leftrightarrow (a^n)^{k_0}a^{r_0}=(b^n)^{k_0}b^{r_0}\Leftrightarrow(a^n)^{k_0}a^{r_0}=(a^n)^{k_0}b^{r_0}$，故由消去律$a^{r_0}=b^{r_0}$. 此时我们有$\gcd(m,n)=\gcd(m-k_0n,n)=\gcd(n,r_0)$.
+	
+	由$m,n$的任意性，我们对$n,r_0$同样操作得到$a^{r_1}=b^{r_1}$，其中$n=k_1r_0+r_1, k_1\in\mathbb{Z}_+,0\leq r_1<r_0, \gcd(n,r_0)=\gcd(r_0,r_1)=\gcd(m,n)$.
+	
+	当$r_{j-1}>0$时继续这个过程，我们有$a^{r_j}=b^{r_j}$，其中$r_{j-2}=k_jr_{j-1}+r_j, k_j\in\mathbb{Z}_+,0\leq r_j<r_{j-1}, \gcd(r_{j-1},r_j)=\gcd(r_{j-2},r_{j-1})=\gcd(m,n)$.
+	
+	由于$0\leq r_j<r_{j-1}$，该过程可以持续到$r_l=0$，此时$\gcd(r_{l-1},0)=\gcd(m,n)$，我们有$r_{l-1}=\gcd(m,n)$，$a^{\gcd(m,n)}=b^{\gcd(m,n)}$，在本题中$\gcd(m,n)=1$，我们有$a=b$.
+}
+
+{\heiti 注记}. 本题的证明即对$a,b$的指数使用欧几里得算法.
+
+\subsection{}
+设$I_1,I_2,...,I_n$为$R$的理想，且：
+
+(1) $I_1+\cdots+I_n=R$.
+
+(2) $\forall 1\leq i \leq n, I_i\cap(I_1+\cdots+I_{i-1}+I_{i+1}+\cdots+I_n)=\{0\}$
+
+求证$R\cong \prod_{i=1}^nI_i$.
+
+\zm{
+	由$\sum_{i=1}^nI_i=R$知$\forall r\in R$有形式$r^{\prime}=(a_1,a_2,...,a_n)$使得$r=\sum_{i=1}^na_i$且$a_i\in I_i, \forall 1\leq i\leq n$，并且给定$a_1,a_2,...,a_n$其中$a_i\in I_i, \forall 1\leq i\leq n$有$r=\sum_{i=1}^na_i\in R$. 我们只要证明这形式唯一即可，即若$r\in R, r=\sum_{i=1}^na_i=\sum_{i=1}^nb_i, a_i,b_i\in I_i$则$\forall 1\leq i\leq n, a_i=b_i$.
+	
+	这时$0=r-r=\sum_{i=1}^na_i-b_i, a_i-b_i\in I_i$，$a_k-b_k=-\sum_{\substack{1\leq i \leq n\\i\neq k}}a_i-b_i$，左边属于$I_i$，右边属于$I_1+\cdots+I_{i-1}+I_{i+1}+\cdots+I_n$，由条件(2)知两边必须为$0$，即$a_i=b_i$对一切$1\leq i\leq n$成立，上述形式是唯一的.
+}
+
+\subsection{}
+环$R$中元素$e$叫做幂等元素，是指$e^2=e$. 若$e$又属于环$R$的中心，则称$e$为中心幂等元素. 设$R$是含幺环，$e$为$R$的中心幂等元素，证明
+\subsubsection{(1)}
+$1-e$也是中心幂等元素.
+
+\zm{
+	已知$e^2=e$，$\forall r\in R$有$er=re$，则
+	$(1-e)^2=1-e-e+e^2=1-e+0=1-e, r(1-e)=r-re=r-er=(1-e)r$，故得结论.
+}
+\subsubsection{(2)}
+$eR$和$(1-e)R$均是$R$的理想，且$R\cong eR\times (1-e)R$.
+
+\zm{
+	$e,(1-e)\in C(R)$已证. 故$eR=eR+Re+ReR$和$(1-e)R=(1-e)R+R(1-e)+R(1-e)R$为$R$的理想，又$\forall r\in R, r=er+(1-e)r$，故$eR+(1-e)R=R$，且$er_1=(1-e)r_2\Rightarrow e^2r_1=e(1-e)r_2\Rightarrow e^2r_1=0\Rightarrow er_1=0, er_1=(1-e)r_2\Rightarrow (1-e)er_1=(1-e)^2r_2\Rightarrow 0=r_2-er_2-er_2+e^2r_2\Rightarrow 0=(1-e)r_2$，即$eR\cap(1-e)R=\{0\}$，在{\heiti 习题}\textbf{3.3.8}中令$I_1=eR, I_2=(1-e)R$即得结论.
+}
+
+\subsection{}
+本题有错误见文献
+
+\subsection{}
+环$R$中幂等元素集合$\{e_1,e_2,...,e_n\}$叫做正交的，是指当$i\neq j$时$e_ie_j=0$，设$R, R_1, R_2,...,R_n$为含幺环，则下列两个条件等价：
+
+\subsubsection{(1)}
+$R\cong R_1\times R_2\times \cdots \times R_N$.
+\subsubsection{(2)}
+$R$具有正交的中心幂等元集合$\{e_1,e_2,...,e_n\}$ s.t. $e_1+e_2+\cdots e_n=1_R$，且$e_iR\cong R_i\;(\forall 1\leq i \leq n)$
+
+\zm{
+	($\Rightarrow$) 取$e_i=(a_{i1}, a_{i2}, ..., a_{in})$ 其中$a_ii=1 \forall i, a_ij=0 \forall i\neq j$，则易验证$\{e_i\mid 1\leq i \leq n\}$满足(2)的条件.
+	
+	($\Leftarrow$) 由于$e_i\in C(R)$，故$(e_i)_{\Ideal, R}=e_iR$为$R$的理想，$\forall r\in R$有$e_1r+e_2r+\cdots+e_nr=r$故$e_1R+e_2R+\cdots+e_nR=R$，考虑任何元素$e_ir_i\in
+	e_iR\cap (e_1R+\cdots+e_{i-1}R+e_{i+1}R+\cdots+e_nR)$，存在$r_j (j\neq i)$使得$e_ir_i=
+	\sum_{j\neq i}e_jr_j$，两边同乘$e_i$得$e_iR_i=e_i^2r_i=\sum_{j\neq i}e_ie_jr_j=\sum_{j\neq i}0r_j=0$，故$e_iR\cap (e_1R+\cdots+e_{i-1}R+e_{i+1}R+\cdots+e_nR)=\{0\}$，在{\heiti 习题}\textbf{3.3.8}中令$I_i=e_iR$即得结论.
+}
