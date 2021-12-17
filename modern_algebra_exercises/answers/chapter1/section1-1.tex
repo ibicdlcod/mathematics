@@ -59,9 +59,9 @@ g: b\rightarrow \genfrac{\{}{}{0pt}{}{A\text{中任意元素}, }{f^{-1}(b), } \g
 $f$为满射$\Leftrightarrow \exists h:B\rightarrow A$ s.t. $f\circ h=\id_{B}$;
 
 \zm{
-($\Rightarrow$)$f$为满射，则$\forall b\in B$， 存在原像$\{f^{-1}_{i}(b)\mid i \in I_b\}\neq \varnothing$(该集合不一定只有一个元素)
+	($\Rightarrow$)$f$为满射，则$\forall b\in B$， 存在原像$f^{-1}(b)=\{x\mid f(x)=b\}\neq \varnothing$(该集合不一定只有一个元素)
 
-对所有的$b$选择$\{f^{-1}_{i}(b)\mid i \in I_b\}$中的一个元素$f^{-1}_1(b)$()这里用到了{\heiti 选择公理}，参见{\heiti 引理}\textbf{3.66}. 事实上(1)的证明中"A中任意元素"的表述也用到了选择公理)
+对所有的$b$选择$f^{-1}(b)$中的一个元素$f^{-1}_1(b)$（这里用到了{\heiti 选择公理}，参见{\heiti 引理}\textbf{3.66}. 事实上(1)的证明中"A中任意元素"的表述也用到了选择公理）
 
 令$h: B\rightarrow A, b\mapsto f^{-1}_1(b)$， 则$f\circ h=\id_{B}$.
 
@@ -94,7 +94,7 @@ $f$为双射$\Leftrightarrow$存在唯一的$g:B\rightarrow A$ s.t. $f\circ g=\i
 设$P(A)$是集合$A$的全部子集构成的集族，$M(A)$为一切$A$到集合$\{0,1\}$的映射构成的集合，试构造$M(A)$到$P(A)$的双射. 特别地，若$A$为有限集，试证$|P(A)|=2^{|A|}$，换言之，$n$元集合共有$2^n$个子集.
 
 \jie 令
-$$f:P(A)\rightarrow M(A), P\in A\mapsto \left(
+$$f:P(A)\rightarrow M(A), P\subset A\mapsto \left(
 g_P: A\rightarrow \{0,1\},
 x\mapsto
 \left\{
@@ -116,7 +116,7 @@ $f$为满射：令$m$为$M(A)$中任意元素，定义$M^+=\{x\in A\mid m(x)=1\}
 设$X$是无限集合，$Y$为$X$的有限子集，证明存在双射$X-Y\rightarrow X$.
 
 \zm{
-	构造单射$f:\mathbb{N}\rightarrow X$（$X$无限，因此这是可以做到的），其中$\{0,1,...,|Y|\}\mapsto Y$. 令
+	构造单射$f:\mathbb{N}\rightarrow X$（$X$无限，因此这是可以做到的），其中$\{0,1,...,|Y|-1\}\mapsto Y$. 令
 	$$g:X-Y\rightarrow X, z\mapsto
 	\left\{
 	\begin{matrix}

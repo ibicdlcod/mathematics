@@ -5,9 +5,9 @@
 \zm{
 	$(fg)h=f(gh)$：$\forall a\in A, (fg)h(a)=fg(a)h(a)=f(a)g(a)h(a)=f(a)gh(a)=f(gh)(a)$
 	
-	单位元$1_{\Map{A,G}}$存在：$1_{\Map{A,G}}: \forall a \in A, a\mapsto 1_G$，易验证它满足条件.
+	单位元$1_{\Map(A,G)}$存在：$1_{\Map(A,G)}: \forall a \in A, a\mapsto 1_G$，易验证它满足条件.
 	
-	逆元$f^{-1}_{\Map{A,G}}$存在：$f^{-1}_{\Map{A,G}}: \forall a \in A, a\mapsto f(a)^{-1}_G$，易验证它满足条件.
+	逆元$f^{-1}_{\Map(A,G)}$存在：$f^{-1}_{\Map(A,G)}: \forall a \in A, a\mapsto f(a)^{-1}_G$，易验证它满足条件.
 }
 
 \subsection{}
@@ -122,7 +122,7 @@ a & b\\
 	\end{pmatrix}
 	$
 	
-	由于$a_1a_2c_1c_2=(a_1c_1)(a_2c_2)=0$，故集合对二元运算封闭.
+	由于$a_1a_2c_1c_2=(a_1c_1)(a_2c_2)\neq0$，故集合对二元运算封闭.
 	
 	结合律由矩阵乘法结合律得到.
 	
@@ -166,7 +166,7 @@ c & d
 \end{pmatrix}$
 ，$a,b,c,d\in\mathbb{Z}, ad\neq bc$.
 
-\Proofbyintimidation
+\jie 只需观察某些矩阵的$ad-bc\neq 1$即可知这样的矩阵中有一部分是逆元不在集合内的.
 
 \subsection{}
 试证集合$\bigcup_{n\geq 1}\mu_n=\{\zeta^i_n\mid 0\leq i\leq n-1\}$在复数乘法意义下构成群.
@@ -227,7 +227,7 @@ c & d
 	考虑$a_1, a_1a_2, ..., a_1a_2...a_j, ..., a_1a_2...a_n$是群$G$中$n$个元素，若其中有元素等于$1$，则结论已经成立，否则这$n$个元素只有$1$以外的$n-1$个取值.
 	
 	故由抽屉原理$\exists p\neq q\in\mathbb{Z}$ s.t. $a_1a_2...a_p = a_1a_2...a_q$.
-	此时$a_{p+1}a_{p+2}...a_q=1$，$p+1$和$q$满足条件，结论成立.
+	此时由消去律$a_{p+1}a_{p+2}...a_q=1$，$p+1$和$q$满足条件，结论成立.
 }
 
 \subsection{}

@@ -255,7 +255,7 @@ $$G_1=\{g\in G\mid \alpha(g)=g\}, G_{-1}=\{g\in G\mid \alpha(g)=g^{-1}\}.$$
 设$G$满足对$\forall g\in G$，存在唯一的$h\in G$使得$h^2=g$. 则(1)中结论仍成立.
 
 \zm{
-	$g\in G_1\bigcap G_{-1}\Rightarrow \alpha(g)=g=g^{-1}$，即$g^2=1$. 若$g\neq 1$则$\forall g_0\in G, \exists h\in G$ s.t. $g_0=h^2=h^2g^2=(hg)^2$，与$h$唯一矛盾.
+	$g\in G_1\bigcap G_{-1}\Rightarrow \alpha(g)=g=g^{-1}$，即$g^2=1$. 若$g\neq 1$则$\forall g_0\in G, \exists h\in G$ s.t. $g_0=h^2=h^2g^2=(hg)^2$，而$h^{\prime}=hg\neq h$，与$h$唯一矛盾.
 	
 	故$G_1\bigcap G_{-1}=\{1\}$，且$g^2=1\Rightarrow g=1$对任意$g\in G$成立(*).
 	
@@ -269,7 +269,7 @@ $$G_1=\{g\in G\mid \alpha(g)=g\}, G_{-1}=\{g\in G\mid \alpha(g)=g^{-1}\}.$$
 	
 	即$(\alpha(hj)(hj)^{-1})^2=1\Rightarrow \alpha(hj)(hj)^{-1}=1\text{(*)}\Rightarrow hj=\alpha(hj)\in G_1$.
 	
-	同样，$(\alpha(hj^{-1})hj^{1})^2$
+	同样，$(\alpha(hj^{-1})hj^{-1})^2$
 	\\$=\alpha(h^2j^{-2})h^2g^{-2}$
 	\\$=\alpha(g\alpha(g)^{-1})g\alpha(g)^{-1}$
 	\\$=\alpha(g)\alpha(\alpha(g^{-1}))g\alpha(g)^{-1}$
@@ -318,7 +318,7 @@ $\forall f\in\Aut(\mathbb{Q}), 1\neq 0\Rightarrow f(1)\neq f(0)=0, f(1)\in\mathb
 $K_2=\{1,a,b,ab\mid ba=ab,a^2=b^2=1\}$，易知$\forall f\in\Aut(K_2), f(b)\neq f(a), f(b), f(a)\neq1$且$f(ab)=f(a)f(b)\neq 1$由$f(a)$和$f(b)$唯一确定. 故$\Aut(K_2)\cong S_3$.
 
 \subsubsection{(4)}
-求非零有理数乘法群$\mathbb{Q}^{\times}$的自同构群$\Aut\mathbb{Q}^{\times}$. 
+求非零有理数乘法群$\mathbb{Q}^{\times}$的自同构群$\Aut(\mathbb{Q}^{\times})$. 
 
 \jie
 $\forall x\in \mathbb{Q}^{\times}$，由算术基本定理，$x$可唯一写作
