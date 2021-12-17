@@ -61,6 +61,8 @@ c_3, & x<0
 
 由于以一个正立方体各面的中心为顶点，相邻面的中心连接为棱则得一个唯一的正八面体（反之亦然），故正立方体和正八面体的对称群同构. 同理，正十二面体和正二十面体的对称群同构.
 
+{\heiti 注记.\enspace} 以上对称群元素均包括（关于某个过正多面体中心的面的）反射对称，否则各群元素数为$12,24,24,60,60$.
+
 \subsection{}
 设群$G$作用在集合$\Sigma$上. 令$t$表示$\Sigma$在$G$作用下的轨道个数. 对$G$中任意元素$g$令$f(g)$表示$\Sigma$在$g$作用下的不动点个数. 试证
 
@@ -157,7 +159,7 @@ $$(x_1,y_1)(x_2,y_2)=(x_1\cdot \varphi(y_1)(x_2), y_1y_2)$$
 
 \subsubsection{(2c)}
 由(2a)和(2b)说明上述定义等价于
-$$N\vartriangleleft G,H\leq G,G=NH,N\bigcap H=\{1\}$$.
+$$N\vartriangleleft G,H\leq G,G=NH,N\cap H=\{1\}$$.
 
 \Proofbyintimidation
 
@@ -178,10 +180,15 @@ $$N\vartriangleleft G,H\leq G,G=NH,N\bigcap H=\{1\}$$.
 证明$S_n=A_n\rtimes\langle(12)\rangle$，其中$n\geq 3$.
 
 \zm{
-	(2c)中的条件我们只需证明$S_n=A_n\bigcap A_n(12)$即可，其余都是显然的.
+	(2c)中的条件我们只需证明$S_n=A_n\cap A_n(12)$即可，其余都是显然的.
 	
 	设$\sigma\in S_n-A_n$为奇置换，则$\sigma(12)$是偶置换，$\sigma=\sigma(12)(12)$.
 }
+
+\subsubsection{(5)}
+举例说明当$N\vartriangleleft G$时$G=N\rtimes (G/N)$不一定成立.
+
+\jie 令$G=\mathbb{Z}/4\mathbb{Z}, N=\mathbb{Z}/2\mathbb{Z}$即可.
 
 \subsection{}
 正四面体的$4$个顶点用$4$种颜色染色，求真正不同的染色方案的个数.

@@ -1,0 +1,74 @@
+\documentclass{ctexbook}
+\usepackage{amsmath,amssymb,biblatex,fullpage,longtable,tikz,titlesec}
+\usepackage[T1]{fontenc}
+%\addbibresource{ref.bib}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection}{3pt}{}
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\thesubsubsection}{3pt}{}
+\emergencystretch=1em
+\title{《线性代数》习题解答和补充材料}
+\author{李尚应}
+%\ctexset{chapter={
+%		name={第,章},
+%		number=\arabic{chapter},
+%	}
+%}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\qedsymbol}{\hfill\square}
+\newcommand\jie{{\heiti 解.\enspace}}
+\newcommand\zm[1]{{\heiti 证明.}#1$\qedsymbol$}%\enspace
+\newcommand\Proofbyintimidation{\zm{留给读者.}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+%\includeonly{answers/chapter4/section4-3}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\part*{}
+	\include{preamble/preamble.tex}
+	%\include{preamble/symbolindex.tex}
+	\include{preamble/glossary_zh.tex}
+	\include{preamble/glossary_en.tex}
+	\part{补充材料}
+	\setcounter{chapter}{0}
+	%\include{extra/chapter0.tex}
+	\setcounter{chapter}{7}
+	%\include{extra/chapter7.tex}
+	\part{习题提示}
+	\part{习题答案}
+	\setcounter{chapter}{0}
+	\chapter{群论基础}
+	%\include{answers/chapter1/section1-1.tex}
+	%\include{answers/chapter1/section1-2.tex}
+	%\include{answers/chapter1/section1-3.tex}
+	%\include{answers/chapter1/section1-4.tex}
+	\chapter{群在集合上的作用}
+	%\include{answers/chapter2/section2-1.tex}
+	%\include{answers/chapter2/section2-2.tex}
+	%\include{answers/chapter2/section2-3.tex}
+	%\include{answers/chapter2/section2-4.tex}
+	%\include{answers/chapter2/section2-5.tex}
+	%\include{answers/chapter2/section2-6.tex}
+	\chapter{环和域}
+	%\include{answers/chapter3/section3-1.tex}
+	%\include{answers/chapter3/section3-2.tex}
+	%\include{answers/chapter3/section3-3.tex}
+	%\include{answers/chapter3/section3-4.tex}
+	\chapter{因子分解}
+	%\include{answers/chapter4/section4-1.tex}
+	%\include{answers/chapter4/section4-2.tex}
+	%\include{answers/chapter4/section4-3.tex}
+	\chapter{域扩张理论}
+	%\include{answers/chapter5/section5-1.tex}
+	%\include{answers/chapter5/section5-2.tex}
+	%\include{answers/chapter5/section5-3.tex}
+	%\include{answers/chapter5/section5-4.tex}
+	\chapter{伽罗瓦理论}
+	%\include{answers/chapter6/section6-1.tex}
+	%\include{answers/chapter6/section6-2.tex}
+	%\include{answers/chapter6/section6-3.tex}
+	%\include{answers/chapter6/section6-4.tex}
+	%\include{answers/chapter6/section6-5.tex}
+	%\printbibliography[title={参考文献}]
+\end{document}
