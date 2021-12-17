@@ -361,10 +361,10 @@ $35$阶群是否一定同时含有$5$阶和$7$阶元素？
 $|\langle x\rangle|\mid|G|, |\langle y\rangle|\mid|G|\Rightarrow 30\mid|G|$. 另一方面$\mathbb{Z}/30n\mathbb{Z}$满足条件，故$G$应满足$30\mid|G|$.
 
 \subsection{}
-如果$H$与$K$是$G$的子群且阶互素，证明$H\bigcap K=\{1\}$.
+如果$H$与$K$是$G$的子群且阶互素，证明$H\cap K=\{1\}$.
 
 \zm{
-	$H\bigcap K$是$H$和$K$的子群，故$|H\bigcap K|\mid |H|,|K|\Rightarrow|H\bigcap K|\mid\gcd(|H|,|K|)=1$，故$|H\bigcap K|=1$，它是平凡群.
+	$H\cap K$是$H$和$K$的子群，故$|H\cap K|\mid |H|,|K|\Rightarrow|H\cap K|\mid\gcd(|H|,|K|)=1$，故$|H\cap K|=1$，它是平凡群.
 }
 
 \subsection{}
@@ -378,13 +378,13 @@ $|\langle x\rangle|\mid|G|, |\langle y\rangle|\mid|G|\Rightarrow 30\mid|G|$. 另
 
 \subsection{}
 设$H$和$K$分别是有限群$G$的两个子群，$HgK=\{hgk\mid h\in H, k\in K\}$，试证：
-$$|HgK|=|H|\cdot(K:g^{-1}Hg\bigcap K)$$
+$$|HgK|=|H|\cdot(K:g^{-1}Hg\cap K)$$
 
 \zm{
 	陪集$(H)gk_1$与$(H)gk_2$相同
 	\\$\Leftrightarrow gk_1k_2^{-1}g^{-1}\in H$
 	\\$\Leftrightarrow k_1k_2^{-1}\in g^{-1}Hg$
-	\\又$k_1k_2^{-1}\in K$，故$k_1k_2^{-1}\in g^{-1}Hg\bigcap K$（记后者为$L$），易证$L$为$K$的子群.
+	\\又$k_1k_2^{-1}\in K$，故$k_1k_2^{-1}\in g^{-1}Hg\cap K$（记后者为$L$），易证$L$为$K$的子群.
 	
 	故使$Hgk$相异的$k_1, k_2$分属于$L$的不同陪集$Lk_1$与$Lk_2$，即$k$共有$(K:L)$种取法，又每个陪集$Hgk$有$|H|$个元素，故$|HgK|=|H|\cdot(K:L)$.
 }
@@ -410,13 +410,13 @@ $$|HgK|=|H|\cdot(K:g^{-1}Hg\bigcap K)$$
 \subsubsection{(1)}
 设$A$是群$G$的有限指数子群，试证：存在$G$的一组元素$g_1, ... , g_n$可作$A$在$G$中的右陪集代表元系，又可作$A$在$G$中的左陪集代表元系.
 
-\emph{此证法来源于文献}\cite{268274}
+\emph{此证法来源于文献}\cite{268274}.
 
 \zm{
 	将$G$分拆为双陪集$G=\bigsqcup_{x\in J_1} AxA$，易见$Ax_1$（或$x_1A$）与$AxA$要么不交，要么属于$AxA$.
-	故只须对每一个双陪集$AxA$寻找$\{s_i\mid i\in I\},\{t_i\mid i\in I\}\subseteq A$使得$AxA=\bigsqcup_{i\in I}Axt_i=\bigsqcup_{i\in I}s_ixA$，此时$s_ixt_i$为$AxA$中$A$的左陪集和右陪集的代表元系（$\because As_1xt_i=Axt_i, s_ixt_iA=s_ixA$）. 由{\heiti 习题}\textbf{1.3.20}的证明过程，$AxA$中$A$的右陪集个数应等于$(A:x^{-1}Ax\bigcap A)=|I|$.
+	故只须对每一个双陪集$AxA$寻找$\{s_i\mid i\in I\},\{t_i\mid i\in I\}\subseteq A$使得$AxA=\bigsqcup_{i\in I}Axt_i=\bigsqcup_{i\in I}s_ixA$，此时$s_ixt_i$为$AxA$中$A$的左陪集和右陪集的代表元系（$\because As_1xt_i=Axt_i, s_ixt_iA=s_ixA$）. 由{\heiti 习题}\textbf{1.3.20}的证明过程，$AxA$中$A$的右陪集个数应等于$(A:x^{-1}Ax\cap A)=|I|$.
 	
-	对不同的$i,j\in I$，$(s_ixt_i)(s_jxt_j)^{-1}\notin A, (s_ixt_i)^{-1}(s_jxt_j)\notin A$，得$t_it_j^{-1}\notin x^{-1}Ax, s_i^{-1}s_j\notin xAx^{-1}$，记$x^{-1}Ax\bigcap A=B$，$A\bigcap xAx^{-1}=C$. 则$Bt_i\neq Bt_j, s_iC\neq s_jC$.
+	对不同的$i,j\in I$，$(s_ixt_i)(s_jxt_j)^{-1}\notin A, (s_ixt_i)^{-1}(s_jxt_j)\notin A$，得$t_it_j^{-1}\notin x^{-1}Ax, s_i^{-1}s_j\notin xAx^{-1}$，记$x^{-1}Ax\cap A=B$，$A\cap xAx^{-1}=C$. 则$Bt_i\neq Bt_j, s_iC\neq s_jC$.
 	
 	将$A$拆分为$B$的右陪集$A=\bigsqcup_{i\in I_1}By_i$，$C$的左陪集$A=\bigsqcup_{i\in I_2}z_iC$. 注意到$xBx^{-1}=C$，$B$与$C$共轭，且$(A:B)\leq(G:B)\leq(G:A)(G:x^{-1}Ax)=(G:A)^2$有限，故$|I|=|I_1|=|I_2|=(A:B)=(A:C)$，令$s_i=z_i$，$t_i=y_i$，则$s_ixt_i$为$AxA$中$A$的左（右）陪集代表元系. 对所有不同的$AxA$重复上述过程即得结论.
 }
