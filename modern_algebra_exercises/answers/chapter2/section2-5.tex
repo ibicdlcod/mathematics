@@ -79,12 +79,12 @@
 
 \zm{
 	$N(7)\equiv 1\mod 7, N(7)\mid 65, N(13)\equiv 1\mod 13,N(13)\mid 35$，得$N(7)=N(13)=1$，西罗$7$-,$13$-子群$H_7\vartriangleleft G, H_{13}\vartriangleleft G$.
-	考虑$H_7H_{13}$，由正规性$H_7H_{13}=H_{13}H_7$，故$H_7H_{13}$是$G$的子群，$H_7\vartriangleleft H_7H_{13}$，由$7$与$13$互素，$H_7\bigcap H_{13}=\{1_G\}, |H_7H_{13}|=91$. 由{\heiti 习题}\textbf{2.2.6}， $H_7H_{13}=H_7\rtimes H_{13}$.
+	考虑$H_7H_{13}$，由正规性$H_7H_{13}=H_{13}H_7$，故$H_7H_{13}$是$G$的子群，$H_7\vartriangleleft H_7H_{13}$，由$7$与$13$互素，$H_7\cap H_{13}=\{1_G\}, |H_7H_{13}|=91$. 由{\heiti 习题}\textbf{2.2.6}， $H_7H_{13}=H_7\rtimes H_{13}$.
 	
 	我们有同态：$\varphi_1: H_{13}\rightarrow \Aut(H_7)\cong\Aut(\mathbb{Z}/7\mathbb{Z})=(\mathbb{Z}/7\mathbb{Z})^{\times}$，后者阶数为$6$.
 	故$\im\varphi_1$的阶数整除$6$（因它是$\Aut(H_7)$的子群）和$13$（因它是$H_{13}$的商群$H_{13}/\ker\varphi_1$），它只能是平凡群，即$H_{13}$在$H_7$上作用平凡，$H_7H_{13}=H_7\rtimes H_{13}=H_7\times H_{13}=\mathbb{Z}/91\mathbb{Z}$，记为$H_{91}$.
 	
-	$\forall i\in H_7, j\in H_{13}$，由正规性$\forall g\in G, gig^{-1}=i^{\prime}\in H_7, gjg^{-1}=j^{\prime}\in H_{13}$，故$g(ij)g^{-1}=gig^{-1}gjg^{-1}=i^{\prime}j^{\prime}\in H_7H_{13}$，$H_7H_{13}=H_{91}$是$G$的正规子群.  记$G$的任何一个西罗$5$-子群为$H_5$，因$5$与$91$互素，$H_5\bigcap H_{91}=\{1_G\}, |H_5H_{91}|=455=|G|$. 由{\heiti 习题}\textbf{2.2.6}， $G=H_{91}H_5=H_{91}\rtimes H_5$.
+	$\forall i\in H_7, j\in H_{13}$，由正规性$\forall g\in G, gig^{-1}=i^{\prime}\in H_7, gjg^{-1}=j^{\prime}\in H_{13}$，故$g(ij)g^{-1}=gig^{-1}gjg^{-1}=i^{\prime}j^{\prime}\in H_7H_{13}$，$H_7H_{13}=H_{91}$是$G$的正规子群.  记$G$的任何一个西罗$5$-子群为$H_5$，因$5$与$91$互素，$H_5\cap H_{91}=\{1_G\}, |H_5H_{91}|=455=|G|$. 由{\heiti 习题}\textbf{2.2.6}， $G=H_{91}H_5=H_{91}\rtimes H_5$.
 	
 	我们有同态：$\varphi_2: H_{5}\rightarrow \Aut(H_{91})\cong\Aut(\mathbb{Z}/91\mathbb{Z})=(\mathbb{Z}/91\mathbb{Z})^{\times}$，后者阶数为$(7-1)\times (13-1)=72$.
 	故$\im\varphi_2$的阶数整除$72$（因它是$\Aut(H_{91})$的子群）和$5$（因它是$H_{5}$的商群$H_{5}/\ker\varphi_2$），它只能是平凡群，即$H_{5}$在$H_{91}$上作用平凡，$G=H_{91}H_5=H_{91}\rtimes H_5=H_{91}\times H_{5}=\mathbb{Z}/455\mathbb{Z}$，它是循环群.
@@ -107,13 +107,13 @@
 
 
 \zm{
-	设$G=\langle X \rangle, $记$Y=X\bigcup X^{-1}$，则$|Y|\leq 2n$，且$\forall g\in G, g=y_1y_2\cdots y_{r(g)}$，其中$y_i\in Y$，不一定两两不同.
+	设$G=\langle X \rangle, $记$Y=X\cup X^{-1}$，则$|Y|\leq 2n$，且$\forall g\in G, g=y_1y_2\cdots y_{r(g)}$，其中$y_i\in Y$，不一定两两不同.
 	
-	对$A$的所有右陪集$Ax$选定一个代表元，令$f(x)=\left\{
-		\begin{matrix}
+	对$A$的所有右陪集$Ax$选定一个代表元，令$f(x)=
+		\begin{cases}
 		1, & x\in A\\
 		Ax\text{的代表元}, & x\notin A
-		\end{matrix}\right.$
+		\end{cases}$
 	其中$A$的一个右陪集代表元系$S=\{1,x_1,...,x_{(G:A)-1}\}$为$f(x)$的$(G:A)$个不同值，即$\forall x_1,x_2\in G, Ax_1=Ax_2\Rightarrow f(x_1)=f(x_2)$. 我们记$[x]:=f(x)$. 我们有
 	$\forall x,v\in G, x[x]^{-1}=x(ax)^{-1}\;(a\in A)=a^{-1}\in A, [[x]]=[x], [[x]v]=[xv]$.
 	
@@ -126,12 +126,12 @@
 }
 
 \subsection{}
-令$G=G_1\times G_2\times \cdots \times G_n$且对任意$i\neq j$，$|G_i|$和$|G_j|$互素. 证明$G$的任意子群$H$都是它的子群$H\bigcap G_i\;(i=1,2,...,n)$的直积.
+令$G=G_1\times G_2\times \cdots \times G_n$且对任意$i\neq j$，$|G_i|$和$|G_j|$互素. 证明$G$的任意子群$H$都是它的子群$H\cap G_i\;(i=1,2,...,n)$的直积.
 
 \zm{
 	记$H_i=\{a_i\mid (a_1,...,a_n)\in H\}$，易见$H_i\leq G_i$. 考虑$H_{12}=\{(a_1,a_2)\mid (a_1,...,a_n)\in H\}\leq G_1\times G_2$，对$H_{12}$中第一项的每一个相异值选定一个元素，得$H_{12,1}=\{(a_1,f(a_1))\mid (a_1,a_2)\in H_{12}\}$，则$\varphi: H_{12,1}\rightarrow H_1, (a_1,f(a_1))\mapsto a_1$为双射.
 	
-	令$N_{12,2}=\{(1,a_{2z})\mid (1,a_{2z})\in H_{12}\}$，则对任意$H_{12}$中第一项相同的元素$x,y$，有$x=(a_1,a_{2x}),y=(a_1,a_{2y}),xy^{-1}=(1,a_{2x}a_{2y}^{-1})\in N_{12,2}$，特别地，$(a_1,f(a_1)a_{2y}^{-1})\in N_{12,2}$，且不同的$a_{2y}$得到$N_{12,2}$中不同元素. 反之，对$N_{12,2}$中元素$a_{2z}$有$(a_1,f(a_1))(1,a_{2z})=(a_1,f(a_1)a_{2z})\in H_{12}$，且不同的$a_{2z}$得到不同的$f(a_1)a_{2z}$，也就是$H_{12}$中不同的第一项为$a_1$的元素. 故$H_{12}=\bigsqcup_{a_i\in H_1}\{(a_1,f(a_1)a_{2z})\mid(1,a_{2z})\in N_{12,2}\}=H_{12,1}\times N_{12,2}$，$|H_1|=|H_{12,1}|\mid |H_{12}|$. 同理（构造$H_{12,2}, N_{12,1}$）$|H_2|\mid|H_{12}|$.
+	令$N_{12,2}=\{(1,a_{2z})\mid (1,a_{2z})\in H_{12}\}$，则对任意$H_{12}$中第一项相同的元素$x,y$，有$x=(a_1,a_{2x}),y=(a_1,a_{2y}),xy^{-1}=(1,a_{2x}a_{2y}^{-1})\in N_{12,2}$，特别地，$(a_1,f(a_1)a_{2y}^{-1})\in N_{12,2}$，且不同的$a_{2y}$得到$N_{12,2}$中不同元素. 反之，对$N_{12,2}$中元素$a_{2z}$有$(a_1,f(a_1))(1,a_{2z})=(a_1,f(a_1)a_{2z})\in H_{12}$，且不同的$a_{2z}$得到不同的$f(a_1)a_{2z}$，也就是$H_{12}$中不同的第一项为$a_1$的元素. 故$H_{12}=\sqcup_{a_i\in H_1}\{(a_1,f(a_1)a_{2z})\mid(1,a_{2z})\in N_{12,2}\}=H_{12,1}\times N_{12,2}$，$|H_1|=|H_{12,1}|\mid |H_{12}|$. 同理（构造$H_{12,2}, N_{12,1}$）$|H_2|\mid|H_{12}|$.
 	
 	但$|H_1|\mid |G_1|$，$|H_2|\mid |G_2|$，导致$|H_1|$与$|H_2|$互素，即$|H_1||H_2|\mid |H_{12}|\leq |H_1\times H_2|=|H_1||H_2|$，只有$|H_{12}|=|H_1||H_2|, H_{12}=H_1\times H_2$.
 	

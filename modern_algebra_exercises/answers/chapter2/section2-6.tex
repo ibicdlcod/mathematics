@@ -5,7 +5,7 @@
 
 \jie
 $N(11)\equiv 1\mod 11$且$N(11)\mid 3$得$N(11)=1$，西罗$11$-子群是循环群$N_{11}=\langle a\mid a^{11}=1\rangle\vartriangleleft G$.
-设$H_3=\{1_G,b,b^2\}$是$G$的一个西罗$3$-子群，则$3$与$11$互素$\Rightarrow N_{11}\bigcap H_3=\{1_G\}, |N_{11}H_3|=|N_{11}||H_3|=|G|\Rightarrow N_{11}H_3=G, G=N_{11}\rtimes H_3$.
+设$H_3=\{1_G,b,b^2\}$是$G$的一个西罗$3$-子群，则$3$与$11$互素$\Rightarrow N_{11}\cap H_3=\{1_G\}, |N_{11}H_3|=|N_{11}||H_3|=|G|\Rightarrow N_{11}H_3=G, G=N_{11}\rtimes H_3$.
 
 $G$由$\varphi: H_3\rightarrow \Aut(N_{11}): g\mapsto \sigma_g: a\mapsto g^{-1}ag$唯一确定.
 因$\Aut(N_{11})=\Aut(\mathbb{Z}/11\mathbb{Z})=(\mathbb{Z}/11\mathbb{Z})^{\times}$有$10$个元素，$\im\varphi$整除$10$和$3$，故为平凡群，$G=N_{11}\times H_3=\mathbb{Z}/33\mathbb{Z}$是同构意义下唯一的$33$阶群.
@@ -98,13 +98,11 @@ $G_5=S_3\times \mathbb{Z}/3\mathbb{Z}$.
 	由算术基本定理，$m=\prod_{i=1}^{r}p_i^{\alpha_i}$，$n=\prod_{j=1}^{s}q_j^{\beta_j}$，其中$p_i$为各异素数，$q_j$也为各异素数，$\alpha_i,\beta_j\in\mathbb{Z}_+$（若$m$或$n=1$，则$r$或$s=0$）. 由$m,n$互素知$p_i$和$q_j$也彼此相异.
 	
 	故有唯一的表示形式$a=\prod_{k=1}^{\infty}r_k^{\theta_k}$，其中$\theta_k=
-	\left\{
-	\begin{matrix}
-	0, & r_k\notin \{p_i\}\bigsqcup \{q_j\}\\
+	\begin{cases}
+	0, & r_k\notin \{p_i\}\sqcup \{q_j\}\\
 	\alpha_i, & r_k=p_i\\
 	-\beta_i, & r_k=q_j
-	\end{matrix}
-	\right.$，$\{r_k\}$为全部素数，$\theta_i\in\mathbb{Z}$.
+	\end{cases}$，$\{r_k\}$为全部素数，$\theta_i\in\mathbb{Z}$.
 	
 	反之，任一表示形式$\prod_{k=1}^{\infty}r_k^{\theta_k},\;\theta_k\in\mathbb{Z}$确定一个有理数$a$.
 	

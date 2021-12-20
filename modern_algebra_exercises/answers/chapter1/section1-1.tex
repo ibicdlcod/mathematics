@@ -97,12 +97,10 @@ $f$为双射$\Leftrightarrow$存在唯一的$g:B\rightarrow A$ s.t. $f\circ g=\i
 $$f:P(A)\rightarrow M(A), P\subset A\mapsto \left(
 g_P: A\rightarrow \{0,1\},
 x\mapsto
-\left\{
-\begin{matrix}
+\begin{cases}
 1, & \text{当}x\in P\\
 0, & \text{当}x\notin P
-\end{matrix}
-\right.
+\end{cases}
 \right)$$
 我们证明$f$是双射.
 
@@ -118,12 +116,10 @@ $f$为满射：令$m$为$M(A)$中任意元素，定义$M^+=\{x\in A\mid m(x)=1\}
 \zm{
 	构造单射$f:\mathbb{N}\rightarrow X$（$X$无限，因此这是可以做到的），其中$\{0,1,...,|Y|-1\}\mapsto Y$. 令
 	$$g:X-Y\rightarrow X, z\mapsto
-	\left\{
-	\begin{matrix}
+	\begin{cases}
 	z, & \text{当}z\notin f(\mathbb{N})\\
 	f(w-|Y|), & \text{当}z=f(w),\text{其中}w\in\mathbb{N}
-	\end{matrix}
-	\right.
+	\end{cases}
 	$$
 	易验证$g$为双射.
 }

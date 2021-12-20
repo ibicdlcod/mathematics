@@ -91,16 +91,16 @@ $IJ=\{\sum_{k=1}^na_kb_k\mid a_k\in I, b_k\in J\}$也是环$R$的理想，且$IJ
 \zm{
 	$\forall u_1,u_2\in IJ, u_1=\sum{k=1}^{n_1}a_kb_k, u_2=\sum_{k=1}^{n_2}a_k^{\prime}b_k^{\prime}$，
 	此时$u_1+u_2=\sum_{m=1}^{n_1+n_2}a_mb_m\in IJ$其中
-	$a_m=\left\{
-	\begin{matrix}
+	$a_m=
+	\begin{cases}
 	a_m, & m\leq n_1\\
 	a_{m-n_1}^{\prime}, & m> n_1
-	\end{matrix}\right.,
-	b_m=\left\{
-	\begin{matrix}
+	\end{cases},
+	b_m=
+	\begin{cases}
 	b_m, & m\leq n_1\\
 	b_{m-n_1}^{\prime}, & m> n_1
-	\end{matrix}\right..$同样，$\forall r\in R$，$u_1r=\left(\sum_{k=1}^{n_1}a_kb_k\right)r
+	\end{cases}.$同样，$\forall r\in R$，$u_1r=\left(\sum_{k=1}^{n_1}a_kb_k\right)r
 	=\sum_{k=1}^{n_1}a_k(b_kr)$其中$b_kr\in J$，$ru_1=r\left(\sum_{k=1}^{n_1}a_kb_k\right)
 	=\sum_{k=1}^{n_1}(ra_k)b_k$其中$ra_k\in I$，故两者都属于$IJ$，$IJ$为$R$的理想. 由$I$是理想，$J\subseteq R$得$IJ\subseteq I$同理$IJ\subseteq J$，故$IJ\subseteq I\cap J$.
 }
@@ -249,7 +249,7 @@ w & -z & y & x
 	\setlength\arraycolsep{1pt} 
 	x_1x_2-y_1y_2-z_1z_2-w_1w_2 & -x_1y_2-y_1x_2-z_1w_2+w_1z_2 & -x_1z_2+y_1w_2-z_1x_2-w_1y_2 & -x_1w_2-y_1z_2+z_1y_2-w_1x_2\\
 	y_1x_2+y_2x_1-w_1z_2+z_1w_2 & -y_1y_2+x_1x_2-w_1w_2-z_1z_2 & -y_1z_2-x_1w_2-w_1x_2+z_1y_2 & -y_1w_2+x_1z_2+w_1y_2+z_1x_2\\
-	z_1x_2+w_1y_2+x_1z_2-y_1w_2 & -z_1y_2+w_1x_2+x_1w_2+y_1z_2 & -z_1z_2-w_1w_2+x_1x_2-y_1y_2 & -z_1w_2+w_1z_2-x_1y_2-y_1x_2\\
+	z_1x_2+w_1y_2+x_1z_2-y_1w_2 & -z_1y_2+w_1x_2+x_1w_2+y_1z_2 & -z_1z_2-w_1w_2+x_1x_2-y_1y_2 & -z_1w_2+w_1z_2-x_1y_2-y_1x_2\\matrix}\right..
 	w_1x_2 -z_1y_2+y_1z_2+x_1w_2 & -w_1y_2-z_1x_2+y_1w_2-x_1z_2 & -w_1z_2-z_1w_2+y_1x_2+x_1y_2 & -w_1w_2-z_1z_2-y_1y_2+x_1x_2
 	\end{smallmatrix}\right),
 	\end{equation*}
