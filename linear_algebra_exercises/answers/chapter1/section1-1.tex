@@ -1,3 +1,64 @@
 \section{线性方程组的同解变形}
 \subsection{}
 用消元法解线性方程组：
+(1)
+$\begin{cases}
+	x_1+2x_2+3x_3=1,\\
+	2x_1+2x_2+5x_3=2,\\
+	3x_1+5x_2+x_3=3;
+\end{cases}$
+
+\jie 在\circled{2}\circled{3}中消去$x_1$得
+$\begin{cases}
+	x_1+2x_2+3x_3=1,\\
+	-2x_2-x_3=0,\\
+	-x_2-8x_3=0;
+\end{cases}$，
+这里$x_2,x_3$成不同的比例，只能$x_2=x_3=0$，得$x_1=1$.
+
+(2)
+$
+%\begin{equation*}
+\begin{cases}
+	\qquad x_2+x_3+x_4=1,\\
+	x_1\qquad+x_3+x_4=2,\\
+	x_1+x_2\qquad+x_4=3,\\
+	x_1+x_2+x_3\qquad=4.
+\end{cases}
+%\end{equation*}
+$
+
+\jie 四个方程相加得$3(x_1+x_2+x_3+x_4)=10$，即$(x_1+x_2+x_3+x_4)=10/3$，减以各原方程得$x_1=7/3, x_2=4/3, x_3=1/3, x_4=-2/3$.
+
+\subsection{}
+\subsubsection{(1)}
+求证：如果复数集合的子集$P$至少包含一个非零数，并且对加减乘除（除数不为0）封闭，则$P$包含$0,1$，从而是数域.
+
+\zm{
+	设此非零数为$a$，则$0=a-a\in P, 1=a/a\in P$.
+}
+
+\subsubsection{(2)}
+求证：所有的数域都包含有理数域.
+
+\zm{
+	数域包含$0,1$，又对加减封闭，得数域包含整数环$\mathbb{Z}$. 又数域对除法封闭，故$\mathbb{Q}$中元素均在该数域中.
+}
+
+\subsubsection{(3)}
+求证：集合$F=\{a+b\sqrt{2}\mid a,b\in\mathbb{Q}\}$是数域.
+
+\zm{
+	$F$对加减封闭显然.
+	
+	$F$对乘法封闭：$(a+b\sqrt{2})(c+d\sqrt{2})=(ac+2bd)+(ad+bc)\sqrt{2}$.
+	
+	$F$对除法封闭：只需要证明$F$中非零元均在$F$中可逆即可. 即求$e,f$使得$(a+b\sqrt{2})(e+f\sqrt{2})=1$，故$ae+2bf=1, af+be=0$, 解得 $e=1/(a^2-2b^2), f=be/a$均是有理数（当然，$a,b$为不全为零的有理数保证了$a^2-2b^2\neq 0$）.
+}
+
+\subsubsection{(4)}
+试求包含$\sqrt[3]{2}$的最小的数域.
+
+\jie 该数域显然包含$F=\{a+b\sqrt[3]{2}+c\sqrt[3]{4}\mid a,b,c\in\mathbb{Q}\}$. 下面证明左示集合确实是数域. 这里只证每个数的逆存在，其余留给读者。以下记$w=\sqrt[3]{2}$.
+
+我们事实上在求$d,e,f$使得$(a+bw+cw^2)(d+ew+fw^2)=1$，即$ad+2ce+2bf=1, bd+ae+2cf=0, cd+be+af=0$，将这三个条件看成关于$d,e,f$的线性方程组，得
