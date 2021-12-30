@@ -32,7 +32,7 @@
 若$n$为正奇数，求证：$D_{2n}\cong D_{n}\times \mathbb{Z}/2\mathbb{Z}$.
 
 \zm{
-	$D_n=\langle \sigma, \tau, \beta\mid \sigma^n=\tau^2=(\sigma\tau)^2=1\rangle$，
+	$D_n\times \mathbb{Z}/2\mathbb{Z}=\langle \sigma, \tau, \mid \sigma^n=\tau^2=(\sigma\tau)^2=1\rangle \times \{1, \beta\}$，
 	$D_{2n}=\langle \alpha,\tau\mid\alpha^{2n}=\tau^2=(\alpha\tau)^2=1\rangle$.
 	
 	记$\alpha^{\prime}=(\sigma^{(n+1)/2},\beta)$，其中$\beta\in\mathbb{Z}/2\mathbb{Z}, \beta^2=1$，
@@ -42,7 +42,7 @@
 	记$\tau^{\prime}=(\tau, 1)$，则$\tau^{\prime 2}=(1,1)$，由$\tau\sigma\tau=\sigma^{-1}$可得$\sigma^{l}\tau=\tau\sigma^{-l},\forall l\in\mathbb{Z}$.
 	于是$(\alpha^{\prime}\tau^{\prime})^2=(\sigma^{(n+1)/2}\tau\sigma^{(n+1)/2}\tau,\beta^2)=(\tau\sigma^{-(n+1)/2}\sigma^{(n+1)/2}\tau, 1)=(\tau^2,1)=(1,1)$.
 	
-	由于生成关系唯一确定该群，$\varphi: D_n\times\mathbb{Z}/2\mathbb{Z}\rightarrow D_{2n}, \alpha^{\prime}\mapsto \alpha, \tau^{\prime}\mapsto \tau, (1, \beta)\mapsto\alpha^n$是同构. 
+	由于生成关系唯一确定该群，$\varphi: D_n\times\mathbb{Z}/2\mathbb{Z}\rightarrow D_{2n}, \alpha^{\prime}\mapsto \alpha, \tau^{\prime}\mapsto \tau, 1, (1, \beta)\mapsto\alpha^n$是同构. 
 }
 
 \subsection{}
@@ -131,9 +131,9 @@
 \zm{
 	记$H_i=\{a_i\mid (a_1,...,a_n)\in H\}$，易见$H_i\leq G_i$. 考虑$H_{12}=\{(a_1,a_2)\mid (a_1,...,a_n)\in H\}\leq G_1\times G_2$，对$H_{12}$中第一项的每一个相异值选定一个元素，得$H_{12,1}=\{(a_1,f(a_1))\mid (a_1,a_2)\in H_{12}\}$，则$\varphi: H_{12,1}\rightarrow H_1, (a_1,f(a_1))\mapsto a_1$为双射.
 	
-	令$N_{12,2}=\{(1,a_{2z})\mid (1,a_{2z})\in H_{12}\}$，则对任意$H_{12}$中第一项相同的元素$x,y$，有$x=(a_1,a_{2x}),y=(a_1,a_{2y}),xy^{-1}=(1,a_{2x}a_{2y}^{-1})\in N_{12,2}$，特别地，$(a_1,f(a_1)a_{2y}^{-1})\in N_{12,2}$，且不同的$a_{2y}$得到$N_{12,2}$中不同元素. 反之，对$N_{12,2}$中元素$a_{2z}$有$(a_1,f(a_1))(1,a_{2z})=(a_1,f(a_1)a_{2z})\in H_{12}$，且不同的$a_{2z}$得到不同的$f(a_1)a_{2z}$，也就是$H_{12}$中不同的第一项为$a_1$的元素. 故$H_{12}=\sqcup_{a_i\in H_1}\{(a_1,f(a_1)a_{2z})\mid(1,a_{2z})\in N_{12,2}\}=H_{12,1}\times N_{12,2}$，$|H_1|=|H_{12,1}|\mid |H_{12}|$. 同理（构造$H_{12,2}, N_{12,1}$）$|H_2|\mid|H_{12}|$.
+	令$N_{12,2}=\{(1,a_{2z})\mid (1,a_{2z})\in H_{12}\}$，则对任意$H_{12}$中第一项相同的元素$x,y$，有$x=(a_1,a_{2x}),y=(a_1,a_{2y}),xy^{-1}=(1,a_{2x}a_{2y}^{-1})\in N_{12,2}$，特别地，$(a_1,f(a_1)a_{2y}^{-1})\in N_{12,2}$，且不同的$a_{2y}$得到$N_{12,2}$中不同元素. 反之，对$N_{12,2}$中元素$a_{2z}$有$(a_1,f(a_1))(1,a_{2z})=(a_1,f(a_1)a_{2z})\in H_{12}$，且不同的$a_{2z}$得到不同的$f(a_1)a_{2z}$，也就是$H_{12}$中不同的第一项为$a_1$的元素. 故$H_{12}=\bigsqcup_{a_i\in H_1}\{(a_1,f(a_1)a_{2z})\mid(1,a_{2z})\in N_{12,2}\}=H_{12,1}\times N_{12,2}$，$|H_1|=|H_{12,1}|\mid |H_{12}|$. 同理（构造$H_{12,2}, N_{12,1}$）$|H_2|\mid|H_{12}|$.
 	
 	但$|H_1|\mid |G_1|$，$|H_2|\mid |G_2|$，导致$|H_1|$与$|H_2|$互素，即$|H_1||H_2|\mid |H_{12}|\leq |H_1\times H_2|=|H_1||H_2|$，只有$|H_{12}|=|H_1||H_2|, H_{12}=H_1\times H_2$.
 	
-	由于$|G_1\times G_2|=|G_1||G_2|$与$|G_3|$互素，同理有$H_{12}3=\{(a_1,a_2,a_3)\mid (a_1,a_2,...,a_n)\in H\}=H_{12}\times H_3=H_1\times H_2\times H_3$，继续这一过程可得结论.
+	由于$|G_1\times G_2|=|G_1||G_2|$与$|G_3|$互素，同理有$H_{123}=\{(a_1,a_2,a_3)\mid (a_1,a_2,...,a_n)\in H\}=H_{12}\times H_3=H_1\times H_2\times H_3$，继续这一过程可得结论.
 }
