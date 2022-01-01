@@ -31,14 +31,14 @@ $\mathbb{Z}/n\mathbb{Z}$不是整环.
 
 \jie $R$的零因子也是$\mathbb{C}$的零因子，然而后者没有零因子，故$R$是整环.
 
-对$R$中任意元素$y=a+b\sqrt{-d}\neq 0$，$y$在$R$中可逆$\Leftrightarrow
-y^{-1}_{\mathbb{C}}=\frac{a-b\sqrt{-d}}{a^2+b^2d}\in R$，即$a^2+b^2d\mid a, a^2+b^2d\mid -b$.
+对$R$中任意元素$y=a+b\sqrt{-d}\neq 0, a,b\in\mathbb{Z}$，$y$在$R$中可逆$\Leftrightarrow
+y^{-1}_{\mathbb{C}}=\frac{a-b\sqrt{-d}}{a^2+b^2d}\in R$，即$a^2+b^2d\mid a, a^2+b^2d\mid (-b)$.
 
 若$|a|>1$，则$a^2>|a|,a^2+b^2d\geq a^2>|a|$，与整除矛盾.
 
 若$|a|=1$，则$1+b^2d\mid \pm1$，又$d\geq 1$，只能$b^2=0$，即$y=\pm 1$.
 
-若$|a|=0$，则$b^2d\mid -b$，得$bd=\pm 1$或$0$，又$d\neq 0, a^2+b^2d\neq 0$，只能$b=\pm 1$且$d=1$.
+若$|a|=0$，则$b^2d\mid (-b)$，得$bd=\pm 1$或$0$，又$d\neq 0, a^2+b^2d\neq 0$，只能$b=\pm 1$且$d=1$.
 
 因此$U(R)=
 \begin{cases}
@@ -188,13 +188,13 @@ $R[G]$是交换环$\Leftrightarrow R$是交换环且$G$是阿贝尔群.
 
 $(\Leftarrow)$请读者自证.
 
-$(\Rightarrow)$反证法，当$R$不是交换环时，$\exists r_1t_1\neq t_1r_1, r_1,t_1\in R$，
+$(\Rightarrow)$反证法，当$R$不是交换环时，$\exists r_1t_1\neq t_1r_1$其中$r_1,t_1\in R$，
 令$r_g=r_1, t_g=t_1$当$g=1_G$，$r_g=t_g=0_R$当$g\neq 1_G$，则
 $\left(\sum_{g\in G}r_gg\right)\left(\sum_{g\in G}t_gg\right)=r_1t_11_G$，
 $\left(\sum_{g\in G}t_gg\right)\left(\sum_{g\in G}r_gg\right)=t_1r_11_G$，
 两者不等，故$R[G]$不是交换环.
 
-当$G$不是阿贝尔群时，$\exists ab\neq ba, a,b\in G$，令$r_g=1_R$当$g=a$，$r_g=0_R$当$g\neq a$，$t_g=1_R$当$g=b$，$t_g=0_R$当$g\neq b$，则
+当$G$不是阿贝尔群时，$\exists ab\neq ba$其中$a,b\in G$，令$r_g=1_R$当$g=a$，$r_g=0_R$当$g\neq a$，$t_g=1_R$当$g=b$，$t_g=0_R$当$g\neq b$，则
 $\left(\sum_{g\in G}r_gg\right)\left(\sum_{g\in G}t_gg\right)=1_Rab$，
 $\left(\sum_{g\in G}t_gg\right)\left(\sum_{g\in G}r_gg\right)=1_Rba$，
 两者不等，故$R[G]$不是交换环.
@@ -231,8 +231,8 @@ $U(\mathbb{Z}[\mathbb{Z}/2\mathbb{Z}])=\{\pm 1, \pm x\}$.
 $R[\mathbb{Z}]$的单位群，其中$R$为整环.
 
 \jie 将$\mathbb{Z}$看作秩为$1$的自由阿贝尔群，其生成元记为$x$，则$R[\mathbb{Z}]$中的非零元有形式$r=x^{u}(a_0+a_1x+\cdots+a_mx^m)=x^uf(x), 0\leq m<\infty, u\in\mathbb{Z}, a_i\in R$，
-$s=x^{v}(b_0+b_1x+\cdots+b_nx^n=x^vg(x), 0\leq n<\infty, v\in\mathbb{Z}, b_j\in R$.
-此时$f,g$为多项式环$R[x]$中的元素且常数项不为$0_R$，由$R$是整环，$f(x)g(x)$的常数项也不为$0_R$，且$rs=x^{u+v}f(x)g(x)$，要使$rs=1_{R[\mathbb{Z}]}$，只能$u+v=0$，$f(x)g(x)=1_R$，我们有$\deg fg=0$，由{\heiti 命题}\textbf{4.21}（读者也可自证）$\deg f+\deg g=0$，即$f,g$为常数多项式，$fg=1$得到$f=a_0\in U(R), g=b_0\in U(R)$.
+$s=x^{v}(b_0+b_1x+\cdots+b_nx^n)=x^vg(x), 0\leq n<\infty, v\in\mathbb{Z}, b_j\in R$.
+此时$f,g$为多项式环$R[x]$中的元素且常数项不为$0_R$，由$R$是整环，$f(x)g(x)$的常数项也不为$0_R$，且$rs=x^{u+v}f(x)g(x)$，要使$rs=1_{R[\mathbb{Z}]}$，只能$u+v=0$且$f(x)g(x)=1_R$，我们有$\deg fg=0$，由{\heiti 命题}\textbf{4.21}（读者也可自证）$\deg f+\deg g=0$，即$f,g$为常数多项式，$fg=1$得到$f=a_0\in U(R), g=b_0\in U(R)$.
 
 故$U(R[\mathbb{Z}])$为$\{x^ua_0\mid a_0\in U(R), u\in\mathbb{Z}\}$.
 
@@ -295,7 +295,7 @@ $$A+B=(A-B)\cup(B-A), A\cdot B=A\cap B.$$
 	=&((A-B)\cup(B-A))+C&&\\
 	=&(((A-B)\cup(B-A))-C)\cup(C-((A-B)\cup(B-A)))&&\\
 	=&((A-(B\cup C))\cup(B-(A\cup C)))\cup((C-(A\cup B))\cup (C\cap A\cap B))&&\\
-	=&(A-(B\cup C))\cup(B-(A\cup C))\cup (C-(A\cup B))\cup (A\cap B\cap C)&&\tag{$\ast$}
+	=&(A-(B\cup C))\cup(B-(C\cup A))\cup (C-(A\cup B))\cup (A\cap B\cap C)&&\tag{$\ast$}
 	\end{flalign*}
 	注意$(\ast)$式关于$A,B,C$对称，故$(\ast)=(A+B)+C=(B+C)+A=A+(B+C)$.
 	
@@ -355,38 +355,13 @@ $$A+B=(A-B)\cup(B-A), A\cdot B=A\cap B.$$
 	若$a^n=0, b^m=0$，则
 	\begin{flalign*}
 	&(a+b)^{n+m}=
-	\sum_{0\leq i\leq m+n}\left(
-	\begin{matrix}
-	m+n\\
-	i
-	\end{matrix}
-	\right)a^ib^{m+n-i}&&\\
-	=&\sum_{n\leq i\leq m+n}\left(
-	\begin{matrix}
-	m+n\\
-	i
-	\end{matrix}
-	\right)a^na^{i-n}b^{m+n-i}
+	\sum_{0\leq i\leq m+n}\binom{m+n}{i}a^ib^{m+n-i}&&\\
+	=&\sum_{n\leq i\leq m+n}\binom{m+n}{i}a^na^{i-n}b^{m+n-i}
 	+
-	\sum_{0\leq i<n}\left(
-	\begin{matrix}
-	m+n\\
-	i
-	\end{matrix}
-	\right)a^ib^{m}b^{n-i}&&\\
-	=&\sum_{n\leq i\leq m+n}\left(
-	\begin{matrix}
-	m+n\\
-	i
-	\end{matrix}
-	\right)0\cdot a^{i-n}b^{m+n-i}
+	\sum_{0\leq i<n}\binom{m+n}{i}a^ib^{m}b^{n-i}&&\\
+	=&\sum_{n\leq i\leq m+n}\binom{m+n}{i}0\times a^{i-n}b^{m+n-i}
 	+
-	\sum_{0\leq i<n}\left(
-	\begin{matrix}
-	m+n\\
-	i
-	\end{matrix}
-	\right)a^i\cdot 0\cdot b^{n-i}&&\\
+	\sum_{0\leq i<n}\binom{m+n}{i}a^i\times 0\times b^{n-i}&&\\
 	=&\;0
 	\end{flalign*}
 	故$a+b$为幂零元.
@@ -453,15 +428,15 @@ $$A+B=(A-B)\cup(B-A), A\cdot B=A\cap B.$$
 \zm{
 	设$u$有多个右逆. 若$u$有左逆，则由{\heiti 引理}\textbf{3.12(1)}，$u$的左逆等于右逆且唯一，矛盾. 故$u$没有左逆.
 	
-	考虑元素$v=v_0+(1-v_0u)u^k$，其中$k\in\mathbb{N}$且$uv_0=1$，即$v_0$是$u$的任何一个右逆. 我们有$uv=uv_0+u^{k+1}-uv_0uu^k=1+u^{k+1}+u\cdot 1\cdot u^k=1$，故$v$是$u$的右逆. 当$i\neq j$时，不妨设$j>i$，则$v_i=(1-v_0u)u^i=v_j=(1-v_0u)u^j
+	考虑元素$v=v_0+(1-v_0u)u^k$，其中$k\in\mathbb{N}$且$uv_0=1$，即$v_0$是$u$的任何一个右逆. 我们有$uv=uv_0+u^{k+1}-uv_0uu^k=1+u^{k+1}-1\times u\cdot u^k=1$，故$v$是$u$的右逆. 当$i\neq j$时，不妨设$j>i$，则$v_i=v_j\Leftrightarrow v_i=(1-v_0u)u^i=v_j=(1-v_0u)u^j
 	\Rightarrow u^i-u^j-v_0u^{i+1}+v_0u^{j+1}=0
 	\Rightarrow (u^i-u^j-v_0u^{i+1}+v_0u^{j+1})v_0^j=0
 	\Rightarrow v_0^{j-i}-1+v_0v_0^{j-i-1}+v_0u=0
-	\Rightarrow v_0u=1$，即$v_0$是$u$的左逆，矛盾，故$f:\mathbb{N}\Rightarrow\{v_0+(1-v_0u)u^k\mid k\in\mathbb{N}\}, k\mapsto v_0+(1-v_0u)u^k$是单射，满足条件的$v$有无限多个.
+	\Rightarrow v_0u=1$，即$v_0$是$u$的左逆，矛盾，故$f:\mathbb{N}\rightarrow\{v_0+(1-v_0u)u^k\mid k\in\mathbb{N}\}, k\mapsto v_0+(1-v_0u)u^k$是单射，满足条件的$v$有无限多个.
 }
 
 \zm{
-	另一个证明，令$S=\{x\mid ux=1\}, T=\{xu-1+s_0\mid x\in S\}$，其中固定$s_0\in S$.
+	另一个证明（非构造性），令$S=\{x\mid ux=1\}, T=\{xu-1+s_0\mid x\in S\}$，其中固定$s_0\in S$.
 	
 	由$u$没有左逆知$xu-1+s_0\neq s_0$，故$s_0\in S-T$. 但$\forall y\in T,
 	y=xu-1+s_0$，有$uy=uxu-u+us_0=u-u+1=1$，故$T\subseteq S$. 令$f: S\rightarrow T,
@@ -479,7 +454,7 @@ $C(\mathbb{R})$为含幺交换环.
 \subsubsection{(2)}
 $C(\mathbb{R})$是否为整环？
 
-\jie 否，请读者自证$C(\mathbb{R})$中的加法单位元为$f_0: a\mapsto 0,\forall a\in A$.
+\jie 否，请读者自证$C(\mathbb{R})$中的加法单位元为$f_0: a\mapsto 0,\forall a\in \mathbb{R}$.
 
 令$f,g$使得$f^{-1}(0)=A\subsetneqq\mathbb{R}, g^{-1}(0)=B\subsetneqq\mathbb{R}$，$A\cup B=\mathbb{R}$，则易见$fg=f_0$，故该环不是整环.
 
