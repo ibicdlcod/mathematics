@@ -9,9 +9,9 @@
 	用数学归纳法.
 	
 	当$m=1$时，结论显然成立. 当$m=2$时，若结论不成立，则存在$a_1,a_2\in A,
-	a_1\in \mathfrak{p}_1-\mathfrak{p}_2, a_2\in \mathfrak{p}_2-\mathfrak{p}_1$，若$a_1+a_2\in\mathfrak{p}_1$，则$a_2=a_1+a_2-a_1\in\mathfrak{p}_1-\mathfrak{p}_1\subseteq\mathfrak{p}_1$，矛盾，同理$a_1+a_2\in\mathfrak{p}_2$，两者综合与$a_1+a_2\in A\subseteq \mathfrak{p}_1\cup\mathfrak{p}_2$矛盾.
+	a_1\in \mathfrak{p}_1-\mathfrak{p}_2, a_2\in \mathfrak{p}_2-\mathfrak{p}_1$，若$a_1+a_2\in\mathfrak{p}_1$，则$a_2=a_1+a_2-a_1\in\mathfrak{p}_1-\mathfrak{p}_1\subseteq\mathfrak{p}_1$，矛盾，同理$a_1+a_2\notin\mathfrak{p}_2$，两者综合与$a_1+a_2\in A\subseteq \mathfrak{p}_1\cup\mathfrak{p}_2$矛盾.
 	
-	假设我们已有$m=k$时结论成立，下证$m=k+1$时结论成立，用反证法. 若不存在$\mathfrak{p}_i$包含$A$，则固定$1\leq i\leq k+1$，因$m=k$时对$\mathfrak{p}_j\;(j\neq i)$结论不成立，则条件也不成立，即$A\nsubseteq \bigcup_{\substack{1\leq j\leq k+1\\j\neq i}}\mathfrak{p}_j$，但$A\subseteq \bigcup_{\substack{1\leq j\leq k+1\\j\neq i}}\mathfrak{p}_j\cup\mathfrak{p}_i$，故存在$a_i\in A$使得$a_i\in \mathfrak{p}_i, a_i\notin \mathfrak{p}_j\;(j\neq i)$.
+	假设我们已有$m=k$时结论成立，下证$m=k+1$时结论成立，用反证法. 若不存在$\mathfrak{p}_i$包含$A$，则固定$1\leq i\leq k+1$，因$m=k$时对$\mathfrak{p}_j\;(j\neq i)$结论不成立，则条件也不成立，即$A\nsubseteq \bigcup_{\substack{1\leq j\leq k+1\\j\neq i}}\mathfrak{p}_j$，但$A\subseteq \bigcup_{\substack{1\leq j\leq k+1\\j\neq i}}\mathfrak{p}_j\cup\mathfrak{p}_i$，故存在$a_i\in A$使得$a_i\in \mathfrak{p}_i, a_i\notin \mathfrak{p}_j\;(\forall j\neq i)$.
 	
 	考虑元素$b=\prod_{i=1}^k a_i, c=b+a_{k+1}$，则对$1\leq i\leq k$有$b\in \mathfrak{p}_i$，且由$\mathfrak{p}_{k+1}$是素理想，$a_i\notin \mathfrak{p}_{k+1}, \forall 1\leq i\leq k$有$b\notin \mathfrak{p}_{k+1}$，又$a_{k+1}\in \mathfrak{p}_{k+1}, a_{k+1}\notin \mathfrak{p}_j\;(j\neq k+1)$，
 	若$c\in\mathfrak{p}_{k+1}$，则$b=c-a_{k+1}\in
@@ -107,7 +107,7 @@ n\mathbb{Z}/m\mathbb{Z}, &m\text{不为素数时，其中}n\text{是}m\text{的�
 \end{cases}
 $.
 
-注：这里认为零环不是整环，以与素理想的定义一致，参见\emph{文献}\cite{1326600}从
+\emph{注：这里认为零环不是整环，以与素理想的定义一致，参见文献}\cite{1326600}.
 
 \subsection{}
 确定环$\mathbb{Z}[x]/(x^2+3, p)$的结构，其中$p=3,5$.
@@ -200,18 +200,18 @@ $R=\mathbb{R}[x]/(x^2+x+1)_{\Ideal}$.
 }
 
 \subsection{}
-设$R$为PID，$F$是它的商域，$S\supseteq R$是$F$的子环，证明$S$是$PID$.
+设$R$为PID，$F$是它的商域，$S\supseteq R$是$F$的子环，证明$S$是PID.
 
 \zm{
 	对$R$上任意元素$a,b$，两个元素生成的理想是主理想$(c)_{\Ideal, R}$，我们将这个主理想的生成元$c$记作$\gcd(a,b)$.
 	
 	对$S$上任意元素$\frac{x}{y}$，$\gcd(x,y)$在$x,y$生成的$R$-理想中，故存在$m,n\in R$使得$mx+ny=\gcd(x,y)$，这时$m\frac{x}{y}+n=\frac{\gcd(x,y)}{y}\in RS+R\subseteq S$，并且$x=x^{\prime}\gcd(x,y)$，$y=y^{\prime}\gcd(x,y)$.
 	
-	易见$\frac{x}{y}=\frac{x^{\prime}}{y^{\prime}}$，记后者为前者的简化形式. 同时$\frac{\gcd{x,y}}{y}\in S$的简化形式为$\frac{1}{y^{\prime}}$. 如果我们把$S$中所有元素皆写为简化形式，得到引理：$\frac{x}{y}\in S\Rightarrow \frac{1}{y}\in S$.
+	易见$\frac{x}{y}=\frac{x^{\prime}}{y^{\prime}}$，记后者为前者的简化形式. 同时$\frac{\gcd(x,y)}{y}\in S$的简化形式为$\frac{1}{y^{\prime}}$. 如果我们把$S$中所有元素皆写为简化形式，得到引理：$\frac{x}{y}\in S\Rightarrow \frac{1}{y}\in S$.
 	
-	由于$R\subseteq S$，故反过来也成立，$S=T^{-1}R$，其中$T$为$S$中所有出现在简化形式中的分母的集合，由引理，对任意$t_1,t_2\in T, \frac{1}{t_1}, \frac{1}{t_2}\in S$，故$\frac{1}{t_1t_2}\in S$（显然它也是简化形式），即$T$是乘法集.
+	由于$R\subseteq S$，因此反过来$\frac{x}{y}\in S\Leftarrow \frac{1}{y}\in S$也成立，故$S=T^{-1}R$，其中$T$为$S$中所有出现在简化形式中的分母的集合，由引理，对任意$t_1,t_2\in T, \frac{1}{t_1}, \frac{1}{t_2}\in S$，故$\frac{1}{t_1t_2}\in S$（显然它也是简化形式），即$T$是乘法集.
 	
-	考虑$S$上任意理想$I=\bigsqcup \frac{a_i}{b_i}$，记$J$为所有分子$a_i$生成的理想. 由于$b_i\in R$，故对任何$a_i$有$a_i\in R$，即$J\subseteq I$，又全部分子为1的分数$T^{-1}\in S$，故$T^{-1}J\subseteq I$，且若$I$有任何其他元素，其分子不能在$J$中，矛盾. 故$J$的生成元$d\;(dR=J)$满足$dS=dT^{-1}R=T^{-1}dR=T^{-1}J=I$，即任意理想$I$都是主理想.
+	考虑$S$上任意理想$I=\bigsqcup \frac{a_i}{b_i}$，记$J$为所有分子$\{a_i\}$生成的理想. 由于$b_i\in R$，故对任何$a_i$有$a_i\in R$，即$J\subseteq I$，又全部分子为1的分数$T^{-1}\in S$，故$T^{-1}J\subseteq I$，且若$I$有任何其他元素，其分子不能在$J$中，矛盾. 故$J$的生成元$d\;(dR=J)$满足$dS=dT^{-1}R=T^{-1}dR=T^{-1}J=I$，即任意理想$I$都是主理想.
 }
 
 \subsection{}
@@ -245,7 +245,7 @@ $\mathrm{Spec}(S^{-1}D)$与集合$\{\mathfrak{p}\in\mathrm{Spec}D\mid p\cap S=\v
 \zm{
 	$\forall \mathfrak{q}\in\mathrm{Spec}(S^{-1}D)$，由$(2)$有$\mathfrak{p}=\{m_1\mid\frac{m_1}{n_1}\in\mathfrak{q}\}\in\mathrm{Spec}D$，若$\mathfrak{p}\cap S\neq\varnothing$，取$n_p\in \mathfrak{p}\cap S$，则$1=\frac{n_p}{n_p}\in \mathfrak{q}$，与$\mathfrak{q}$是真理想矛盾，故$\mathfrak{p}\cap S=\varnothing$，并且显然$\mathfrak{p}$由$\mathfrak{q}$唯一确定.
 	
-	另一方面，给定$\mathfrak{p}\in\mathrm{Spec}D$且$\mathfrak{p}cap S=\varnothing$，请读者自证$S^{-1}\mathfrak{p}$是$S^{-1}D$的理想，且$\frac{m_1}{n_1}\cdot\frac{m_2}{n_2}\in S^{-1}\mathfrak{p}\Leftrightarrow m_1m_2\in\mathfrak{p}\Leftrightarrow m_1\in\mathfrak{p}$或$m_2\in\mathfrak{p}\Leftrightarrow \frac{m_1}{n_1}\in S^{-1}\mathfrak{p}$或$\frac{m_2}{n_2}\in S^{-1}\mathfrak{p}$，且$\mathfrak{p}cap S=\varnothing\Rightarrow 1=\frac{u}{u}\notin \mathfrak{p}$，$S^{-1}\mathfrak{p}$为真理想且满足素理想的条件.
+	另一方面，给定$\mathfrak{p}\in\mathrm{Spec}D$且$\mathfrak{p}\cap S=\varnothing$，请读者自证$S^{-1}\mathfrak{p}$是$S^{-1}D$的理想，且$\frac{m_1}{n_1}\cdot\frac{m_2}{n_2}\in S^{-1}\mathfrak{p}\Leftrightarrow m_1m_2\in\mathfrak{p}\Leftrightarrow m_1\in\mathfrak{p}$或$m_2\in\mathfrak{p}\Leftrightarrow \frac{m_1}{n_1}\in S^{-1}\mathfrak{p}$或$\frac{m_2}{n_2}\in S^{-1}\mathfrak{p}$，且$\mathfrak{p}\cap S=\varnothing\Rightarrow 1=\frac{u}{u}\notin \mathfrak{p}$，$S^{-1}\mathfrak{p}$为真理想且满足素理想的条件.
 	
 	我们只需证明$\mathfrak{p}$唯一确定$\mathfrak{q}=S^{-1}\mathfrak{p}$即可. 因$\mathfrak{p}$是素理想，任何$\mathfrak{q}$中元素$\frac{m}{n}, m\in\mathfrak{p}$中元素若有等价形式$\frac{m^{\prime}}{n^{\prime}}$，则$mn^{\prime}=nm^{\prime}$，左边属于$\mathfrak{p}$，右边有$n\notin\mathfrak{p}$，故$m^{\prime}\in\mathfrak{p}$，即$\mathfrak{q}$中所有元素的分子的集合与$\mathfrak{p}$完全相等，故不同的$\mathfrak{p}$确定不同的$\mathfrak{q}$.
 }

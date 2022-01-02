@@ -72,7 +72,7 @@ $f(x)$是零因子当且仅当存在$0\neq a\in R$使得$af(x)=0$.
 
 \emph{警告：读者必须证明所得的结果全部是$\mathbb{Z}[x]$中不可约多项式，才算完成此题.}
 
-\jie 一次多项式都是不可约的. 由{\heiti 例}\textbf{4.34}，$3,5,7$次分圆多项式$f_3(x)=x^2+x+1, f(5)x=x^4+x^3+x^2+x^1+1, f_7(x)=x^6+x^5+x^4+x^3+x^2+x^1+1$在$\mathbb{Z}[x]$上不可约.
+\jie 一次多项式都是不可约的. 由{\heiti 例}\textbf{4.34}，$3,5,7$次分圆多项式$f_3(x)=x^2+x+1, f_5(x)=x^4+x^3+x^2+x^1+1, f_7(x)=x^6+x^5+x^4+x^3+x^2+x^1+1$在$\mathbb{Z}[x]$上不可约.
 
 $x^3-1=(x-1)(x^2+x+1)$.
 
@@ -109,7 +109,11 @@ $d\left(\sum_i a_ix^i\right)=\sum_i d(a_ix^i)=\sum_i (d(a_i)x^i+a_id(x^i))
 \zm{
 	由于$\mathbb{Q}$的代数闭包存在（见{\heiti 例}\textbf{5.21}），因此$f(x)$在代数闭包$\overline{\mathbb{Q}}$或者它的任何扩域中有奇数个不同的根.
 	
-	对$f(x)$的任意一个根$u$，由$f(x)$不可约且不是一次多项式（$(x-\alpha)(x-\beta)\mid f(x)$，有$u\notin\mathbb{Q}$，定义同态$\varphi_u: \mathbb{Q}[x]\rightarrow\overline{\mathbb{Q}}, f(x)\mapsto f(u)$，则$(f(x))_{\Ideal, \mathbb{Q}[x]}\subseteq\ker\varphi_u$，由$\mathbb{Q}$是域，$\mathbb{Q}[x]$是PID，故也是贝祖环，当$g(x)\notin (f(x))_{\Ideal, \mathbb{Q}[x]}$时因$f(x)$不可约，$\gcd(f(x),g(x))=1, af(x)+bg(x)=1\;(a,b\in\mathbb{Q}[x]), bg(u)=af(u)+bg(u)=\varphi_u(1)=1$，故$u$不是$g(x)$的根，$\ker\varphi_u\subseteq(f(x))_{\Ideal, \mathbb{Q}[x]}$，故$\ker\varphi_u=(f(x))_{\Ideal, \mathbb{Q}[x]}$，$\mathbb{Q}[x]/f(x)=\mathbb{Q}[x]/\ker\varphi_u\cong\im\varphi_u=\mathbb{Q}[u]$.
+	对$f(x)$的任意一个根$u$，由$f(x)$不可约且不是一次多项式（$(x-\alpha)(x-\beta)\mid f(x)$），有$u\notin\mathbb{Q}$；
+	
+	定义同态$\varphi_u: \mathbb{Q}[x]\rightarrow\overline{\mathbb{Q}}, f(x)\mapsto f(u)$，则$(f(x))_{\Ideal, \mathbb{Q}[x]}\subseteq\ker\varphi_u$，由$\mathbb{Q}$是域，$\mathbb{Q}[x]$是PID，故也是贝祖环，当$g(x)\notin (f(x))_{\Ideal, \mathbb{Q}[x]}$时因$f(x)$不可约，$\gcd(f(x),g(x))=1, af(x)+bg(x)=1\;(a,b\in\mathbb{Q}[x]), bg(u)=af(u)+bg(u)=\varphi_u(1)=1$；
+	
+	故$u$不是$g(x)$的根，$\ker\varphi_u\subseteq(f(x))_{\Ideal, \mathbb{Q}[x]}$，故$\ker\varphi_u=(f(x))_{\Ideal, \mathbb{Q}[x]}$，$\mathbb{Q}[x]/f(x)=\mathbb{Q}[x]/\ker\varphi_u\cong\im\varphi_u=\mathbb{Q}[u]$.
 	
 	由$u$的任意性，对$f(x)$的任意一个根$\gamma$，$\varphi_{\gamma\alpha^{-1}}=\varphi_{\gamma}\circ\varphi_{\alpha}^{-1}$诱导$\mathbb{Q}[\alpha]$通过$\mathbb{Q}[x]/f(x)$到$\mathbb{Q}[\gamma]$的同构$f(\alpha)\mapsto f(\gamma)$，该同构在$\mathbb{Q}$上的限制为恒等映射，令$r=\alpha+\beta$.
 	

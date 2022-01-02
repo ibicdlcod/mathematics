@@ -18,9 +18,9 @@
 (iii) 我们利用本节知识证明$n$次分圆多项式$f(x)=\prod_{\gcd(k,n)=1}(x-\zeta_n^k)$是$\mathbb{Q}[x]$中不可约多项式（$n$不一定是素数）.
 
 \zm{
-	$\langle\zeta_n\rangle\cong\mathbb{Z}/n\mathbb{Z}=G$，而$\Aut(G)$为$(\mathbb{Z}/n\mathbb{Z})^{\times}$，且$\mathbb{Q}(\zeta_n)$中的元素均能表示为$G$中元素的线性组合，故$G$的自同构诱导了$\mathbb{Q}(\zeta_n)$到自身的自同构，该同构在$\mathbb{Q}$上的限制必然是恒等映射，令$\varphi\in\Aut(G)$，则$\varphi$将本原单位根$\zeta_n$映射到本原单位根$\zeta_n^k\;(\gcd(n,k)=1)$，由{\heiti 命题}\textbf{5.18}（取$F=\mathbb{Q}, K=\mathbb{Q}(\zeta_n)$），一切$n$次本原单位根有相同的最小多项式$g(x)$，全部$n$次本原单位根都是$g(x)$的根，故$f(x)\mid g(x)$（我们现在尚不确定$f(x)$在$\mathbb{Q}[x]$中）
+	$\langle\zeta_n\rangle\cong\mathbb{Z}/n\mathbb{Z}=G$，而$\Aut(G)$为$(\mathbb{Z}/n\mathbb{Z})^{\times}$，且$\mathbb{Q}(\zeta_n)$中的元素均能表示为$G$中元素的$\mathbb{Q}$-线性组合，故$G$的自同构诱导了$\mathbb{Q}(\zeta_n)$到自身的自同构，该同构在$\mathbb{Q}$上的限制必然是恒等映射，令$\varphi\in\Aut(G)$，则$\varphi$将本原单位根$\zeta_n$映射到本原单位根$\zeta_n^k\;(\gcd(n,k)=1)$，由{\heiti 命题}\textbf{5.18}（取$F=\mathbb{Q}, K=\mathbb{Q}(\zeta_n)$），一切$n$次本原单位根有相同的最小多项式$g(x)$，全部$n$次本原单位根都是$g(x)$的根，故$f(x)\mid g(x)$（我们现在尚不确定$f(x)$在$\mathbb{Q}[x]$中）
 	
-	由于$x^n-1$没有重根且是$\zeta_n$的化零多项式，$g(x)\mid x^n-1$，故$g(x)$无重根，我们只需证明$g(x)$没有任何$f(x)$的根以外根即可。若有这样的根，则该根也是$x^n-1$的根，故为$n$次单位根，令该根为$\zeta_n^r$，则$\gcd(n,r)\neq 1$，且在{\heiti 命题}\textbf{5.19}中取$F=\tilde{F}=\mathbb{Q}, K=\tilde{K}=\mathbb{Q}(\zeta_n)$，最小多项式为$g(x)$，则存在域同构$\varphi_1$使得它保持有理数不变且$\varphi_1(\zeta_n)=\zeta_n^r$，故$\varphi_1(\zeta_n^{n/\gcd{r,n}})=\zeta_n^{rn/\gcd{r,n}}=(\zeta_n^n)^{r/\gcd{r,n}}=1$，但$n/\gcd{r,n}<n$，$\zeta_n^{n/\gcd{r,n}}\neq 1$，与$\varphi_1$保持$1$不变矛盾，故$g(x)$无任何其他根，$g(x)=f(x)$为不可约多项式.
+	由于$x^n-1$没有重根且是$\zeta_n$的化零多项式，$g(x)\mid x^n-1$，故$g(x)$无重根，我们只需证明$g(x)$没有任何$f(x)$的根以外根即可。若有这样的根，则该根也是$x^n-1$的根，故为$n$次单位根，令该根为$\zeta_n^r$，则$\gcd(n,r)\neq 1$，且在{\heiti 命题}\textbf{5.19}中取$F=\tilde{F}=\mathbb{Q}, K=\tilde{K}=\mathbb{Q}(\zeta_n)$，最小多项式为$g(x)$，则存在域同构$\varphi_1$使得它保持有理数不变且$\varphi_1(\zeta_n)=\zeta_n^r$，故$\varphi_1(\zeta_n^{n/\gcd(r,n)})=\zeta_n^{rn/\gcd(r,n)}=(\zeta_n^n)^{r/\gcd(r,n)}=1$，但$n/\gcd(r,n)<n$，$\zeta_n^{n/\gcd{r,n}}\neq 1$，与$\varphi_1$保持$1$不变矛盾，故$g(x)$无任何其他根，$g(x)=f(x)$为不可约多项式.
 }
 
 这样，扩张$\mathbb{Q}(\zeta_n)/\mathbb{Q}$的次数即$\deg f=|\{k\mid\gcd(k,n)=1\}|=\phi(x)=|(\mathbb{Z}/n\mathbb{Z})^{\times}|$. 
@@ -101,7 +101,7 @@ $K=\mathbb{Q}(\sqrt{6})$.
 设$a$是正有理数且不是$\mathbb{Q}$中数的平方，证明$[\mathbb{Q}(\sqrt[4]{a}):\mathbb{Q}]=4$.
 
 \zm{
-	显然$[\mathbb{Q}(\sqrt{a}):\mathbb{Q}]=2, \mathbb{Q}(\sqrt{a})\subseteq\mathbb{Q}(\sqrt[4]{a})$，并且$(\sqrt[4]{a})^2=\sqrt{a}\in\mathbb{Q}(\sqrt{a})$，故$[\mathbb{Q}(\sqrt[4]{a}):\mathbb{Q}(\sqrt{a})]\leq2$，只需$\sqrt[4]{a}\notin\mathbb{Q}(\sqrt{a})$即可. 若不然，则$\sqrt[4]{a}=b+c\sqrt{a}$，得$=b^4+6b^2c^2a^2+c^4-a+4bc(ac^2+b^2)\sqrt{a}=0$，只能$b=0$或$c=0$，即$a=c^4$或$b^4$，矛盾.
+	显然$[\mathbb{Q}(\sqrt{a}):\mathbb{Q}]=2, \mathbb{Q}(\sqrt{a})\subseteq\mathbb{Q}(\sqrt[4]{a})$，并且$(\sqrt[4]{a})^2=\sqrt{a}\in\mathbb{Q}(\sqrt{a})$，故$[\mathbb{Q}(\sqrt[4]{a}):\mathbb{Q}(\sqrt{a})]\leq2$，只需$\sqrt[4]{a}\notin\mathbb{Q}(\sqrt{a})$即可. 若不然，则$\sqrt[4]{a}=b+c\sqrt{a}\;(b,c\in\mathbb{Q})$，得$b^4+6b^2c^2a^2+c^4-a+4bc(ac^2+b^2)\sqrt{a}=0$，只能$b=0$或$c=0$，即$a=c^{-4}$或$b^4$，矛盾.
 }
 
 \subsection{}
@@ -202,7 +202,7 @@ $K=\mathbb{Q}(\sqrt{6})$.
 设$K,L$为域$F$的扩张且均在$F$的某给定代数封闭域中. 称$L$在$F$上{\heiti 线性不相交}于$K$是指$L$中任何$F$-线性无关有限集还是$K$-线性无关集. 即对$L$的任意子集合$\{x_i\mid i\in I\}$如它在$F$上线性无关，则它也在$K$上线性无关.
 
 \subsubsection{(1)}
-证明：如$L$在$F$上线性不相交于$K$，则$K$在$F$上线性不相交与$L$.
+证明：如$L$在$F$上线性不相交于$K$，则$K$在$F$上线性不相交于$L$.
 
 \zm{
 	如$L$在$F$上线性不相交于$K$，任取$L$的一组$F$-基$\{x_i\mid i\in I_L\}$和$K$的一组$F$-基$\{y_j\mid j\in J_K\}$，则$\sum_i b_ix_i=0\;(b_i\in K)\Rightarrow b_i=0,\forall i$，将$b_i$用$K$的$F$-基表示即$\sum_{i,j} c_{ij}x_iy_j=0\;(c_{ij}\in F)\Rightarrow c_{ij}y_j=0,\forall i\Rightarrow c_{ij}=0, \forall i,j$，即$x_iy_j$是$F$-线性无关集.
